@@ -20,7 +20,7 @@ function Aside() {
 
     return (
         <>
-            <div className="fixed right-[10%] top-[40%] z-10"><img src="./../img/aside_img.png" alt="aside이미지" />
+            <div className="fixed right-[10%] top-[40%] z-10"><img src="./../images/Store/aside_img.png" alt="aside이미지" />
                 <div className="w-12 h-[164px] bg-[#EADBC8] relative ml-[18px] mt-[-5px] rounded-[10px]">
                   <FontAwesomeIcon icon={faAngleUp} size='2x' color='#DAC0A3' className='pl-[7px] pt-[30px] cursor-pointer' onClick={MoveToTop}/>
                 </div>
