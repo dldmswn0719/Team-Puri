@@ -23,7 +23,7 @@ function Qa_Input() {
                 <button className='border px-[30px] py-[8px] absolute right-[7.5%]' onClick={() => {navigate(-1);}}>취소</button>        
             </div>
             <div className='mt-10 mx-10'>
-                <img src="./../img/user_icon.svg" alt="user_icon" className='mb-2' />        
+                <img src="./../images/Store/user_icon.svg" alt="user_icon" className='mb-2' />        
                 <div className="flex">
                     <input type="text" placeholder='작성자 이름' className='border-b mr-[45px] w-[200px] h-[50px] focus:outline-none' />
                     <input type="password" placeholder='비밀번호' className='border-b mr-[45px] w-[200px] focus:outline-none' />

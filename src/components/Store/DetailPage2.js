@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import data1 from './../data/product.json'
+import data1 from './../../data/product.json'
 import { useParams } from 'react-router-dom'
 
 function DetailPage2() {
@@ -59,7 +59,7 @@ function DetailPage2() {
                        }
                         <div className="text-xl mr-3 font-medium">상세정보 {close === false ? "열기" : "닫기"}</div>
                         <div className="w-[20px] h-[20px] mt-[6px]">
-                            <img src='./../img/arrow_top.png'className={`${close === false ? 'rotate-180': ''}`} />
+                            <img src='./../images/Store/arrow_top.png'className={`${close === false ? 'rotate-180': ''}`} />
                         </div>
                     </div>
                 </div>
@@ -86,12 +86,12 @@ function DetailPage2() {
                     <p>유기동물들에게 닿을수 있도록 더욱 노력하겠습니다.</p>
                 </div>
                 <img className='mx-auto my-0 py-[20px]' src={data.endImageUrl} alt={data.name} />
-                <img className='mx-auto my-0' src="./../img/bone.png" alt="강아지뼈다귀" />
+                <img className='mx-auto my-0' src="./../images/Store/bone.png" alt="강아지뼈다귀" />
                 <div className="text-xl leading-[35px] pb-10 text-[#DAC0A3]">
                     <p className='title2'>사랑하는 존재를 더욱 사랑하도록</p>
                     <p className='title2'>아파하는 존재가 다시 사랑받도록</p>
                 </div>
-                <img className='mx-auto my-0 mb-[110px]' src="./../img/logo.png" alt="로고" />
+                <img className='mx-auto my-0 mb-[110px]' src="./../images/Store/logo.png" alt="로고" />
             </div>
         </div>
       </div>

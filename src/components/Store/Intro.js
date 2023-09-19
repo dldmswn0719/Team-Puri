@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import data1 from './../data/product.json'
+import data1 from './../../data/product.json'
 import { useParams } from 'react-router-dom'
 
 function Intro() {
@@ -94,7 +94,7 @@ function Intro() {
                     <div className="mb-4">
                       <button onClick={()=>{setVisible(!visible)}} className='relative w-[470px] h-[40px] border text-[17px] text-left cursor-pointer'>
                         <p className='ml-2'>{data.option_title}</p>
-                        <img src='./../img/arrow_top.png' className={`w-[17px] absolute right-3 bottom-2 ${visible === false ? 'rotate-180': ''}`}/>
+                        <img src='./../images/Store/arrow_top.png' className={`w-[17px] absolute right-3 bottom-2 ${visible === false ? 'rotate-180': ''}`}/>
                       </button>
                       <div>
                         {

@@ -5,14 +5,14 @@ function DetailPage() {
     <>
       <div className="w-[1200px] my-0 mx-auto detail">
         <div className="mt-[71px] pl-[11%] relative">
-            <img className='opacity-80' src="./../img/puppy_hand.png" alt="강아지 손잡는 사진" />
+            <img className='opacity-80' src="./../images/Store/puppy_hand.png" alt="강아지 손잡는 사진" />
             <p className='absolute z-10 left-[35%] text-xl text-[#F8F0E5] top-[50px]'>" 사지 않고 입양하는 문화를 만드는 "</p>
             <p className="absolute z-10 left-[42%] text-[40px] text-[#F8F0E5] bottom-[40%] font-bold">푸리푸리</p>
             <p className="absolute z-10 left-[35%] text-xl text-[#F8F0E5] bottom-[70px]">푸리푸리는 전국 유기동물 공고 정보를 제공해</p>
             <p className="absolute z-10 left-[31%] text-xl text-[#F8F0E5] bottom-[40px]">유기동물에게 소중한 가족을 찾아주고있는 플랫폼입니다.</p>
           </div>
           <div className="text-center">
-            <img className='pt-[50px] pb-[40px] my-0 mx-auto' src="./../img/logo.png" alt="로고" />
+            <img className='pt-[50px] pb-[40px] my-0 mx-auto' src="./../images/Store/logo.png" alt="로고" />
             <p className='text-xl leading-9'>푸리푸리 굿즈를 통해 일상에서 입양 문화 메시지를 알리고</p>
             <p className='text-xl border-b border-[#EADBC8] pb-[50px]'>입양 문화의 선순환 구조를 만들어나갑니다.</p>
             <div className="py-[35px] px-0 text-3xl text-[#DAC0A3] font-medium">
@@ -21,7 +21,7 @@ function DetailPage() {
             </div>
             <div className="flex justify-center pb-[67px] gap-x-[14%]">
               <div className="pt-[50px]">
-                <img className="w-[80px] h-[80px] ml-[90px]" src="./../img/puppy1.png" alt="밥그릇 사진" />
+                <img className="w-[80px] h-[80px] ml-[90px]" src="./../images/Store/puppy1.png" alt="밥그릇 사진" />
                 <p className="font-bold text-[23px] pt-10">유기동물 후원</p>
                 <div className="text-xl leading-8">
                   <p>유기동물이 가족을 만나는 날까지</p>
@@ -30,7 +30,7 @@ function DetailPage() {
                 </div>
               </div>
               <div className="pt-[50px]">
-                <img className='w-[70px] h-[70px] ml-[90px]' src="./../img/puppy2.png" alt="확성기" />
+                <img className='w-[70px] h-[70px] ml-[90px]' src="./../images/Store/puppy2.png" alt="확성기" />
                 <p className="font-bold text-[23px] pt-10">입양 문화 조성</p>
                 <div className="text-xl leading-8">
                   <p>매거진, 영상, 캠페인, 굿즈 등</p>
