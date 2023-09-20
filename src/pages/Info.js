@@ -1,10 +1,11 @@
 import React from "react";
 import Info_Test from "../components/Info_Test";
+import ImgFilter from "../components/Info/ImgFilter";
 
 function Info() {
   return (
     <>
-      <Info_Test />
+      <ImgFilter/>
     </>
   );
 }
