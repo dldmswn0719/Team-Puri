@@ -28,8 +28,8 @@ function Support_Store() {
                             <img src="./../../Images/Support/store1.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
                                 <p className="text-xl">믹스패밀리 에코백</p>
-                                <span className='text-[17px] font-bold'>15,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <span className='text-[18px] font-bold'>15,000</span>
+                                <span className='text-[16px]'>원</span>
                             </div>
                         </NavLink>
                     </div>
@@ -38,8 +38,8 @@ function Support_Store() {
                             <img src="./../../Images/Support/store9.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
                                 <p className="text-xl">믹스패밀리 페이스 그립톡</p>
-                                <span className='text-[17px] font-bold'>10,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <span className='text-[18px] font-bold'>10,000</span>
+                                <span className='text-[16px]'>원</span>
                             </div>
                         </NavLink>
                     </div>
@@ -48,8 +48,8 @@ function Support_Store() {
                             <img src="./../../Images/Support/store3.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
                                 <p className="text-xl">무지개다리 뱃지</p>
-                                <span className='text-[17px] font-bold'>7,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <span className='text-[18px] font-bold'>7,000</span>
+                                <span className='text-[16px]'>원</span>
                             </div>
                         </NavLink>
                     </div>
@@ -58,8 +58,8 @@ function Support_Store() {
                             <img src="./../../Images/Support/store4.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
                                 <p className="text-xl">믹스패밀리 리유저블 컵</p>
-                                <span className='text-[17px] font-bold'>18,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <span className='text-[18px] font-bold'>18,000</span>
+                                <span className='text-[16px]'>원</span>
                             </div>
                         </NavLink>
                     </div>
@@ -68,8 +68,8 @@ function Support_Store() {
                             <img src="./../../Images/Support/store5.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
                                 <p className="text-xl">아크릴 키링</p>
-                                <span className='text-[17px] font-bold'>9,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <span className='text-[18px] font-bold'>9,000</span>
+                                <span className='text-[16px]'>원</span>
                             </div>
                         </NavLink>
                     </div>
@@ -78,8 +78,8 @@ function Support_Store() {
                             <img src="./../../Images/Support/store6.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
                                 <p className="text-xl">슬로건 마스킹 테이프</p>
-                                <span className='text-[17px] font-bold'>5,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <span className='text-[18px] font-bold'>5,000</span>
+                                <span className='text-[16px]'>원</span>
                             </div>
                         </NavLink>
                     </div>
@@ -88,8 +88,8 @@ function Support_Store() {
                             <img src="./../../Images/Support/store7.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
                                 <p className="text-xl">베이직 머그컵</p>
-                                <span className='text-[17px] font-bold'>15,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <span className='text-[18px] font-bold'>15,000</span>
+                                <span className='text-[16px]'>원</span>
                             </div>
                         </NavLink>
                     </div>
@@ -98,8 +98,8 @@ function Support_Store() {
                             <img src="./../../Images/Support/store8.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
                                 <p className="text-xl">믹스패밀리 어답미 인형</p>
-                                <span className='text-[17px] font-bold'>35,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <span className='text-[18px] font-bold'>35,000</span>
+                                <span className='text-[16px]'>원</span>
                             </div>
                         </NavLink>
                     </div>
