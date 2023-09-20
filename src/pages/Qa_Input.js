@@ -3,6 +3,7 @@ import React, { useRef } from 'react'
 import '@toast-ui/editor/dist/toastui-editor.css';
 import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
 import { useNavigate } from 'react-router-dom';
+import Nav from '../components/Nav';
 // theme="dark" 다크모드 쓸려면 추가하기
 
 function Qa_Input() {
@@ -17,6 +18,7 @@ function Qa_Input() {
 
     return (
         <>
+            <Nav />
             <div className="flex border-b pb-8 ">
                 <h3 className='text-[18px] pl-5 mt-[8px]'>Q & A</h3>
                 <button onClick={handleRegisterButton} className='border px-[30px] py-[8px] bg-[#EADBC8] text-white absolute right-[30px]'>등록</button>        
