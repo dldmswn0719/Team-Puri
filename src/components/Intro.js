@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function Introduce() {
+function Intro() {
   return (
     <>
   
@@ -42,9 +42,9 @@ function Introduce() {
                 <p className='text-[20px] tracking-[-1px] '>그 작은 생명에게 큰 희망을 가져다줄 것입니다.</p>
                 </div>
                 </div>
-        <div className="mt-[20px]">
-            <img src="/image/info.png" alt="info" className='' />
-        </div>
+                <div className="mt-[20px]">
+                    <img src="./../images/intro.png" alt="intro" />
+                </div>
             </div>
           </div>
         </div>
@@ -53,4 +53,4 @@ function Introduce() {
   )
 }
 
-export default Introduce
+export default Intro

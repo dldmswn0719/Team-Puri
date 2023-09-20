@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {faMars, faVenus, faPlus} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { NavLink, useLocation } from 'react-router-dom'
-import { Map } from 'react-kakao-maps-sdk'
+import {  useLocation } from 'react-router-dom'
 
 
     // 지역 도시 city
