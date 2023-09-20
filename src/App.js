@@ -6,7 +6,8 @@ import Store from "./pages/Store";
 import Support from "./pages/Support";
 import Qa_Input from "./pages/Qa_Input";
 import Review_Input from "./pages/Review_Input";
-
+import InfoDetail from "./pages/InfoDetail";
+import Introduce from "./pages/Introduce";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
    <Routes>
      <Route path="/" element={<Main />}></Route>
      <Route path="/info" element={<Info />}></Route>
+     <Route path="/introduce" element={<Introduce />}></Route>
+     <Route path="/infodetail/:desertionNo" element={<InfoDetail />}></Route>
      <Route path="/review" element={<Review />}></Route>
      <Route path="/store/:id" element={<Store />}></Route>
      <Route path="/support" element={<Support />}></Route>
