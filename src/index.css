@@ -2,19 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-  margin: 0;
-  padding: 0;
-}
+*{margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif;}
 
-a {
-  text-decoration: none;
-  color: black;
-}
+a{text-decoration: none; color: black;}
 
-ul, ol {
-  list-style: none;
-}
+ul, ol {list-style: none;}
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
@@ -32,8 +24,6 @@ ul, ol {
     font-style: normal;
 }
 
-*{margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif;}
-
 .title{font-family: 'Cafe24Ssurround';}
 .title2{font-family: 'BMJUA';}
 
@@ -42,3 +32,13 @@ ul, ol {
     width: 100%; height: 100%; position: absolute; bottom: 79px;
 }
 /* 상세정보 열기전 그라데이션 효과 */
+
+.support{background-image: url('./../public/Images/Support/support-go.jpg'); background-size: cover; }
+.full{background-image: url("./../public/Images/Support/full.jpg"); background-size: cover; background-position: center top; background-attachment: fixed;}
+.info::after{
+    content: "";
+    position: absolute; border-bottom: 2px solid #DAC0A3;
+    width: 520px; bottom: 0; left: -10px;
+}
+
+.color{background-color: #102C57; color: #fff;}
