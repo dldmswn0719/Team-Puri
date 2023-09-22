@@ -7,7 +7,6 @@ function Info() {
     <>
       <Nav />
        <ImgFilter/>
-        <Info_Test />
     </>
   );
 }
