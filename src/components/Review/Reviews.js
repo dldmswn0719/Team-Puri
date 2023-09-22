@@ -26,14 +26,14 @@ function Reviews() {
   return (
     <>
       <div className="w-[100%] bg-white mt-[60px] relative">
-        <div className="max-w-[1400px] h-[1024px] my-0 mx-auto">
-          <div className="max-w-[1280px] my-0 mx-auto">
+        <div className="max-w-[1400px] h-[1024px] mx-auto">
+          <div className="w-[1280px] mx-auto max-lg:w-11/12 max-md:w-5/6">
             <div className="flex text-[15px] gap-y-5 gap-[6px] flex-wrap justify-between mb-[30px]">
               {
                 Mainlist.filter(item => item.group <= currentPage).map((e, i) => {
                   return (
-                    <div className="relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-[4px_4px_4px_-4px_rgb(119, 112, 112)] rounded-[20px]" key={i} data-aos="zoom-in">
-                      <ul className='flex w-[250px] justify-between my-0 mx-auto pt-5'>
+                    <div className="relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-[4px_4px_4px_-4px_rgb(119, 112, 112)] rounded-[20px] max-md:w-full max-lg:w-[32%] max-lg:h-[500px]" key={i} data-aos="zoom-in">
+                      <ul className='flex w-[250px] justify-between mx-auto pt-5 max-lg:w-[90%]'>
                         <li><img className='w-[25px] h-[25px]' src="./../images/Review/camera.svg" alt="camera" /></li>
                         <li><p className='text-[16px] title3 mt-[2px]'>PURIPURI STORY</p></li>
                         <li><img className='w-[27px] h-[27px]' src="./../images/Review/airplane.svg" alt="aiplane" /></li>
@@ -48,7 +48,7 @@ function Reviews() {
                       <img onClick={() => { document.querySelector("html").classList.add("fixed")
                         setModalOpen(true);
                         setOne(i);
-                      }} className='w-[310px] h-[220px]' src={e.img} alt="1" />
+                      }} className='w-[310px] h-[220px] max-md:w-full max-lg:w-full' src={e.img} alt="1" />
                       <div className="pl-[10px] pt-[10px] flex relative">
                         <FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px]' />
                         <img className='w-[18px] h-[18px] mx-[10px] ' src="./../images/Review/chat.svg" alt="chat" />
@@ -89,7 +89,7 @@ function Reviews() {
         <div>
           <div className="opacity-60 fixed left-2/4 top-2/4 w-full h-full bg-[#e6e6e6] p-[20%] -translate-x-2/4 -translate-y-2/4 "></div>
           <div className="relative">
-            <div className="fixed left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 w-[900px] h-[500px] bg-white rounded-[20px]">
+            <div className="fixed left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 w-[900px] h-[500px] bg-white rounded-[20px] max-md:w-5/6">
 
 
               <FontAwesomeIcon onClick={() => { setModalOpen(false); document.querySelector("html").classList.remove("fixed") }} icon={faXmark} className='hover:text-[pink] absolute w-[30px] h-[30px] right-[1%] top-[2%] z-40' />
@@ -106,7 +106,7 @@ function Reviews() {
                     <img src={review[one].rogo} alt="로고" />
                   }
                 </div>
-                <div className=" w-1/2 pr-[40px] ">
+                <div className=" w-1/2 pr-[40px] relative">
                   <div className=" mt-[30px] mb-[10px] flex">
                     <div className="">
                       <p className='text-[14px] font-bold'>PURI_PURI</p>
@@ -116,7 +116,7 @@ function Reviews() {
                   <div className="">
                     <p>{review2[one].story}</p>
                   </div>
-                  <div className="absolute bottom-[25px] w-[370px] border-t-2 pt-[10px]">
+                  <div className="absolute bottom-[25px] w-[370px] border-t-2 pt-[10px] max-md:w-[95%]">
                     <div className="flex justify-between mb-[10px]">
                       <ul className="flex">
                         <li><FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px]' /></li>
