@@ -10,6 +10,9 @@ import Introduce from "./pages/Introduce";
 import SupportPay from "./pages/SupportPay";
 import PayComplete from "./pages/PayComplete";
 import Review_Page from "./pages/Review_Page";
+import Mypage from "./pages/Mypage";
+import Login from "./pages/Login";
+import Member from "./pages/Member";
 
 
 function App() {
@@ -27,6 +30,9 @@ function App() {
      <Route path="/paycomplete" element={<PayComplete />}></Route>
      <Route path="/review_input" element={<Review_Input />}></Route>
      <Route path="/qa_input" element={<Qa_Input />}></Route>
+     <Route path="/mypage" element={<Mypage />}></Route>
+     <Route path="/login" element={<Login />}></Route>
+     <Route path="/member" element={<Member />}></Route>
    </Routes>
    </>
   );
