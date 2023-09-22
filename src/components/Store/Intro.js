@@ -78,22 +78,22 @@ function Intro() {
 
     return (
       <>
-        <div className="w-full">
+        <div className="w-full dark:bg-[#272929] pb-[15px]">
           <div className="w-[1200px] my-0 mx-auto">
-            <div className="mt-[50px] flex items-start">
+            <div className="pt-[50px] flex items-start">
               <img src={data.imageUrl} alt={data.name} className='w-[650px] ' />
               <div className='ml-10'>
-                <p className="text-xl font-medium">{data.name}</p>
-                <p className={`text-xl font-medium bg-[#EADBC8] mt-[15px] ${params.id === "4" || params.id === "5" || params.id === "6" ? 'w-[310px]' : 'w-[358px]'}`}>{data.hash}</p>
-                <p className="font-medium my-[30px] mx-0 text-[35px] text-[#102C57]">{(data.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
-                <p className="text-xl font-medium">{data.delivery}</p>
-                <p className="text-xl font-medium mb-[23px]">{data.delivery_price}</p>
+                <p className="text-xl font-medium dark:text-[#ebf4f1]">{data.name}</p>
+                <p className={`text-xl font-medium bg-[#EADBC8] mt-[15px] dark:text-[#ebf4f1] dark:bg-[#404343] ${params.id === "4" || params.id === "5" || params.id === "6" ? 'w-[310px]' : 'w-[358px]'}`}>{data.hash}</p>
+                <p className="font-medium my-[30px] mx-0 text-[35px] text-[#102C57] dark:text-[#ebf4f1]">{(data.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
+                <p className="text-xl font-medium dark:text-[#ebf4f1]">{data.delivery}</p>
+                <p className="text-xl font-medium mb-[23px] dark:text-[#ebf4f1]">{data.delivery_price}</p>
                 {
                   data.option.option_value_1 !== '' &&
                   <div className="text-xl mr-20 flex mt-[20px]">
                     <div className="mb-4">
                       <button onClick={()=>{setVisible(!visible)}} className='relative w-[470px] h-[40px] border text-[17px] text-left cursor-pointer'>
-                        <p className='ml-2'>{data.option_title}</p>
+                        <p className='ml-2 dark:text-[#ebf4f1]'>{data.option_title}</p>
                         <img src='./../images/Store/arrow_top.png' className={`w-[17px] absolute right-3 bottom-2 ${visible === false ? 'rotate-180': ''}`}/>
                       </button>
                       <div>
@@ -102,7 +102,7 @@ function Intro() {
                           Object.entries(data.option).map((e,i)=>{
                             return (
                               e[1] !== '' &&
-                              <div key={i} className='text-[16px] border cursor-pointer hover:bg-[#f5f6f7] pl-2 bg-[#fff] z-[100] relative' onClick={()=>{
+                              <div key={i} className='text-[16px] border cursor-pointer hover:bg-[#f5f6f7] pl-2 bg-[#fff] z-[100] relative dark:text-[#ebf4f1] dark:bg-[#272929]' onClick={()=>{
                                 SelectTxtEvent(e[1], i); setIsCnt(true); setVisible(false); optionSelect(e[1])}}>{e[1]}
                               </div> 
                             )
@@ -122,7 +122,7 @@ function Intro() {
                           <div className={`text-xl flex ${params.id === "1" || params.id === "2" || params.id === "6" ? 'my-[3%]' : 'mt-[10px]'}`}>
                             <div className="flex my-0 border">
                               <button onClick={()=>{handleDecrease(i)}} className='border bg-[#f1f2f4] px-[10px]'>–</button>
-                              <div className='border px-[30px] py-1'>{num[i]}</div>
+                              <div className='border px-[30px] py-1 bg-[#f1f2f4]'>{num[i]}</div>
                               <button onClick={()=>{handleIncrease(i)}} className='border bg-[#f1f2f4] font-bold px-[10px]'>+</button>
                             </div>
                             {
@@ -140,18 +140,19 @@ function Intro() {
                 }
                 <div>
                   <div className="my-[18px] flex justify-between">
-                    <p className='text-[17px] text-[#404040b3]'>총 상품 금액({totalCnt}개) </p>
-                    <p className="text-[26px] text-right mr-[13%] font-medium text-[#102C57]">{(data.price * Number(totalCnt)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
+                    <p className='text-[17px] text-[#404040b3] dark:text-[#ebf4f1]'>총 상품 금액({totalCnt}개) </p>
+                    <p className="text-[26px] text-right mr-[13%] font-medium text-[#102C57] dark:text-[#ebf4f1]">{(data.price * Number(totalCnt)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
                   </div>
                   <div className="flex flex-wrap">
-                    <div className="w-[495px] h-[45px] bg-[#DAC0A3] cursor-pointer text-[21px] text-center text-white leading-[45px]">
+                    <div className="w-[495px] h-[45px] bg-[#DAC0A3] cursor-pointer text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
                       <p>구매하기</p>
                     </div>
-                    <div className="w-60 h-[45px] bg-[#EADBC8] cursor-pointer mt-5 mr-[15px] text-[21px] text-center text-white leading-[45px]">
+                    <div className="w-60 h-[45px] bg-[#EADBC8] cursor-pointer mt-5 mr-[15px] text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
                       <p>장바구니</p>
                     </div>
-                    <div className="w-60 h-[45px] bg-[#EADBC8] cursor-pointer mt-5 text-[21px] text-center text-white leading-[45px]">
-                      <p className='text-[18px]'><FontAwesomeIcon icon={faHeart} /> 찜하기</p>
+                    <div className="w-60 h-[45px] bg-[#EADBC8] cursor-pointer mt-5 text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
+                      <p className='text-[18px]'>
+                        <FontAwesomeIcon icon={faHeart} /> 찜하기</p>
                     </div>
                   </div>
                 </div>
