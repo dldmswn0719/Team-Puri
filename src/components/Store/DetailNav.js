@@ -31,13 +31,21 @@ function DetailNav() {
   
   return (
     <>
-      <div className="w-[1200px] my-0 mx-auto mt-10">
-        <div className="border-b border-[#EADBC8]">
-          <ul className="mb-[35px] text-[#797979] text-xl text-center flex justify-around font-medium">
-            <li className="cursor-pointer hover:text-[#222] hover:font-bold" onClick={MoveDetail}><p>상세정보</p></li>
-            <li className="cursor-pointer hover:text-[#222] hover:font-bold" onClick={MoveReview}><p>상품후기(0)</p></li>
-            <li className="cursor-pointer hover:text-[#222] hover:font-bold" onClick={MoveQa}><p>Q&amp;A</p></li>
-          </ul>
+      <div className="w-full dark:bg-[#272929]">
+        <div className="w-[1200px] my-0 mx-auto">
+          <div className="pt-10 border-b border-[#EADBC8] dark:border-b dark:border-[#dadbdb]">
+            <ul className="mb-[35px] text-[#797979] text-xl text-center flex justify-around font-medium">
+              <li className="cursor-pointer hover:text-[#222] hover:font-bold dark:text-[#fbfdfd] dark:hover:text-[#ebf4f1]" onClick={MoveDetail}>
+                <p>상세정보</p>
+              </li>
+              <li className="cursor-pointer hover:text-[#222] hover:font-bold dark:text-[#fbfdfd] dark:hover:text-[#ebf4f1]" onClick={MoveReview}>
+                <p>상품후기(0)</p>
+              </li>
+              <li className="cursor-pointer hover:text-[#222] hover:font-bold dark:text-[#fbfdfd]  dark:hover:text-[#ebf4f1]" onClick={MoveQa}>
+                <p>Q&amp;A</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </>
