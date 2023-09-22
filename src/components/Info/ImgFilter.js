@@ -57,7 +57,7 @@ function ImgFilter() {
   const [city, setCity] = useState(["모든 지역"])
   useEffect(() => {
 
-    fetch("https://apis.data.go.kr/1543061/abandonmentPublicSrvc/sido?numOfRows=100&pageNo=1&serviceKey=5tteN0Ji1rrEE90jMPQFev%2BtioKVvE76RHyN9%2Bji7h%2B9AspJWcBKdXX6CpccJfgxKYmAmVYjQ6TbimU37dQQcw%3D%3D&_type=json").then((res) => {
+    fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/sido?numOfRows=100&pageNo=1&serviceKey=${process.env.REACT_APP_apiKey}&_type=json`).then((res) => {
       return res.json()
     }).then((data) => { setCity(data.response.body.items.item) });
 
@@ -67,7 +67,7 @@ function ImgFilter() {
   const [dog, setDog] = useState([])
   useEffect(() => {
 
-    fetch("http://apis.data.go.kr/1543061/abandonmentPublicSrvc/kind?up_kind_cd=417000&serviceKey=5tteN0Ji1rrEE90jMPQFev%2BtioKVvE76RHyN9%2Bji7h%2B9AspJWcBKdXX6CpccJfgxKYmAmVYjQ6TbimU37dQQcw%3D%3D&_type=json").then((res) => {
+    fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/kind?up_kind_cd=417000&serviceKey=${process.env.REACT_APP_apiKey}&_type=json`).then((res) => {
       return res.json()
 
     }).then((data) => { setDog(data.response.body.items.item) });
@@ -77,7 +77,7 @@ function ImgFilter() {
   const [cat, setCat] = useState([])
   useEffect(() => {
     async function getCatData() {
-      const response = fetch("http://apis.data.go.kr/1543061/abandonmentPublicSrvc/kind?up_kind_cd=422400&serviceKey=5tteN0Ji1rrEE90jMPQFev%2BtioKVvE76RHyN9%2Bji7h%2B9AspJWcBKdXX6CpccJfgxKYmAmVYjQ6TbimU37dQQcw%3D%3D&_type=json");
+      const response = fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/kind?up_kind_cd=422400&serviceKey=${process.env.REACT_APP_apiKey}&_type=json`);
       return response;
     }
     getCatData()
@@ -89,8 +89,6 @@ function ImgFilter() {
 
   //축종
   const [kind, setKind] = useState(["모든 축종", "개", "고양이"])
-  // http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=1&numOfRows=10&serviceKey=인증키(URL Encode)
-
 
   const [selected, setSelected] = useState("모든 축종");
 
@@ -118,13 +116,14 @@ function ImgFilter() {
     return setSelectData(value);
 
   }
-
+// ${process.env.REACT_APP_apiKey}
   // 모든 유기동물 데이터
   const [data, setData] = useState([])
   //defaultData로 기본 data값을 받아오고 setDefaultdata에 result값을 넣는다.
   const [defaultData, serDefaultData] = useState(data);
   useEffect(() => {
-    fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=${page}&numOfRows=12&serviceKey=5tteN0Ji1rrEE90jMPQFev%2BtioKVvE76RHyN9%2Bji7h%2B9AspJWcBKdXX6CpccJfgxKYmAmVYjQ6TbimU37dQQcw%3D%3D&_type=json`).then((res) => {
+    fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=${page}&numOfRows=12&serviceKey=${process.env.REACT_APP_apiKey}&_type=json`).then((res) => {
+      // console.log(process.env)
       return res.json()
     }).then(async (data) => {
       const result = await data.response.body.items.item;
@@ -135,6 +134,7 @@ function ImgFilter() {
       setTotalCnt(resultCnt)
     });
 
+    
   }, [page]);
 
 
@@ -214,113 +214,109 @@ function ImgFilter() {
 
   return (
     <>
-      <div>
-
-      </div>
-      {optionCitySelect}
-      <p>{optionKindSelect}</p>
-      <p>{isChoice}</p>
-      <div className="w-[1200px] mx-auto">
-
+  <div className="w-full">
+    <div className="max-w-[1200px] mx-auto">
+    {optionCitySelect}
+    <p>{optionKindSelect}</p>
+    <p>{isChoice}</p>
         <div className="my-10 border-b-2 border-[#dac0a3]">
-          <div className="w-full h-full flex justify-between text-left ">
-            <div>
-              <p className='font-bold text-[#999]'>지역</p>
-              <select onChange={optionCity} className='text-xl   font-bold'>
-                <option value="모든 지역" >모든 지역</option>
-                {city.map((el, index) => <option key={index} value={el.orgdownNm}>{el.orgdownNm}</option>)}
-              </select>
-            </div>
-            {/* 동물 축종 */}
-            <div className="">
-              <p className='font-bold text-[#999]'>축종</p>
+        <div className="w-full h-full flex justify-between text-left ">
+        <div className="">
+         <p className=' font-bold text-[#999]'>지역</p>
+         <select  onChange={optionCity} className='text-xl font-bold'>
+           <option value="모든 지역" >모든 지역</option>
+           {city.map((el,index) =><option key={index} value={el.orgdownNm}>{el.orgdownNm}</option>)}
+         </select>
+        </div>
+         {/* 동물 축종 */}
+        <div className="">
+        <p className='font-bold text-[#999]'>축종</p>
+        
+        <select onChange={ChangeKind} className='text-xl   font-bold' >
+            {kind.map((el,index) => <option key={index} value={el}>{el}</option>)}
+        </select>
+        </div>
 
-              <select onChange={ChangeKind} className='text-xl   font-bold' >
-                {kind.map((el, index) => <option key={index} value={el}>{el}</option>)}
-              </select>
-            </div>
-
-            {/* 동물 품종 */}
-            <div className="">
-              <p className='font-bold text-[#999]'>품종</p>
-              <select className='text-xl    font-bold w-[408px]'
+        {/* 동물 품종 */}
+        <div className="">
+            <p className='font-bold text-[#999]'>품종</p>
+                <select className='text-xl font-bold w-[408px]'
                 onChange={optionKind}>
                 {
 
-                  //selected 가 모든 축종이면 모든 품종을 출력 : 아니라면 selecData가 참이라면 e.knm을 출력
-                  selected === '모든 축종' ? <option value="모든 품종">모든 품종</option> : selectData && selectData.map((e, i) => {
+                    //selected 가 모든 축종이면 모든 품종을 출력 : 아니라면 selecData가 참이라면 e.knm을 출력
+                    selected === '모든 축종'? <option value="모든 품종">모든 품종</option> :selectData && selectData.map((e,i)=>{
                     return (
-                      <option key={i} value={e.knm}>{e.knm}</option>
+                        <option key={i} value={e.knm}>{e.knm}</option>
                     )
-                  })
-                }
-              </select>
-            </div>
-
-            <div className="flex items-center">
-
-              <button className="font-bold w-48 h-12  bg-[#dac0a3] whitespace-nowrap hover:text-white rounded-[20px]" onClick={searchResult}
-              >검색하기</button>
-
-            </div>
-
+                    })
+                }   
+                </select>
           </div>
+         
+            <div className="flex items-center">
+            <button className="font-bold w-48 h-12  bg-[#dac0a3] whitespace-nowrap hover:text-white rounded-[20px]" onClick={searchResult}
+            >검색하기</button>
+            </div>
+
         </div>
+        </div>
+  
+            <div className="flex text-[15px] gap-y-4 flex-wrap justify-start gap-x-3">
+              {
 
-        <div className="flex text-[15px] gap-y-4 flex-wrap justify-start gap-x-3">
-          {
+                  
+defaultData.length  === 0 ? <div className='w-full text-center'><p className='text-[32px] text-[#999] font-bold'>검색결과가 없습니다.</p></div> :
 
 
-            oncePrint() <= 0 ? <p className='text-[32px] text-[#999] font-bold '>검색결과가 없습니다.</p> :
+                // 기본값을.map돌리고   serDefaulTdata에 Fiterall함수를 넣어 준다.
+              defaultData.map((e,i)=>{
+               console.log(e)
+              return(
+                // e.kindCd != 0 ? <p className='text-[32px] text-[#999] font-bold '>검색결과가 없습니다.</p> :
+                <div className="relative box-border border border-[#f1f1ef] flex-wrap  basis-[32.5%] shadow-[4px_4px_4px_-4px_rgb(119, 112, 112)] rounded-[20px]" key={i}>
 
-
-              // 기본값을.map돌리고   serDefaulTdata에 Fiterall함수를 넣어 준다.
-              defaultData.map((e, i) => {
-                console.log(e)
-                return (
-                  // e.kindCd != 0 ? <p className='text-[32px] text-[#999] font-bold '>검색결과가 없습니다.</p> :
-                  <div className="relative box-border border border-[#f1f1ef] flex-wrap  basis-[32.5%] shadow-[4px_4px_4px_-4px_rgb(119, 112, 112)] rounded-[20px]" key={i}>
-
-                    <Link to={`/infodetail/${e.desertionNo}`} state={{ e: e }}>
-                      <div className='font-bold px-3 py-3 flex items-center justify-between'>
-
-                        <p><FontAwesomeIcon icon={e.sexCd === 'M' ? faMars : e.sexCd === 'F' ? faVenus : ""} className='w-[18px] h-[18px] pr-1 align-text-bottom' />{e.sexCd === 'M' ? "남" : e.sexCd === 'F' ? "여" : "미상"} </p>
-                      </div>
-                      <div className="h-[350px] flex ">
-                        <img src={e.popfile} alt="img" className='w-full' />
-                      </div>
+                    <Link to={`/infodetail/${e.desertionNo}`} state={{e:e}}>
+                  <div className='font-bold px-3 py-3 flex items-center justify-between'>
+              
+                      <p><FontAwesomeIcon icon={e.sexCd === 'M'? faMars : e.sexCd === 'F'? faVenus: ""} className='w-[18px] h-[18px] pr-1 align-text-bottom'/>{e.sexCd === 'M'? "남" : e.sexCd === 'F'? "여" : "미상"} </p>
+                  </div>
+              <div className="h-[350px] flex ">
+                  <img src={e.popfile} alt="img" className='w-full' />
+              </div>
 
                     </Link>
-                    <div className="pl-[10px] py-[10px]">
-                      <p className='font-bold text-[14px]'><span className='text-[#999]'>품종 :</span> {e.kindCd}</p>
-                      <p className='font-bold text-[14px]'><span className='text-[#999]'>나이 :</span> {e.age} 추정</p>
-                      <p className='font-bold text-[14px]'><span className='text-[#999]'>지역 :</span> {e.orgNm}</p>
-                    </div>
-                  </div>
+              <div className="pl-[10px] py-[10px]">
+                  <p className='font-bold text-[14px]'><span className= 'text-[#999]'>품종 :</span> {e.kindCd}</p>
+                  <p className='font-bold text-[14px]'><span className= 'text-[#999]'>나이 :</span> {e.age} 추정</p>
+                  <p className='font-bold text-[14px]'><span className= 'text-[#999]'>지역 :</span> {e.orgNm}</p>
+              </div>
+            </div>
                 )
-              })
-          }
-        </div>
-        {/* 페이지 네비 */}
+                }) 
+            }
+            </div> 
+             {/* 페이지 네비 */}
         <div className="w-[1200px] my-0 mx-auto justify-center">
-          <div className="mx-auto my-8 text-center">
+      <div className="mx-auto my-8 text-center">
 
-            <ul className='flex justify-center items-center list-style-none '>
+        <ul className='flex justify-center items-center list-style-none '>
 
-              <li
-                className='cursor-pointer w-[50px] h-[50px] rounded-full leading-10 text-cente relative block py-1.5 px-1.5 border-1 border-[#DAC0A3] mx-5
-            text-black shadow-sm' onClick={PrevBlock}>이전</li>
-              {PageList}
-              <li
-                className='cursor-pointer w-[50px] h-[50px] rounded-full leading-10 text-cente relative block py-1.5 px-1.5 mx-5 border-1 border-[#DAC0A3]
-          text-black shadow-sm focus:shadow-sm'  onClick={NextBlock}>다음</li>
-            </ul>
-          </div>
-        </div>
+          <li   
+          className='cursor-pointer w-[50px] h-[50px] rounded-full leading-10 text-cente relative block py-1.5 px-1.5 border-1 border-[#DAC0A3] mx-5
+           text-black shadow-sm' onClick={PrevBlock}>이전</li>
+            {PageList}
+           <li  
+          className='cursor-pointer w-[50px] h-[50px] rounded-full leading-10 text-cente relative block py-1.5 px-1.5 mx-5 border-1 border-[#DAC0A3]
+         text-black shadow-sm focus:shadow-sm'  onClick={NextBlock}>다음</li>
+        </ul>
       </div>
+    </div>
+    </div>
+    </div>
+ 
 
-
-    </>
+  </>
   )
 }
 
