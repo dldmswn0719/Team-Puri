@@ -10,7 +10,7 @@ function Review() {
                 <div className="lg:w-[1200px] my-0 mx-auto review">
                     <div className="pt-[97px] text-xl">
                         <div className="flex leading-10 dark:text-[#ebf4f1]">
-                            <p>상품후기</p>
+                            <p className='pr-1'>상품후기</p>
                             <p className="text-[#DAC0A3] dark:text-[#ebf4f1]">(0)</p>
                         </div>
                         <p className='dark:text-[#ebf4f1]'>상품을 구매하신 분들이 작성한 리뷰입니다.</p>

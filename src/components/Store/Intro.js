@@ -82,8 +82,8 @@ function Intro() {
         <div className="w-full dark:bg-[#272929] pb-[15px]">
           <div className="lg:max-w-[1200px] my-0 mx-auto">
             <div className="pt-[50px] lg:flex items-start">
-              <img src={data.imageUrl} alt={data.name} className='mx-auto' />
-              <div className='ml-10'>
+              <img src={data.imageUrl} alt={data.name} className='lg:w-[650px] w-[570px] mx-auto' />
+              <div className='ml-10 pt-5 md:ml-[12%]'>
                 <p className="text-xl font-medium dark:text-[#ebf4f1]">{data.name}</p>
                 <p className={`text-xl font-medium bg-[#EADBC8] mt-[15px] dark:text-[#ebf4f1] dark:bg-[#404343] ${params.id === "4" || params.id === "5" || params.id === "6" ? 'w-[310px]' : 'w-[358px]'}`}>{data.hash}</p>
                 <p className="font-medium my-[30px] mx-0 text-[35px] text-[#102C57] dark:text-[#ebf4f1]">{(data.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
@@ -118,7 +118,7 @@ function Intro() {
                   Array(selectTxt.length).fill().map((_,i)=>{
                     return (
                       <>
-                        <div className="border-y py-5 w-[470px] relative" key={i}>
+                        <div className="border-y py-5 lg:w-[500px] sm:w-[550px] relative" key={i}>
                           <div className='dark:text-[#ebf4f1]'>{selectTxt[i]}</div>
                           <div className={`text-xl flex ${params.id === "1" || params.id === "2" || params.id === "6" ? 'my-[3%]' : 'mt-[10px]'}`}>
                             <div className="flex my-0 border">
@@ -142,9 +142,9 @@ function Intro() {
                 <div>
                   <div className="my-[18px] flex justify-between">
                     <p className='text-[17px] text-[#404040b3] dark:text-[#ebf4f1]'>총 상품 금액({totalCnt}개) </p>
-                    <p className="text-[26px] text-right sm:mx-auto lg:mr-[13%] font-medium text-[#102C57] dark:text-[#ebf4f1]">{(data.price * Number(totalCnt)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
+                    <p className="text-[26px] md:mr-[16%] text-right mr-[11%] font-medium text-[#102C57] dark:text-[#ebf4f1]">{(data.price * Number(totalCnt)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
                   </div>
-                  <div className="flex flex-wrap">
+                  <div className="flex flex-wrap w-[550px] mx-auto md:mr-[13%]">
                     <div className="w-[495px] h-[45px] bg-[#DAC0A3] cursor-pointer text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
                       <p>구매하기</p>
                     </div>
