@@ -21,10 +21,10 @@ function Qa_Input() {
         <>
             <Nav />
             <div className="w-full dark:bg-[#272929]">
-                <div className="flex border-b pb-8 pt-6">
-                    <h3 className='text-[18px] pl-5 mt-[8px] dark:text-[#ebf4f1]'>Q & A</h3>
-                    <button onClick={handleRegisterButton} className='border px-[30px] py-[8px] bg-[#EADBC8] text-white absolute right-[30px] dark:bg-[#404343] dark:text-[#ebf4f1]'>등록</button>        
-                    <button className='border px-[30px] py-[8px] absolute right-[7.5%] dark:bg-[#404343] dark:text-[#ebf4f1]' onClick={() => {navigate(-1);}}>취소</button>        
+                <h3 className='text-[20px] pl-5 mt-[8px] dark:text-[#ebf4f1]'>Q & A</h3>
+                <div className="flex border-b pb-8 justify-end">
+                    <button onClick={handleRegisterButton} className='border px-[30px] py-[8px] bg-[#EADBC8] text-white dark:bg-[#404343] dark:text-[#ebf4f1] mr-[15px]'>등록</button>        
+                    <button className='border px-[30px] py-[8px] dark:bg-[#404343] dark:text-[#ebf4f1] mr-[30px]' onClick={() => {navigate(-1);}}>취소</button>        
                 </div>
                 <div className='mt-10 mx-10'>
                     <FontAwesomeIcon icon={faCircleUser} color='#DAC0A3' className='w-10 h-10 dark:text-[#ebf4f1]' />        
