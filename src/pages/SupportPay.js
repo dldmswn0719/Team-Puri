@@ -1,10 +1,11 @@
 import React from 'react'
-import Info from '../components/Support/Info'
+import Support_Info from '../components/Support/Support_Info'
+
 
 function SupportPay() {
   return (
     <>
-        <Info />
+        <Support_Info />
     </>
   )
 }
