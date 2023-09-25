@@ -79,12 +79,12 @@ function Intro() {
     return (
       <>
         <div className="w-full dark:bg-[#272929] pb-[15px]">
-          <div className="w-[1200px] my-0 mx-auto">
+          <div className="max-w-[1200px] my-0 mx-auto">
             <div className="pt-[50px] flex items-start">
-              <img src={data.imageUrl} alt={data.name} className='w-[650px] ' />
+              <img src={data.imageUrl} alt={data.name} className='max-w-[650px] ' />
               <div className='ml-10'>
                 <p className="text-xl font-medium dark:text-[#ebf4f1]">{data.name}</p>
-                <p className={`text-xl font-medium bg-[#EADBC8] mt-[15px] dark:text-[#ebf4f1] dark:bg-[#404343] ${params.id === "4" || params.id === "5" || params.id === "6" ? 'w-[310px]' : 'w-[358px]'}`}>{data.hash}</p>
+                <p className={`text-xl font-medium bg-[#EADBC8] mt-[15px] dark:text-[#ebf4f1] dark:bg-[#404343] ${params.id === "4" || params.id === "5" || params.id === "6" ? 'max-w-[310px]' : 'max-w-[358px]'}`}>{data.hash}</p>
                 <p className="font-medium my-[30px] mx-0 text-[35px] text-[#102C57] dark:text-[#ebf4f1]">{(data.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
                 <p className="text-xl font-medium dark:text-[#ebf4f1]">{data.delivery}</p>
                 <p className="text-xl font-medium mb-[23px] dark:text-[#ebf4f1]">{data.delivery_price}</p>
@@ -92,9 +92,9 @@ function Intro() {
                   data.option.option_value_1 !== '' &&
                   <div className="text-xl mr-20 flex mt-[20px]">
                     <div className="mb-4">
-                      <button onClick={()=>{setVisible(!visible)}} className='relative w-[470px] h-[40px] border text-[17px] text-left cursor-pointer'>
+                      <button onClick={()=>{setVisible(!visible)}} className='relative max-w-[470px] h-[40px] border text-[17px] text-left cursor-pointer'>
                         <p className='ml-2 dark:text-[#ebf4f1]'>{data.option_title}</p>
-                        <img src='./../images/Store/arrow_top.png' className={`w-[17px] absolute right-3 bottom-2 ${visible === false ? 'rotate-180': ''}`}/>
+                        <img src='./../images/Store/arrow_top.png' className={`max-w-[17px] absolute right-3 bottom-2 ${visible === false ? 'rotate-180': ''}`}/>
                       </button>
                       <div>
                         {
@@ -117,7 +117,7 @@ function Intro() {
                   Array(selectTxt.length).fill().map((_,i)=>{
                     return (
                       <>
-                        <div className="border-y py-5 w-[470px] relative" key={i}>
+                        <div className="border-y py-5 max-w-[470px] relative" key={i}>
                           <div>{selectTxt[i]}</div>
                           <div className={`text-xl flex ${params.id === "1" || params.id === "2" || params.id === "6" ? 'my-[3%]' : 'mt-[10px]'}`}>
                             <div className="flex my-0 border">
