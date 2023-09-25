@@ -48,21 +48,26 @@ function Nav() {
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 <div>
                     <NavLink to="/">
-                        <img className="items-center w-[200px] h-[65px]" src="./../Images/logo_s1.png" alt="logo" />
+                        {
+                            dark ? 
+                            <img className="items-center w-[200px] h-[65px]" src="./../Images/Main/logo_dark_small.png" alt="logo" />
+                            :
+                            <img className="items-center w-[200px] h-[65px]" src="./../Images/logo_s1.png" alt="logo" />
+                        }
                     </NavLink>
                 </div>
                 <div className='basis-[60%] hidden md:block'>
                     <ul className='flex justify-between'>
-                        <li className='basis-full text-center hover:font-bold text-[18px] relative after:w-0 hover:after:w-full hover:after:h-[3px] after:transition-all hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0'>
+                        <li className='basis-full text-center hover:font-bold text-[18px] relative after:w-0 hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0 after:duration-500 dark:hover:after-bg-[#fff]'>
                             <NavLink to="/introduce" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1] ">소개</NavLink>
                         </li>
-                        <li className='hover:font-bold text-[18px]  text-center after:transition-all basis-full relative after:w-0 hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0'>
+                        <li className='hover:font-bold text-[18px]  text-center basis-full relative after:w-0 hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0 after:duration-500'>
                             <NavLink to="/info" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1]">동물친구 소개</NavLink>
                         </li>
-                        <li className='hover:font-bold text-[18px]  text-center after:transition-all basis-full relative after:w-0 hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0'>
+                        <li className='hover:font-bold text-[18px]  text-center after:transition-all basis-full relative after:w-0 hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0 after:duration-500'>
                             <NavLink to="/review_page" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1]">입양후기</NavLink>
                         </li>
-                        <li className='hover:font-bold text-[18px] text-center after:transition-all basis-full relative after:w-0 hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0'>
+                        <li className='hover:font-bold text-[18px] text-center after:transition-all basis-full relative after:w-0 hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0 after:duration-500'>
                             <NavLink to="/support" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1]">후원/스토어</NavLink>
                          </li>
                     </ul>
