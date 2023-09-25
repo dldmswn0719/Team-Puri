@@ -59,11 +59,12 @@ function Reviews() {
                         setModalOpen(true);
                         setOne(i);
                       }} className='w-[310px] h-[220px] max-md:w-full max-lg:w-full' src={e.img} alt="1" />
-                      <div onClick={() => { document.querySelector("html").classList.add("fixed")
+                      
+                      <div className="pl-[10px] pt-[10px] flex relative">
+                        < FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px] hover:brightness-75'  onClick={() => { document.querySelector("html").classList.add("fixed")
                         setModalOpen1(true);
                         setOne(i);
-                      }}  className="pl-[10px] pt-[10px] flex relative">
-                        < FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px] hover:brightness-75' onClick={goodFun} />
+                      }}  />
                         
                         
 
@@ -168,10 +169,10 @@ function Reviews() {
         <div>
           {/* <div className="opacity-60 fixed left-2/4 top-2/4 w-full h-full bg-[#e6e6e6] p-[20%] -translate-x-2/4 -translate-y-2/4 "></div> */}
           <div className="relative">
-            <div className="fixed left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 w-[250px] h-[300px] bg-white rounded-[20px] max-md:w-6/5">
+            <div className="fixed left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 w-[250px] h-[300px] bg-white rounded-[20px] max-md:w-6/5 ">
 
 
-              <FontAwesomeIcon onClick={() => { setModalOpen1(false); document.querySelector("html").classList.remove("fixed") }} icon={faXmark}className='hover:text-[green] absolute w-[30px] h-[30px] right-[1%] top-[2%] z-40' />
+              <FontAwesomeIcon onClick={() => { setModalOpen1(false); document.querySelector("html").classList.remove("fixed") }} icon={faXmark}className='hover:text-[green] absolute w-[30px] h-[30px] right-[1%] top-[2%] z-40 ' />
 
               <div className="flex w-full h-full relative">
                 <div></div>
