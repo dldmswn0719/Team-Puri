@@ -1,5 +1,5 @@
 import { faMoon , faSun } from '@fortawesome/free-regular-svg-icons';
-import { faEarthAmericas } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faEarthAmericas, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
@@ -18,6 +18,7 @@ function Nav() {
         }
         setDark(!dark);
     }
+    console.log(dark)
 
     useEffect(()=>{
         if(localStorage.getItem("theme") === "dark"){
@@ -35,6 +36,11 @@ function Nav() {
             localStorage.setItem("lang","en");
             setLang("kr")
         }
+    }
+
+    const [hamburger,setHamburger] = useState(false)
+    const toggleHamburger = () =>{
+        setHamburger(!hamburger)
     }
 
     return (
@@ -64,7 +70,7 @@ function Nav() {
                 <div className="w-[10%] hidden lg:block">                  
                     <ul className='basis-[10%] flex justify-between'>
                         <li className='basis-2/4 text-center cursor-pointer text-2xl'>
-                            <button onClick={()=>{toggleDarkMode()}}>
+                            <button onClick={toggleDarkMode}>
                                 <FontAwesomeIcon icon={dark ? faSun : faMoon} className='text-[25px] dark:text-[#ebf4f1]' />
                             </button>
                         </li>
@@ -94,28 +100,27 @@ function Nav() {
                         </NavLink>
                     </ul>
                 </div>
-                <div className="fixed right-5 top-5 transition-all duration-1000 z-[100] cursor-pointer lg:hidden mbtn">
+                <div className="fixed right-5 top-10 transition-all duration-1000 z-[100] cursor-pointer lg:hidden" onClick={()=>{toggleHamburger()}}>
                     {
-                        Array(3).fill().map((_,i)=>{
-                            return (
-                                <div key={i} className='w-[30px] h-[5px] bg-black dark:bg-[#ebf4f1] rounded m-[5px] transition-all duration-1000'></div>
-                            )
-                        })
-                    }       
+                        hamburger ?
+                        <FontAwesomeIcon icon={faXmark} className='w-8 h-8 dark:text-white'/>
+                        :
+                        <FontAwesomeIcon icon={faBars} className='w-8 h-8 dark:text-white'/>
+                    }
                 </div>
-                <div className="w-80 h-full fixed bg-gray-100 dark:bg-[#272929] z-50 p-12 top-0 right-0 box-border transition-all duration-500 lg:hidden">
+                <div className={`w-80 h-full fixed bg-gray-100 dark:bg-[#272929] z-50 p-12 top-0 box-border transition-all duration-500 lg:hidden ${hamburger ? 'right-0' : '-right-80'}`}>
                     <ul>
                         <NavLink to="/introduce">
-                            <li className='pt-5 pb-5 border-b hover:font-bold cursor-pointer dark:text-[#ebf4f1]'>소개</li>
+                            <li className='pt-8 pb-5 border-b hover:font-bold cursor-pointer dark:text-[#ebf4f1]'>소개</li>
                         </NavLink>
                         <NavLink to="/info">
-                            <li className='pt-5 pb-5 border-b hover:font-bold cursor-pointer dark:text-[#ebf4f1]'>동물친구 소개</li>
+                            <li className='pt-8 pb-5 border-b hover:font-bold cursor-pointer dark:text-[#ebf4f1]'>동물친구 소개</li>
                         </NavLink>
                         <NavLink to="/review_page">
-                            <li className='pt-5 pb-5 border-b hover:font-bold cursor-pointer dark:text-[#ebf4f1]'>입양후기</li>
+                            <li className='pt-8 pb-5 border-b hover:font-bold cursor-pointer dark:text-[#ebf4f1]'>입양후기</li>
                         </NavLink>
                         <NavLink to="/support">
-                            <li className='pt-5 pb-5 border-b hover:font-bold cursor-pointer dark:text-[#ebf4f1]'>후원 / 스토어</li>
+                            <li className='pt-8 pb-5 border-b hover:font-bold cursor-pointer dark:text-[#ebf4f1]'>후원 / 스토어</li>
                         </NavLink>
                     </ul>
                 </div>
