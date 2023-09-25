@@ -28,7 +28,7 @@ function Login_c() {
                 </ul>
                 <ul className='flex justify-around text-sm text-gray-500'>
                     <li>
-                        <NavLink to="/join">
+                        <NavLink to="/member">
                             <p className='dark:text-[#ebf4f1]'>회원가입</p>
                         </NavLink>
                     </li>

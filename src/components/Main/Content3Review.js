@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 function Content3Review() {
     return (
@@ -11,7 +12,7 @@ function Content3Review() {
                         <p className='text-2xl tracking-tight'>동물을 사고 팔지 않는 사회를 만드는 데에 동참해주세요.</p>
                     </li>
                     <li>
-                        <button className='bg-[#E75A56] text-white w-[440px] h-[80px] rounded-full text-2xl font-bold cursor-pointer mt-[93px] duration-500 hover:bg-[#db3b36]'>더 많은 후기 만나러 가기</button>
+                        <button className='bg-[#E75A56] text-white w-[440px] h-[80px] rounded-full text-2xl font-bold cursor-pointer mt-[93px] duration-500 hover:bg-[#db3b36]'><NavLink to='/review_page' className='text-white'>더 많은 후기 만나러 가기</NavLink></button>
                     </li>
                 </ul>
             </div>
