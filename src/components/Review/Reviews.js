@@ -7,7 +7,16 @@ import Detaillist from './../../data/Detaillist';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+
 function Reviews() {
+
+  let [good, setGood] = useState(0)
+
+  function goodFun(){
+          setGood(good+1)
+  }
+  console.log(good)
+
   
   useEffect(() => {
     AOS.init();
@@ -19,6 +28,7 @@ function Reviews() {
   const [one, setOne] = useState(null);
 
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen1, setModalOpen1] = useState(false);
 
   const [review2, setReview2] = useState(Detaillist);
   const [review, setReview] = useState(Mainlist);
@@ -49,11 +59,19 @@ function Reviews() {
                         setModalOpen(true);
                         setOne(i);
                       }} className='w-[310px] h-[220px] max-md:w-full max-lg:w-full' src={e.img} alt="1" />
-                      <div className="pl-[10px] pt-[10px] flex relative">
-                        <FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px]' />
+                      <div onClick={() => { document.querySelector("html").classList.add("fixed")
+                        setModalOpen1(true);
+                        setOne(i);
+                      }}  className="pl-[10px] pt-[10px] flex relative">
+                        < FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px] hover:brightness-75' onClick={goodFun} />
+                        
+                        
+
+
+
                         <img className='w-[18px] h-[18px] mx-[10px] ' src="./../images/Review/chat.svg" alt="chat" />
-                        <img className='w-[20px] h-[20px]' src="./../images/Review/airplane.svg" alt="airplane" />
-                        <img className='w-[20px] h-[20px] absolute right-[10px]' src="./../images/Review/mark.svg" alt="airplane" />
+                        <img className='w-[20px] h-[20px] ' src="./../images/Review/airplane.svg "  alt="airplane" />
+                        <img className='w-[20px] h-[20px] absolute right-[10px] hover:brightness-75' src="./../images/Review/mark.svg" alt="airplane" />
                       </div>
                       <div className="flex my-[10px]">
                         <div className="sto" ></div>
@@ -140,6 +158,76 @@ function Reviews() {
           </div>
         </div>
       }
+
+
+
+
+
+      {
+        modalOpen1 &&
+        <div>
+          {/* <div className="opacity-60 fixed left-2/4 top-2/4 w-full h-full bg-[#e6e6e6] p-[20%] -translate-x-2/4 -translate-y-2/4 "></div> */}
+          <div className="relative">
+            <div className="fixed left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 w-[250px] h-[300px] bg-white rounded-[20px] max-md:w-6/5">
+
+
+              <FontAwesomeIcon onClick={() => { setModalOpen1(false); document.querySelector("html").classList.remove("fixed") }} icon={faXmark}className='hover:text-[green] absolute w-[30px] h-[30px] right-[1%] top-[2%] z-40' />
+
+              <div className="flex w-full h-full relative">
+                <div></div>
+                <div className="w-10 h-10 overflow-hidden ml-[10px] mt-[30px] mr-[10px]">
+                  {
+                    <img src={review[one].img} alt="로고" />
+                  }
+                </div>
+                <div className=" w-1/2 pr-[160px] relative">
+                  
+                  <div className=" mt-[30px] mb-[10px] flex">
+                    <div className="">
+                      
+                      <p className='text-[14px] font-bold'>PURI_PURI</p>
+                      <p className='text-[13px] justify-between'>{review2[one].Name}</p>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-[15px] w-[170px] border-t-2 pt-[10px] max-md:w-[95%]">
+                    <div className="flex justify-between mb-[10px]">
+                      <ul className="flex">
+                        <li ><FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px]' /></li>
+                        <li><img className='w-[18px] h-[18px] mx-[10px] mt-1 ' src="./../images/Review/chat.svg" alt="chat" /></li>
+                        <li><img className='w-[20px] h-[20px] mt-1' src="./../images/Review/airplane.svg" alt="airplane" /></li>
+                      </ul>
+                      <ul>
+                        <li><img className='w-[20px] h-[20px]' src="./../images/Review/mark.svg" alt="airplane" /></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <ul className="flex items-center">
+                        <li className='mr-[7px]'><img className='w-5 h-5' src="./../images/Review/human.svg" alt="사람" /></li>
+                        <li className='flex items-center'><span className='text-[12px]'>PURI_PURI님 외 여러 명이 좋아합니다 </span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+
+
+
+
+
+
+
+        {/* <div className='w-100 bg-sky-200 z-10'>
+          <div className='rounded-[20px]   bg-sky-800'>
+            <div className='text-10'>
+              <p className='text-[14px] font-bold'>PURI_PURI{review2[one].Name}</p>
+            </div>
+          </div>
+        </div> */}
+
 
     </>
   )
