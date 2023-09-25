@@ -32,9 +32,9 @@ function DetailNav() {
   return (
     <>
       <div className="w-full dark:bg-[#272929]">
-        <div className="w-[1200px] my-0 mx-auto">
+        <div className="lg:w-[1200px] my-0 mx-auto">
           <div className="pt-10 border-b border-[#EADBC8] dark:border-b dark:border-[#dadbdb]">
-            <ul className="mb-[35px] text-[#797979] text-xl text-center flex justify-around font-medium">
+            <ul className="mb-[35px] text-[#797979] lg:text-xl text-center flex justify-around font-medium">
               <li className="cursor-pointer hover:text-[#222] hover:font-bold dark:text-[#fbfdfd] dark:hover:text-[#ebf4f1]" onClick={MoveDetail}>
                 <p>상세정보</p>
               </li>

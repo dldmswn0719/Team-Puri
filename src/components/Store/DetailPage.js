@@ -6,9 +6,9 @@ function DetailPage() {
   return (
     <>
       <div className="w-full bg-white dark:bg-[#272929]">
-        <div className="w-[1200px] my-0 mx-auto detail pt-[71px]">
-          <div className="pl-[11%] relative">
-              <img className='opacity-80' src="./../images/Store/puppy_hand.png" alt="강아지 손잡는 사진" />
+        <div className="lg:w-[1200px] my-0 mx-auto detail pt-[71px]">
+          <div className="lg:pl-[11%] relative">
+              <img className='opacity-80 relative' src="./../images/Store/puppy_hand.png" alt="강아지 손잡는 사진" />
               <p className='absolute z-10 left-[35%] text-xl text-[#F8F0E5] top-[50px]'>" 사지 않고 입양하는 문화를 만드는 "</p>
               <p className="absolute z-10 left-[42%] text-[40px] text-[#F8F0E5] bottom-[40%] font-bold">푸리푸리</p>
               <p className="absolute z-10 left-[35%] text-xl text-[#F8F0E5] bottom-[70px]">푸리푸리는 전국 유기동물 공고 정보를 제공해</p>
@@ -25,8 +25,8 @@ function DetailPage() {
               <div className="flex justify-center pb-[67px] gap-x-[14%]">
                 <div className="pt-[50px] dark:text-[#ebf4f1]">
                   <FontAwesomeIcon icon={faDog} className="w-[80px] h-[80px] ml-[10px] dark:text-[#ebf4f1]" color='#DAC0A3' />
-                  <p className="font-bold text-[23px] pt-10">유기동물 후원</p>
-                  <div className="text-xl leading-8">
+                  <p className="font-bold lg:text-[23px] pt-10">유기동물 후원</p>
+                  <div className="lg:text-xl leading-8">
                     <p>유기동물이 가족을 만나는 날까지</p>
                     <p>건강하게 기다릴수 있도록</p>
                     <p>사료, 기부금 등으로 후원합니다</p>
@@ -34,8 +34,8 @@ function DetailPage() {
                 </div>
                 <div className="pt-[50px]">
                   <FontAwesomeIcon icon={faBullhorn} className='w-[70px] h-[70px] ml-[10px] dark:text-[#ebf4f1]' color='#DAC0A3' />
-                  <p className="font-bold text-[23px] pt-10">입양 문화 조성</p>
-                  <div className="text-xl leading-8">
+                  <p className="font-bold lg:text-[23px] pt-10">입양 문화 조성</p>
+                  <div className="lg:text-xl leading-8">
                     <p>매거진, 영상, 캠페인, 굿즈 등</p>
                     <p>다양한 콘텐츠를 제작하여</p>
                     <p>유기동물에 대한 편견을 없애고</p>
