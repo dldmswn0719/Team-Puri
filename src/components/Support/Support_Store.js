@@ -16,90 +16,90 @@ function Support_Store() {
                 </div>
             </div>
         </div>
-        <div className="w-[1200px] h-[900px] my-0 mx-auto">
-            <div className="text-center mt-[30px] text-3xl font-bold">스토어</div>
-            <div className="flex justify-center items-center w-[960px] h-[75px] bg-[#f8f0e5] mt-[30px] mb-[60px] mx-auto">
-                <p className="text-[25px]">스토어 수익금은 유기동물 후원 및 유기동물 입양 활동으로 사용 됩니다.</p>
+        <div className="w-[1200px] pb-[70px] my-0 mx-auto max-lg:w-10/12 max-sm:w-3/4">
+            <div className="text-center mt-[30px] text-3xl font-bold max-lg:text-[25px]">스토어</div>
+            <div className="flex justify-center items-center w-[960px] h-[75px] bg-[#f8f0e5] mt-[30px] mb-[50px] mx-auto max-lg:w-full max-sm:w-full max-lg:h-[60px] max-sm:h-[60px]">
+                <p className="text-[25px] max-lg:text-xl max-sm:text-[18px]">스토어 수익금은 유기동물 후원 및 유기동물 입양 활동으로 사용 됩니다.</p>
             </div>
-            <div className="w-full h-full">
-                <div className="w-full h-full flex flex-wrap justify-between">
-                    <div className="w-[270px]">
+            <div className="w-full ">
+                <div className="w-full flex flex-wrap justify-between gap-y-[30px]">
+                    <div className="w-[270px] max-sm:w-[49%] max-lg:w-[32%]">
                         <NavLink to='/store/2'>
                             <img src="./../../Images/Support/store1.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
-                                <p className="text-xl">믹스패밀리 에코백</p>
-                                <span className='text-[17px] font-bold'>15,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <p className="text-xl max-sm:text-[18px] max-lg:text-xl">믹스패밀리 에코백</p>
+                                <span className='text-[18px] font-bold max-sm:text-base'>15,000</span>
+                                <span className='text-[16px] max-sm:text-[15px]'>원</span>
                             </div>
                         </NavLink>
                     </div>
-                    <div className="w-[270px]">
+                    <div className="w-[270px] max-sm:w-[49%] max-lg:w-[32%]">
                         <NavLink to='/store/3'>
                             <img src="./../../Images/Support/store9.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
-                                <p className="text-xl">믹스패밀리 페이스 그립톡</p>
-                                <span className='text-[17px] font-bold'>10,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <p className="text-xl max-sm:text-[18px] max-lg:text-xl">믹스패밀리 페이스 그립톡</p>
+                                <span className='text-[18px] font-bold max-sm:text-base'>10,000</span>
+                                <span className='text-[16px] max-sm:text-[15px]'>원</span>
                             </div>
                         </NavLink>
                     </div>
-                    <div className="w-[270px]">
+                    <div className="w-[270px] max-sm:w-[49%] max-lg:w-[32%]">
                         <NavLink to='/store/4'>
                             <img src="./../../Images/Support/store3.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
-                                <p className="text-xl">무지개다리 뱃지</p>
-                                <span className='text-[17px] font-bold'>7,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <p className="text-xl max-sm:text-[18px] max-lg:text-xl">무지개다리 뱃지</p>
+                                <span className='text-[18px] font-bold max-sm:text-base'>7,000</span>
+                                <span className='text-[16px] max-sm:text-[15px]'>원</span>
                             </div>
                         </NavLink>
                     </div>
-                    <div className="w-[270px]">
+                    <div className="w-[270px] max-sm:w-[49%] max-lg:w-[32%]">
                         <NavLink to='/store/1'>
                             <img src="./../../Images/Support/store4.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
-                                <p className="text-xl">믹스패밀리 리유저블 컵</p>
-                                <span className='text-[17px] font-bold'>18,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <p className="text-xl max-sm:text-[18px] max-lg:text-xl">믹스패밀리 리유저블 컵</p>
+                                <span className='text-[18px] font-bold max-sm:text-base'>18,000</span>
+                                <span className='text-[16px] max-sm:text-[15px]'>원</span>
                             </div>
                         </NavLink>
                     </div>
-                    <div className="w-[270px]">
+                    <div className="w-[270px] max-sm:w-[49%] max-lg:w-[32%]">
                         <NavLink to='/store/5'>
                             <img src="./../../Images/Support/store5.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
-                                <p className="text-xl">아크릴 키링</p>
-                                <span className='text-[17px] font-bold'>9,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <p className="text-xl max-sm:text-[18px] max-lg:text-xl">아크릴 키링</p>
+                                <span className='text-[18px] font-bold max-sm:text-base'>9,000</span>
+                                <span className='text-[16px] max-sm:text-[15px]'>원</span>
                             </div>
                         </NavLink>
                     </div>
-                    <div className="w-[270px]">
+                    <div className="w-[270px] max-sm:w-[49%] max-lg:w-[32%]">
                         <NavLink to='/store/7'>
                             <img src="./../../Images/Support/store6.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
-                                <p className="text-xl">슬로건 마스킹 테이프</p>
-                                <span className='text-[17px] font-bold'>5,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <p className="text-xl max-sm:text-[18px] max-lg:text-xl">슬로건 마스킹 테이프</p>
+                                <span className='text-[18px] font-bold max-sm:text-base'>5,000</span>
+                                <span className='text-[16px] max-sm:text-[15px]'>원</span>
                             </div>
                         </NavLink>
-                    </div>
-                    <div className="w-[270px]">
+                    </div> 
+                    <div className="w-[270px] max-sm:w-[49%] max-lg:w-[32%]">
                         <NavLink to='/store/6'>
                             <img src="./../../Images/Support/store7.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
-                                <p className="text-xl">베이직 머그컵</p>
-                                <span className='text-[17px] font-bold'>15,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <p className="text-xl max-sm:text-[18px] max-lg:text-xl">베이직 머그컵</p>
+                                <span className='text-[18px] font-bold max-sm:text-base'>15,000</span>
+                                <span className='text-[16px] max-sm:text-[15px]'>원</span>
                             </div>
                         </NavLink>
                     </div>
-                    <div className="w-[270px]">
+                    <div className="w-[270px] max-sm:w-[49%] max-lg:w-[32%]">
                         <NavLink to='/store/8'>
                             <img src="./../../Images/Support/store8.jpg" alt="1" className="w-full" />
                             <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center">
-                                <p className="text-xl">믹스패밀리 어답미 인형</p>
-                                <span className='text-[17px] font-bold'>35,000</span>
-                                <span className='text-[15px]'>원</span>
+                                <p className="text-xl max-sm:text-[18px] max-lg:text-xl">믹스패밀리 어답미 인형</p>
+                                <span className='text-[18px] font-bold max-sm:text-base'>35,000</span>
+                                <span className='text-[16px] max-sm:text-[15px]'>원</span>
                             </div>
                         </NavLink>
                     </div>

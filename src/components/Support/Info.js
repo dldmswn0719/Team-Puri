@@ -97,12 +97,12 @@ function Info() {
   
   return (
     <>
-        <div className="full w-full">
-            <div className="w-[545px] ml-[150px] pt-[50px]">
+        <div className="full w-full max-lg:bg-none">
+            <div className="w-[545px] ml-[150px] pt-[50px] max-lg:w-10/12  max-lg:mx-auto">
                 <div className="">
                   <NavLink to='/'><img src="./../../Images/Support/logo.png" alt="로고" className='mb-[50px]' /></NavLink>
                 </div>
-                <div className="w-[500px] h-[225px] relative info">
+                <div className="w-[500px] h-[225px] relative info max-lg:w-full">
                   <ul className="w-full h-[155px] bg-[#f8f0e5] flex justify-around items-center">
                     <li className="">
                       <p className='h-[72px]'>후원하기</p>
@@ -115,7 +115,7 @@ function Info() {
                     </li>
                   </ul>
                 </div>
-                <div className="w-[500px] relative py-[50px] info">
+                <div className="w-[500px] relative py-[50px] info  max-lg:w-full">
                   <p className="mb-[30px] text-xl font-bold">후원하기</p>
                   <ul className="flex justify-between mb-[25px]">
                     <li className="h-[43px] flex items-center"><p>후원항목</p></li>
@@ -144,7 +144,7 @@ function Info() {
                     </div>
                   </ul>
                 </div>
-                <div className="w-[500px] relative py-[50px] info">
+                <div className="w-[500px] relative py-[50px] info  max-lg:w-full">
                   <p className='text-xl mb-[30px] font-bold'>개인정보</p>
                   <ul className="flex justify-between mb-[25px]">
                     <li className='h-[43px] flex items-center'><p>구분</p></li>
@@ -179,7 +179,7 @@ function Info() {
                     <li className=""><input type="email" className='e-mail w-[350px] h-10 border-[1px] border-black text-center text-[18px]' /></li>
                   </ul>
                 </div>
-                <div className="info w-[500px] relative py-[50px] info">
+                <div className="info w-[500px] relative py-[50px] info  max-lg:w-full">
                   <p className="text-xl mb-[30px] font-bold">결제정보</p>
                   <ul className="flex justify-between mb-[25px]">
                     <li className="h-[43px] flex items-center"><p>결제수단</p></li>
@@ -230,7 +230,7 @@ function Info() {
                     <li className='text-[13px] mb-[5px] text-[#a37541]'><p>예) 5월분 1만원의 미출금으로 6월에 5,6월분 합계인 2만원이 출금</p></li>
                   </ul>
                 </div>
-                <div className="py-[50px] relative w-[500px]">
+                <div className="py-[50px] relative w-[500px]  max-lg:w-full">
                   <div className="mb-[30px]">
                     <input type="checkbox" id='all' onInput={checkedAll} />
                     <label htmlFor='all' className='ml-2' >전체 동의하기</label>
@@ -243,7 +243,7 @@ function Info() {
                     <input type="checkbox" id='policy'/>
                     <label htmlFor='policy' className='ml-2'>[필수] 이용약관 동의<NavLink to='/'>[보기]</NavLink></label>
                   </div>
-                  <button onClick={formChk} className='w-[165px] h-[43px] bg-[#dac0a3] text-white my-0 mx-auto flex justify-center items-center mt-[50px]' >결제하기</button>
+                  <button onClick={formChk} className='w-[165px] h-[43px] bg-[#dac0a3] text-white my-0 mx-auto flex justify-center items-center mt-[50px]  max-lg:w-full max-lg:h-[60px]' >결제하기</button>
                 </div>
             </div>
         </div>
