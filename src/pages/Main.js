@@ -4,17 +4,19 @@ import Nav from '../components/Nav'
 import Content1Swiper from './../components/Main/Content1Swiper'
 import Content2Info from '../components/Main/Content2Info'
 import Content3Review from '../components/Main/Content3Review'
+import Footer from '../components/Footer'
 
 function Main() {
-  return (
-    <>
-      <Nav />
-      <Main_Test />
-      <Content1Swiper />
-      <Content2Info />
-      <Content3Review />
-    </>
-  )
+    return (
+        <>
+            <Nav />
+            <Main_Test />
+            <Content1Swiper />
+            <Content2Info />
+            <Content3Review />
+            <Footer />
+        </>
+    );
 }
 
 export default Main

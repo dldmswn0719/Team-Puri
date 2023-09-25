@@ -53,6 +53,12 @@ function Nav() {
                 </div>
                 <div className='basis-[60%] hidden lg:block'>
                     <ul className='flex justify-between'>
+
+                        <li className='basis-full text-center hover:font-bold text-[16px] relative after:w-0 hover:after:w-full hover:after:h-[3px] after:duration-500 hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0'><NavLink to="/" className="text-[#797979] hover:text-[#222] ">소개</NavLink></li>
+                        <li className='hover:font-bold text-[16px]  text-center after:duration-500 basis-full relative after:w-0 hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0'><NavLink to="/" className="text-[#797979] hover:text-[#222]">동물친구 소개</NavLink></li>
+                        <li className='hover:font-bold text-[16px]  text-center after:duration-500 basis-full relative after:w-0 hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0'><NavLink to="/review_page" className="text-[#797979] hover:text-[#222]">입양후기</NavLink></li>
+                        <li className='hover:font-bold text-[16px] text-center after:duration-500 basis-full relative after:w-0 hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0'><NavLink to="/support" className="text-[#797979] hover:text-[#222]">후원/스토어</NavLink></li>
+
                         <li className='basis-full text-center hover:font-bold text-[18px] relative after:w-0 hover:after:w-full hover:after:h-[3px] after:transition-all hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0'>
                             <NavLink to="/introduce" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1] ">소개</NavLink>
                         </li>
@@ -85,6 +91,7 @@ function Nav() {
                                 </li>
                             </ul>
                         </li>
+
                     </ul>
                 </div>
                 <div className="hidden lg:block absolute top-2 right-[14%]">
