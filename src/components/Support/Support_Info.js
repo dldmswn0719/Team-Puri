@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import "./../../../src/index.css"
 
-function Info() {
+function Support_Info() {
 
   const NumChk = (e)=>{
     return e.target.value = e.target.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -98,14 +98,14 @@ function Info() {
   return (
     <>
         <div className="full w-full max-lg:bg-none">
-            <div className="w-[545px] ml-[150px] pt-[50px] max-lg:w-10/12  max-lg:mx-auto">
+            <div className="w-[545px] ml-[150px] pt-[50px] max-lg:w-10/12  max-lg:mx-auto max-md:w-11/12">
                 <div className="">
                   <NavLink to='/'><img src="./../../Images/Support/logo.png" alt="로고" className='mb-[50px]' /></NavLink>
                 </div>
-                <div className="w-[500px] h-[225px] relative info max-lg:w-full">
-                  <ul className="w-full h-[155px] bg-[#f8f0e5] flex justify-around items-center">
+                <div className="w-[500px] h-[225px] relative info max-lg:w-full max-lg:h-[190px] max-md:w-full">
+                  <ul className="w-full h-[155px] bg-[#f8f0e5] flex justify-around items-center max-lg:h-[120px]">
                     <li className="">
-                      <p className='h-[72px]'>후원하기</p>
+                      <p className='h-[72px] font-bold text-xl max-lg:flex max-lg:items-center'>후원하기</p>
                     </li>
                     <li className="">
                       <p>
@@ -118,23 +118,23 @@ function Info() {
                 <div className="w-[500px] relative py-[50px] info  max-lg:w-full">
                   <p className="mb-[30px] text-xl font-bold">후원하기</p>
                   <ul className="flex justify-between mb-[25px]">
-                    <li className="h-[43px] flex items-center"><p>후원항목</p></li>
-                    <div className="w-[353px] flex justify-between">
-                      <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center ${isActive === true ? "color" : ""}`}  onClick={()=>{setIsActive(!isActive);setActive(false)}}><p>일시후원</p></li>
-                      <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center ${Active === true ? "color" : ""}`}  onClick={()=>{setActive(!Active);setIsActive(false)}}><p>정기후원</p></li>
+                    <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>후원항목</p></li>
+                    <div className="flex gap-x-5 max-lg:w-[600px] max-md:w-[420px]">
+                      <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center max-lg:w-[290px] max-md:w-[200px] ${isActive === true ? "color" : ""}`}  onClick={()=>{setIsActive(!isActive);setActive(false)}}><p>일시후원</p></li>
+                      <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center max-lg:w-[290px] max-md:w-[200px] ${Active === true ? "color" : ""}`}  onClick={()=>{setActive(!Active);setIsActive(false)}}><p>정기후원</p></li>
                     </div>
                   </ul>
                   <ul className="flex justify-between">
-                    <li className="h-[30px] flex justify-center"><p>후원금액</p></li>
-                    <div className="w-[353px] h-[80px] flex justify-between flex-wrap">
+                    <li className="h-[30px] flex justify-center whitespace-nowrap"><p className='w-[60px]'>후원금액</p></li>
+                    <div className="w-[353px] h-[100px] flex gap-x-[15px] flex-wrap max-lg:w-[600px] max-md:w-[420px]">
                       {
                         Array(5).fill().map((e,i)=>{
                           return (
-                            <li key={i} className={`w-[105px] h-[30px] flex justify-center items-center bg-[#f8f0e5] cursor-pointer ${money === i ? "color" : ""}`} onClick={()=>{setMoney(i)}}><p>{i+1}0,000원</p></li>
+                            <li key={i} className={`w-[105px] h-[40px] flex justify-center items-center bg-[#f8f0e5] cursor-pointer max-lg:w-[190px] max-md:w-[130px] ${money === i ? "color" : ""}`} onClick={()=>{setMoney(i)}}><p>{i+1}0,000원</p></li>
                           )
                         })
                       }
-                      <li className="" onClick={()=>{setMoney(money === false ? true : false)}}><input type="text" placeholder="직접입력"  onInput={NumChk}  className='w-[105px] h-[28px] flex justify-center items-center text-center border-[1px] border-black' maxLength={11} /></li> 
+                      <li className="" onClick={()=>{setMoney(money === false ? true : false)}}><input type="text" placeholder="직접입력"  onInput={NumChk}  className='w-[105px] h-[38px] flex justify-center items-center text-center border-[1px] border-black max-lg:w-[190px] max-md:w-[130px]' maxLength={11} /></li> 
                       {/* <li className={`w-[105px] h-[30px] flex justify-center items-center bg-[#f8f0e5] cursor-pointer ${money === true ? "color" : ""}`} onClick={()=>{setMoney(money === false ? true : false)}}><p>10,000원</p></li>
                       <li className={`w-[105px] h-[30px] flex justify-center items-center bg-[#f8f0e5] cursor-pointer ${money === true ? "color" : ""}`} onClick={()=>{setMoney(money === false ? true : false)}}><p>20,000원</p></li>
                       <li className={`w-[105px] h-[30px] flex justify-center items-center bg-[#f8f0e5] cursor-pointer ${money === true ? "color" : ""}`} onClick={()=>{setMoney(money === false ? true : false)}}><p>30,000원</p></li>
@@ -147,21 +147,21 @@ function Info() {
                 <div className="w-[500px] relative py-[50px] info  max-lg:w-full">
                   <p className='text-xl mb-[30px] font-bold'>개인정보</p>
                   <ul className="flex justify-between mb-[25px]">
-                    <li className='h-[43px] flex items-center'><p>구분</p></li>
-                    <div className="w-[353px] flex justify-between">
-                      <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center ${solo === true ? "color" : ""}`} onClick={()=>{setSolo(!solo);setBuisness(false)}}><p>개인</p></li>
-                      <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center ${buisness === true ? "color" : ""}`} onClick={()=>{setBuisness(!buisness);setSolo(false)}}><p>단체(사업자)</p></li>
+                    <li className='h-[43px] flex items-center whitespace-nowrap'><p className='w-[60px]'>구분</p></li>
+                    <div className="w-[353px] flex gap-x-5 max-lg:w-[600px] max-md:w-[420px]">
+                      <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center max-lg:w-[290px] max-md:w-[200px] ${solo === true ? "color" : ""}`} onClick={()=>{setSolo(!solo);setBuisness(false)}}><p>개인</p></li>
+                      <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center max-lg:w-[290px] max-md:w-[200px] ${buisness === true ? "color" : ""}`} onClick={()=>{setBuisness(!buisness);setSolo(false)}}><p>단체(사업자)</p></li>
                     </div>
                   </ul>
                   <ul className="flex justify-between mb-[25px]">
-                    <li className="h-[43px] flex items-center" ><p>{buisness === true ? "단체(사업자명)" : "이름"}</p></li>
-                    <li><input type="text"  className='name w-[350px] h-[43px] text-[18px] text-center border-[1px] border-black' /></li>
+                    <li className="h-[43px] flex items-center whitespace-nowrap" ><p className='w-[60px]'>{buisness === true ? "단체(사업자명)" : "이름"}</p></li>
+                    <li><input type="text"  className='name w-[350px] h-[43px] text-[18px] text-center border-[1px] border-black max-lg:w-[600px] max-md:w-[420px]' /></li>
                   </ul>
                   <ul className="flex justify-between mb-[25px]">
-                    <li className="h-[43px] flex items-center"><p>전화번호</p></li>
-                    <div className="flex w-[353px] justify-between">
+                    <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>전화번호</p></li>
+                    <div className="flex w-[353px] gap-x-[15px] max-lg:w-[600px] max-md:w-[420px]">
                       <li className="">
-                        <select className='flex flex-wrap w-[95px] h-10 border-[1px] border-black text-center text-[17px]'>
+                        <select className='flex flex-wrap w-[105px] h-10 border-[1px] border-black text-center text-[17px] max-lg:w-[190px] max-md:w-[130px]'>
                           <option value="0">010</option>
                           <option value="1">011</option>
                           <option value="2">016</option>
@@ -170,50 +170,50 @@ function Info() {
                           <option value="5">019</option>
                         </select>
                       </li>
-                      <li className=""><input type="text" className='middle-nb w-[95px] h-10 border-[1px] border-black text-center text-[17px]' maxLength={4} onInput={Num} /></li>
-                      <li className=""><input type="text" className='end-nb w-[95px] h-10 border-[1px] border-black text-center text-[17px]' maxLength={4} onInput={Num} /></li>
+                      <li className=""><input type="text" className='middle-nb w-[105px] h-10 border-[1px] border-black text-center text-[17px] max-lg:w-[190px] max-md:w-[130px]' maxLength={4} onInput={Num} /></li>
+                      <li className=""><input type="text" className='end-nb w-[105px] h-10 border-[1px] border-black text-center text-[17px] max-lg:w-[190px] max-md:w-[130px]' maxLength={4} onInput={Num} /></li>
                     </div>
                   </ul>
                   <ul className="flex justify-between">
-                    <li className="h-[43px] flex items-center"><p>이메일</p></li>
-                    <li className=""><input type="email" className='e-mail w-[350px] h-10 border-[1px] border-black text-center text-[18px]' /></li>
+                    <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>이메일</p></li>
+                    <li className=""><input type="email" className='e-mail w-[350px] h-10 border-[1px] border-black text-center text-[18px] max-lg:w-[600px] max-md:w-[420px]' /></li>
                   </ul>
                 </div>
-                <div className="info w-[500px] relative py-[50px] info  max-lg:w-full">
+                <div className="info w-[500px] relative py-[50px] info max-lg:w-full">
                   <p className="text-xl mb-[30px] font-bold">결제정보</p>
                   <ul className="flex justify-between mb-[25px]">
-                    <li className="h-[43px] flex items-center"><p>결제수단</p></li>
-                    <div className="w-[353px] h-[43px]">
-                      <li className={`w-40 h-full bg-[#f8f0e5] flex justify-center items-center cursor-pointer ${card === true ? "color" : ""}`} onClick={()=>setCard(card === false ? true : false)}><p>신용카드</p></li>
+                    <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>결제수단</p></li>
+                    <div className="w-[353px] h-[43px] max-lg:w-[600px] max-md:w-[420px]">
+                      <li className={`w-40 h-full bg-[#f8f0e5] flex justify-center items-center cursor-pointer max-md:w-[200px] max-lg:w-[290px] ${card === true ? "color" : ""}`} onClick={()=>setCard(card === false ? true : false)}><p>신용카드</p></li>
                     </div>
                   </ul>
                   <ul className="flex justify-between mb-[25px]">
-                    <li className="h-[43px] flex items-center" ><p>카드번호</p></li>
-                    <li className=""><input type="text"  className='card-nb w-[350px] h-10 border-[1px] border-black text-center text-[18px]' onInput={Hyphen} maxLength={19} /></li>
+                    <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>카드번호</p></li>
+                    <li className=""><input type="text"  className='card-nb w-[350px] h-10 border-[1px] border-black text-center text-[18px] max-lg:w-[600px] max-md:w-[420px]' onInput={Hyphen} maxLength={19} /></li>
                   </ul>
                   <ul className="flex justify-between mb-[25px]">
-                    <li className="h-[43px] flex items-center"><p>유효기간</p></li>
-                    <div className="w-[353px] flex justify-between">
-                      <li className=""><input type="text" placeholder='MM' maxLength={2}  className='month w-[160px] h-10 border-[1px] border-black text-center text-[18px]' onInput={Num} /></li>
-                      <li className=""><input type="text" placeholder='YY' maxLength={2}  className='year w-[160px] h-10 border-[1px] border-black text-center text-[18px]' onInput={Num} /></li>
+                    <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>유효기간</p></li>
+                    <div className="w-[353px] flex gap-x-5 max-lg:w-[600px] max-md:w-[420px]">
+                      <li className=""><input type="text" placeholder='MM' maxLength={2}  className='month w-[160px] h-10 border-[1px] border-black text-center text-[18px] max-lg:w-[290px] max-md:w-[200px]' onInput={Num} /></li>
+                      <li className=""><input type="text" placeholder='YY' maxLength={2}  className='year w-[160px] h-10 border-[1px] border-black text-center text-[18px] max-lg:w-[290px]  max-md:w-[200px]' onInput={Num} /></li>
                     </div>
                   </ul>
                   <ul className="flex justify-between mb-[25px]">
-                    <li className="h-[43px] flex items-center"><p>카드주명</p></li>
-                    <li className=""><input type="text" className='card-name w-[350px] h-10 border-[1px] border-black text-center text-[18px]' /></li>
+                    <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>카드주명</p></li>
+                    <li className=""><input type="text" className='card-name w-[350px] h-10 border-[1px] border-black text-center text-[18px] max-lg:w-[600px] max-md:w-[420px]' /></li>
                   </ul>
                   <ul className="flex justify-between mb-[25px]">
-                    <li className="h-[43px] flex items-center"><p>생년월일</p></li>
-                    <li className=""><input type="text" onInput={Num} maxLength={buisness === true ? 10 : 6} placeholder='주민번호 앞 6자리(또는 사업자번호)' className='birth w-[350px] h-10 border-[1px] border-black text-center text-[18px]' /></li>
+                    <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>생년월일</p></li>
+                    <li className=""><input type="text" onInput={Num} maxLength={buisness === true ? 10 : 6} placeholder='주민번호 앞 6자리(또는 사업자번호)' className='birth w-[350px] h-10 border-[1px] border-black text-center text-[18px] max-lg:w-[600px] max-md:w-[420px]' /></li>
                   </ul>
                   <ul className="flex justify-between mb-[25px]">
-                    <li className="h-[43px] flex items-center"><p>비밀번호</p></li>
-                    <li className=""><input type="text" onInput={Num} maxLength={2} placeholder='카드 비밀번호 앞 2자리' className='password w-[350px] h-10 border-[1px] border-black text-center text-[18px]' /></li>
+                    <li className="w-[60px]h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>비밀번호</p></li>
+                    <li className=""><input type="text" onInput={Num} maxLength={2} placeholder='카드 비밀번호 앞 2자리' className='password w-[350px] h-10 border-[1px] border-black text-center text-[18px] max-lg:w-[600px] max-md:w-[420px]' /></li>
                   </ul>
                   <ul className='flex justify-between mb-[25px]' style={{display: Active === true ? "flex" : "none"}}>
-                    <li className="h-[43px] flex items-center"><p>결제일</p></li>
-                    <div className="w-[353px] h-[43px] relative">
-                      <select className='w-40 h-10 text-center text-[17px] border-[1px] border-black'>
+                    <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>결제일</p></li>
+                    <div className="w-[353px] h-[43px] relative max-lg:w-[600px] max-md:w-[420px]">
+                      <select className='w-40 h-10 text-center text-[17px] border-[1px] border-black max-md:w-[200px] max-lg:w-[290px]'>
                         <option value="0">매월 10일</option>
                         <option value="1">매월 20일</option>
                         <option value="2">매월 30일</option>
@@ -251,4 +251,4 @@ function Info() {
   )
 }
 
-export default Info
+export default Support_Info
