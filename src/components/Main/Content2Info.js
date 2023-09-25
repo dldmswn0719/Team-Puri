@@ -10,14 +10,14 @@ function Content2Info() {
                     <p className='text-[24px] mt-[20px]'>동물권행동 푸리푸리는<br />100% 시민의 후원으로 운영되는<br />비영리단체로서 투명하고 정직하게 활동합니다.</p>
                 </div>
                 <div className='relative'>
-                    <img src="image/deco_needle.png" alt="1" className='duration-500 absolute w-[25%] left-[-100px] z-[-1]' />
-                    <img src="image/deco_needle_leaf.png" alt="2" className='duration-500 absolute w-[10%] left-[-170px] top-[50px]' />
-                    <img src="image/deco_flower2.png" alt="3" className='duration-500 absolute w-[15%] right-[-150px] top-[50px]' />
-                    <img src="image/deco_needle2.png" alt="4" className='duration-500 absolute w-[30%] right-[-140px] top-[150px] z-[-1]' />
-                    <img src="image/content1.png" alt="content1" className='rounded-3xl w-[500px] h-[350px]' />
+                    <img src="./../../Images/Main/deco_needle.png" alt="1" className='duration-500 absolute w-[25%] left-[-100px] z-[-1]' />
+                    <img src="./../../Images/Main/deco_needle_leaf.png" alt="2" className='duration-500 absolute w-[10%] left-[-170px] top-[50px]' />
+                    <img src="./../../Images/Main/deco_flower2.png" alt="3" className='duration-500 absolute w-[15%] right-[-150px] top-[50px]' />
+                    <img src="./../../Images/Main/deco_needle2.png" alt="4" className='duration-500 absolute w-[30%] right-[-140px] top-[150px] z-[-1]' />
+                    <img src="./../../Images/Main/content1.png" alt="content1" className='rounded-3xl w-[500px] h-[350px]' />
                 </div>
                 <div className='absolute left-0 bottom-[-700px]'>
-                    <img src="image/bg-.png" alt="bg" />
+                    <img src="./../../Images/Main/bg-.png" alt="bg" />
                 </div>
             </div>
         </>
