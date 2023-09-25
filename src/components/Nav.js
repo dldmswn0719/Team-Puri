@@ -1,4 +1,4 @@
-import { faMoon , faSun } from '@fortawesome/free-regular-svg-icons';
+import { faMoon , faSun, faUser } from '@fortawesome/free-regular-svg-icons';
 import { faBars, faEarthAmericas, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
@@ -18,7 +18,7 @@ function Nav() {
         }
         setDark(!dark);
     }
-    console.log(dark)
+    // console.log(dark)
 
     useEffect(()=>{
         if(localStorage.getItem("theme") === "dark"){
@@ -51,7 +51,7 @@ function Nav() {
                         <img className="items-center w-[200px] h-[65px]" src="./../Images/logo_s1.png" alt="logo" />
                     </NavLink>
                 </div>
-                <div className='basis-[60%] hidden lg:block'>
+                <div className='basis-[60%] hidden md:block'>
                     <ul className='flex justify-between'>
                         <li className='basis-full text-center hover:font-bold text-[18px] relative after:w-0 hover:after:w-full hover:after:h-[3px] after:transition-all hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0'>
                             <NavLink to="/introduce" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1] ">소개</NavLink>
@@ -67,7 +67,7 @@ function Nav() {
                          </li>
                     </ul>
                 </div>
-                <div className="w-[10%] hidden lg:block">                  
+                <div className="w-[10%] hidden md:block">                  
                     <ul className='basis-[10%] flex justify-between'>
                         <li className='basis-2/4 text-center cursor-pointer text-2xl'>
                             <button onClick={toggleDarkMode}>
@@ -85,10 +85,9 @@ function Nav() {
                                 </li>
                             </ul>
                         </li>
-
                     </ul>
                 </div>
-                <div className="hidden lg:block absolute top-2 right-[14%]">
+                <div className="hidden md:block lg:absolute lg:top-2 lg:right-[14%] md:absolute md:top-2 md:right-4">
                     <ul className='flex justify-between'>
                         <NavLink to="/login">
                             <li className='dark:text-[#ebf4f1]'>로그인</li>
@@ -101,7 +100,7 @@ function Nav() {
                         </NavLink>
                     </ul>
                 </div>
-                <div className="fixed right-5 top-10 transition-all duration-1000 z-[100] cursor-pointer lg:hidden" onClick={()=>{toggleHamburger()}}>
+                <div className="fixed right-5 top-10 transition-all duration-1000 z-[100] cursor-pointer md:hidden" onClick={()=>{toggleHamburger()}}>
                     {
                         hamburger ?
                         <FontAwesomeIcon icon={faXmark} className='w-8 h-8 dark:text-white'/>
@@ -111,6 +110,21 @@ function Nav() {
                 </div>
                 <div className={`w-80 h-full fixed bg-gray-100 dark:bg-[#272929] z-50 p-12 top-0 box-border transition-all duration-500 lg:hidden ${hamburger ? 'right-0' : '-right-80'}`}>
                     <ul>
+                        <li className='absolute top-4 left-5'>
+                            <button onClick={toggleDarkMode}>
+                                <FontAwesomeIcon icon={dark ? faSun : faMoon} className='text-[25px] dark:text-[#ebf4f1]' />
+                            </button>
+                        </li>
+                        <ul className='flex'>
+                            <FontAwesomeIcon icon={faUser} className='mt-1 w-5 h-5 dark:text-[#ebf4f1]' />
+                            <NavLink to="/login">
+                                <li className='text-center cursor-pointer dark:text-[#ebf4f1] px-5 after:w-[2px] after:h-5 after:bg-[#d2d2d2] after:absolute after:mt-1 after:ml-[9px]'>로그인</li>
+                            </NavLink>
+                            {/* 로그인을 한다면 회원가입이 마이페이지로 변경 */}
+                            <NavLink to="/member">
+                                <li className='text-center cursor-pointer dark:text-[#ebf4f1]'>회원가입</li>
+                            </NavLink>
+                        </ul>
                         <NavLink to="/introduce">
                             <li className='pt-8 pb-5 border-b hover:font-bold cursor-pointer dark:text-[#ebf4f1]'>소개</li>
                         </NavLink>

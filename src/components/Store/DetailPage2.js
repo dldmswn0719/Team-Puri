@@ -21,11 +21,11 @@ function DetailPage2() {
                         <p className="text-3xl font-bold leading-10 tracking-wider">{data.Main_title}</p>
                         <p className='pb-[45px] leading-10 title2'>{data.Sub_title}</p>
                         <img className='mx-auto my-0 py-[20px] lg:w-[900px] w-[550px]' src={data.imageUrl1} alt={data.name} />
-                        <p className="text-left lg:pl-[13%] sm:pl-[9%] font-bold text-[32px] leading-10 py-2 title">{data.Sub_title_1}</p>
+                        <p className="text-left lg:pl-[13%] sm:pl-[9%] md:pl-[13%] font-bold text-[32px] leading-10 py-2 title">{data.Sub_title_1}</p>
                         <p className="text-left lg:pl-[13%] text-[25px]">{data.Sub_title_2}</p>
                         <p className="text-left lg:pl-[13%] text-[25px] py-3 text-[#DAC0A3]">{data.Sub_title_3}</p>
                         <p className="text-left lg:pl-[13%] text-[25px]">{data.Sub_title_4}</p>
-                        <div className="text-left lg:pl-[13%] sm:pl-[9%] leading-8 py-4 ">
+                        <div className="text-left lg:pl-[13%] pl-[9%] md:pl-[13%] leading-8 py-4 ">
                             <p>{data.desc}</p>
                             <p>{data.desc_1}</p>
                             <p>{data.desc_2}</p>
@@ -55,13 +55,13 @@ function DetailPage2() {
                             })
                         }
                         <div onClick={()=>{setClose(close === false ? true : false)}} className="lg:w-[930px] w-[650px] bottom-0 bg-white absolute h-[80px] border border-[#D5C09F] lg:ml-[11%] dark:border-[#dadbdb] dark:text-[#ebf4f1] dark:bg-[#272929]">
-                            <div className="flex justify-center pt-[20px] cursor-pointer">
+                            <div className="flex justify-center pt-[25px] cursor-pointer">
                             {
                                 close === false &&
                                 <div className="gradient"></div>
                             }
-                                <div className="lg:text-xl lg:mr-3 font-medium">상세정보 {close === false ? "열기" : "닫기"}</div>
-                                <FontAwesomeIcon icon={faAngleUp} className={`lg:w-8 lg:h-8 sm:w-5 sm:h-5 ${close === false ? 'rotate-180': ''}`} />   
+                                <div className="lg:text-xl lg:mr-3 font-medium sm:text-[17px]">상세정보 {close === false ? "열기" : "닫기"}</div>
+                                <FontAwesomeIcon icon={faAngleUp} className={`lg:w-8 lg:h-8 sm:w-5 sm:h-5 sm:mt-1 sm:ml-1 ${close === false ? 'rotate-180': ''}`} />   
                             </div>
                         </div>
                         {
