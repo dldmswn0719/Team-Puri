@@ -8,11 +8,13 @@ import Review from '../components/Store/Review'
 import Qa from '../components/Store/Qa'
 import Aside from '../components/Store/Aside'
 import Nav from '../components/Nav'
+// import LoginNav from '../components/LoginNav'
 
 function Store() {
 
   return (
     <>
+      {/* <LoginNav /> */}
       <Nav />
       <Intro />
       <DetailNav />
