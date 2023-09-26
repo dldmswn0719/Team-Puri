@@ -1,8 +1,18 @@
 import { faBullhorn, faDog } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 function DetailPage() {
+
+  const [dark,setDark] = useState(false);
+
+  useEffect(()=>{
+    if(localStorage.getItem("theme") === "dark"){
+        document.documentElement.classList.add("dark");
+        setDark(!dark);
+    }
+  },[])
+
   return (
     <>
       <div className="w-full bg-white dark:bg-[#272929]">
@@ -15,7 +25,12 @@ function DetailPage() {
               <p className="absolute z-10 left-[31%] text-xl text-[#F8F0E5] bottom-[40px]">유기동물에게 소중한 가족을 찾아주고있는 플랫폼입니다.</p>
             </div>
             <div className="text-center dark:text-[#ebf4f1]">
-              <img className='pt-[50px] pb-[40px] my-0 mx-auto' src="./../Images/logo_s1.png" alt="로고" />
+              <img className='pt-[50px] pb-[40px] my-0 mx-auto' src={
+                dark ?
+                "./../Images/Main/logo_dark_small.png"
+                :
+                "./../Images/logo_s1.png" 
+              } alt="로고" />
               <p className='text-xl leading-9'>푸리푸리 굿즈를 통해 일상에서 입양 문화 메시지를 알리고</p>
               <p className='text-xl border-b border-[#EADBC8] pb-[50px] dark:border-[#dadbdb]'>입양 문화의 선순환 구조를 만들어나갑니다.</p>
               <div className="py-[35px] px-0 text-3xl text-[#DAC0A3] font-medium dark:text-[#ebf4f1]">
