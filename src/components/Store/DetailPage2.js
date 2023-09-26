@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import data1 from './../../data/product.json'
 import { useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +10,15 @@ function DetailPage2() {
     const data = data1[(params.id-1)]
     const [close, setClose] = useState(false);
     // console.log(params.id)
+
+    const [dark,setDark] = useState(false);
+
+    useEffect(()=>{
+      if(localStorage.getItem("theme") === "dark"){
+          document.documentElement.classList.add("dark");
+          setDark(!dark);
+      }
+    },[])
 
     return (
       <>
@@ -34,7 +43,7 @@ function DetailPage2() {
                         </div>
                         {
                         data.design_story_title &&
-                            <p className='border border-[#EADBC8] bg-[#EADBC8] text-white rounded-[40px] w-[250px] mx-auto mt-[-20px] text-[25px] py-3'>{data.design_story_title}</p>
+                            <p className='border border-none dark:bg-[#404040b3] bg-[#EADBC8] text-white rounded-[40px] w-[250px] mx-auto mt-[-20px] text-[25px] py-3'>{data.design_story_title}</p>
                         }
                         {
                             data.design_story1 &&
@@ -92,7 +101,12 @@ function DetailPage2() {
                             <p className='title2'>사랑하는 존재를 더욱 사랑하도록</p>
                             <p className='title2'>아파하는 존재가 다시 사랑받도록</p>
                         </div>
-                        <img className='mx-auto my-0 pb-[110px]' src="./../Images/logo_s1.png" alt="로고" />
+                        <img className='mx-auto my-0 pb-[110px]' src={
+                            dark ?
+                            "./../Images/Main/logo_dark_small.png"
+                            :
+                            "./../Images/logo_s1.png"
+                        } alt="로고" />
                     </div>
                 </div>
             </div>

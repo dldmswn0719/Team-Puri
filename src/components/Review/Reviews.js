@@ -21,6 +21,7 @@ function Reviews() {
   useEffect(() => {
     AOS.init();
   })
+  
   // const [review , setReview] = useState(Mainlist); 
   //데이터 가져올떄 사용
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,6 +34,24 @@ function Reviews() {
   const [review2, setReview2] = useState(Detaillist);
   const [review, setReview] = useState(Mainlist);
 
+  const [likes, setLikes] = useState(Array(Detaillist.length).fill(1));
+
+  // const toggleLike = (index) =>{
+  //                   const newLikes = [...likes];
+  //                       newLikes[index] = !newLikes[index]
+  //                       setLikes(newLikes);
+  //                   }
+
+
+  const toggleLike = (index) =>{
+    // 1. 원래 값을 복사
+    // 2. 복사한 배열의 원하는 인덱스 번호의 값을 변경
+    // 3. 그 값을 원래 값에 붙여 넣기
+    const newLikes = [...likes];
+    newLikes[index] = !newLikes[index]
+    setLikes(newLikes);
+  }
+
   return (
     <>
       <div className="w-[100%] bg-white mt-[60px] relative">
@@ -42,7 +61,7 @@ function Reviews() {
               {
                 Mainlist.filter(item => item.group <= currentPage).map((e, i) => {
                   return (
-                    <div className="relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-[4px_4px_4px_-4px_rgb(119, 112, 112)] rounded-[20px] max-md:w-full max-lg:w-[32%] max-lg:h-[500px]" key={i} data-aos="zoom-in">
+                    <div className="relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-lg rounded-[20px] max-md:w-full max-lg:w-[32%] max-lg:h-[500px]" key={i} data-aos="zoom-in">
                       <ul className='flex w-[250px] justify-between mx-auto pt-5 max-lg:w-[90%]'>
                         <li><img className='w-[25px] h-[25px]' src="./../images/Review/camera.svg" alt="camera" /></li>
                         <li><p className='text-[16px] title3 mt-[2px]'>PURIPURI STORY</p></li>
@@ -61,12 +80,12 @@ function Reviews() {
                       }} className='w-[310px] h-[220px] max-md:w-full max-lg:w-full' src={e.img} alt="1" />
                       
                       <div className="pl-[10px] pt-[10px] flex relative">
-                        < FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px] hover:brightness-75'  onClick={() => { document.querySelector("html").classList.add("fixed")
-                        setModalOpen1(true);
-                        setOne(i);
-                      }}  />
-                        
-                        
+                        < FontAwesomeIcon icon={faHeart} 
+                        color={likes[i] ? '#FAE5E9' : '#ff5b5b'}
+                         className='w-[18px] h-[18px] hover:brightness-75 cursor-pointer' onClick={() => { document.querySelector("html")
+                         toggleLike(i)}}   />
+                    
+                                            
 
 
 
@@ -76,8 +95,12 @@ function Reviews() {
                       </div>
                       <div className="flex my-[10px]">
                         <div className="sto" ></div>
-                        <FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[15px] h-[15px] ml-5 mt-[3px]' />
-                        <p className='text-[12px] ml-[10px] mt-[1px]' >PURI_PURI 님 외 여러 명이 좋아합니다 </p>
+                        <FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[15px] h-[15px] ml-5 mt-[3px] ' />
+                        <p className='text-[12px] ml-[10px] mt-[1px]' >PURI_PURI 님 외 <span className='font-bold cursor-pointer' 
+                        onClick={() => { document.querySelector("html").classList.add("fixed")
+                        setModalOpen1(true);
+                        setOne(i); 
+                      }}>여러 명</span>이 좋아합니다 </p>
                       </div>
                       <div className="text-[13px] ml-[20px]">
                         <p className='font-bold'>PURI_PURI</p>
