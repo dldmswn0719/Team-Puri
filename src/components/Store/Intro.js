@@ -10,7 +10,7 @@ function Intro() {
     const data = data1[(params.id-1)];
 
     const [totalCnt,setTotalCnt] = useState(0);
-    const [num,setNum] = useState(Object.entries(data.option).filter(e => e[1] !== "").fill(1));
+    const [num,setNum] = useState(Object.entries(data.option).filter(e => e[1] === "").fill(1));
     //옵션 수량증가
     const [selectTxt,setSelectTxt] = useState([]);
     const [isCnt,setIsCnt] = useState(false);
@@ -30,21 +30,26 @@ function Intro() {
 
     const handleDecrease = (i) => {
       const newOption = [...num];
-      if(newOption[i] > 0){
+      if(newOption[i] > 1){
         newOption[i] = newOption[i] - 1;
         setNum(newOption);
 
         setTotalCnt(totalCnt -1);
+      }else if(totalCnt < 2){
+        alert("최소 주문 수량은 1개입니다.")
       }
     }
     // -플러스 버튼 누르면 숫자 감소
 
     const handleDeleteSelectTxt = (i) => {
+      const newOption = [...num];
+      newOption.splice(i,1);
+      setNum(newOption)
+      setTotalCnt(newOption)
+
       const newSelectTxt = [...selectTxt];
       newSelectTxt.splice(i, 1);
       setSelectTxt(newSelectTxt);
-
-      setTotalCnt(totalCnt - 1);
     };
     // X눌렀을때 옵션 각각 삭제
 
@@ -71,6 +76,7 @@ function Intro() {
     const SelectTxtEvent = (e)=>{
       if(!selectTxt.includes(e)){
         setSelectTxt([...selectTxt, e].reverse());
+        setNum([...num]);
         setTotalCnt(totalCnt + 1);
       }
     } 
@@ -79,11 +85,12 @@ function Intro() {
 
     return (
       <>
+      {num}
         <div className="w-full dark:bg-[#272929] pb-[15px]">
           <div className="lg:max-w-[1200px] my-0 mx-auto">
             <div className="pt-[50px] lg:flex items-start">
               <img src={data.imageUrl} alt={data.name} className='lg:w-[650px] w-[570px] mx-auto' />
-              <div className='ml-10 pt-5 md:ml-[12%]'>
+              <div className='lg:ml-10 ml-10 pt-5 md:ml-[12%]'>
                 <p className="text-xl font-medium dark:text-[#ebf4f1]">{data.name}</p>
                 <p className={`text-xl font-medium bg-[#EADBC8] mt-[15px] dark:text-[#ebf4f1] dark:bg-[#404343] ${params.id === "4" || params.id === "5" || params.id === "6" ? 'w-[310px]' : 'w-[358px]'}`}>{data.hash}</p>
                 <p className="font-medium my-[30px] mx-0 text-[35px] text-[#102C57] dark:text-[#ebf4f1]">{(data.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
@@ -130,7 +137,7 @@ function Intro() {
                               data.option.option_value_1 !== '' &&
                               <div className="flex absolute right-0 dark:text-[#ebf4f1]">
                                 <p>{(data.price * Number(num[i])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
-                                <button className='pl-4' onClick={handleDeleteSelectTxt}>X</button>
+                                <button className='pl-4' onClick={()=>{handleDeleteSelectTxt(i)}}>X</button>
                               </div>
                             }
                           </div>
@@ -141,8 +148,18 @@ function Intro() {
                 }
                 <div>
                   <div className="my-[18px] flex justify-between">
-                    <p className='text-[17px] text-[#404040b3] dark:text-[#ebf4f1]'>총 상품 금액({totalCnt}개) </p>
-                    <p className="text-[26px] md:mr-[16%] text-right mr-[11%] font-medium text-[#102C57] dark:text-[#ebf4f1]">{(data.price * Number(totalCnt)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
+                    {
+                      data.option.option_value_1 === "" ?
+                      <>
+                        <p className='text-[17px] text-[#404040b3] dark:text-[#ebf4f1]'>총 상품 금액({totalCnt+1}개) </p>
+                        <p className="text-[26px] md:mr-[16%] text-right mr-[11%] font-medium text-[#102C57] dark:text-[#ebf4f1]">{(data.price * Number(totalCnt+1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
+                      </>
+                        :
+                      <>
+                        <p className='text-[17px] text-[#404040b3] dark:text-[#ebf4f1]'>총 상품 금액({totalCnt}개) </p>
+                        <p className="text-[26px] md:mr-[16%] text-right mr-[11%] font-medium text-[#102C57] dark:text-[#ebf4f1]">{(data.price * Number(totalCnt)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
+                      </>
+                    }
                   </div>
                   <div className="flex flex-wrap w-[550px] mx-auto md:mr-[13%]">
                     <div className="w-[495px] h-[45px] bg-[#DAC0A3] cursor-pointer text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
