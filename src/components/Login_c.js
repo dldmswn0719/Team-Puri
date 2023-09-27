@@ -56,7 +56,7 @@ function Login_c() {
     return (
         <>
             <div className="w-full bg-white dark:bg-[#272929] h-[100vh]">
-                <div className='w-[400px] h-[500px] absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-[30px] dark:bg-[#404343]'>
+                <div className='w-[400px] h-[515px] absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-[30px] dark:bg-[#404343]'>
                     <ul className='text-center'>
                         <li>
                             <img src={
@@ -68,11 +68,11 @@ function Login_c() {
                         </li>    
                         <form onSubmit={LoginForm}>
                             <li>
-                                <p className='text-left text-[18px] font-bold pt-[30px] dark:text-[#ebf4f1]'>이메일</p>
+                                <p className='text-left text-[18px] font-bold pt-[30px] dark:text-[#ebf4f1] pb-2'>이메일</p>
                                 <input type='email' onChange={(e) => setEmail(e.target.value)} required autoFocus className='email w-full h-[50px] border-b border-[#ddd] text-[16px] p-[15px] text-[#bbb] box-border dark:bg-[#272929] dark:focus:outline-none dark:text-[#ebf4f1] dark:border-none'></input>
                             </li>
                             <li>
-                                <p className='text-left text-[18px] font-bold pt-[30px] dark:text-[#ebf4f1]'>비밀번호</p>
+                                <p className='text-left text-[18px] font-bold pt-[30px] dark:text-[#ebf4f1] pb-2'>비밀번호</p>
                                 <input type='password' onChange={(e) => setPassword(e.target.value)} required className='password w-full h-[50px] border-b border-[#ddd] text-[16px] p-[15px] text-[#bbb] box-border dark:bg-[#272929] dark:focus:outline-none dark:text-[#ebf4f1] dark:border-none'></input>
                             </li>
                             <li>
@@ -90,19 +90,20 @@ function Login_c() {
                         <li>
                             <button className='w-full h-[50px] bg-[#162c58] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] mb-[30px] dark:bg-[#404343]'>로그인</button>
                         </li>
-                </ul>
-                <ul className='flex justify-around text-sm text-gray-500'>
-                    <li>
-                        <NavLink to="/findemail">
-                            <p className='dark:text-[#ebf4f1]'>이메일 / 비밀번호 재설정</p>
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/member">
-                            <p className='dark:text-[#ebf4f1]'>회원가입</p>
-                        </NavLink>
-                    </li>
-                </ul>
+                    </ul>
+                    <ul className='flex justify-around text-sm text-gray-500'>
+                        <li>
+                            <NavLink to="/findemail">
+                                <p className='dark:text-[#ebf4f1]'>이메일 / 비밀번호 재설정</p>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/member">
+                                <p className='dark:text-[#ebf4f1]'>회원가입</p>
+                            </NavLink>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </>
     )
