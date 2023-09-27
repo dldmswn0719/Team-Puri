@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { collection, query, where, getDocs, getFirestore, Firestore } from 'firebase/firestore';
 import { firebaseAuth, sendPasswordResetEmail } from '../firebase';
-import styled from 'styled-components';
-import Modal from '../components/Modal';
+import Nav from './../components/Nav'
+import { useSelector } from 'react-redux';
 
 function Findemail() {
     
@@ -11,7 +11,7 @@ function Findemail() {
     const [message,setMessage] = useState("");
     const [resultEmail,setResultEmail] = useState("");
     const [isModalOpen,setModalOpen] = useState(false);
-
+    const theme = useSelector(state => state.dark)
     const PhoneNumber = (e) =>{
         let value = e.target.value;
         e.target.value = e.target.value.replace(/[^0-9]/g, '').replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/-{1,2}$/g, "");
@@ -78,42 +78,51 @@ function Findemail() {
     const passwordEdit = () =>{
         sendPasswordResetEmail(firebaseAuth,resultEmail)
         .then(function(){
-            setMessage(`귀하의 ${resultEmail.replace(/(.{3}).+(@.+)/,"$1*****$2")}로 메일을 발송하였습니다.`);
-            setModalOpen(!isModalOpen);
+            setMessage(`${resultEmail.replace(/(.{3}).+(@.+)/,"$1*****$2")}로 메일을 발송하였습니다.`);
+            // setModalOpen(!isModalOpen);
             return;
         })
         .catch(error=>{
             setMessage(error);
-            setModalOpen(!isModalOpen);
+            // setModalOpen(!isModalOpen);
             return;
         })
       }
     
     return (
         <>
-        <div className='flex bg-[#f5f5f5] justify-center h-full items-center'>
-            <div className='w-[35vw] p-5 bg-white rounded-xl'>
-                <p className='text-2xl text-center mb-5'>이메일 및 비밀번호 재설정</p>
+        <Nav />
+        <div className="w-full bg-white dark:bg-[#272929] h-[100vh]">
+            <div className='w-[400px] h-[515px] absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-[30px] dark:bg-[#404343]'>
+                <img src={
+                        theme === 'light' ? 
+                        "./../Images/logo_s1.png"
+                        :
+                        "./../Images/Main/logo_dark_small.png"
+                    } alt='logo' className='w-[200px] h-[65px] mx-auto' />
                 <div className='relative mb-5'>
-                    <input className='w-full p-[10px] mb-[10px] border border-[#ddd] rounded-md box-border pl-[45px]' type="text" placeholder='이름을 입력해주세요.' value={name} onChange={(e)=>{setName(e.target.value)}} />
+                    <p className='text-left text-[18px] font-bold pt-[30px] dark:text-[#ebf4f1] pb-2'>이름</p>
+                    <input className='w-full p-[10px] mb-[10px] border-b border-[#ddd] rounded-md box-border pl-[45px] dark:text-[#ebf4f1] dark:bg-[#272929] dark:border-none dark:focus:outline-none' type="text" value={name} onChange={(e)=>{setName(e.target.value)}} />
                 </div>
-                <div className='relative mb-5'>
-                    <input className='w-full p-[10px] mb-[10px] border border-[#ddd] rounded-md box-border pl-[45px]' type="text" placeholder='전화번호를 입력해주세요.' value={phoneNumber} onChange={(e)=>{setPhoneNumber(e.target.value)}} onInput={PhoneNumber} maxLength={13} />
+                <div className='relative mb-3'>
+                <p className='text-left text-[18px] font-bold dark:text-[#ebf4f1] pb-2'>전화번호</p>
+                    <input className='w-full p-[10px] mb-[10px] border-b border-[#ddd] rounded-md box-border pl-[45px] dark:text-[#ebf4f1] dark:bg-[#272929] dark:border-none dark:focus:outline-none' type="text" value={phoneNumber} onChange={(e)=>{setPhoneNumber(e.target.value)}} onInput={PhoneNumber} maxLength={13} />
                 </div>
-                <div className='relative mb-5'>
-                    <button onClick={findID}>이메일 찾기</button>
+                <p className='text-[15px] text-red-500 dark:text-[#ebf4f1]'>{message}</p>
+                <div className='relative mb-3'>
+                    <button className='w-full h-[50px] bg-[#162c58] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] dark:bg-[#272929]' onClick={findID}>
+                        <p className='dark:text-[#ebf4f1]'>이메일 찾기</p>
+                    </button>
                 </div>
                 <div className='relative mb-5'>
                     {resultEmail && 
-                        <button onClick={passwordEdit}>패스워드 재설정 </button>
-
+                        <button className="w-full h-[50px] bg-[#162c58] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mb-[30px] dark:bg-[#272929]" onClick={passwordEdit}>
+                            <p className='dark:text-[#ebf4f1]'> 패스워드 재설정</p>
+                        </button>
                     }
                 </div>
             </div>
         </div>
-        {
-            isModalOpen && <Modal error={message} onClose={()=>{setModalOpen(!isModalOpen)}} />
-        }
     </>
     )
 }
