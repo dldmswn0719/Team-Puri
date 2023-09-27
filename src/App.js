@@ -20,9 +20,9 @@ import store, { logIn, loggedIn } from "./store";
 import { useEffect } from "react";
 import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
 import Logout from "./components/Logout";
-import Modify from "./components/Modify";
 import Findemail from "./pages/Findemail";
-
+import Modify from "./pages/Modify";
+import Notpage from "./pages/Notpage";
 
 
 function App() {
@@ -43,8 +43,11 @@ function Inner() {
   // console.log(uid);
 
   useEffect(() => {
-    dispatch(logIn(uid));
-    const fetchUser = async() => {
+    if (uid) {
+      dispatch(logIn(uid));
+    }
+
+    const fetchUser = async () => {
         if (!uid) return;
 
         const userDoc = doc(collection(getFirestore(), "users"), uid);
@@ -88,6 +91,7 @@ function Inner() {
       <Route path="/member" element={<Member />}></Route>
       <Route path="/modify" element={<Member />}></Route>
       <Route path="/findemail" element={<Findemail />}></Route>
+      <Route path="/*" element={<Notpage />}></Route>
     </Routes>
    </>
   );

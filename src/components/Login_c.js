@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { firebaseAuth, signInWithEmailAndPassword } from '../firebase';
 import { collection, doc, getDoc, getFirestore } from 'firebase/firestore';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logIn , loggedIn } from '../store';
 
 function Login_c() {
@@ -10,7 +10,7 @@ function Login_c() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [error, setError] = useState();
-
+    const userState = useSelector(state => state.user);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -24,7 +24,7 @@ function Login_c() {
         return firebaseError[errorCode] || '알 수 없는 에러가 발생했습니다.'
     }
 
-    const LoginForm = async(e) => {
+    const LoginForm = async (e) => {
         e.preventDefault();
         try {
             const userLogin = await signInWithEmailAndPassword(firebaseAuth, email, password);
@@ -32,6 +32,8 @@ function Login_c() {
 
             const user = userLogin.user;
             // console.log(user);
+            alert("로그인 되었습니다.")
+
             sessionStorage.setItem("users", user.uid);
             dispatch(logIn(user.uid));
 
@@ -39,7 +41,7 @@ function Login_c() {
             
             const userDocSnapshot = await getDoc(userDoc);
 
-            if (userDocSnapshot.exists()) {
+            if(userDocSnapshot.exists()) {
                 const userData = userDocSnapshot.data();
                 dispatch(loggedIn(userData));
                 navigate('/');
@@ -47,7 +49,7 @@ function Login_c() {
 
         } catch(error) {
             setError(errorMsg(error.code));
-            console.log(error.code);
+            // console.log(error.code);
         }
     }
 
@@ -61,17 +63,17 @@ function Login_c() {
                     <form onSubmit={LoginForm}>
                         <li>
                             <p className='text-left text-[18px] font-bold pt-[30px] dark:text-[#ebf4f1]'>이메일</p>
-                            <input type='email' onChange={(e) => setEmail(e.target.value)} required autoFocus className='email w-full h-[50px] border-b border-[#ddd] text-[16px] p-[15px] text-[#bbb] box-border dark:bg-[#404343] dark:text-[#ebf4f1] dark:border-none'></input>
+                            <input type='email' onChange={(e) => {setEmail(e.target.value)}} required autoFocus className='email w-full h-[50px] border-b border-[#ddd] text-[16px] p-[15px] text-[#bbb] box-border dark:bg-[#404343] dark:text-[#ebf4f1] dark:border-none'></input>
                         </li>
                         <li>
                             <p className='text-left text-[18px] font-bold pt-[30px] dark:text-[#ebf4f1]'>비밀번호</p>
-                            <input type='password' onChange={(e) => setPassword(e.target.value)} required className='password w-full h-[50px] border-b border-[#ddd] text-[16px] p-[15px] text-[#bbb] box-border dark:bg-[#404343] dark:text-[#ebf4f1] dark:border-none'></input>
+                            <input type='password' onChange={(e) => {setPassword(e.target.value)}} required className='password w-full h-[50px] border-b border-[#ddd] text-[16px] p-[15px] text-[#bbb] box-border dark:bg-[#404343] dark:text-[#ebf4f1] dark:border-none'></input>
                         </li>
                         <li>
                             <p className='pt-4 text-red-500 text-sm text-left'>{error}</p>
                         </li>
                         <li>
-                            <button className='w-full h-[50px] bg-[#162c58] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] mb-[30px] dark:bg-[#404343]' onClick={LoginForm}>로그인</button>
+                            <button className='w-full h-[50px] bg-[#162c58] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] mb-[30px] dark:bg-[#404343]'>로그인</button>
                         </li>
                     </form>
                 </ul>

@@ -1,4 +1,5 @@
 import React from 'react'
+import Member_c from './Member_c'
 
 function Mypage_c() {
     return (
@@ -31,7 +32,7 @@ function Mypage_c() {
                                     <img src="https://via.placeholder.com/150" alt="150" className='rounded-full mr-[50px]' />
                                 </li>
                                 <li>
-                                    <p className='text-4xl text-white font-bold pb-[7px]'>dkdlel123님
+                                    <p className='text-4xl text-white font-bold pb-[7px]'>님
                                         <button className='block w-[120px] h-[50px] bg-white rounded-[15px] text-[20px] text-black mt-[7px] cursor-pointer font-normal dark:bg-[#272929] dark:text-[#ebf4f1]'>프로필 관리</button>
                                     </p>
                                 </li>
