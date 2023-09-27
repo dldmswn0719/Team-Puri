@@ -91,7 +91,7 @@ function DetailInformation() {
               </div>
               <div className="">
                 <p className='text-xl font-bold mt-10 mb-2'>구조 정보</p>
-                <p className=' w-[400px] border-b-2  border-[#DAC0A3] '></p>
+                <p className=' w-[400px] border-b-2  border-[#DAC0A3]  dark:border-[#dadbdb] '></p>
                 <div className="mt-3">
                   <p className='text-xl mt-1'>공고번호 : {noticeNo}</p>
                   <p className='text-xl mt-1'>발견장소 : {happenPlace}</p>
@@ -99,13 +99,12 @@ function DetailInformation() {
                   <p className='text-xl mt-1'>보호센터Tel : {careTel}</p>
                   <p className='text-xl mt-1'>담당부서 : {orgNm}</p>
                   <p className='text-xl mt-1'>담당부서Tel : {officetel}</p>
+                </div>
         <Button 
-        
         title className='text-xl mt-1  dark:text-[#ebf4f1]'><p>보호센터Tel : {careTel}</p></Button>
         <Button title className='text-xl mt-1  dark:text-[#ebf4f1]'><p>담당부서Tel : {officetel}</p></Button>
 
         <p className='text-xl  mt-11 dark:text-[#ebf4f1]'>보호소 위치</p>
-                </div>
               </div>
             </div>
           </div>
