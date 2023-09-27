@@ -10,31 +10,8 @@ import { logOut, toggleTheme } from '../store';
 
 function Nav() {
     
-    // const [dark,setDark] = useState(false);
     const theme = useSelector(state => state.dark)
     const dispatch = useDispatch()
-
-
-    
-
-    // const toggleDarkMode = () =>{
-    //     if(localStorage.getItem("theme") === "dark"){
-    //         localStorage.removeItem("theme");
-    //         document.documentElement.classList.remove("dark")
-    //     }else{
-    //         document.documentElement.classList.add("dark");
-    //         localStorage.setItem("theme","dark");
-    //     }
-    //     setDark(!dark);
-    // }
-    // console.log(dark)
-
-    // useEffect(()=>{
-    //     if(localStorage.getItem("theme") === "dark"){
-    //         document.documentElement.classList.add("dark");
-    //         setDark(!dark);
-    //     }
-    // },[])
 
     //아직 다국어 설정못함
     const [lang,setLang] = useState("kr")
