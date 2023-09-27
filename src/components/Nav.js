@@ -107,20 +107,26 @@ function Nav() {
                         <ul className='flex justify-between'>
                             <li className='dark:text-[#ebf4f1]'>
                                 <NavLink to={userState.data?.email ? "/logout" : "/login"}>
-                                    <FontAwesomeIcon icon={faLock} />{userState.data?.email ? ' 로그아웃' : ' 로그인'}
+                                    <FontAwesomeIcon icon={faLock} className='dark:text-[#ebf4f1]' />{userState.data?.email ? 
+                                    <p className='dark:text-[#ebf4f1]'>로그아웃</p>
+                                    :
+                                    <p className='dark:text-[#ebf4f1]'>로그인</p>
+                                    }
                                 </NavLink>
                             </li>
                             {
                                 userState.data?.email ?
                                 <li className='px-5 dark:text-[#ebf4f1]'>
                                     <NavLink to="/modify">
-                                        <FontAwesomeIcon icon={faUserPen} /> 정보수정
+                                        <FontAwesomeIcon icon={faUserPen} className='dark:text-[#ebf4f1]' />
+                                        <p className='dark:text-[#ebf4f1]'>정보수정</p>
                                     </NavLink>
                                 </li>
                                 :
                                 <li className='px-5 dark:text-[#ebf4f1]'>
                                     <NavLink to="/member">
-                                        <FontAwesomeIcon icon={faUser} /> 회원가입
+                                        <FontAwesomeIcon icon={faUser} className='dark:text-[#ebf4f1]' />
+                                        <p className='dark:text-[#ebf4f1]'>회원가입</p>
                                     </NavLink>
                                 </li>
                             }
