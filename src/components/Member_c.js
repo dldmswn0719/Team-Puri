@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, firebaseAuth } from './../firebase';
-import { doc, setDoc, getFirestore, getDoc } from 'firebase/firestore';
+import { doc, setDoc, getFirestore, getDoc, updateDoc } from 'firebase/firestore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { logIn, loggedIn } from '../store';
+import { logIn } from '../store';
 import Modal from './Modal';
+import Modify from '../pages/Modify';
 
 function Member_c() {
 
@@ -17,42 +18,45 @@ function Member_c() {
     const [passwordConfirm, setPasswordConfirm] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [error, setError] = useState("");
-
     const [eye, setEye] = useState([0, 0]);
-
+    const [isModal, setIsModal] = useState(false);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const initialMode = window.location.pathname.includes("member"); 
+    // alert(initialMode)
+    const [userUid, setUserUid] = useState("");
 
     function imgChange() {
         document.querySelector(".real-upload").click();
     }
 
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-
-    const [userUid, setUserUid] = useState("");
-    const initialMode = window.location.pathname.includes("member"); 
     useEffect(() => {
-        if (!initialMode) {
-            firebaseAuth.onAuthStateChanged((user) => { // 인증을 초기화해서 다시 가져온다
-                if (user) { // 만약 user가 있다면
-                    setUserUid(user.uid); // setUserUid에 user의 uid를 저장한다
+        if (!initialMode){
+            firebaseAuth.onAuthStateChanged((user) => {
+                if(user){
+                    setUserUid(user.uid);
                 }
             });
         }
     }, [initialMode]);
 
     useEffect(() => {
-        if (!initialMode && userUid) { // 만약 initialMode가 없고, userUid는 있다면
-            const fetchUserData = async() => {
+        if (!initialMode && userUid) {
+            const fetchUserData = async () => {
                 const userRef = doc(getFirestore(), "users", userUid);
                 const userSnap = await getDoc(userRef);
                 if (userSnap.exists()) {
                     const data = userSnap.data();
+                    setEmail(data.email);
                     setName(data.name);
                     setPhoneNumber(data.phoneNumber);
-                    setEmail(data.email);
                 }
             }
             fetchUserData();
+        }   else{
+            setError("로그인이 필요한 페이지입니다.")
+            setIsModal(!isModal)
+            return;
         }
     }, [initialMode, userUid]);
 
@@ -70,6 +74,18 @@ function Member_c() {
         setPhoneNumber(value);
     }
 
+    const errorMsg = (errorCode) =>{
+        const firebaseError = {
+            "auth/admin-restriced-operation" : "빈칸이 있습니다.",
+            "auth/email-already-in-use" : "이미 사용중인 이메일입니다.",
+            "invalid-argument" : "빈칸이 있습니다.",
+            "auth/invlid-email" : "유효하지 않은 이메일 주소입니다",
+            "auth/operation-not-allowed" : "이메일/비밀번호 계정이 비활성화 되어 있습니다",
+            "auth/weak-password" : "비밀번호 6자리이상 설정해주세요."
+        }
+        return firebaseError[errorCode] || "알 수 없는 에러가 발생하였습니다."
+    }
+
     const isValidPhone = (phoneNumber) =>{
         const regex = /^01[0-9]-[0-9]{3,4}-[0-9]{4}$/;
         return regex.test(phoneNumber)
@@ -80,7 +96,7 @@ function Member_c() {
         return regex.test(email);
     }
 
-    const signUp = async(e) => {
+    const signUp = async (e) => {
         e.preventDefault();
 
         let errorMessage = "";
@@ -93,11 +109,11 @@ function Member_c() {
         } else if (!isValidEmail(email)) {
             setError("유효한 이메일 주소를 입력해주세요.");
             return;
-        } else if (password.length === 0) {
+        } else if (password.length === 0 && initialMode) {
             errorMessage = "비밀번호";
-        } else if (passwordConfirm.length === 0) {
+        } else if (passwordConfirm.length === 0 && initialMode) {
             errorMessage = "비밀번호 확인";
-        } else if (password !== passwordConfirm) {
+        } else if (password !== passwordConfirm && initialMode) {
             setError("비밀번호가 일치하지 않습니다.");
             return;
         }
@@ -106,33 +122,29 @@ function Member_c() {
             setError(errorMessage + "이(가) 비어있습니다.");
             return;
         }
-
-        const errorMsg = (errorCode) =>{
-            const firebaseError = {
-                "auth/admin-restriced-operation" : "빈칸이 있습니다.",
-                "auth/email-already-in-use" : "이미 사용중인 이메일입니다.",
-                "invalid-argument" : "빈칸이 있습니다.",
-                "auth/invlid-email" : "유효하지 않은 이메일 주소입니다",
-                "auth/operation-not-allowed" : "이메일/비밀번호 계정이 비활성화 되어 있습니다",
-                "auth/weak-password" : "비밀번호 6자리이상 설정해주세요."
-            }
-            return firebaseError[errorCode] || "알 수 없는 에러가 발생하였습니다."
-        }
-
+    
         try {
-            const {user} = await createUserWithEmailAndPassword(firebaseAuth, email, password);
-
             const userProfile = {
                 name,
                 phoneNumber,
                 email
             }
 
-            await setDoc(doc(getFirestore(), "users", user.uid), userProfile);
-            sessionStorage.setItem("users", user.uid);
-            dispatch(logIn(user.uid));
+            if(initialMode){
+                const {user} = await createUserWithEmailAndPassword(firebaseAuth, email, password);
 
-            alert("회원가입이 완료되었습니다.");
+                await setDoc(doc(getFirestore(), "users", user.uid), userProfile);
+                sessionStorage.setItem("users", user.uid);
+                dispatch(logIn(user.uid));
+    
+                alert("회원가입이 완료되었습니다.");
+            }else{
+                if (userUid) { 
+                    const userRef = doc(getFirestore(), "users", userUid);
+                    await updateDoc(userRef, userProfile);
+                    alert("정보수정이 완료되었습니다.");
+                }
+            }
             navigate('/');
 
         } catch(error) {
@@ -148,6 +160,12 @@ function Member_c() {
     return (
         <>
         {
+            initialMode ? 
+            ""
+            :
+            <Modify />
+        }
+        {
             userState.loggedIn && initialMode ? <Modal error="이미 로그인 중입니다." onClose={() => {navigate('/')}} /> :
             <div className='w-[400px] h-[600px] text-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white dark:bg-[#272929]'>
                 <h1 className='pt-[30px] pb-[20px] text-[24px] font-bold dark:text-[#ebf4f1]'>{initialMode ? "회원가입" : "정보수정"}</h1>
@@ -157,7 +175,7 @@ function Member_c() {
                         <input type="file" class="real-upload hidden" accept="image/*" required multiple />
                     </li>
                     <li>
-                        <input onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder='이메일' autoFocus className='email w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#404343] dark:text-[#ebf4f1] dark:border-none' />
+                        <input defaultValue={email} onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder='이메일' autoFocus className='email w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#404343] dark:text-[#ebf4f1] dark:border-none' />
                     </li>
                     {
                          initialMode &&
@@ -177,14 +195,13 @@ function Member_c() {
                         </>
                     }
                     <li>
-                        <input value={name} onChange={(e) => {setName(e.target.value)}} type="text" placeholder='이름' className='name w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#404343] dark:text-[#ebf4f1] dark:border-none' />
+                        <input defaultValue={name} onChange={(e) => {setName(e.target.value)}} type="text" placeholder='이름' className='name w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#404343] dark:text-[#ebf4f1] dark:border-none' />
                     </li>
                     <li>
-                        <input onInput={PhoneNumber} type="tel" maxLength={13} placeholder='휴대폰 번호' className='phone w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#404343] dark:text-[#ebf4f1] dark:border-none' />
+                        <input defaultValue={phoneNumber} onInput={PhoneNumber} type="text" maxLength={13} placeholder='휴대폰 번호' className='phone w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#404343] dark:text-[#ebf4f1] dark:border-none' />
                     </li>
                     <li>
                         <button className='w-[360px] h-[60px] bg-[#162c58] text-white text-[18px] rounded-[10px] mt-[10px] cursor-pointer dark:bg-[#404343]' onClick={signUp}>{initialMode ? "가입" : "수정"}</button>
-                        <p>{error}</p>
                     </li>
                 </ul>
             </div>
