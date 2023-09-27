@@ -69,6 +69,18 @@ function Inner() {
     fetchUser();
 }, [dispatch, uid]); 
 
+const theme = useSelector(state => state.dark)
+console.log(theme)
+if(theme === "light"){
+          localStorage.removeItem("theme");
+          document.documentElement.classList.remove("dark")
+      }else{
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("theme","dark");
+      }
+
+
+
   return (
    <>
     <Routes>
