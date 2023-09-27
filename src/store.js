@@ -24,10 +24,20 @@ let user = createSlice({
     }
 });
 
+let dark = createSlice({
+    name : "dark",
+    initialState : "light" ,
+    reducers : {
+        toggleTheme : (state) => state === "light" ? "dark" : "light"
+    }
+})
+
 export const {logIn, logOut, loggedIn} = user.actions;
+export const {toggleTheme} = dark.actions;
 
 export default configureStore({
     reducer : {
-        user : user.reducer
+        user : user.reducer,
+        dark : dark.reducer
     }
 });

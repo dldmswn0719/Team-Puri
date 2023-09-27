@@ -85,7 +85,6 @@ function Intro() {
 
     return (
       <>
-      {num}
         <div className="w-full dark:bg-[#272929] pb-[15px]">
           <div className="lg:max-w-[1200px] my-0 mx-auto">
             <div className="pt-[50px] lg:flex items-start">
