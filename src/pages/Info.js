@@ -5,7 +5,7 @@ import Nav from '../components/Nav'
 function Info() {
   return (
     <>
-      {/* <Nav /> */}
+      <Nav />
       <ImgFilter/>
     </>
   );

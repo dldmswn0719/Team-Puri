@@ -1,10 +1,9 @@
-
 import React, { useCallback, useEffect, useState } from 'react'
-import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
+import { faAnglesLeft, faAnglesRight, faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 import Loading from './Loading'
-import ScrollToTop from './ScrollToTop'
+
 
 
 
@@ -44,7 +43,7 @@ function ImgFilter() {
 
     useEffect(() => {
 
-        fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/sido?numOfRows=100&pageNo=1&serviceKey=${process.env.REACT_APP_apiKey}&_type=json`).then((res) => {
+        fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/sido?numOfRows=100&pageNo=1&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json`).then((res) => {
             return res.json()
         }).then((data) => { setCity(data.response.body.items.item) });
 
@@ -55,9 +54,10 @@ function ImgFilter() {
 
     useEffect(() => {
 
-        fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/kind?up_kind_cd=${Array[kindCode]}&serviceKey=${process.env.REACT_APP_apiKey}&_type=json`).then((res) => {
+        fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/kind?up_kind_cd=${Array[kindCode]}&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json`).then((res) => {
             return res.json()
         }).then((data) => {
+        
             setAnimal(data && data.response.body?.items.item)
         });
     }, [kindCode])
@@ -65,8 +65,8 @@ function ImgFilter() {
     const [loading, setLoading] = useState(false);
 
     const ResultData = useCallback(() => {
-        console.log(`콜백 : https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_apiKey}&_type=json&upkind=${Array[kindCode]}`)
-        fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_apiKey}&_type=json&upkind=${Array[kindCode]}`).
+        console.log(`콜백 : https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json&upkind=${Array[kindCode]}`)
+        fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json&upkind=${Array[kindCode]}`).
             then((res) => {
                 return res.json()
 
@@ -81,8 +81,9 @@ function ImgFilter() {
     }, [cityCode, animalCode, Array[kindCode], page])
 
     useEffect(() => {
+        setLoading(true);
         ResultData()
-        console.log(`스테이트 : https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_apiKey}&_type=json&upkind=${Array[kindCode]}`)
+        console.log(`스테이트 : https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json&upkind=${Array[kindCode]}`)
     }, [page])
     // cityCode,Array[kindCode],animalCode
 
@@ -127,49 +128,50 @@ function ImgFilter() {
             setPage(startPage + pagination)   
         }
     }
-
+    
+    // 
     const PageList = [];
 
     for (let i = startPage; i <= endPage; i++) {
         PageList.push(
-            <li key={i} className={(page === i ? ' rounded-full cursor-pointer w-[50px] h-[50px]  leading-10 text-cente relative block py-1.5 px-1.5 mx-3 border-1 border-[#DAC0A3] text-white bg-[#dac0a3] ' : ' rounded-full cursor-pointer w-[50px] h-[50px]  leading-10 text-cente relative block py-1.5 px-1.5 mx-3 border-1 border-[#DAC0A3] text-black shadow-sm ')} onClick={() => {setLoading(true); setPage(i); }}>{i}
+            <li key={i} className={(page === i ? 'max-w-[1200px] rounded-full cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] leading-10 text-cente relative block py-1 px-1.5 mx-3 border-1 border-[#DAC0A3] dark:border-1 dark:border-[#dadbdb]  text-white bg-[#dac0a3] dark:bg-[#404343]' : 'max-w-[1200px] rounded-full cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] leading-10 text-cente relative block py-1 px-1.5 mx-3 border-1 border-[#DAC0A3] text-black shadow-sm dark:text-[#ebf4f1]')} onClick={() => {setLoading(true); setPage(i); }}>{i}
             </li>
         )
     }
   return (
     <>
-      <ScrollToTop>
+ 
     {
         loading && <Loading />
     }
-    <div className='w-full'>
+    <div className='w-full bg-white dark:bg-[#272929]'>
         <div className="max-w-[1200px] mx-auto">
             {/* <p>도시 : {cityCode}</p>
             <p>축종 : {Array[kindCode]}</p>
             <p>품종 : {selectedAnimal}</p>
             <p>페이지 : {page}</p> */}
             {/* <p>https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_apiKey}&_type=json&upkind=${Array[kindCode]}</p> */}
-            <div className="max-w-full my-10 border-b-2 border-[#102C57]">
-                <div className="max-w-full h-full flex justify-between text-left ">
-                    <div className="">
-                        <p className='font-bold text-[#999]'>지역</p>
-                        <select onChange={selectedData} className='text-xl font-bold cityData'>
+            <div className="max-w-full border-b-2 border-[#EADBC8] dark:border-[#dadbdb] py-5">
+                <div className="max-w-full h-full flex flex-col md:flex-row justify-between text-left my-2">
+                    <div className="w-full">
+                        <p className='font-bold text-[#999] dark:text-[#ebf4f1]'>지역</p>
+                        <select onChange={selectedData} className='text-xl font-bold dark:bg-[#404343] dark:text-[#ebf4f1] cityData'>
                             <option value="">모든 지역</option>
                             {city.map((el, index) => <option key={index} value={el.orgCd}>{el.orgdownNm}</option>)}
                         </select>
                     </div>
                     {/* 동물 축종 */}
-                    <div className="">
-                        <p className='font-bold text-[#999]'>축종</p>
-                        <select className='text-xl  font-bold  kindData' onChange={selectedData}>
+                    <div className="w-full">
+                        <p className='font-bold text-[#999] dark:text-[#ebf4f1]'>축종</p>
+                        <select className='text-xl font-bold dark:bg-[#404343] dark:text-[#ebf4f1] kindData' onChange={selectedData}>
                             {kind.map((el, index) => <option key={index} value={index}>{el}</option>)}
                         </select>
                     </div>
 
                     {/* 동물 품종 */}
-                    <div className="">
-                        <p className='font-bold text-[#999]'>품종</p>
-                        <select className='text-xl font-bold w-[310px] animalData' onChange={selectedData}>
+                    <div className="w-full ">
+                        <p className='font-bold text-[#999] dark:text-[#ebf4f1]'>품종</p>
+                        <select className='text-xl font-bold w-full md:w-[310px] dark:bg-[#404343] dark:text-[#ebf4f1] animalData'  onChange={selectedData}>
                             {kindCode !== "3" && <option value="">모든 품종</option>}
                             {
                                 animal && animal.map((e, i) => {
@@ -181,8 +183,8 @@ function ImgFilter() {
                         </select>
                     </div>
 
-                    <div className="flex items-center">
-                        <button className="font-bold w-48 h-12  border-2 border-[#102C57] rounded-[20px]"
+                    <div className="w-full flex  items-center justify-end max-lg:justify-center font-bold">
+                        <button className="font-bold w-48 lg:w-48 max-lg:w-full h-12 border-2 bg-[#DAC0A3] border-[#DAC0A3] dark:bg-[#272929]  dark:text-[#ebf4f1]  dark:border-[#dadbdb] rounded-[20px]"
                             onClick={() => {
                                 setLoading(true);
                                 ResultData();
@@ -192,53 +194,49 @@ function ImgFilter() {
             </div>
 
 
-            <div className="flex text-[15px] gap-y-4 flex-wrap justify-start gap-x-3 ">
+            <div className="flex text-[15px] gap-y-4 flex-wrap justify-start gap-x-3  max-md:justify-center max-lg:justify-center pt-8 ">
                 {
                     data === undefined ? <div className='w-full text-center'><p className='text-[32px] text-[#999] font-bold'>검색결과가 없습니다.</p></div> :
                         data && data.map((e, i) => {
                             return (
-                                <div className="relative box-border border border-[#f1f1ef] flex-wrap basis-[32.5%] shadow-[4px_4px_4px_-4px_rgb(119, 112, 112)] rounded-[20px]  max-md:w-full max-lg:w-[32%] max-lg:h-[500px]" key={i}>
+                                <div className="relative box-border border border-[#f1f1ef] flex-wrap basis-[32.5%] shadow-[4px_4px_4px_-4px_rgb(119, 112, 112)] rounded-[20px] " key={i}>
                                     <Link to={`/infodetail/${e.desertionNo}`} state={{ e: e }}>
-                                        <div className='font-bold px-3 py-3 flex items-center justify-between'>
-
-                                            <p><FontAwesomeIcon icon={e.sexCd === 'M' ? faMars : e.sexCd === 'F' ? faVenus : ""} className='w-[18px] h-[18px] pr-1 align-text-bottom' />{e.sexCd === 'M' ? "남" : e.sexCd === 'F' ? "여" : "미상"} </p>
+                                        <div className='font-bold px-3 py-3 flex items-center justify-between max-md:w-[350px] max-lg:w-[300px] dark:bg-[#404343] rounded-t-[20px] dark:text-[#ebf4f1] '>
+                                            <p><FontAwesomeIcon icon={e.sexCd === 'M' ? faMars : e.sexCd === 'F' ? faVenus : ""} className='w-[18px] h-[18px] pr-1 align-text-bottom dark:text-[#ebf4f1] ' />{e.sexCd === 'M' ? "남" : e.sexCd === 'F' ? "여" : "미상"} </p>
                                         </div>
-                                        <div className="h-[350px] max-md:w-full max-lg:w-full  flex ">
+                                        <div className="h-[350px]  flex ">
                                             <img src={e.popfile} alt="img" className='w-full' />
                                         </div>
 
                                     </Link>
-                                    <div className="pl-[10px] py-[10px]">
-                                        <p className='font-bold text-[14px]'><span className='text-[#999]'>품종 :</span> {e.kindCd}</p>
-                                        <p className='font-bold text-[14px]'><span className='text-[#999]'>나이 :</span> {e.age} 추정</p>
-                                        <p className='font-bold text-[14px]'><span className='text-[#999]'>지역 :</span> {e.orgNm}</p>
+                                    <div className="pl-[10px] py-[10px] dark:text-[#ebf4f1] dark:bg-[#404343] dark:rounded-b-[20px]">
+                                        <p className='font-bold text-[14px]'><span className='text-[#999]dark:text-[#ebf4f1]'>품종 :</span> {e.kindCd}</p>
+                                        <p className='font-bold text-[14px]'><span className='text-[#999] dark:text-[#ebf4f1]'>나이 :</span> {e.age} 추정</p>
+                                        <p className='font-bold text-[14px]'><span className='text-[#999] dark:text-[#ebf4f1]'>지역 :</span> {e.orgNm}</p>
                                     </div>
                                 </div>
                             )
                         })
                 }
             </div>
-            {/* 페이지 네비 */}
-            {/* 페이지 네비 */}
-            <div className="max-w-[1200px] my-0 mx-auto justify-center">
-                <div className="mx-auto my-8 text-center ">
 
-                    <ul className='flex justify-center items-center list-style-none '>
+            <div className="max-w-[1200px] mx-auto justify-center">
+                <div className="max-w-[1200px] mx-auto py-8 text-center overflow-x-hidden">
 
+                    { data !== undefined ?<ul className='flex justify-center items-center list-style-none'>
                         <li
-                            className='cursor-pointer w-[50px] h-[50px] rounded-full leading-10 text-cente relative block py-1.5 px-1.5 border-1 border-[#DAC0A3] mx-5
-   text-black shadow-sm' onClick={PrevBlock}>이전</li>
+                            className='cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] rounded-full leading-10 text-cente relative block py-1 px-1.5 border-1 border-[#DAC0A3]
+   text-black shadow-sm dark:text-[#ebf4f1]' onClick={PrevBlock}><FontAwesomeIcon icon={faAnglesLeft} /></li>
                         {PageList}
                         <li
-                            className='cursor-pointer w-[50px] h-[50px] rounded-full leading-10 text-cente relative block py-1.5 px-1.5 mx-5 border-1 border-[#DAC0A3]
- text-black shadow-sm focus:shadow-sm' onClick={NextBlock}>다음</li>
-                    </ul>
+                            className='cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] rounded-full leading-10 text-cente relative block py-1 px-1.5 border-1 border-[#DAC0A3]
+ text-black shadow-sm focus:shadow-sm dark:text-[#ebf4f1]' onClick={NextBlock}><FontAwesomeIcon icon={faAnglesRight} /></li>
+                    </ul> : ""  }
+                    
                 </div>
             </div>
         </div>
-
     </div>
-    </ScrollToTop>
 </>
   )
 }
