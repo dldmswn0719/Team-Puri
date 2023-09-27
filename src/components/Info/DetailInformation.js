@@ -1,5 +1,7 @@
+import { Button } from 'antd';
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+
 
 
 function DetailInformation() {
@@ -67,16 +69,17 @@ function DetailInformation() {
 
   return (
     <>
-      <div className=" max-w-[1200px] my-10 mx-auto ">
+    <div className="max-w-full dark:bg-[#272929]">
+      <div className=" max-w-[1200px]  py-10 mx-auto ">
         <div className="flex flex-wrap justify-center">
           <div className="">
             <img className='w-[400px] h-[400px]' src={popfile} alt="img" />
           </div>
           <div className="w-full flex flex-wrap items-center justify-center mt-3">
-            <div className="">
+            <div className="dark:text-[#ebf4f1]">
               <div className="mt-9 w-[400px]">
                 <p className='text-xl font-bold mb-2'>{kindCd}</p>
-                <p className=' w-[400px] border-b-2 border-[#DAC0A3]'></p>
+                <p className=' w-[400px] border-b-2 border-[#DAC0A3] dark:border-[#dadbdb]'></p>
                 <div className="mt-3 ">
                   <p className='text-xl mt-1'>성별:{sexCd === 'M' ? "남" : sexCd === 'F' ? "여" : "미상"}</p>
                   <p className='text-xl mt-1'>나이: {age}추정</p>
@@ -88,7 +91,7 @@ function DetailInformation() {
               </div>
               <div className="">
                 <p className='text-xl font-bold mt-10 mb-2'>구조 정보</p>
-                <p className=' w-[400px] border-b-2  border-[#DAC0A3]'></p>
+                <p className=' w-[400px] border-b-2  border-[#DAC0A3]  dark:border-[#dadbdb] '></p>
                 <div className="mt-3">
                   <p className='text-xl mt-1'>공고번호 : {noticeNo}</p>
                   <p className='text-xl mt-1'>발견장소 : {happenPlace}</p>
@@ -97,17 +100,18 @@ function DetailInformation() {
                   <p className='text-xl mt-1'>담당부서 : {orgNm}</p>
                   <p className='text-xl mt-1'>담당부서Tel : {officetel}</p>
                 </div>
+        <Button 
+        title className='text-xl mt-1  dark:text-[#ebf4f1]'><p>보호센터Tel : {careTel}</p></Button>
+        <Button title className='text-xl mt-1  dark:text-[#ebf4f1]'><p>담당부서Tel : {officetel}</p></Button>
+
+        <p className='text-xl  mt-11 dark:text-[#ebf4f1]'>보호소 위치</p>
               </div>
             </div>
           </div>
         </div>
-
-        <p className='text-xl  mt-11'>보호소 위치</p>
         <div id='map' className='w-full h-[400px]'></div>
-
-
       </div>
-
+    </div>
     </>
   )
 }
