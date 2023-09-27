@@ -53,10 +53,6 @@ function Member_c() {
                 }
             }
             fetchUserData();
-        }   else{
-            setError("로그인이 필요한 페이지입니다.")
-            setIsModal(!isModal)
-            return;
         }
     }, [initialMode, userUid]);
 
@@ -149,8 +145,7 @@ function Member_c() {
 
         } catch(error) {
             setError(errorMsg(error.code));
-        //     setIsModal(!isModal);
-            console.log(error.code);
+            // console.log(error.code);
         }
     }
 
@@ -167,43 +162,48 @@ function Member_c() {
         }
         {
             userState.loggedIn && initialMode ? <Modal error="이미 로그인 중입니다." onClose={() => {navigate('/')}} /> :
-            <div className='w-[400px] h-[600px] text-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white dark:bg-[#272929]'>
-                <h1 className='pt-[30px] pb-[20px] text-[24px] font-bold dark:text-[#ebf4f1]'>{initialMode ? "회원가입" : "정보수정"}</h1>
-                <ul>
-                    <li>
-                        <img src="https://via.placeholder.com/100" alt="100" className='mb-[20px] mx-auto rounded-full cursor-pointer change' onClick={imgChange} />
-                        <input type="file" class="real-upload hidden" accept="image/*" required multiple />
-                    </li>
-                    <li>
-                        <input defaultValue={email} onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder='이메일' autoFocus className='email w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#404343] dark:text-[#ebf4f1] dark:border-none' />
-                    </li>
-                    {
-                         initialMode &&
-                        <>
-                            <li>
-                                <div className='relative w-full'>
-                                    <input onChange={(e) => {setPassword(e.target.value)}} type={eye[0] ? "text" : "password"} placeholder='비밀번호' className='password w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#404343] dark:text-[#ebf4f1] dark:border-none' />
-                                    <FontAwesomeIcon icon={eye[0] ? faEye : faEyeSlash} onClick={()=>{toggleEye(0)}} className='absolute cursor-pointer right-7 top-4' />
-                                </div>
-                            </li>
-                            <li>
-                                <div className='relative w-full'>
-                                    <input onChange={(e) => {setPasswordConfirm(e.target.value)}} type={eye[1] ? "text" : "password"} placeholder='비밀번호 확인' className='confirm_password w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#404343] dark:text-[#ebf4f1] dark:border-none' />
-                                    <FontAwesomeIcon icon={eye[1] ? faEye : faEyeSlash} onClick={()=>{toggleEye(1)}} className='absolute cursor-pointer right-7 top-4' />
-                                </div>
-                            </li>
-                        </>
-                    }
-                    <li>
-                        <input defaultValue={name} onChange={(e) => {setName(e.target.value)}} type="text" placeholder='이름' className='name w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#404343] dark:text-[#ebf4f1] dark:border-none' />
-                    </li>
-                    <li>
-                        <input defaultValue={phoneNumber} onInput={PhoneNumber} type="text" maxLength={13} placeholder='휴대폰 번호' className='phone w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#404343] dark:text-[#ebf4f1] dark:border-none' />
-                    </li>
-                    <li>
-                        <button className='w-[360px] h-[60px] bg-[#162c58] text-white text-[18px] rounded-[10px] mt-[10px] cursor-pointer dark:bg-[#404343]' onClick={signUp}>{initialMode ? "가입" : "수정"}</button>
-                    </li>
-                </ul>
+            <div className='w-full bg-white dark:bg-[#272929] h-[100vh]'>
+                <div className='w-[400px] h-[600px] text-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white dark:bg-[#404343]'>
+                    <h1 className='pt-[30px] pb-[20px] text-[24px] font-bold dark:text-[#ebf4f1]'>{initialMode ? "회원가입" : "정보수정"}</h1>
+                    <ul>
+                        <li>
+                            <img src="https://via.placeholder.com/100" alt="100" className='mb-[20px] mx-auto rounded-full cursor-pointer change' onClick={imgChange} />
+                            <input type="file" class="real-upload hidden" accept="image/*" required multiple />
+                        </li>
+                        <li>
+                            <input defaultValue={email} onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder='이메일' autoFocus className='email w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                        </li>
+                        {
+                            initialMode &&
+                            <>
+                                <li>
+                                    <div className='relative w-full'>
+                                        <input onChange={(e) => {setPassword(e.target.value)}} type={eye[0] ? "text" : "password"} placeholder='비밀번호' className='password w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                        <FontAwesomeIcon icon={eye[0] ? faEye : faEyeSlash} onClick={()=>{toggleEye(0)}} className='absolute cursor-pointer right-7 top-4 dark:text-[#ebf4f1]' />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div className='relative w-full'>
+                                        <input onChange={(e) => {setPasswordConfirm(e.target.value)}} type={eye[1] ? "text" : "password"} placeholder='비밀번호 확인' className='confirm_password w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                        <FontAwesomeIcon icon={eye[1] ? faEye : faEyeSlash} onClick={()=>{toggleEye(1)}} className='absolute cursor-pointer right-7 top-4 dark:text-[#ebf4f1]' />
+                                    </div>
+                                </li>
+                            </>
+                        }
+                        <li>
+                            <input defaultValue={name} onChange={(e) => {setName(e.target.value)}} type="text" placeholder='이름' className='name w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                        </li>
+                        <li>
+                            <input defaultValue={phoneNumber} onInput={PhoneNumber} type="text" maxLength={13} placeholder='휴대폰 번호' className='phone w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                        </li>
+                        {
+                            initialMode ? <p>{error}</p> : ""
+                        }
+                        <li>
+                            <button className='w-[360px] h-[60px] bg-[#162c58] text-white text-[18px] rounded-[10px] mt-[10px] cursor-pointer dark:bg-[#272929]' onClick={signUp}>{initialMode ? "가입" : "수정"}</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         }
         </>
