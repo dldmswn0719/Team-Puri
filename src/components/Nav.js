@@ -10,26 +10,8 @@ import { logOut } from '../store';
 
 function Nav() {
     
-    const [dark,setDark] = useState(false);
-
-    const toggleDarkMode = () =>{
-        if(localStorage.getItem("theme") === "dark"){
-            localStorage.removeItem("theme");
-            document.documentElement.classList.remove("dark")
-        }else{
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("theme","dark");
-        }
-        setDark(!dark);
-    }
-    // console.log(dark)
-
-    useEffect(()=>{
-        if(localStorage.getItem("theme") === "dark"){
-            document.documentElement.classList.add("dark");
-            setDark(!dark);
-        }
-    },[])
+    const theme = useSelector(state => state.dark)
+    const dispatch = useDispatch()
 
     //아직 다국어 설정못함
     const [lang,setLang] = useState("kr")
