@@ -10,6 +10,7 @@ function Login_c() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [error, setError] = useState();
+    const userState = useSelector(state => state.user);
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const theme = useSelector(state => state.dark)
@@ -24,7 +25,7 @@ function Login_c() {
         return firebaseError[errorCode] || '알 수 없는 에러가 발생했습니다.'
     }
 
-    const LoginForm = async(e) => {
+    const LoginForm = async (e) => {
         e.preventDefault();
         try {
             const userLogin = await signInWithEmailAndPassword(firebaseAuth, email, password);
@@ -32,6 +33,8 @@ function Login_c() {
 
             const user = userLogin.user;
             // console.log(user);
+            alert("로그인 되었습니다.")
+
             sessionStorage.setItem("users", user.uid);
             dispatch(logIn(user.uid));
 
@@ -39,7 +42,7 @@ function Login_c() {
             
             const userDocSnapshot = await getDoc(userDoc);
 
-            if (userDocSnapshot.exists()) {
+            if(userDocSnapshot.exists()) {
                 const userData = userDocSnapshot.data();
                 dispatch(loggedIn(userData));
                 navigate('/');
@@ -47,13 +50,14 @@ function Login_c() {
 
         } catch(error) {
             setError(errorMsg(error.code));
-            console.log(error.code);
+            // console.log(error.code);
         }
     }
 
 
     return (
         <>
+
             <div className="w-full bg-white dark:bg-[#272929] h-[100vh]">
                 <div className='w-[400px] h-[500px] absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-[30px] dark:bg-[#404343]'>
                     <ul className='text-center'>
@@ -67,7 +71,6 @@ function Login_c() {
                                 :
                                 "./../Images/Main/logo_dark_small.png"
                             } alt='logo' className='mb-[20px] w-[200px] h-[65px] mx-auto' />
-                        </li>
                         <form onSubmit={LoginForm}>
                             <li>
                                 <p className='text-left text-[18px] font-bold pt-[30px] dark:text-[#ebf4f1]'>이메일</p>
