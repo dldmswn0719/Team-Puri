@@ -125,7 +125,7 @@ function Nav() {
                                 :
                                 <li className='px-5 dark:text-[#ebf4f1]'>
                                     <NavLink to="/member">
-                                        <FontAwesomeIcon icon={faUser} className='dark:text-[#ebf4f1]' />
+                                        <FontAwesomeIcon icon={faUser} className='dark:text-[#ebf4f1]' /> 
                                         <p className='dark:text-[#ebf4f1]'>회원가입</p>
                                     </NavLink>
                                 </li>
