@@ -14,7 +14,7 @@ import Info_Test from "./components/Info_Test";
 import Mypage from "./pages/Mypage";
 import Login from "./pages/Login";
 import Member from "./pages/Member";
-import InfoTest from "./components/InfoTest";
+// import InfoTest from "./components/InfoTest";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import store, { logIn, loggedIn } from "./store";
 import { useEffect } from "react";
@@ -72,7 +72,7 @@ function Inner() {
       <Route path="/" element={<Main />}></Route>
       <Route path="/info" element={<Info />}></Route>
       <Route path="/info2" element={<Info_Test />}></Route>
-      <Route path="/info3" element={<InfoTest />}></Route>
+      {/* <Route path="/info3" element={<InfoTest />}></Route> */}
       <Route path="/infodetail/:desertionNo" element={<InfoDetail />}></Route>
       <Route path="/introduce" element={<Introduce />}></Route>
       <Route path="/review_page" element={<Review_Page />}></Route>
