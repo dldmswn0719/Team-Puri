@@ -54,7 +54,7 @@ function Reviews() {
 
   return (
     <>
-      <div className="w-[100%] bg-white mt-[60px] relative">
+      <div className="w-full bg-white pt-[60px] relative dark:bg-[#272929]">
         <div className="max-w-[1400px] h-[1024px] mx-auto">
           <div className="w-[1280px] mx-auto max-lg:w-11/12 max-md:w-5/6">
             <div className="flex text-[15px] gap-y-5 gap-[6px] flex-wrap justify-between mb-[30px]">
@@ -64,14 +64,14 @@ function Reviews() {
                     <div className="relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-lg rounded-[20px] max-md:w-full max-lg:w-[32%] max-lg:h-[500px]" key={i} data-aos="zoom-in">
                       <ul className='flex w-[250px] justify-between mx-auto pt-5 max-lg:w-[90%]'>
                         <li><img className='w-[25px] h-[25px]' src="./../images/Review/camera.svg" alt="camera" /></li>
-                        <li><p className='text-[16px] title3 mt-[2px]'>PURIPURI STORY</p></li>
+                        <li><p className='text-[16px] title3 mt-[2px] dark:text-[#ebf4f1]'>PURIPURI STORY</p></li>
                         <li><img className='w-[27px] h-[27px]' src="./../images/Review/airplane.svg" alt="aiplane" /></li>
                       </ul>
                       <div className="flex p-[15px]">
                         <img className='w-[40px] h-[40px]' src={e.rogo} alt="1" />
                         <div className="ml-[10px]">
-                          <p className='font-bold text-[14px]'>PURI_PURI</p>
-                          <p className='text-[13px]'>{e.region}</p>
+                          <p className='font-bold text-[14px] dark:text-[#ebf4f1]'>PURI_PURI</p>
+                          <p className='text-[13px] dark:text-[#ebf4f1]'>{e.region}</p>
                         </div>
                       </div>
                       <img onClick={() => { document.querySelector("html").classList.add("fixed")
@@ -96,21 +96,21 @@ function Reviews() {
                       <div className="flex my-[10px]">
                         <div className="sto" ></div>
                         <FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[15px] h-[15px] ml-5 mt-[3px] ' />
-                        <p className='text-[12px] ml-[10px] mt-[1px]' >PURI_PURI 님 외 <span className='font-bold cursor-pointer' 
+                        <p className='text-[12px] ml-[10px] mt-[1px] dark:text-[#ebf4f1]' >PURI_PURI 님 외 <span className='font-bold cursor-pointer' 
                         onClick={() => { document.querySelector("html").classList.add("fixed")
                         setModalOpen1(true);
                         setOne(i); 
                       }}>여러 명</span>이 좋아합니다 </p>
                       </div>
                       <div className="text-[13px] ml-[20px]">
-                        <p className='font-bold'>PURI_PURI</p>
-                        <p className='mb-[3px] text-ellipsis whitespace-nowrap overflow-hidden'>
+                        <p className='font-bold dark:text-[#ebf4f1]'>PURI_PURI</p>
+                        <p className='mb-[3px] text-ellipsis whitespace-nowrap overflow-hidden dark:text-[#ebf4f1]'>
                           
                         {review2[i].story}
 
                           </p>
                       </div>
-                      <p className='text-[13px] font-[500] text-[#164682] ml-5'>{e.Text}</p>
+                      <p className='text-[13px] font-[500] text-[#164682] ml-5 dark:text-[#aff8ff]'>{e.Text}</p>
                     </div>
                   )
                 })
@@ -163,7 +163,7 @@ function Reviews() {
                       <ul className="flex">
                         <li><FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px]' /></li>
                         <li><img className='w-[18px] h-[18px] mx-[10px] mt-1 ' src="./../images/Review/chat.svg" alt="chat" /></li>
-                        <li><img className='w-[20px] h-[20px] mt-1' src="./../images/Review/airplane.svg" alt="airplane" /></li>
+                        <li><img className='w-[20px] h-[20px] mt-1' src="./../images/Review/4.png" alt="airplane" /></li>
                       </ul>
                       <ul>
                         <li><img className='w-[20px] h-[20px]' src="./../images/Review/mark.svg" alt="airplane" /></li>
@@ -198,7 +198,7 @@ function Reviews() {
               <FontAwesomeIcon onClick={() => { setModalOpen1(false); document.querySelector("html").classList.remove("fixed") }} icon={faXmark}className='hover:text-[green] absolute w-[30px] h-[30px] right-[1%] top-[2%] z-40 ' />
 
               <div className="flex w-full h-full relative">
-                <div></div>
+                {/* <div></div> */}
                 <div className="w-10 h-10 overflow-hidden ml-[10px] mt-[30px] mr-[10px]">
                   {
                     <img src={review[one].img} alt="로고" />

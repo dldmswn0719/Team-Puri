@@ -6,30 +6,35 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { firebaseAuth } from '../firebase';
-import { logOut } from '../store';
+import { logOut, toggleTheme } from '../store';
 
 function Nav() {
     
-    const [dark,setDark] = useState(false);
+    // const [dark,setDark] = useState(false);
+    const theme = useSelector(state => state.dark)
+    const dispatch = useDispatch()
 
-    const toggleDarkMode = () =>{
-        if(localStorage.getItem("theme") === "dark"){
-            localStorage.removeItem("theme");
-            document.documentElement.classList.remove("dark")
-        }else{
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("theme","dark");
-        }
-        setDark(!dark);
-    }
+
+    
+
+    // const toggleDarkMode = () =>{
+    //     if(localStorage.getItem("theme") === "dark"){
+    //         localStorage.removeItem("theme");
+    //         document.documentElement.classList.remove("dark")
+    //     }else{
+    //         document.documentElement.classList.add("dark");
+    //         localStorage.setItem("theme","dark");
+    //     }
+    //     setDark(!dark);
+    // }
     // console.log(dark)
 
-    useEffect(()=>{
-        if(localStorage.getItem("theme") === "dark"){
-            document.documentElement.classList.add("dark");
-            setDark(!dark);
-        }
-    },[])
+    // useEffect(()=>{
+    //     if(localStorage.getItem("theme") === "dark"){
+    //         document.documentElement.classList.add("dark");
+    //         setDark(!dark);
+    //     }
+    // },[])
 
     //아직 다국어 설정못함
     const [lang,setLang] = useState("kr")
@@ -60,10 +65,10 @@ function Nav() {
                     <div>
                          <NavLink to="/">
                             <img className="items-center w-[200px] h-[65px]" src={
-                                dark ?
-                                "./../Images/Main/logo_dark_small.png"
-                                :
+                                theme === 'light' ?
                                 "./../Images/logo_s1.png"
+                                :
+                                "./../Images/Main/logo_dark_small.png"
                             } alt="logo" />
                     </NavLink>
                     </div>
@@ -86,8 +91,8 @@ function Nav() {
                     <div className="w-[10%] hidden md:block">                  
                         <ul className='basis-[10%] flex justify-between'>
                             <li className='basis-2/4 text-center cursor-pointer text-2xl'>
-                                <button onClick={toggleDarkMode}>
-                                    <FontAwesomeIcon icon={dark ? faSun : faMoon} className='text-[25px] dark:text-[#ebf4f1]' />
+                                <button onClick={()=>{dispatch(toggleTheme())}}>
+                                    <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} className='text-[25px] dark:text-[#ebf4f1]' />
                                 </button>
                             </li>
                             <li className='basis-2/4 text-center cursor-pointer text-2xl relative group'>
@@ -108,7 +113,10 @@ function Nav() {
                             <li className='dark:text-[#ebf4f1]'>
                                 <NavLink to={userState.data?.email ? "/logout" : "/login"}>
                                     <FontAwesomeIcon icon={faLock} className='dark:text-[#ebf4f1]' />{userState.data?.email ? 
-                                    <p className='dark:text-[#ebf4f1]'>로그아웃</p> : <p className='dark:text-[#ebf4f1]'>로그인</p>}
+                                    <p className='dark:text-[#ebf4f1]'>로그아웃</p>
+                                    :
+                                    <p className='dark:text-[#ebf4f1]'>로그인</p>
+                                    }
                                 </NavLink>
                             </li>
                             {
@@ -122,7 +130,7 @@ function Nav() {
                                 :
                                 <li className='px-5 dark:text-[#ebf4f1]'>
                                     <NavLink to="/member">
-                                        <FontAwesomeIcon icon={faUser} className='dark:text-[#ebf4f1]' /> 
+                                        <FontAwesomeIcon icon={faUser} className='dark:text-[#ebf4f1]' />
                                         <p className='dark:text-[#ebf4f1]'>회원가입</p>
                                     </NavLink>
                                 </li>
@@ -145,8 +153,8 @@ function Nav() {
                     <div className={`w-80 h-full fixed bg-gray-100 dark:bg-[#272929] z-50 p-12 top-0 box-border transition-all duration-500 lg:hidden ${hamburger ? 'right-0' : '-right-80'}`}>
                         <ul>
                             <li className='absolute top-4 left-5'>
-                                <button onClick={toggleDarkMode}>
-                                    <FontAwesomeIcon icon={dark ? faSun : faMoon} className='text-[25px] dark:text-[#ebf4f1]' />
+                                <button onClick={()=>{dispatch(toggleTheme())}}>
+                                    <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} className='text-[25px] dark:text-[#ebf4f1]' />
                                 </button>
                             </li>
                             <ul className='flex'>
