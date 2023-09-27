@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { firebaseAuth } from '../firebase';
-import { logOut } from '../store';
+import { logOut, toggleTheme } from '../store';
 
 function Nav() {
     
@@ -42,10 +42,10 @@ function Nav() {
                     <div>
                          <NavLink to="/">
                             <img className="items-center w-[200px] h-[65px]" src={
-                                dark ?
-                                "./../Images/Main/logo_dark_small.png"
-                                :
+                                theme === 'light' ?
                                 "./../Images/logo_s1.png"
+                                :
+                                "./../Images/Main/logo_dark_small.png"
                             } alt="logo" />
                     </NavLink>
                     </div>
@@ -68,8 +68,8 @@ function Nav() {
                     <div className="w-[10%] hidden md:block">                  
                         <ul className='basis-[10%] flex justify-between'>
                             <li className='basis-2/4 text-center cursor-pointer text-2xl'>
-                                <button onClick={toggleDarkMode}>
-                                    <FontAwesomeIcon icon={dark ? faSun : faMoon} className='text-[25px] dark:text-[#ebf4f1]' />
+                                <button onClick={()=>{dispatch(toggleTheme())}}>
+                                    <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} className='text-[25px] dark:text-[#ebf4f1]' />
                                 </button>
                             </li>
                             <li className='basis-2/4 text-center cursor-pointer text-2xl relative group'>
@@ -130,8 +130,8 @@ function Nav() {
                     <div className={`w-80 h-full fixed bg-gray-100 dark:bg-[#272929] z-50 p-12 top-0 box-border transition-all duration-500 lg:hidden ${hamburger ? 'right-0' : '-right-80'}`}>
                         <ul>
                             <li className='absolute top-4 left-5'>
-                                <button onClick={toggleDarkMode}>
-                                    <FontAwesomeIcon icon={dark ? faSun : faMoon} className='text-[25px] dark:text-[#ebf4f1]' />
+                                <button onClick={()=>{dispatch(toggleTheme())}}>
+                                    <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} className='text-[25px] dark:text-[#ebf4f1]' />
                                 </button>
                             </li>
                             <ul className='flex mt-3'>

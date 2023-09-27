@@ -67,8 +67,6 @@ function Inner() {
     fetchUser();
 }, [dispatch, uid]); 
 
-<<<<<<< HEAD
-=======
 const theme = useSelector(state => state.dark)
 // console.log(theme)
 if(theme === "light"){
@@ -79,7 +77,16 @@ if(theme === "light"){
     localStorage.setItem(theme,"dark");
 }
 
->>>>>>> 5aed5bb (오류 수정)
+const theme = useSelector(state => state.dark)
+// console.log(theme)
+if(theme === "light"){
+    localStorage.removeItem(theme);
+    document.documentElement.classList.remove("dark")
+}else{
+    document.documentElement.classList.add("dark");
+    localStorage.setItem(theme,"dark");
+}
+
   return (
    <>
     <Routes>

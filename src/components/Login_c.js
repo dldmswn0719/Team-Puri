@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { firebaseAuth, signInWithEmailAndPassword } from '../firebase';
 import { collection, doc, getDoc, getFirestore } from 'firebase/firestore';
@@ -13,6 +13,7 @@ function Login_c() {
     const userState = useSelector(state => state.user);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const theme = useSelector(state => state.dark)
 
     const errorMsg = (errorCode) => {
         const firebaseError = {
@@ -53,6 +54,7 @@ function Login_c() {
         }
     }
 
+
     return (
         <>
             <div className="w-full bg-white dark:bg-[#272929] h-[100vh]">
@@ -85,16 +87,8 @@ function Login_c() {
                     </ul>
                     <ul className='flex justify-between text-sm text-gray-500'>
                         <li>
-                            <p className='pt-4 text-red-500 text-sm text-left'>{error}</p>
-                        </li>
-                        <li>
-                            <button className='w-full h-[50px] bg-[#162c58] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] mb-[30px] dark:bg-[#404343]'>로그인</button>
-                        </li>
-                    </ul>
-                    <ul className='flex justify-around text-sm text-gray-500'>
-                        <li>
                             <NavLink to="/findemail">
-                                <p className='dark:text-[#ebf4f1]'>이메일 / 비밀번호 재설정</p>
+                                <p className='dark:text-[#ebf4f1]'>이메일 찾기 / 비밀번호 재설정</p>
                             </NavLink>
                         </li>
                         <li>
