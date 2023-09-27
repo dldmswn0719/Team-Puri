@@ -59,9 +59,6 @@ function Login_c() {
                 <div className='w-[400px] h-[500px] absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-[30px] dark:bg-[#404343]'>
                     <ul className='text-center'>
                         <li>
-                            {
-                                theme === 'light' ? "light" : "dark"
-                            }
                             <img src={
                                 theme === 'light' ? 
                                 "./../Images/logo_s1.png"
