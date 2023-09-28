@@ -10,17 +10,6 @@ function Intro() {
     const data = data1[(params.id-1)];
     const [totalCnt,setTotalCnt] = useState(0);
     const [num,setNum] = useState(Object.entries(data.option).filter(e => e[1].name === "").fill(1));
-
-    const decreasedCount = (item) => {
-      item.count -= 1;
-      return item.count;
-    }
-    const updatedCount = (item) => {
-      item.count += 1;
-      return item.count;  
-    }
-     
-    //옵션 수량증가
     const [selectTxt,setSelectTxt] = useState([]);
     const [isCnt,setIsCnt] = useState(false);
     const [visible,setVisible] = useState(false);
@@ -28,18 +17,44 @@ function Intro() {
     const [optionSelectNum, setOptionSelectNum] = useState(1)
     //옵션 여러개 추가하기위해서
 
+    const decreasedCount = (item) => {
+      item.count -= 1;
+      return item.count;
+    }
+    //옵션있는것 수량감소
+    const updatedCount = (item) => {
+      item.count += 1;
+      return item.count;  
+    }
+    //옵션있는것 수량증가
+
     const handleIncrease = (i) => {
-      updatedCount(data.option[i]);
-      setTotalCnt(totalCnt + 1);
-    }; // +플러스 버튼 누르면 숫자 증가
+      try {
+        updatedCount(data.option[i]);
+      } catch (error) {
+        console.error("handleIncrease 함수 에러 " + error);
+      }
+      setTotalCnt(totalCnt + 1);        
+
+    }; 
+    // +플러스 버튼 누르면 숫자 증가
 
     const handleDecrease = (i) => {
-      if(data.option[i].count > 1){
-        decreasedCount(data.option[i]);
-        setTotalCnt(totalCnt - 1);
-      }else if(data.option[i].count < 2){
-        alert("최소 주문 수량은 1개입니다.")
+      try {
+        if(data.option[i].count > 1){
+          decreasedCount(data.option[i]);
+        }else if(data.option[i].count < 2){
+          alert("최소 주문 수량은 1개입니다.")
+          return;
+        }
+      } catch (error) {
+        console.error("handleDecrease 에러" + error)
       }
+      if(!data.option.length && totalCnt < 1){
+        alert("최소 주문 수량은 1개입니다.")
+        return;
+      }
+      setTotalCnt(totalCnt - 1);
     }
     // -플러스 버튼 누르면 숫자 감소
 
@@ -54,7 +69,6 @@ function Intro() {
       const updatedTotalCount = totalCnt - data.option[i].count;
       data.option[i].count = 0;
       setTotalCnt(updatedTotalCount);
-
     };
     // X눌렀을때 옵션 각각 삭제
 
@@ -64,6 +78,7 @@ function Intro() {
         setSelectTxt([""])
       }
     }, [])
+
     //옵션이 있다면 수량 바로x, 없다면 수량 바로 뜨기
 
     const optionSelect = (e)=>{
@@ -73,26 +88,20 @@ function Intro() {
       }else if(selectTxt.includes(e.name)){
         alert("이미 선택한 옵션입니다.")
         return
-      }
-      
+      }     
     }
     // 이미 선택한 옵션이라면 알림창뜨기
 
     const SelectTxtEvent = (e, i)=>{
-
       if(!selectTxt.includes(e.name)){
         setSelectTxt([...selectTxt, e.name]);
-        
         const newOption = [...num];
         newOption[i] = 1;
-        
         setNum(newOption);
-
         e.count = 1;      
-        setTotalCnt(totalCnt + 1);
+        setTotalCnt(totalCnt + 1);       
       }
     } 
-
 
     return (
       <>
@@ -120,7 +129,7 @@ function Intro() {
                           visible &&
                           Object.entries(data.option).map((e,i)=>{
                             return (
-                              e[1]['name'] !== '' &&
+                              e[1].name !== '' &&
                               <div key={i} className='text-[16px] border cursor-pointer hover:bg-[#f5f6f7] pl-2 bg-[#fff] z-[100] relative dark:text-[#ebf4f1] dark:bg-[#272929]' onClick={()=>{
                                 SelectTxtEvent(e[1], i); setIsCnt(true); setVisible(false); optionSelect(e[1])}}>{e[1]['name']}
                               </div> 
@@ -134,8 +143,8 @@ function Intro() {
                 {/* 2개이상의 메뉴가있는 경우, */}
                 {
                   isCnt &&
-                  Array(data.option.length).fill().map((_, i) => {
-                    if (data.option[i].count > 0){
+                  Object.entries(data.option).map((_, i) => {
+                    if (data.option.length > 0 && data.option[i].count > 0){               
                       return (
                         <>
                           <div className="border-y py-5 lg:w-[500px] sm:w-[550px] relative" key={i}>
@@ -146,19 +155,31 @@ function Intro() {
                                 <div className='border px-[30px] py-1 bg-white dark:bg-[#f1f2f4]'>{data.option[i].count}</div>
                                 <button onClick={()=>{handleIncrease(i)}} className='border bg-white dark:bg-[#f1f2f4] font-bold px-[10px]'>+</button>
                               </div>
-                              {
-                                data.option[0]["name"] !== "" &&
                                 <div className="flex absolute right-0 dark:text-[#ebf4f1]">
                                   <p>{(data.price * Number(data.option[i].count)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</p>
                                   <button className='pl-4' onClick={()=>{handleDeleteSelectTxt(i)}}>X</button>
                                 </div>
-                              }
                             </div>
                           </div>
                         </>
                       )                      
                     }
                   })
+                }
+                {
+                  isCnt &&
+                  !data.option.length &&
+                    <>
+                      <div className="border-y py-5 lg:w-[500px] sm:w-[550px] relative">
+                        <div className={`text-xl flex ${params.id === "1" || params.id === "2" || params.id === "6" ? 'my-[3%]' : 'mt-[10px]'}`}>
+                          <div className="flex my-0 border">
+                            <button onClick={()=>{handleDecrease(null)}} className='border bg-white dark:bg-[#f1f2f4] px-[10px]'>–</button>
+                            <div className='border px-[30px] py-1 bg-white dark:bg-[#f1f2f4]'>{totalCnt + 1}</div>
+                            <button onClick={()=>{handleIncrease(null)}} className='border bg-white dark:bg-[#f1f2f4] font-bold px-[10px]'>+</button>
+                          </div>
+                        </div>
+                      </div>
+                    </>
                 }
                 <div>
                   <div className="my-[18px] flex justify-between">

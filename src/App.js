@@ -15,13 +15,15 @@ import Mypage from "./pages/Mypage";
 import Login from "./pages/Login";
 import Member from "./pages/Member";
 import { Provider, useDispatch, useSelector } from "react-redux";
-import store, { logIn, loggedIn } from "./store";
+import store, { logIn, loggedIn, toggleTheme } from "./store";
 import { useEffect } from "react";
 import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
 import Logout from "./components/Logout";
 import Findemail from "./pages/Findemail";
 import Notpage from "./pages/Notpage";
-
+import { CheckoutPage } from "./pages/CheckoutPage";
+import { SuccessPage } from "./pages/SuccessPage";
+import { FailPage } from "./pages/FailPage";
 
 function App() {
   return (
@@ -67,16 +69,29 @@ function Inner() {
     fetchUser();
 }, [dispatch, uid]); 
 
-const theme = useSelector(state => state.dark)
-// console.log(theme)
-if(theme === "light"){
-    localStorage.removeItem(theme);
-    document.documentElement.classList.remove("dark")
-}else{
-    document.documentElement.classList.add("dark");
-    localStorage.setItem(theme,"dark");
-}
-  
+  const darkMode  = useSelector(state => state.dark)
+
+  useEffect(() => {
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme && savedTheme !== darkMode) {
+      dispatch(toggleTheme());
+    }
+
+  }, [dispatch]);
+
+  useEffect(() => {
+
+    if (darkMode === "dark") {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.removeItem("theme");
+    }
+  }, [darkMode]);
+   
   return (
    <>
     <Routes>
@@ -98,6 +113,10 @@ if(theme === "light"){
       <Route path="/member" element={<Member />}></Route>
       <Route path="/modify" element={<Member />}></Route>
       <Route path="/findemail" element={<Findemail />}></Route>
+      <Route path="/checkout" element={<CheckoutPage />}></Route>
+      <Route path="/success" element={<SuccessPage />}></Route>
+      <Route path="/fail" element={<FailPage />}></Route>
+      {/* checkout,success,fail 아직 테스트중 */}
       <Route path="/*" element={<Notpage />}></Route>
     </Routes>
    </>

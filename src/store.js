@@ -25,8 +25,8 @@ let user = createSlice({
 });
 
 let dark = createSlice({
-    name : "dark",
-    initialState : "light" ,
+    name : "theme",
+    initialState : localStorage.getItem('theme') || 'light' ,
     reducers : {
         toggleTheme : (state) => state === "light" ? "dark" : "light"
     }
