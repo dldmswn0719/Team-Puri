@@ -155,9 +155,9 @@ function ImgFilter() {
             <div className='max-w-full bg-white dark:bg-[#272929]'>
                 <div className="max-w-[1200px]  mx-auto">
                     {/* <p>도시 : {cityCode}</p>
-            <p>축종 : {Array[kindCode]}</p>
-            <p>품종 : {selectedAnimal}</p>
-            <p>페이지 : {page}</p> */}
+                    <p>축종 : {Array[kindCode]}</p>
+                    <p>품종 : {selectedAnimal}</p>
+                    <p>페이지 : {page}</p> */}
                     {/* <p>https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_apiKey}&_type=json&upkind=${Array[kindCode]}</p> */}
                     <div className="max-w-full border-b-2 border-[#EADBC8] dark:border-[#dadbdb] py-5">
                         <div className="max-w-full h-full flex flex-col md:flex-row justify-between text-left my-2">
