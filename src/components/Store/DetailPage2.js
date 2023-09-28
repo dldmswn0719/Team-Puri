@@ -3,6 +3,7 @@ import data1 from './../../data/product.json'
 import { useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp, faBone } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
 
 function DetailPage2() {
 
@@ -10,15 +11,8 @@ function DetailPage2() {
     const data = data1[(params.id-1)]
     const [close, setClose] = useState(false);
     // console.log(params.id)
+    const theme = useSelector(state => state.dark)
 
-    const [dark,setDark] = useState(false);
-
-    useEffect(()=>{
-      if(localStorage.getItem("theme") === "dark"){
-          document.documentElement.classList.add("dark");
-          setDark(!dark);
-      }
-    },[])
 
     return (
       <>
@@ -102,10 +96,10 @@ function DetailPage2() {
                             <p className='title2'>아파하는 존재가 다시 사랑받도록</p>
                         </div>
                         <img className='mx-auto my-0 pb-[110px]' src={
-                            dark ?
-                            "./../Images/Main/logo_dark_small.png"
+                            theme === 'light' ?
+                            "./../Images/logo_s1.png" 
                             :
-                            "./../Images/logo_s1.png"
+                            "./../Images/Main/logo_dark_small.png"
                         } alt="로고" />
                     </div>
                 </div>
