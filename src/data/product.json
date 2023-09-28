@@ -4,12 +4,7 @@
         "name" : "[유기동물 후원] 믹스패밀리 리유저블컵",
         "hash" : "#편리한물컵 #가벼운텀블러 #귀여운텀블러",
         "option_title" : "",
-        "option" : {
-            "option_value_1" : "",
-            "option_value_2" : "",
-            "option_value_3" : "",
-            "option_value_4" : ""
-        },
+        "option" : [],
         "price" : 18000,
         "delivery" : "택배배송 CJ대한통운",
         "delivery_price" : "배송비 3,000원 / 제주,도서지역 추가 3,000원",
@@ -63,12 +58,7 @@
         "name" : "[유기동물 후원] 믹스패밀리 에코백",
         "hash" : "#강아지에코백 #산책가방 #고양이에코백 ",
         "option_title" : "",
-        "option" : {
-            "option_value_1" : "",
-            "option_value_2" : "",
-            "option_value_3" : "",
-            "option_value_4" : ""
-        },
+        "option" : [],
         "price" : 15000,
         "delivery" : "택배배송 CJ대한통운",
         "delivery_price" : "배송비 3,000원 / 제주,도서지역 추가 3,000원",
@@ -122,12 +112,11 @@
         "name" : "[유기동물 후원] 믹스패밀리 페이스 에폭시 그립톡",
         "hash" : "#동물그립톡 #강아지그립톡 #귀여운그립톡",
         "option_title" : "디자인",
-        "option" : {
-            "option_value_1" : "최백구",
-            "option_value_2" : "고등어",
-            "option_value_3" : "",
-            "option_value_4" : ""
-        },
+
+        "option": [
+            {"name": "최백구", "count": 0},
+            {"name": "고등어", "count": 0}
+        ],
         "price" : 10000,
         "delivery" : "택배배송 CJ대한통운",
         "delivery_price" : "배송비 3,000원 / 제주,도서지역 추가 3,000원",
@@ -181,12 +170,10 @@
         "name" : "[유기동물 후원] 무지개다리 뱃지",
         "hash" : "#무지개다리 #귀여운뱃지 #금속뱃지",
         "option_title" : "디자인",
-        "option" : {
-            "option_value_1" : "강아지",
-            "option_value_2" : "고양이",
-            "option_value_3" : "",
-            "option_value_4" : ""
-        },
+        "option": [
+            {"name": "강아지", "count": 0},
+            {"name": "고양이", "count": 0}
+        ],
         "price" : 7000,
         "delivery" : "택배배송 CJ대한통운",
         "delivery_price" : "배송비 3,000원 / 제주,도서지역 추가 3,000원",
@@ -239,12 +226,12 @@
         "name" : "[유기동물 후원] 아크릴 키링",
         "hash" : "#슬로건키링 #아크릴키링 #심볼키링",
         "option_title" : "디자인",
-        "option" : {
-            "option_value_1" : "심볼 키링",
-            "option_value_2" : "로고 키링(가로형)",
-            "option_value_3" : "슬로건 키링(오렌지)",
-            "option_value_4" : "슬로건 키링(화이트)"
-        },
+        "option": [
+            {"name": "심볼 키링", "count": 0},
+            {"name": "로고 키링(가로형)", "count": 0},
+            {"name": "슬로건 키링(오렌지)", "count": 0},
+            {"name": "슬로건 키링(화이트)", "count": 0}
+        ],
         "price" : 9000,
         "delivery" : "택배배송 CJ대한통운",
         "delivery_price" : "배송비 3,000원 / 제주,도서지역 추가 3,000원",
@@ -297,12 +284,7 @@
         "name" : "[유기동물 후원] 베이직 머그컵",
         "hash" : "#깔끔한머그컵 #모던식기 #감성머그",
         "option_title" : "",
-        "option" : {
-            "option_value_1" : "",
-            "option_value_2" : "",
-            "option_value_3" : "",
-            "option_value_4" : ""
-        },
+        "option" : [],
         "price" : 15000,
         "delivery" : "택배배송 CJ대한통운",
         "delivery_price" : "배송비 3,000원 / 제주,도서지역 추가 3,000원",
@@ -355,12 +337,10 @@
         "name" : "[유기동물 후원] 슬로건 마스킹 테이프",
         "hash" : "#심플한 마스킹 테이프 #마테 #다꾸용품 ",
         "option_title" : "컬러",
-        "option" : {
-            "option_value_1" : "화이트",
-            "option_value_2" : "오렌지",
-            "option_value_3" : "",
-            "option_value_4" : ""
-        },
+        "option": [
+            {"name": "화이트", "count": 0},
+            {"name": "오렌지", "count": 0}
+        ],
         "price" : 5000,
         "delivery" : "택배배송 CJ대한통운",
         "delivery_price" : "배송비 3,000원 / 제주,도서지역 추가 3,000원",
@@ -413,12 +393,10 @@
         "name" : "[유기동물 후원] 믹스패밀리 어답미 인형",
         "hash" : "#아기자기한 #러블리한 #귀여운인형선물",
         "option_title" : "디자인",
-        "option" : {
-            "option_value_1" : "주발발(강아지)",
-            "option_value_2" : "고등어(고양이)",
-            "option_value_3" : "",
-            "option_value_4" : ""
-        },
+        "option": [
+            {"name": "주발발(강아지)", "count": 0},
+            {"name": "고등어(고양이)", "count": 0}
+        ],
         "price" : 35000,
         "delivery" : "택배배송 CJ대한통운",
         "delivery_price" : "배송비 3,000원 / 제주,도서지역 추가 3,000원",

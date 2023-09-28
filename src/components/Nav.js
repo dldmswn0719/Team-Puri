@@ -1,5 +1,5 @@
-import { faMoon , faSun, faUser } from '@fortawesome/free-regular-svg-icons';
-import { faBars, faEarthAmericas, faLock, faUserPen, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faMoon , faSun } from '@fortawesome/free-regular-svg-icons';
+import { faBars, faEarthAmericas, faLock, faUserPen, faXmark , faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react'
@@ -10,31 +10,8 @@ import { logOut, toggleTheme } from '../store';
 
 function Nav() {
     
-    // const [dark,setDark] = useState(false);
     const theme = useSelector(state => state.dark)
     const dispatch = useDispatch()
-
-
-    
-
-    // const toggleDarkMode = () =>{
-    //     if(localStorage.getItem("theme") === "dark"){
-    //         localStorage.removeItem("theme");
-    //         document.documentElement.classList.remove("dark")
-    //     }else{
-    //         document.documentElement.classList.add("dark");
-    //         localStorage.setItem("theme","dark");
-    //     }
-    //     setDark(!dark);
-    // }
-    // console.log(dark)
-
-    // useEffect(()=>{
-    //     if(localStorage.getItem("theme") === "dark"){
-    //         document.documentElement.classList.add("dark");
-    //         setDark(!dark);
-    //     }
-    // },[])
 
     //아직 다국어 설정못함
     const [lang,setLang] = useState("kr")
@@ -130,7 +107,7 @@ function Nav() {
                                 :
                                 <li className='px-5 dark:text-[#ebf4f1]'>
                                     <NavLink to="/member">
-                                        <FontAwesomeIcon icon={faUser} className='dark:text-[#ebf4f1]' />
+                                        <FontAwesomeIcon icon={faUser} className='dark:text-[#ebf4f1]' /> 
                                         <p className='dark:text-[#ebf4f1]'>회원가입</p>
                                     </NavLink>
                                 </li>
@@ -141,8 +118,8 @@ function Nav() {
                         </ul>
                     </div>
 
-                    
-                    <div className="fixed right-5 top-10 transition-all duration-1000 z-[100] cursor-pointer md:hidden" onClick={()=>{toggleHamburger()}}>
+                    {/* 모바일 네비 시작 */}
+                    <div className="fixed right-5 top-7 transition-all duration-1000 z-[100] cursor-pointer md:hidden" onClick={()=>{toggleHamburger()}}>
                         {
                             hamburger ?
                             <FontAwesomeIcon icon={faXmark} className='w-8 h-8 dark:text-white'/>
@@ -157,15 +134,30 @@ function Nav() {
                                     <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} className='text-[25px] dark:text-[#ebf4f1]' />
                                 </button>
                             </li>
-                            <ul className='flex'>
-                                <FontAwesomeIcon icon={faUser} className='mt-1 w-5 h-5 dark:text-[#ebf4f1]' />
-                                <NavLink to="/login">
-                                    <li className='text-center cursor-pointer dark:text-[#ebf4f1] px-5 after:w-[2px] after:h-5 after:bg-[#d2d2d2] after:absolute after:mt-1 after:ml-[9px]'>로그인</li>
-                                </NavLink>
-                                {/* 로그인을 한다면 회원가입이 마이페이지로 변경 */}
-                                <NavLink to="/member">
-                                    <li className='text-center cursor-pointer dark:text-[#ebf4f1]'>회원가입</li>
-                                </NavLink>
+                            <ul className='flex mt-3'>
+                                <FontAwesomeIcon icon={faLock} className='mt-[5px] w-5 h-5 dark:text-[#ebf4f1] pr-2' />
+                                <li className='mt-1 text-center cursor-pointer dark:text-[#ebf4f1]'>
+                                    <NavLink to={userState.data?.email ? "/logout" : "/login"}>
+                                        {
+                                            userState.data?.email ? 
+                                            <p className='dark:text-[#ebf4f1] after:w-[2px] after:h-5 after:bg-[#d2d2d2] after:absolute after:mt-1 after:ml-[9px]'>로그아웃</p>
+                                            :
+                                            <p className='dark:text-[#ebf4f1] after:w-[2px] after:h-5 after:bg-[#d2d2d2] after:absolute after:mt-1 after:ml-[9px]'>로그인</p>
+                                        }
+                                    </NavLink>
+                                </li>
+
+                                <FontAwesomeIcon icon={userState.data?.email ? faUserPen : faUser} className='mt-1 w-[22px] h-[22px] dark:text-[#ebf4f1]  pl-[25px] pr-2' />
+                                <li className='mt-1 text-center cursor-pointer dark:text-[#ebf4f1]'>
+                                        <NavLink to={userState.data?.email ? "/modify" : "/member" }>
+                                            {
+                                                userState.data?.email ? 
+                                                <p className=' dark:text-[#ebf4f1]'>정보수정</p>
+                                                :
+                                                <p className='dark:text-[#ebf4f1] '>회원가입</p>
+                                            }
+                                        </NavLink>
+                                </li>
                             </ul>
                             <NavLink to="/introduce">
                                 <li className='pt-8 pb-5 border-b hover:font-bold cursor-pointer dark:text-[#ebf4f1]'>소개</li>
@@ -181,6 +173,7 @@ function Nav() {
                             </NavLink>
                         </ul>
                     </div>
+                    {/* 모바일 네비 끝 */}
                 </div>
             </div>
         </>  
