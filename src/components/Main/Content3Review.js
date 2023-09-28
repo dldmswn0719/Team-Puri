@@ -17,7 +17,7 @@ function Content3Review() {
                 </ul>
             </div>
             <div className='w-[1200px] m-auto'>
-                <img src="https://via.placeholder.com/1200x500" alt="1200x500" />
+                <img src="http://via.placeholder.com/1200x500" alt="1200x500" />
             </div>
         </div>
     )

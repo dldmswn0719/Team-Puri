@@ -85,7 +85,7 @@ function Nav() {
                             </li>
                         </ul>
                     </div>
-                    <div className="">
+                    <div className="hidden lg:block absolute top-4 right-10">
                         <ul className='flex justify-between'>
                             <li className='dark:text-[#ebf4f1]'>
                                 <NavLink to={userState.data?.email ? "/logout" : "/login"}>
@@ -119,7 +119,7 @@ function Nav() {
                     </div>
 
                     {/* 모바일 네비 시작 */}
-                    <div className="fixed right-5 top-7 transition-all duration-1000 z-[100] cursor-pointer md:hidden" onClick={()=>{toggleHamburger()}}>
+                    <div className="fixed right-5 top-9 transition-all duration-1000 z-[100] cursor-pointer md:hidden" onClick={()=>{toggleHamburger()}}>
                         {
                             hamburger ?
                             <FontAwesomeIcon icon={faXmark} className='w-8 h-8 dark:text-white'/>
