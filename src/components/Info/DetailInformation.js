@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import ScrollUpDown from './ScrollUpDown'
+import TellButton from './TellButton'
 
 
 
@@ -95,24 +97,29 @@ function DetailInformation() {
                     <p className='text-xl mt-1'>공고번호 : {noticeNo}</p>
                     <p className='text-xl mt-1'>발견장소 : {happenPlace}</p>
                     <p className='text-xl mt-1'>보호센터 : {careNm}</p>
-                    <p className='text-xl mt-1'>보호센터Tel : {careTel}</p>
+                    <p className='text-xl mt-1 max-sm:hidden'>보호센터 Tel : {careTel}</p>
                     <p className='text-xl mt-1'>담당부서 : {orgNm}</p>
-                    <p className='text-xl mt-1'>담당부서Tel : {officetel}</p>
+                    <p className='text-xl mt-1 max-sm:hidden'>담당부서 Tel : {officetel}</p>
+                    <p className='max-sm:hidden'>전화 문의는 평일 <span>오전 9시</span>부터 <span>오후 6시까지</span>입니다. {`(공휴일 제외)`}</p>
+                    <p className='text-xl  mt-11 dark:text-[#ebf4f1]'>보호소 위치</p>
+          <div id='map' className='w-full h-[400px]'></div>
+                    <div className="flex flex-col">
+{/* 
+                      <button title className='font-bold max-w-full lg:hidden h-12 border-2 bg-[#DAC0A3] border-[#DAC0A3] dark:bg-[#272929]  dark:text-[#ebf4f1]  dark:border-[#dadbdb] rounded-[20px] mt-1'><p>보호센터 Tel : {careTel}</p></button>
+                      <button title className='font-bold max-w-full lg:hidden h-12 border-2 bg-[#DAC0A3] border-[#DAC0A3] dark:bg-[#272929]  dark:text-[#ebf4f1]  dark:border-[#dadbdb] rounded-[20px] mt-1'>  <p>담당부서 Tel : {officetel}</p></button> */}
+<TellButton/>
+                    </div>
+
                   </div>
-                  <button title className='text-xl mt-1  dark:text-[#ebf4f1]'>
-                    <p>보호센터Tel : {careTel}</p>
-                  </button>
-                  <button title className='text-xl mt-1  dark:text-[#ebf4f1]'>
-                    <p>담당부서Tel : {officetel}</p>
-                  </button>
-                  <p className='text-xl  mt-11 dark:text-[#ebf4f1]'>보호소 위치</p>
+
                 </div>
               </div>
             </div>
           </div>
-          <div id='map' className='w-full h-[400px]'></div>
+
         </div>
       </div>
+      <ScrollUpDown />
     </>
   )
 }
