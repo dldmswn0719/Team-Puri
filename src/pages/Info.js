@@ -1,16 +1,16 @@
 import React from "react";
-import ImgFilter from "../components/Info/ImgFilter";
 import Nav from '../components/Nav'
 import ScrollUpDown from "../components/Info/ScrollUpDown";
+import AnimalList from "../components/Info/AnimalList";
 
 
 
 function Info() {
   return (
     <>
-      <Nav />
-      <ImgFilter/>
-     <ScrollUpDown/>
+    <Nav />
+    <AnimalList/>
+    <ScrollUpDown/>
     </>
   );
 }
