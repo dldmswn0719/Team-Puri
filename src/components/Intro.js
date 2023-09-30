@@ -4,7 +4,7 @@ import React from 'react'
 function Intro() {
   return (
     <>
-      <div className="w-full h-full">
+      <div className="w-full h-full ">
       {/*  container*/}
           <div className="w-[1200px] h-[500px] bg-white mt-[100px] mb-auto mx-auto">
               <div className="text-center mt-[50px]">

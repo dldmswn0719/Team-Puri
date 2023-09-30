@@ -1,14 +1,130 @@
-import React, { useEffect, useState } from 'react'
-import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
+import React, { useCallback, useEffect, useState } from 'react'
+import { faAnglesLeft, faAnglesRight, faMars, faVenus, faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
+import Loading from './Info/Loading'
+import ScrollUpDown from './Info/ScrollUpDown'
+
 
 function Info_Test() {
-  //  페이지 출력
-  const list = 10;
+  const [page, setPage] = useState(1)
+  const Array = ["", "417000", "422400", "429900"]
+  const [city, setCity] = useState([])
+  const [cityCode, setCityCode] = useState([])
+  const [county, setCounty] = useState("")
+  const [countyCode, setCountyCode,] = useState("")
+  const [selectedCounty, setSelectedCounty] = useState("");
+  const kind = ["모든 축종", "개", "고양이", "기타"];
+  const [kindCode, setKindCode] = useState(0);
+  const [animal, setAnimal] = useState("");
+  const [animalCode, setAnimalCode] = useState("");
+  const [selectedAnimal, setSelectedAnimal] = useState("");
+  const [data, setData] = useState([]);
+
+  const selectedData = (data) => {
+    const classValue = data.target.className;
+    const dataValue = data.target.value;
+
+    switch (true) {
+      // 도시 선택시 스위치문!
+      case classValue.includes("cityData"):
+        setCityCode(dataValue)
+        // setCounty("");
+        // setCountyCode("");
+        // setSelectedCounty("");
+        break;
+
+      case classValue.includes("countyData"):
+        const dataValue1 = data.target.selectedOptions[0].
+          getAttribute('data-county-name')
+        setSelectedCounty(dataValue1);
+        setCountyCode(dataValue);
+
+        break;
+      case classValue.includes("kindData"):
+        setKindCode(dataValue)
+        setAnimal("");
+        setAnimalCode("");
+        setSelectedAnimal("");
+        break;
+      case classValue.includes("animalData"):
+        const dataValue2 = data.target.selectedOptions[0].getAttribute('data-animal-name')
+        setSelectedAnimal(dataValue2);
+        setAnimalCode(dataValue)
+
+        break;
+      default:
+        console.log("데이터가 없습니다.");
+    }
+  }
+
+  const PageReset = () => {
+    data === undefined && setPage(1);
+  }
+
+  // 도시
+  useEffect(() => {
+    fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/sido?numOfRows=100&pageNo=1&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json`).then((res) => {
+      return res.json()
+    }).then((data) => { setCity(data.response.body.items.item) });
+
+  }, []);
+  // console.log(city)
+  // 시군구
+  // https://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=5tteN0Ji1rrEE90jMPQFev%2BtioKVvE76RHyN9%2Bji7h%2B9AspJWcBKdXX6CpccJfgxKYmAmVYjQ6TbimU37dQQcw%3D%3D&upr_cd=${cityCode}&_type=%20%20json
+  https://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?&upr_cd=${cityCode}&serviceKey=${process.env.REACT_APP_dataapiKey}
+
+  // https://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?serviceKey=5tteN0Ji1rrEE90jMPQFev%2BtioKVvE76RHyN9%2Bji7h%2B9AspJWcBKdXX6CpccJfgxKYmAmVYjQ6TbimU37dQQcw%3D%3D&upr_cd=6110000&_type=json
+  useEffect(() => {
+    fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?numOfRows=100&pageNo=1&org_cd=${cityCode}&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json`).then((res) => {
+      return res.json()
+    }).then((data) => { setCounty(data && data.response.body?.items.item) });
+
+  }, []);
+
+  // console.log(county)
+  // https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=1&numOfRows=1000&serviceKey=5tteN0Ji1rrEE90jMPQFev%2BtioKVvE76RHyN9%2Bji7h%2B9AspJWcBKdXX6CpccJfgxKYmAmVYjQ6TbimU37dQQcw%3D%3D&_type=json&upr_cd=6110000&up_kind_cd=417000&kind=000054&org_cd=3220000
+  //서울 강남구 개 골든 리트리버
+  // api호출이 실행 되고 있을때는 더이상 호출하지 x
+
+  // 품종
+  useEffect(() => {
+    fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/kind?up_kind_cd=${Array[kindCode]}&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json`).then((res) => {
+      return res.json()
+    }).then((data) => {
+      setAnimal(data && data.response.body?.items.item)
+    });
+  }, [kindCode])
+
+  const [loading, setLoading] = useState(false);
+
+  const ResultData = useCallback(() => {
+    console.log(`콜백 : https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=${page}&upr_cd=${cityCode}&org_cd=${countyCode}&kind=${animalCode}&upkind=${Array[kindCode]}&numOfRows=12&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json`)
+
+    fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=${page}&upr_cd=${cityCode}&org_cd=${countyCode}&kind=${animalCode}&upkind=${Array[kindCode]}&numOfRows=12&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json`).
+      then((res) => {
+        return res.json()
+
+      }).then(async (data) => {
+        const result = await data.response.body?.items.item;
+        const resultCnt = await data.response.body?.totalCount;
+        setData(result)
+        // console.log(result)
+        setTotalCnt(resultCnt)
+        setLoading(false)
+      });
+  }, [cityCode, countyCode, animalCode, Array[kindCode], page])
+
+  useEffect(() => {
+    setLoading(true);
+    ResultData()
+    console.log(`스테이트 :https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=${page}&upr_cd=${cityCode}&org_cd=${countyCode}&kind=${animalCode}&upkind=${Array[kindCode]}&numOfRows=12&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json`)
+  }, [page])
+
+
+  const list = 5;
   //페이지
   // 같은 api주소에서 토탈카운트 뽑기https://github.com/dldmswn0719/Team-Puri
-  let [page, setPage] = useState(1)
   // 페이지 5개씩
   const pagination = 5;
   //최종갯수를 받아오는 State
@@ -16,6 +132,7 @@ function Info_Test() {
   // totalPage 5페이지씩 나오게 "totalCount" : 8308 / 1500 = 5.538866 
   const totalPage = Math.floor(totalCnt / list);
   // 변수지정은 했지만 값은 대입하지 않겠다는뜻
+
   let startPage, endPage;
   //현재 block설정 ceil소수점이 나왔을때 값을 반올림 
   const currentBlock = Math.ceil(page / pagination)
@@ -29,347 +146,163 @@ function Info_Test() {
 
   // 이전페이지  
   const PrevBlock = () => {
-    if (startPage > 1)
+    if (startPage > 1) {
+
       // ex 페이지가 11 12 13 14 15 라면 시작페이지가 11 - pagination 5 = 6 이전페이지가 6부터나옴
       setPage(startPage - pagination);
+
+    }
+
   }
 
   // 다음페이지   
   const NextBlock = () => {
-    // endpage가 totalPage보다 작나면 startPage + pagination5가 된다.
+    // endpage가 totalPage보다 작나면 startPage + pagination가 된다.
     if (endPage < totalPage) {
       setPage(startPage + pagination)
     }
   }
 
-  // 페이지 1번~n번 출력을 위함
+  // 
+  const PageList = [];
 
-  const PageList = []
   for (let i = startPage; i <= endPage; i++) {
     PageList.push(
-      <li key={i} className={(page === i ? ' rounded-full cursor-pointer w-[50px] h-[50px]  leading-10 text-cente relative block py-1.5 px-1.5 mx-3 border-1 border-[#DAC0A3] text-white bg-[#dac0a3] ' : ' rounded-full cursor-pointer w-[50px] h-[50px]  leading-10 text-cente relative block py-1.5 px-1.5 mx-3 border-1 border-[#DAC0A3] text-black shadow-sm ')} onClick={() => { setPage(i) }}>{i}</li>
+      <li key={i} className={(page === i ? 'max-w-[1200px] rounded-full cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] leading-10 text-cente relative block py-1 px-1.5 lg:mx-3 border-1 border-[#DAC0A3] dark:border-1 dark:border-[#dadbdb]  text-white bg-[#dac0a3] dark:bg-[#404343]' : 'max-w-[1200px] rounded-full cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] leading-10 text-cente relative block py-1 px-1.5 lg:mx-3 border-1 border-[#DAC0A3] text-black shadow-sm dark:text-[#ebf4f1]')} onClick={() => { setLoading(true); setPage(i); }}>{i}
+      </li>
     )
   }
-
-  // 지역 도시 city
-  const [cityCode , setCityCode] = useState("")
-  const [city, setCity] = useState([])
-
-  useEffect(() => {
-
-    fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/sido?numOfRows=100&pageNo=1&serviceKey=${process.env.REACT_APP_apiKey}&_type=json`).then((res) => {
-      return res.json()
-    }).then((data) => { setCity(data.response.body.items.item) });
-
-  }, []);
-
-  //축종/품종 개
-  const [dog, setDog] = useState([])
-  useEffect(() => {
-
-    fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/kind?up_kind_cd=417000&serviceKey=${process.env.REACT_APP_apiKey}&_type=json`).then((res) => {
-      return res.json()
-
-    }).then((data) => { setDog(data.response.body.items.item) });
-  }, []);
-
-  //축종/품종 고양이
-  const [cat, setCat] = useState([])
-  useEffect(() => {
-    async function getCatData() {
-      const response = fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/kind?up_kind_cd=422400&serviceKey=${process.env.REACT_APP_apiKey}&_type=json`);
-      return response;
-    }
-    getCatData()
-      .then(res => res.json())
-      .then(json => setCat(json.response.body.items.item));
-  }, []);
-
-  // 기타동물
-  const [etc, setEtc] = useState([])
-  //  useEffect(() => {
-  //    async function getCatData() {
-  //      const response = fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/kind?up_kind_cd=429900&serviceKey=${process.env.REACT_APP_apiKey}&_type=json`);
-  //      return response;
-  //    }
-  //    getCatData()
-  //      .then(res => res.json())
-  //      .then(json => setEtc(json.response.body.items.item));
-  //  }, []);
-
-  //축종
-  const [kind, setKind] = useState(["모든 축종", "개", "고양이", "기타"])
-
-
-  // http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=1&numOfRows=10&serviceKey=인증키(URL Encode)
-
-
-  const [selected, setSelected] = useState("모든 축종", "기타");
-  const [selectedSec, setSelectedSec] = useState("모든 품종");
-  const [selectData, setSelectData] = useState()
-  
-  const [kindCode , setKindCode] = useState("")
-
-  function FilterData(data) {
-
-    let value = [];
-    if (data === '개') {
-      value = dog;
-    } else if (data === '고양이') {
-      value = cat;
-    } else if (data === '기타') {
-      value = etc;
-    }
-    return setSelectData(value);
-
-  }
-  const [kindSelect, setKindSelect] = useState("");
-
-  // 모든 유기동물 데이터
-  const [data, setData] = useState([])
-  //defaultData로 기본 data값을 받아오고 setDefaultdata에 result값을 넣는다.
-  const [defaultData, serDefaultData] = useState(data);
-  // console.log(defaultData)
-  useEffect(() => {
-    fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${kindSelect}&numOfRows=12&serviceKey=${process.env.REACT_APP_apiKey}&_type=json&up_kind_cd=${kindCode}`).then((res) => {
-      return res.json()
-    }).then(async (data) => {
-      const result = await data.response.body.items.item;
-      const resultCnt = await data.response.body.totalCount
-      // console.log(result)
-      setData(result)
-      serDefaultData(result)
-      setTotalCnt(resultCnt)
-    });
-
-  }, [page,cityCode, kindCode, kindSelect]);
-
-
-// https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=6110000&up_kind_cd=417000&kind=000054&pageNo=1&numOfRows=1000&serviceKey=5tteN0Ji1rrEE90jMPQFev%2BtioKVvE76RHyN9%2Bji7h%2B9AspJWcBKdXX6CpccJfgxKYmAmVYjQ6TbimU37dQQcw%3D%3D&_type=json
-  
-
-  const [optionCitySelect, setOptionCitySelect] = useState("");
-  const [subOptionCitySelect, setSubOptionCitySelect] = useState("");
-  const [optionKindSelect, setOptionKindSelect] = useState("");
-  const [isChoice, setIsChoice] = useState([0, 0, 0])
-  const copyChoice = [...isChoice]
-  // console.log(copyChoice)
-
-
-  const optionCity = (e) => {
-    setCityCode(e.target.value)
-    // const cityValue = e.target.value
-    // setCity(cityValue)
-    // setOptionCitySelect(cityValue);
-    // // let first = copyChoice[0]
-    // let firstOption = [...isChoice]
-    // // console.log(third)
-    // if (cityValue !== '모든 지역') {
-    //   firstOption[0] = 1
-    //   setIsChoice(firstOption)
-    // } else {
-    //   firstOption[0] = 0
-    //   setIsChoice(firstOption)
-    // }
-  }
-
-
-
-  const subOption = (e) => {
-    //축종의 value값으로 품종 변환
-    const Array = ["","417000", "422400", "429900"]
-    // alert (e.target.value)
-    setKindCode(Array[e.target.value])
-
-    // setSelected(e.target.value);
-    //품종의 value값 출력
-    // FilterData(e.target.value)
-    const subValue = e.target.value
-    setSubOptionCitySelect(subValue)
-    let secondOption = [...isChoice]
-    setOptionKindSelect("모든 품종");
-
-
-    // console.log(third)
-    if (subValue !== '모든 축종') {
-      secondOption[1] = 1
-      setIsChoice(secondOption)
-
-    } else {
-      secondOption[1] = 0
-
-
-      setIsChoice(secondOption)
-    }
-  }
-
-
-
-  const optionKind = (e) => {
-    const KindValue = e.target.value
-    setKindSelect(KindValue)
-    setOptionKindSelect(KindValue);
-    let thirdOption = [...isChoice]
-    // console.log(third)
-    if (KindValue !== '모든 품종') {
-      thirdOption[2] = 1
-      setIsChoice(thirdOption)
-    } else {
-      thirdOption[2] = 0
-      setIsChoice(thirdOption)
-    }
-
-  }
-  const searchResult = () => {
-
-
-    const FilterAll = data && data.filter((e, i) => {
-      const cityValueArray = e.orgNm.split(" ")[0] === optionCitySelect
-      //  console.log("cityValueArray 도시" ,cityValueArray )
-      // 축종 거르는것
-      const subValueArray = e.kindCd.includes(subOptionCitySelect);
-      // console.log("subValueArray 축종", subValueArray)
-      const KindValueArray = e.kindCd.includes(optionKindSelect);
-      //  console.log("KindValueArray 품종", KindValueArray)
-      //모든 지역 모든 축종 모든 품종 ㅇ
-      if (isChoice[0] === 0 && isChoice[1] === 0 && isChoice[2] === 0) {
-        return e
-        //  지역선택 모든 축종 모든 품종 ㅇ
-      } else if (cityValueArray && isChoice[1] === 0 && isChoice[2] === 0) {
-        return cityValueArray
-      }
-      // 지역이 바뀌고  축종이 바뀌고 품종이 품종이 바뀔때
-      else if (cityValueArray && subValueArray && KindValueArray) {
-        return cityValueArray && subValueArray && KindValueArray
-        // 지역선택 -  축종 선택 -  모든 품종일때
-      } else if (cityValueArray && subValueArray && isChoice[2] === 0) {
-        return subValueArray
-        // 모든지역 축종이 바뀌고 모든 품종일때 
-      } else if (isChoice[0] === 0 && subValueArray && isChoice[2] === 0) {
-        return subValueArray
-        //  모든지역 축종바뀌고 품종바뀔때  
-      } else if (isChoice[0] === 0 && subValueArray && KindValueArray) {
-        return subValueArray && KindValueArray
-      }
-
-    })
-    // serDefaultData에 FilterAll 값을 한번 더 넣어주고
-    serDefaultData(FilterAll)
-  }
-
   return (
     <>
-      <div>
 
-      </div>
-      <div className="max-w-[1200px] mx-auto">
-        
-        
-        <p>도시 : {cityCode}</p>
-        
-                {/* <p>도시:{optionCitySelect}</p>
-        <p>축종:{subOptionCitySelect}</p>
-        <p>품종:{optionKindSelect}</p>
-        <p>도시:{isChoice[0]}</p>
-        <p>축종:{isChoice[1]}</p>
-        <p>품종:{isChoice[2]}</p> */}
-    {/* <p>{kindCode}</p> */}
-        <div className="my-10 border-b-2 border-[#dac0a3]">
-          <div className="w-full h-full flex justify-between text-left ">
-            <div>
-              <p className='font-bold text-[#999]'>지역</p>
-              <select onChange={optionCity} className='text-xl font-bold'>
-                <option value="">모든 지역</option>
-                {city.map((el, index) => <option key={index} value={el.orgCd}>{el.orgdownNm}</option>)}
-              </select>
+      {
+        loading && <Loading />
+      }
+
+      <div className='max-w-full min-h-screen overflow-hidden bg-white dark:bg-[#272929]'>
+        <div className="max-w-[1200px] h-full  mx-auto">
+
+          {/* <p>도시 : {cityCode}</p>
+                  <p>축종 : {Array[kindCode]}</p>
+                  <p>품종 : {selectedAnimal}</p>
+                  <p>페이지 : {page}</p> */}
+          <p>https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=${page}&org_cd=${countyCode}&upr_cd=${cityCode}&kind=${animalCode}&upkind=${Array[kindCode]}&numOfRows=12&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json</p>
+          <div className="max-w-full max-h-full border-b-4 md:border-b-2 border-[#EADBC8] dark:border-[#dadbdb] py-5">
+            <div className="max-w-full h-full flex flex-col md:flex-row justify-between text-left my-2">
+              <div className="w-full mb-5">
+                <p className='font-bold text-[#999] dark:text-[#ebf4f1]'>지역</p>
+                <select onChange={selectedData} className='text-xl font-bold dark:bg-[#404343] dark:text-[#ebf4f1] lg:w-48 max-lg:w-full cityData'>
+                  <option value="">모든 지역</option>
+                  {city.map((el, index) => <option key={index} value={el.orgCd}>{el.orgdownNm}</option>)}
+                </select>
+              </div>
+              {/* 시군구 */}
+              <div className="w-full">
+                <p className='font-bold text-[#999] dark:text-[#ebf4f1] countyData'>시군구</p>
+                <select className='text-xl font-bold dark:bg-[#404343] dark:text-[#ebf4f1] lg:w-48 max-lg:w-full countyData' onChange={selectedData}>
+                  {/* {city === "모든 지역" && <option value="">모든 시/군/구</option>} */}
+                  {
+                    county && county.map((el, index) => <option key={index} value={el.orgCd} data-county-name={el.orgdownNm}>{el.orgdownNm}</option>)
+                  }
+                  {/* {county.map((e,i)=>{
+                                console.log(e,i)
+
+                              })} */}
+                  {/* {county.map((e, i) => 
+                                  return (
+                                            console.log(e,i)
+                                          )*/}
+
+                  {/* <option key={i} value={i} >{e.orgdownNm}</option>)} */}
+                </select>
+              </div>
+              {/* 동물 축종 */}
+              <div className="w-full">
+                <p className='font-bold text-[#999] dark:text-[#ebf4f1]'>축종</p>
+                <select className='text-xl font-bold dark:bg-[#404343] dark:text-[#ebf4f1] lg:w-48 max-lg:w-full kindData' onChange={selectedData}>
+                  {kind.map((el, index) => <option key={index} value={index}>{el}</option>)}
+                </select>
+              </div>
+
+              {/* 동물 품종 */}
+              <div className="w-full">
+                <p className='font-bold text-[#999] dark:text-[#ebf4f1]'>품종</p>
+                <select className='text-xl font-bold w-full md:w-[310px] dark:bg-[#404343] dark:text-[#ebf4f1] dark:mb-5 animalData' onChange={selectedData}>
+                  {kindCode !== "3" && <option value="">모든 품종</option>}
+                  {
+                    animal && animal.map((e, i) => {
+                      return (
+                        <option key={i} value={e.kindCd} data-animal-name={e.knm} >{e.knm}</option>
+                      )
+                    })
+                  }
+                </select>
+              </div>
+
+              <div className="w-full flex  items-center justify-end max-lg:justify-center font-bold">
+                <button className="font-bold w-48 lg:w-48 max-lg:w-full h-12 border-2 bg-[#DAC0A3] border-[#DAC0A3] dark:bg-[#272929]  dark:text-[#ebf4f1]  dark:border-[#dadbdb] rounded-[20px]"
+                  onClick={() => {
+                    setLoading(true);
+                    ResultData();
+                    PageReset();
+                  }}>검색하기</button>
+              </div>
             </div>
-            {/* 동물 축종 */}
-            <div className="">
-              <p className='font-bold text-[#999]'>축종</p>
-              {/* onChange={()=>{ChangeKind();subOption();}} */}
-              {/*  onChange={() => {
-                   ChangeKind();
-                   subOption();
-                   }} */}
-              <select onChange={subOption}
-                className='text-xl   font-bold'>
-                {kind.map((el, index) => <option key={index} value={index}>{el}</option>)}
-              </select>
-            </div>
-
-            {/* 동물 품종 */}
-            <div className="">
-              <p className='font-bold text-[#999]'>품종</p>
-              <select className='text-xl    font-bold w-[408px]'
-                onChange={optionKind} value={optionKindSelect}>
-                <option value="모든 품종" >모든 품종</option>
-                {
-                  //selected 가 모든 축종이면 모든 품종을 출력 : 아니라면 selecData가 참이라면 e.knm을 출력
-                  { selectedSec } && selectData && selectData.map((e, i) => {
-                    return (
-                      <option key={i} value={e.knm}>{e.knm}</option>
-                    )
-                  })
-                }
-              </select>
-            </div>
-
-            <div className="flex items-center">
-
-              <button className="font-bold w-48 h-12  bg-[#dac0a3] whitespace-nowrap hover:text-white rounded-[20px]" onClick={searchResult}
-              >검색하기</button>
-
-            </div>
-
           </div>
-        </div>
 
-        <div className="flex text-[15px] gap-y-4 flex-wrap justify-start gap-x-3 ">
-          {
-            defaultData.length === 0 ? <div className='w-full text-center'><p className='text-[32px] text-[#999] font-bold'>검색결과가 없습니다.</p></div> :
-              // 기본값을.map돌리고   serDefaulTdata에 Fiterall함수를 넣어 준다.
-              defaultData.map((e, i) => {
 
-                return (
-                  <div className="relative box-border border border-[#f1f1ef] flex-wrap basis-[32.5%] shadow-[4px_4px_4px_-4px_rgb(119, 112, 112)] rounded-[20px]" key={i}>
-                    <Link to={`/infodetail/${e.desertionNo}`} state={{ e: e }}>
-                      <div className='font-bold px-3 py-3 flex items-center justify-between'>
+          <div className="max-w-full max-h-full flex text-[15px] gap-y-4 flex-wrap justify-start gap-x-3 max-md:justify-center max-lg:justify-center pt-8">
+            {
+              data === undefined ? <div className='w-full h-full flex items-center justify-center'><p className='text-[32px] text-[#999] font-bold dark:text-[#ebf4f1]'>검색 결과가 없습니다.</p></div> :
+                data && data.map((e, i) => {
+                  return (
+                    <div className="w-full h-full relative box-border border border-[#f1f1ef] flex-wrap basis-[32.5%] shadow-[4px_4px_4px_-4px_rgb(119, 112, 112)] rounded-[20px] " key={i}>
+                      <Link to={`/infodetail/${e.desertionNo}`} state={{ e: e }}>
+                        <div className='font-bold px-3 py-3 flex items-center justify-between max-md:w-[350px] max-lg:w-[300px] dark:bg-[#404343] rounded-t-[20px] dark:text-[#ebf4f1] '>
+                          <p><FontAwesomeIcon icon={e.sexCd === 'M' ? faMars : e.sexCd === 'F' ? faVenus : ""} className='w-[18px] h-[18px] pr-1 align-text-bottom dark:text-[#ebf4f1] ' />{e.sexCd === 'M' ? "남" : e.sexCd === 'F' ? "여" : "성별 미상"} </p>
+                        </div>
+                        <div className="h-[350px]  flex ">
+                          <img src={e.popfile} alt="img" className='w-full' />
+                        </div>
 
-                        <p><FontAwesomeIcon icon={e.sexCd === 'M' ? faMars : e.sexCd === 'F' ? faVenus : ""} className='w-[18px] h-[18px] pr-1 align-text-bottom' />{e.sexCd === 'M' ? "남" : e.sexCd === 'F' ? "여" : "미상"} </p>
+                      </Link>
+                      <div className="pl-[10px] py-[10px] dark:text-[#ebf4f1] dark:bg-[#404343] dark:rounded-b-[20px]">
+                        <p className='font-bold text-[14px]'><span className='text-[#999]dark:text-[#ebf4f1]'>품종 :</span> {e.kindCd}</p>
+                        <p className='font-bold text-[14px]'><span className='text-[#999] dark:text-[#ebf4f1]'>나이 :</span> {e.age} 추정</p>
+                        <p className='font-bold text-[14px]'><span className='text-[#999] dark:text-[#ebf4f1]'>지역 :</span> {e.orgNm}</p>
                       </div>
-                      <div className="h-[350px] flex ">
-                        <img src={e.popfile} alt="img" className='w-full' />
-                      </div>
-
-                    </Link>
-                    <div className="pl-[10px] py-[10px]">
-                      <p className='font-bold text-[14px]'><span className='text-[#999]'>품종 :</span> {e.kindCd}</p>
-                      <p className='font-bold text-[14px]'><span className='text-[#999]'>나이 :</span> {e.age} 추정</p>
-                      <p className='font-bold text-[14px]'><span className='text-[#999]'>지역 :</span> {e.orgNm}</p>
                     </div>
-                  </div>
-                )
-              })
-          }
-        </div>
-        {/* 페이지 네비 */}
-        <div className="w-[1200px] my-0 mx-auto justify-center">
-          <div className="mx-auto my-8 text-center ">
-
-            <ul className='flex justify-center items-center list-style-none '>
-
-              <li
-                className='cursor-pointer w-[50px] h-[50px] rounded-full leading-10 text-cente relative block py-1.5 px-1.5 border-1 border-[#DAC0A3] mx-5
-           text-black shadow-sm' onClick={PrevBlock}>이전</li>
-              {PageList}
-              <li
-                className='cursor-pointer w-[50px] h-[50px] rounded-full leading-10 text-cente relative block py-1.5 px-1.5 mx-5 border-1 border-[#DAC0A3]
-         text-black shadow-sm focus:shadow-sm'  onClick={NextBlock}>다음</li>
-            </ul>
+                  )
+                })
+            }
           </div>
+
+          <div className="max-w-[1200px] mx-auto justify-center">
+            <div className="max-w-[1200px] mx-auto py-8 text-center overflow-x-hidden">
+
+              {/* { data !== undefined ?<ul className='flex justify-center items-center list-style-none'>
+                      <li
+                          className='cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] rounded-full leading-10 text-cente relative block py-1 px-1.5 border-1 border-[#DAC0A3]
+ text-black shadow-sm dark:text-[#ebf4f1]' onClick={PrevBlock}><FontAwesomeIcon icon={faAnglesLeft} /></li>
+                      {PageList}
+                      <li
+                          className='cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] rounded-full leading-10 text-cente relative block py-1 px-1.5 border-1 border-[#DAC0A3]
+text-black shadow-sm focus:shadow-sm dark:text-[#ebf4f1]' onClick={NextBlock}><FontAwesomeIcon icon={faAnglesRight} /></li>
+                  </ul> : ""  } */}
+              <ul className='flex justify-center items-center list-style-none'>
+                <li
+                  className='cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] rounded-full leading-10 text-cente relative block py-1 px-1.5 border-1 border-[#DAC0A3]
+ text-black shadow-sm dark:text-[#ebf4f1]' onClick={PrevBlock}><FontAwesomeIcon icon={faAnglesLeft} /></li>
+                {PageList}
+                <li
+                  className='cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] rounded-full leading-10 text-cente relative block py-1 px-1.5 border-1 border-[#DAC0A3]
+text-black shadow-sm focus:shadow-sm dark:text-[#ebf4f1]' onClick={NextBlock}><FontAwesomeIcon icon={faAnglesRight} /></li>
+              </ul>
+            </div>
+          </div>
+          <ScrollUpDown />
         </div>
       </div>
-
 
     </>
   )
