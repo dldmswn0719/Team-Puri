@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import "./../../../src/index.css"
+import enMessages from './../../locales/en.json';
+import krMessages from './../../locales/kr.json';
+import { useSelector } from 'react-redux';
 
 function Support_Info() {
+  const language = useSelector(state => state.language);
+  const messages = language === 'en' ? enMessages : krMessages;
 
   const NumChk = (e)=>{
     return e.target.value = e.target.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -21,71 +26,67 @@ function Support_Info() {
   const [card, setCard] = useState(true)
   const [money, setMoney] = useState(-1)
   const navigate = useNavigate();
+
   const formChk = ()=>{
       if(document.querySelector(".name").value === "" || document.querySelector(".name").value === null){
-        alert("이름이 비어있습니다.");
+        alert(messages.supportpay1);
         document.querySelector(".name").focus();
         return;
       }
       if(document.querySelector(".middle-nb").value === "" || document.querySelector(".name").value === null){
-        alert("중간번호가 비어있습니다.");
+        alert(messages.supportpay2);
         document.querySelector(".middle-nb").focus();
         return;
       }
       if(document.querySelector(".end-nb").value === "" || document.querySelector(".name").value === null){
-        alert("끝번호가 비어있습니다.");
+        alert(messages.supportpay3);
         document.querySelector(".end-nb").focus();
         return;
       }
       if(document.querySelector(".e-mail").value === "" || document.querySelector(".name").value === null){
-        alert("이메일이 비어있습니다.");
+        alert(messages.supportpay4);
         document.querySelector(".e-mail").focus();
         return;
       }
       if(document.querySelector(".card-nb").value === "" || document.querySelector(".name").value === null){
-        alert("카드번호가 비어있습니다.");
+        alert(messages.supportpay5);
         document.querySelector(".card-nb").focus();
         return;
       }
       if(document.querySelector(".card-nb").value.length !== 19){
-        alert("카드번호가 잘못되었습니다..");
+        alert(messages.supportpay6);
         document.querySelector(".card-nb").focus();
         return;
       }
       if(document.querySelector(".month").value === "" || document.querySelector(".name").value === null){
-        alert("유효기간(월)이 비어있습니다.");
+        alert(messages.supportpay7);
         document.querySelector(".month").focus();
         return;
       }
       if(document.querySelector(".year").value === "" || document.querySelector(".name").value === null){
-        alert("유효기간(년)이 비어있습니다.");
+        alert(messages.supportpay8);
         document.querySelector(".year").focus();
         return;
       }
       if(document.querySelector(".card-name").value === "" || document.querySelector(".name").value === null){
-        alert("카드주명이 비어있습니다.");
+        alert(messages.supportpay9);
         document.querySelector(".card-name").focus();
         return;
       }
       if(document.querySelector(".birth").value === "" || document.querySelector(".name").value === null){
-        alert("생년월일이 비어있습니다.");
+        alert(messages.supportpay10);
         document.querySelector(".birth").focus();
         return;
       }
       if(document.querySelector(".password").value === "" || document.querySelector(".name").value === null){
-        alert("비밀번호가 비어있습니다.");
+        alert(messages.supportpay11);
         document.querySelector(".password").focus();
         return;
       }
 
-
-
-
-      navigate('/paycomplete')
-    
+      navigate('/paycomplete')    
   }
   
-
 
   const checkedAll = (e)=>{
     if(e.target.checked === true){
@@ -108,36 +109,36 @@ function Support_Info() {
               <div className="w-[500px] h-[225px] relative info max-lg:w-full max-lg:h-[190px] max-md:w-full">
                 <ul className="w-full h-[155px] bg-[#f8f0e5] flex justify-around items-center max-lg:h-[120px]">
                   <li className="">
-                    <p className='h-[72px] font-bold text-xl max-lg:flex max-lg:items-center'>후원하기</p>
+                    <p className='h-[72px] font-bold text-xl max-lg:flex max-lg:items-center'>{messages.supportpay1_1}</p>
                   </li>
                   <li className="">
                     <p>
-                      유기동물들은 우리의 사랑과 돌봄을 <br />
-                      필요로 합니다. 당신의 후원이 그들에게<br /> 사랑의 날개를 펼치게 해주세요.
+                    {messages.supportpay1_2} <br />
+                    {messages.supportpay1_3}<br /> {messages.supportpay1_4}
                     </p>
                   </li>
                 </ul>
               </div>
               <div className="w-[500px] relative py-[50px] info  max-lg:w-full">
-                <p className="mb-[30px] text-xl font-bold">후원하기</p>
+                <p className="mb-[30px] text-xl font-bold">{messages.supportpay1_1}</p>
                 <ul className="flex justify-between mb-[25px]">
-                  <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>후원항목</p></li>
+                  <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>{messages.supportpay1_5}</p></li>
                   <div className="w-[353px] flex gap-x-5 max-lg:w-[600px] max-md:w-[420px]">
-                    <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center max-lg:w-[290px] max-md:w-[200px] ${isActive === true ? "color" : ""}`}  onClick={()=>{setIsActive(!isActive);setActive(false)}}><p>일시후원</p></li>
-                    <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center max-lg:w-[290px] max-md:w-[200px] ${Active === true ? "color" : ""}`}  onClick={()=>{setActive(!Active);setIsActive(false)}}><p>정기후원</p></li>
+                    <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center max-lg:w-[290px] max-md:w-[200px] ${isActive === true ? "color" : ""}`}  onClick={()=>{setIsActive(!isActive);setActive(false)}}><p>{messages.supportpay1_6}</p></li>
+                    <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center max-lg:w-[290px] max-md:w-[200px] ${Active === true ? "color" : ""}`}  onClick={()=>{setActive(!Active);setIsActive(false)}}><p>{messages.supportpay1_7}</p></li>
                   </div>
                 </ul>
                 <ul className="flex justify-between">
-                  <li className="h-[30px] flex justify-center whitespace-nowrap"><p className='w-[60px]'>후원금액</p></li>
+                  <li className="h-[30px] flex justify-center whitespace-nowrap"><p className='w-[60px]'>{messages.supportpay1_8}</p></li>
                   <div className="w-[353px] h-[100px] flex gap-x-[15px] flex-wrap max-lg:w-[600px] max-md:w-[420px]">
                     {
                       Array(5).fill().map((e,i)=>{
                         return (
-                          <li key={i} className={`w-[105px] h-[40px] flex justify-center items-center bg-[#f8f0e5] cursor-pointer max-lg:w-[190px] max-md:w-[130px] ${money === i ? "color" : ""}`} onClick={()=>{setMoney(i)}}><p>{i+1}0,000원</p></li>
+                          <li key={i} className={`w-[105px] h-[40px] flex justify-center items-center bg-[#f8f0e5] cursor-pointer max-lg:w-[190px] max-md:w-[130px] ${money === i ? "color" : ""}`} onClick={()=>{setMoney(i)}}><p>{i+1}0,000{messages.won}</p></li>
                         )
                       })
                     }
-                    <li className="" onClick={()=>{setMoney(money === false ? true : false)}}><input type="text" placeholder="직접입력"  onInput={NumChk}  className='w-[105px] h-[38px] flex justify-center items-center text-center border-[1px] border-black max-lg:w-[190px] max-md:w-[130px]' maxLength={11} /></li> 
+                    <li className="" onClick={()=>{setMoney(money === false ? true : false)}}><input type="text" placeholder={messages.supportpay1_9} onInput={NumChk}  className='w-[105px] h-[38px] flex justify-center items-center text-center border-[1px] border-black max-lg:w-[190px] max-md:w-[130px]' maxLength={11} /></li> 
                     {/* <li className={`w-[105px] h-[30px] flex justify-center items-center bg-[#f8f0e5] cursor-pointer ${money === true ? "color" : ""}`} onClick={()=>{setMoney(money === false ? true : false)}}><p>10,000원</p></li>
                     <li className={`w-[105px] h-[30px] flex justify-center items-center bg-[#f8f0e5] cursor-pointer ${money === true ? "color" : ""}`} onClick={()=>{setMoney(money === false ? true : false)}}><p>20,000원</p></li>
                     <li className={`w-[105px] h-[30px] flex justify-center items-center bg-[#f8f0e5] cursor-pointer ${money === true ? "color" : ""}`} onClick={()=>{setMoney(money === false ? true : false)}}><p>30,000원</p></li>

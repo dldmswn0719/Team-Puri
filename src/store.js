@@ -32,12 +32,22 @@ let dark = createSlice({
     }
 })
 
+let language = createSlice({
+    name: "language",
+    initialState: localStorage.getItem('language') || 'kr',
+    reducers: {
+      setLanguage: (state, action) => action.payload,
+    }
+});
+
 export const {logIn, logOut, loggedIn} = user.actions;
 export const {toggleTheme} = dark.actions;
+export const { setLanguage } = language.actions;
 
 export default configureStore({
     reducer : {
         user : user.reducer,
-        dark : dark.reducer
+        dark : dark.reducer,
+        language: language.reducer,
     }
 });
