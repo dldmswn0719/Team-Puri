@@ -1,7 +1,8 @@
+import React, { useEffect } from 'react';
 import { Route, Routes } from "react-router-dom";
 import Main from "./pages/Main";
 import Info from "./pages/Info";
-import Store from "./pages/Store";
+import StorePage from "./pages/StorePage";
 import Support from "./pages/Support";
 import Qa_Input from "./pages/Qa_Input";
 import Review_Input from "./pages/Review_Input";
@@ -13,17 +14,17 @@ import Review_Page from "./pages/Review_Page";
 import Info_Test from "./components/Info_Test";
 import Mypage from "./pages/Mypage";
 import Login from "./pages/Login";
-import Member from "./pages/Member";
-import { Provider, useDispatch, useSelector } from "react-redux";
-import store, { logIn, loggedIn, toggleTheme } from "./store";
-import { useEffect } from "react";
-import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
 import Logout from "./components/Logout";
+import Member from "./pages/Member";
 import Findemail from "./pages/Findemail";
 import Notpage from "./pages/Notpage";
 import { CheckoutPage } from "./pages/CheckoutPage";
 import { SuccessPage } from "./pages/SuccessPage";
 import { FailPage } from "./pages/FailPage";
+import { Provider, useDispatch, useSelector } from "react-redux";
+import store, { logIn, loggedIn, toggleTheme } from "./store";
+import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
+
 
 function App() {
   return (
@@ -36,8 +37,7 @@ function App() {
 }
 
 function Inner() {
-  const userState = useSelector(state => state.user)
-  // console.log(userState);
+
   const dispatch = useDispatch();
   const uid = sessionStorage.getItem("users");
   // console.log(uid);
@@ -91,6 +91,16 @@ function Inner() {
       localStorage.removeItem("theme");
     }
   }, [darkMode]);
+
+  const language = useSelector(state => state.language);
+  
+  useEffect(() => {
+
+    if (localStorage.getItem("language") !== language) {
+      localStorage.setItem("language", language);
+    }
+
+  }, [language]);
    
   return (
    <>
@@ -101,7 +111,7 @@ function Inner() {
       <Route path="/infodetail/:desertionNo" element={<InfoDetail />}></Route>
       <Route path="/introduce" element={<Introduce />}></Route>
       <Route path="/review_page" element={<Review_Page />}></Route>
-      <Route path="/store/:id" element={<Store />}></Route>
+      <Route path="/store/:id" element={<StorePage />}></Route>
       <Route path="/support" element={<Support />}></Route>
       <Route path="/supportpay" element={<SupportPay />}></Route>
       <Route path="/paycomplete" element={<PayComplete />}></Route>
