@@ -1,11 +1,11 @@
 import React from 'react'
-import DetailInformation from '../components/Info/DetailInformation'
 import Nav from '../components/Nav'
+import AnimalDetails from '../components/Info/AnimalDetails'
 function InfoDetail() {
   return (
     <>
         <Nav />
-        <DetailInformation />
+        <AnimalDetails />
     </>
   )
 }
