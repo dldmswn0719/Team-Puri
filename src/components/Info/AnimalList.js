@@ -159,27 +159,28 @@ function AnimalList() {
                     <p>품종 : {selectedAnimal}</p>
                     <p>페이지 : {page}</p> */}
                     {/* <p>https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_apiKey}&_type=json&upkind=${Array[kindCode]}</p> */}
-                    <div className="max-w-full max-h-full border-b-4 md:border-b-2 border-[#EADBC8] dark:border-[#dadbdb] py-5">
-                        <div className="max-w-full h-full flex flex-col md:flex-row justify-between text-left my-2">
-                            <div className="w-full mb-5">
-                                <p className='font-bold text-[#999] dark:text-[#ebf4f1]'>지역</p>
-                                <select onChange={selectedData} className='text-xl font-bold dark:bg-[#404343] dark:text-[#ebf4f1] lg:w-48 max-lg:w-full cityData'>
+                    <div className="max-w-full max-h-full max-md:border-none border-b-4  py-5  border-[#EADBC8] dark:border-[#dadbdb]">
+                        <div className="max-w-full h-full flex flex-col md:flex-row justify-between text-left max-md:px-28 max-sm:px-9">
+                            <div className="w-full ">
+                                <p className='font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5'>지역</p>
+                                <select onChange={selectedData} className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929] dark:text-[#ebf4f1] cityData'>
+
                                     <option value="">모든 지역</option>
                                     {city.map((el, index) => <option key={index} value={el.orgCd}>{el.orgdownNm}</option>)}
                                 </select>
                             </div>
                             {/* 동물 축종 */}
                             <div className="w-full">
-                                <p className='font-bold text-[#999] dark:text-[#ebf4f1]'>축종</p>
-                                <select className='text-xl font-bold dark:bg-[#404343] dark:text-[#ebf4f1] lg:w-48 max-lg:w-full kindData' onChange={selectedData}>
+                                <p className='font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5'>축종</p>
+                                <select className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929]  dark:text-[#ebf4f1] kindData' onChange={selectedData}>
                                     {kind.map((el, index) => <option key={index} value={index}>{el}</option>)}
                                 </select>
                             </div>
 
                             {/* 동물 품종 */}
                             <div className="w-full">
-                                <p className='font-bold text-[#999] dark:text-[#ebf4f1]'>품종</p>
-                                <select className='text-xl font-bold w-full md:w-[310px] dark:bg-[#404343] dark:text-[#ebf4f1] dark:mb-5 animalData' onChange={selectedData}>
+                                <p className='font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5'>품종</p>
+                                <select className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929]  dark:text-[#ebf4f1] animalData' onChange={selectedData}>
                                     {kindCode !== "3" && <option value="">모든 품종</option>}
                                     {
                                         animal && animal.map((e, i) => {
@@ -190,36 +191,37 @@ function AnimalList() {
                                     }
                                 </select>
                             </div>
-
-                            <div className="w-full flex  items-center justify-end max-lg:justify-center font-bold">
-                                <button className="font-bold w-48 lg:w-48 max-lg:w-full h-12 border-2 bg-[#DAC0A3] border-[#DAC0A3] dark:bg-[#272929]  dark:text-[#ebf4f1]  dark:border-[#dadbdb] rounded-[20px]"
+                            <div className="w-full flex items-center justify-end font-bold">
+                                <button className="font-bold w-48 h-12 max-md:basis-full max-md:mt-7 border-2 rounded-[20px] bg-[#DAC0A3] border-[#DAC0A3] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-[#dadbdb]"
                                     onClick={() => {
                                         setLoading(true);
                                         ResultData();
                                         PageReset();
                                     }}>검색하기</button>
                             </div>
+
                         </div>
                     </div>
 
 
-                    <div className="max-w-full max-h-full flex text-[15px] gap-y-4 flex-wrap justify-start gap-x-3 max-md:justify-center max-lg:justify-center pt-8">
+                    <div className="max-w-full max-h-full flex text-[15px] gap-y-4 flex-wrap justify-start gap-x-3 max-sm:px-9 max-md:justify-center max-lg:justify-center pt-8">
                         {
                             data === undefined ? <div className='w-full h-full flex items-center justify-center'><p className='text-[32px] text-[#999] font-bold dark:text-[#ebf4f1]'>검색 결과가 없습니다.</p></div> :
                                 data && data.map((e, i) => {
                                     return (
-                                        <div className="w-full h-full relative box-border border border-[#f1f1ef] flex-wrap basis-[32.5%] shadow-[4px_4px_4px_-4px_rgb(119, 112, 112)] rounded-[20px] " key={i}>
+                                        <div className="w-full h-full relative box-border 
+                                        border-2 border-[#f1f1ef] shadow-lg rounded-[20px] flex-wrap lg:basis-[32.5%] md:basis-[45%] sm:basis-[70%] shadow-[4px_4px_4px_-4px_rgb(119, 112, 112)] rounded-[20px] " key={i}>
                                             <Link to={`/infodetail/${e.desertionNo}`} state={{ e: e }}>
-                                                <div className='font-bold px-3 py-3 flex items-center justify-between max-md:w-[350px] max-lg:w-[300px] dark:bg-[#404343] rounded-t-[20px] dark:text-[#ebf4f1] '>
+                                                <div className='font-bold px-3 py-3 flex items-center justify-between  dark:bg-[#404343] rounded-t-[20px] dark:text-[#ebf4f1] '>
                                                     <p><FontAwesomeIcon icon={e.sexCd === 'M' ? faMars : e.sexCd === 'F' ? faVenus : ""} className='w-[18px] h-[18px] pr-1 align-text-bottom dark:text-[#ebf4f1] ' />{e.sexCd === 'M' ? "남" : e.sexCd === 'F' ? "여" : "성별 미상"} </p>
                                                 </div>
-                                                <div className="h-[350px]  flex ">
+                                                <div className="flex h-[380px]">
                                                     <img src={e.popfile} alt="img" className='w-full' />
                                                 </div>
 
                                             </Link>
                                             <div className="pl-[10px] py-[10px] dark:text-[#ebf4f1] dark:bg-[#404343] dark:rounded-b-[20px]">
-                                                <p className='font-bold text-[14px]'><span className='text-[#999]dark:text-[#ebf4f1]'>품종 :</span> {e.kindCd}</p>
+                                                <p className='font-bold text-[14px]'><span className='text-[#999] dark:text-[#ebf4f1]'>품종 :</span> {e.kindCd}</p>
                                                 <p className='font-bold text-[14px]'><span className='text-[#999] dark:text-[#ebf4f1]'>나이 :</span> {e.age} 추정</p>
                                                 <p className='font-bold text-[14px]'><span className='text-[#999] dark:text-[#ebf4f1]'>지역 :</span> {e.orgNm}</p>
                                             </div>
