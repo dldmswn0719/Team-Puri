@@ -115,13 +115,13 @@ function Nav() {
                     {/* 후원,스토어  페이지만 보이도록 */}
 
                     {/* 모바일 네비 시작 */}
-                    <div className='lg:hidden flex pr-10'>
+                    <div className='lg:hidden flex'>
                         <div>
                             <button onClick={() => { dispatch(toggleTheme()) }}>
                                 <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} className='text-[25px] dark:text-[#ebf4f1] mt-1' />
                             </button>
                         </div>
-                        <div className='lg:hidden text-center cursor-pointer text-2xl relative group px-3'>
+                        <div className='lg:hidden text-center cursor-pointer text-2xl relative group pl-3 pr-2'>
                             <FontAwesomeIcon icon={faEarthAmericas} className='text-[25px] dark:text-[#ebf4f1]' />
                             <ul className='z-100 dark:bg-[#272929] absolute w-20 top-[50px] -left-[25px] bg-white transition-all duration-500 flex flex-wrap h-0 overflow-hidden group-hover:h-24'>
                                 <li onClick={() => changeLanguage('kr')} className='dark:hover:bg-[#404040b3] border w-full basis-full h-12 leading-10 hover:font-bold hover:bg-[#f8f0e5]'>
@@ -132,14 +132,14 @@ function Nav() {
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                    <div className="fixed right-5  transition-all duration-1000 z-[100] cursor-pointer lg:hidden" onClick={() => {toggleHamburger() }}>
-                        {
-                            hamburger ?
-                                <FontAwesomeIcon icon={faXmark} className='w-8 h-8 dark:text-white' />
-                                :
-                                <FontAwesomeIcon icon={faBars} className='w-8 h-8 dark:text-white' />
-                        }
+                        <div className="transition-all duration-1000 z-[100] cursor-pointer lg:hidden" onClick={() => {toggleHamburger() }}>
+                            {
+                                hamburger ?
+                                    <FontAwesomeIcon icon={faXmark} className='w-8 h-8 dark:text-white' />
+                                    :
+                                    <FontAwesomeIcon icon={faBars} className='w-8 h-8 dark:text-white' />
+                            }
+                        </div>
                     </div>
                     <div className={`w-80 h-full fixed bg-gray-100 dark:bg-[#272929] z-50 p-12 top-0 box-border transition-all duration-500 lg:hidden ${hamburger ? 'right-0' : '-right-80'}`}>
                         <ul className='flex mt-3'>

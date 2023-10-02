@@ -1,4 +1,4 @@
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faGithub, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
 import { NavLink } from 'react-router-dom'
@@ -39,9 +39,9 @@ function Footer() {
                     </ul>
                     <ul className='flex pt-7'>
                         <li className='pr-7'><NavLink><FontAwesomeIcon icon={faGithub} size='xl' /></NavLink></li>
-                        <li className='pr-7'><NavLink><img src="./../Images/Main/instar.png" alt="instargram" /></NavLink></li>
-                        <li className='pr-7'><NavLink><img src="./../Images/Main/faceb.png" alt="facebook" /></NavLink></li>
-                        <li><NavLink><img src="./../Images/Main/youtube.png" alt="youtube" /></NavLink></li>
+                        <li className='pr-7'><NavLink><FontAwesomeIcon icon={faInstagram} size='xl' /></NavLink></li>
+                        <li className='pr-7'><NavLink><FontAwesomeIcon icon={faFacebook} size='xl' /></NavLink></li>
+                        <li><NavLink><FontAwesomeIcon icon={faYoutube} size='xl' /></NavLink></li>
                     </ul>
                 </div>
             </div>

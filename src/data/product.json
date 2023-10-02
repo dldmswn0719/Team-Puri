@@ -21,7 +21,12 @@
         "imageUrl11" : "",
         "endImageUrl" : "./../images/Store/tumbler_img10.svg",
         "title" : "MIX FAMILY",
-        "Sub_title" : "Mix Family Reusable Cup"
+        "Sub_title" : "Mix Family Reusable Cup",
+        "design_story_title" : "",
+        "design_story1" : "",
+        "design_story2" : "",
+        "design_story3" : "",
+        "design_story4" : ""
     },
     {
         "id" : 2,
@@ -44,7 +49,12 @@
         "imageUrl11" : "",
         "endImageUrl" : "./../images/Store/ecobag_img10.svg",
         "title" : "MIX FAMILY",
-        "Sub_title" : "MIX FAMILY ECO BAG"
+        "Sub_title" : "MIX FAMILY ECO BAG",
+        "design_story_title" : "",
+        "design_story1" : "",
+        "design_story2" : "",
+        "design_story3" : "",
+        "design_story4" : ""
     },
     {
         "id" : 3,
@@ -70,7 +80,12 @@
         "imageUrl11" : "",
         "endImageUrl" : "./../images/Store/grip_img11.svg",
         "title" : "MIX FAMILY",
-        "Sub_title" : "Mix Family Face pop grip"
+        "Sub_title" : "Mix Family Face pop grip",
+        "design_story_title" : "",
+        "design_story1" : "",
+        "design_story2" : "",
+        "design_story3" : "",
+        "design_story4" : ""
     },
     {
         "id" : 4,
@@ -95,7 +110,12 @@
         "imageUrl11" : "",
         "endImageUrl" : "./../images/Store/badge_img7.svg",
         "title" : "",
-        "Sub_title" : ""
+        "Sub_title" : "",
+        "design_story_title" : "디자인 이야기",
+        "design_story1" : "사랑하는 반려동물이 하늘나라로 가면",
+        "design_story2" : "흔히들 '무지개다리'를 건넜다고 이야기합니다.",
+        "design_story3" : "무지개다리 뱃지는",
+        "design_story4" : "동물들이 좋은 곳으로 가길 바라는 마음을 담았습니다."
     },
     {
         "id" : 5,
@@ -122,7 +142,12 @@
         "imageUrl11" : "",
         "endImageUrl" : "./../images/Store/keyring_img6.svg",
         "title" : "PURIPURI",
-        "Sub_title" : "Acrylic Keyring"
+        "Sub_title" : "Acrylic Keyring",
+        "design_story_title" : "",
+        "design_story1" : "",
+        "design_story2" : "",
+        "design_story3" : "",
+        "design_story4" : ""
     },
     {
         "id" : 6,
@@ -144,7 +169,12 @@
         "imageUrl11" : "",
         "endImageUrl" : "./../images/Store/cup_img8.svg",
         "title" : "PURIPURI",
-        "Sub_title" : "Basic Mug"
+        "Sub_title" : "Basic Mug",
+        "design_story_title" : "",
+        "design_story1" : "",
+        "design_story2" : "",
+        "design_story3" : "",
+        "design_story4" : ""
     },
     {
         "id" : 7,
@@ -169,7 +199,12 @@
         "imageUrl11" : "",
         "endImageUrl" : "./../images/Store/tape_img9.svg",
         "title" : "PURIPURI",
-        "Sub_title" : "Slogan Masking Tape"
+        "Sub_title" : "Slogan Masking Tape",
+        "design_story_title" : "",
+        "design_story1" : "",
+        "design_story2" : "",
+        "design_story3" : "",
+        "design_story4" : ""
     },
     {
         "id" : 8,
@@ -194,6 +229,11 @@
         "imageUrl11" : "",
         "endImageUrl" : "./../images/Store/doll_img11.svg",
         "title" : "",
-        "Sub_title" : ""
+        "Sub_title" : "",
+        "design_story_title" : "",
+        "design_story1" : "",
+        "design_story2" : "",
+        "design_story3" : "",
+        "design_story4" : ""
     }
 ]
