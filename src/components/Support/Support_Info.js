@@ -6,6 +6,7 @@ import krMessages from './../../locales/kr.json';
 import { useSelector } from 'react-redux';
 
 function Support_Info() {
+  
   const language = useSelector(state => state.language);
   const messages = language === 'en' ? enMessages : krMessages;
 
@@ -245,7 +246,7 @@ function Support_Info() {
                 </div>
                 <div className="mb-[10px]">
                   <input type="checkbox" id='policy'/>
-                  <label htmlFor='policy' className='ml-2'>[필수] 이용약관 동의<NavLink to='/'>[보기]</NavLink></label>
+                  <label htmlFor='policy' className='ml-2'>[필수] 개인정보처리방침 동의<NavLink to='/'>[보기]</NavLink></label>
                 </div>
                 <button onClick={formChk} className='w-[165px] h-[43px] bg-[#dac0a3] text-white my-0 mx-auto flex justify-center items-center mt-[50px]  max-lg:w-full max-lg:h-[60px]' >결제하기</button>
               </div>
