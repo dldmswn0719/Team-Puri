@@ -22,10 +22,6 @@ function Content2Info() {
                     <img src="./../../Images/Main/content1.png" alt="content1" className='rounded-3xl
                     w-80 md:w-[350px] lg:w-[500px]' />
                 </div>
-                <div className='absolute left-0
-                -bottom-4 md:-bottom-12 lg:bottom-[-690px]'>
-                    <img src="./../../Images/Main/bg-.png" alt="bg" />
-                </div>
             </div>
         </>
     )

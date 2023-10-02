@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 function Content3Review() {
     return (
-        <div className='bg-[#F7F0E4] mt-[155px] pt-[128px] pb-[335px] relative' id='review'>
+        <div className='content3bg mt-[155px] pt-[128px] pb-[335px] relative' id='review'>
             <div className='md:w-[768px] lg:w-[1200px] m-auto pb-[92px]'>
                 <ul className='md:flex md:justify-between lg:flex lg:justify-between text-center'>
                     <li>
