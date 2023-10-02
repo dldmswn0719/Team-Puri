@@ -83,7 +83,6 @@ function Login_c() {
           }catch(error){
             // console.log(error) 
             setError(errorMsg(error))
-            // 파이어베이스 사용자 구글 설정 아직 안해서 오류날거임
           }
         
     }
@@ -132,8 +131,7 @@ function Login_c() {
                                 <p className='dark:text-[#ebf4f1]'>회원가입</p>
                             </NavLink>
                         </li>
-                    </ul>
-                    
+                    </ul>                   
                 </div>
             </div>
         </>

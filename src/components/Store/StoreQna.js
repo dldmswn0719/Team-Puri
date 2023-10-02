@@ -15,8 +15,8 @@ function StoreQna() {
     return (
         <>
             <div className="w-full bg-white dark:bg-[#272929]">
-                <div className="lg:w-[1200px] my-0 mx-auto qa">
-                    <div className="pt-[97px] text-xl">
+                <div className="max-w-7xl mx-auto qa">
+                    <div className="pt-[8%] text-xl px-5">
                         <div className="flex leading-10 dark:text-[#ebf4f1]">
                             <p className='pr-1'>{messages.qna}</p>
                             <p className="text-[#DAC0A3] dark:text-[#ebf4f1]">(0)</p>
@@ -27,7 +27,7 @@ function StoreQna() {
                                 <p className="text-white leading-[55px] text-center dark:text-[#ebf4f1]">{messages.desc24}</p>
                             </NavLink>
                         </div>
-                        <div className="lg:w-[1200px] h-[550px] border-t border-[#EADBC8] mt-[50px] text-center dark:border-[#dadbdb]">
+                        <div className="max-w-7xl h-[550px] border-t border-[#EADBC8] mt-[50px] text-center dark:border-[#dadbdb]">
                             <FontAwesomeIcon icon={faCircleQuestion} className='mt-[230px] mx-auto dark:text-[#ebf4f1]' color='#DAC0A3' size='2x'/>
                             <p className="text-[#EADBC8] pt-[35px] dark:text-[#ebf4f1]">{messages.desc25}</p>
                         </div>

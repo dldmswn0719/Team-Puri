@@ -171,7 +171,12 @@ function Member_c() {
                                 <input type="file" class="real-upload hidden" accept="image/*" required multiple />
                             </li>
                             <li>
+                            {
+                                initialMode ?
                                 <input defaultValue={email} onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder='이메일' autoFocus className='email w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                :
+                                <input readOnly defaultValue={email} onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder='이메일' autoFocus className='email w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                            }
                             </li>
                             {
                                 initialMode &&
