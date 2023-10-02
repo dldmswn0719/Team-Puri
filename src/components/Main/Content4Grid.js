@@ -3,8 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 function Content4Grid() {
     return (
-        <div className='w-[1200px] m-auto pt-[130px] pb-[147px]'>
-            <ul className='flex flex-wrap gap-x-5 gap-y-10'>
+        <div className='md:w-[768px] lg:w-[1200px] m-auto
+        
+        lg:pt-[130px] lg:pb-[147px]'>
+            <ul className='lg:flex lg:flex-wrap lg:gap-x-5 lg:gap-y-10'>
                 <li className='w-[285px] cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/1.jpg" alt="1" /><p>수리 입양 후 근황입니다:)</p></NavLink></li>
                 <li className='w-[285px] cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/2.jpg" alt="2" /><p>형아 껌딱지 머핀이 근황사진입니다!</p></NavLink></li>
                 <li className='w-[285px] cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/3.jpg" alt="3" /><p>궁금해하실 빵이 근황입니다.</p></NavLink></li>
