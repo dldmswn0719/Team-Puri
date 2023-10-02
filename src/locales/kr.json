@@ -117,7 +117,12 @@
         "desc4_title" : "주의사항",
         "desc4" : "식기세척기,전자레인지 사용은 불가하며",
         "desc4_1" : "열탕 소독은 제품 변형의 원인이 되므로 피해주세요.",
-        "desc4_2" : ""
+        "desc4_2" : "",
+        "design_story_title" : "",
+        "design_story1" : "",
+        "design_story2" : "",
+        "design_story3" : "",
+        "design_story4" : ""
     },
     "product_2" : {
         "name" : "[유기동물 후원] 믹스패밀리 에코백",
@@ -143,7 +148,12 @@
         "desc4_title" : "주의사항",
         "desc4" : "식기세척기,전자레인지 사용은 불가하며",
         "desc4_1" : "열탕 소독은 제품 변형의 원인이 되므로 피해주세요.",
-        "desc4_2" : ""
+        "desc4_2" : "",
+        "design_story_title" : "",
+        "design_story1" : "",
+        "design_story2" : "",
+        "design_story3" : "",
+        "design_story4" : ""
     },
     "product_3" : {
         "name" : "[유기동물 후원] 믹스패밀리 페이스 에폭시 그립톡",
@@ -172,7 +182,12 @@
         "desc4_title" : "주의사항",
         "desc4" : "에폭시코딩 제작 특성상 제작과정 중",
         "desc4_1" : "작은 찍힘,먼지,기스 등이 있을 수 있습니다.",
-        "desc4_2" : "해당 사유로 인한 교환 및 반품은 불가합니다."
+        "desc4_2" : "해당 사유로 인한 교환 및 반품은 불가합니다.",
+        "design_story_title" : "",
+        "design_story1" : "",
+        "design_story2" : "",
+        "design_story3" : "",
+        "design_story4" : ""
     },
     "product_4" : {
         "name" : "[유기동물 후원] 무지개다리 뱃지",
@@ -201,7 +216,12 @@
         "desc4_title" : "소재",
         "desc4" : "금속",
         "desc4_1" : "",
-        "desc4_2" : ""
+        "desc4_2" : "",
+        "design_story_title" : "디자인 이야기",
+        "design_story1" : "사랑하는 반려동물이 하늘나라로 가면",
+        "design_story2" : "흔히들 '무지개다리'를 건넜다고 이야기합니다.",
+        "design_story3" : "무지개다리 뱃지는",
+        "design_story4" : "동물들이 좋은 곳으로 가길 바라는 마음을 담았습니다."
     },
     "product_5" : {
         "name" : "[유기동물 후원] 아크릴 키링",
@@ -232,7 +252,12 @@
         "desc4_title" : "주의사항",
         "desc4" : "사용시 겉면에 보호필름을 제거한 뒤 사용해 주세요.",
         "desc4_1" : "",
-        "desc4_2" : ""
+        "desc4_2" : "",
+        "design_story_title" : "",
+        "design_story1" : "",
+        "design_story2" : "",
+        "design_story3" : "",
+        "design_story4" : ""
     },
     "product_6" : {
         "name" : "[유기동물 후원] 베이직 머그컵",
@@ -258,7 +283,12 @@
         "desc4_title" : "주의사항",
         "desc4" : "표면에 검은 점, 기포, 미세하게 눌린 자국은 도자기 유약 처리,",
         "desc4_1" : "고온의 가마 소성 과정에서 발생하는 현상으로",
-        "desc4_2" : "반품,교환,환불 사유가 될 수 없는 점 참고 부탁드립니다."
+        "desc4_2" : "반품,교환,환불 사유가 될 수 없는 점 참고 부탁드립니다.",
+        "design_story_title" : "",
+        "design_story1" : "",
+        "design_story2" : "",
+        "design_story3" : "",
+        "design_story4" : ""
     },
     "product_7" : {
         "name" : "[유기동물 후원] 슬로건 마스킹 테이프",
@@ -287,7 +317,12 @@
         "desc4_title" : "주의사항",
         "desc4" : "불에 직접 닿거나 가까이 하지 마세요.",
         "desc4_1" : "재사용 시 접착력이 떨어질 수 있습니다",
-        "desc4_2" : ""
+        "desc4_2" : "",
+        "design_story_title" : "",
+        "design_story1" : "",
+        "design_story2" : "",
+        "design_story3" : "",
+        "design_story4" : ""
     },
     "product_8" : {
         "name" : "[유기동물 후원] 믹스패밀리 어답미 인형",
@@ -316,7 +351,12 @@
         "desc4_title" : "주의사항",
         "desc4" : "용도 이외 사용을 금합니다. 화기에 가까이 두지 마세요.",
         "desc4_1" : "세탁기 사용을 자제하고 손으로 세탁해주세요.",
-        "desc4_2" : "물에 젖었을 경우 그늘에서 말려주세요."
+        "desc4_2" : "물에 젖었을 경우 그늘에서 말려주세요.",
+        "design_story_title" : "",
+        "design_story1" : "",
+        "design_story2" : "",
+        "design_story3" : "",
+        "design_story4" : ""
     }
   }
   
