@@ -117,7 +117,12 @@
         "desc4_title": "Caution",
         "desc4": "Dishwasher and microwave use are not recommended.",
         "desc4_1": "Heat sterilization can cause product deformation, so please avoid it.",
-        "desc4_2": ""       
+        "desc4_2": "",
+        "design_story_title": "",
+        "design_story1": "",
+        "design_story2": "",
+        "design_story3": "",
+        "design_story4": ""        
     },
     "product_2": {
         "name": "[Abandoned Animal Sponsorship] Mix Family Eco Bag",
@@ -143,7 +148,12 @@
         "desc4_title": "Caution",
         "desc4": "Do not use a dishwasher or microwave.",
         "desc4_1": "Heat sterilization can cause product deformation, so please avoid it.",
-        "desc4_2": ""
+        "desc4_2": "",
+        "design_story_title": "",
+        "design_story1": "",
+        "design_story2": "",
+        "design_story3": "",
+        "design_story4": ""
       },      
     "product_3" : {
         "name": "[Abandoned Animal Sponsorship] Mix Family Face Epoxy Grip Talk",
@@ -172,7 +182,12 @@
         "desc4_title": "Caution",
         "desc4": "Due to the nature of epoxy coating production,",
         "desc4_1": "small spots, dust, and blemishes may occur during the production process.",
-        "desc4_2": "Exchange and returns are not possible due to these reasons."
+        "desc4_2": "Exchange and returns are not possible due to these reasons.",
+        "design_story_title": "",
+        "design_story1": "",
+        "design_story2": "",
+        "design_story3": "",
+        "design_story4": ""
         
     },
     "product_4" : {
@@ -202,7 +217,12 @@
         "desc4_title": "Material",
         "desc4": "Metal",
         "desc4_1": "",
-        "desc4_2": ""
+        "desc4_2": "",
+        "design_story_title": "Design Story",
+        "design_story1": "When our beloved pets go to heaven,",
+        "design_story2": "we often say they have 'crossed the Rainbow Bridge.'",
+        "design_story3": "The Rainbow Bridge Badge",
+        "design_story4": "carries the wish for animals to go to a better place."
     },
     "product_5" : {
         "name": "[Abandoned Animal Sponsorship] Acrylic Keyring",
@@ -233,7 +253,12 @@
         "desc4_title": "Caution",
         "desc4": "Please remove the protective film from the surface before use.",
         "desc4_1": "",
-        "desc4_2": ""
+        "desc4_2": "",
+        "design_story_title": "",
+        "design_story1": "",
+        "design_story2": "",
+        "design_story3": "",
+        "design_story4": ""
     },
     "product_6" : {
         "name": "[Abandoned Animal Sponsorship] Basic Mug Cup",
@@ -288,7 +313,12 @@
         "desc4_title": "Caution",
         "desc4": "Do not expose to direct flames or proximity to fire.",
         "desc4_1": "Adhesive strength may decrease when reused.",
-        "desc4_2": ""
+        "desc4_2": "",
+        "design_story_title": "",
+        "design_story1": "",
+        "design_story2": "",
+        "design_story3": "",
+        "design_story4": ""
     },
     "product_8" : {
         "name": "[Abandoned Animal Sponsorship] Mix Family Adapmi Doll",
@@ -317,7 +347,12 @@
         "desc4_title": "Caution",
         "desc4": "Do not use for purposes other than intended. Do not place near open flames.",
         "desc4_1": "Avoid using a washing machine; hand wash only.",
-        "desc4_2": "If it gets wet, dry it in the shade."
+        "desc4_2": "If it gets wet, dry it in the shade.",
+        "design_story_title": "",
+        "design_story1": "",
+        "design_story2": "",
+        "design_story3": "",
+        "design_story4": ""
     }
   }
   
