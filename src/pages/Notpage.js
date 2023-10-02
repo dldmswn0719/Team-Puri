@@ -17,15 +17,17 @@ function Notpage() {
     // }, [countDown,navigate])
 
   return (
-    <div className='fixed w-full h-full bg-[#DAC0A3] left-0 top-0 z-50 flex justify-center items-center px-[2%] box-border   '>
-        <div className='leading-[1.4] p-10 w-full text-center'>
-            <h3 className='text-[165px] font-bold mb-[50px] text-white -rotate-[25deg] italic'>404</h3>
-            <p className='mb-5 text-10 font-bold text-white'>페이지를 찾을 수 없습니다.</p>
-            <p className='mb-5 text-10 font-bold'>주소를 다시 한번 확인해주세요.</p>
-            {/* <p><span>{countDown}</span>초 후에 이동됩니다.</p> */}
-            <button onClick={()=>{navigate('/')}} className='bg-white border-solid border-[1px] border-[#ddd] py-[10px] px-[30px] rounded-[50px] cursor-pointer'>메인으로 가기</button>
-        </div>
-    </div>
+    <>
+      <div className='fixed w-full h-full bg-[#EADBC8] left-0 top-0 z-50 flex justify-center items-center px-[2%] box-border'>
+          <div className='leading-[1.4] p-10 w-full text-center'>
+              <h3 className='text-[165px] font-bold mb-[40px] text-white -rotate-[18deg] [text-shadow:_5px_15px_0_rgb(0_0_0_/_40%)] italic'>404</h3>
+              <p className='mb-5 text-10 font-bold text-white text-[30px]'>페이지를 찾을 수 없습니다.</p>
+              <p className='mb-5 text-10 font-bold text-xl'>주소를 다시 한번 확인해주세요.</p>
+              {/* <p><span>{countDown}</span>초 후에 이동됩니다.</p> */}
+              <button onClick={()=>{navigate('/')}} className='bg-[#DAC0A3] border-solid border-[1px] border-[#ddd] py-[10px] px-[30px] rounded-[50px] cursor-pointer text-white'>메인으로 가기</button>
+          </div>
+      </div>
+    </>
   )
 }
 
