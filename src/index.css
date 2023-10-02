@@ -90,7 +90,7 @@ html.fixed{width: 100%; height: 100%; overflow: hidden;}
     }
 }
 .content3bg {
-    background: url("../public/Images/Main/bg--.png");
+    /* background: url("../public/Images/Main/bg--.png"); */
 }
 .content5bg {
     background: url("../public/Images/Main/bgg.png");

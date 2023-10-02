@@ -6,15 +6,24 @@ function Content4Grid() {
         <div className='md:w-[768px] lg:w-[1200px] m-auto
         
         lg:pt-[130px] lg:pb-[147px]'>
-            <ul className='lg:flex lg:flex-wrap lg:gap-x-5 lg:gap-y-10'>
-                <li className='w-[285px] cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/1.jpg" alt="1" /><p>수리 입양 후 근황입니다:)</p></NavLink></li>
-                <li className='w-[285px] cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/2.jpg" alt="2" /><p>형아 껌딱지 머핀이 근황사진입니다!</p></NavLink></li>
-                <li className='w-[285px] cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/3.jpg" alt="3" /><p>궁금해하실 빵이 근황입니다.</p></NavLink></li>
-                <li className='w-[285px] cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/4.jpg" alt="4" /><p>안녕하세요~ 저희 천재 강아지 ♥시루♡ 입양 후 소식 전해드립니다^0^~</p></NavLink></li>
-                <li className='w-[285px] cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/5.jpg" alt="5" /><p>리본센터에 잭팟 등장!</p></NavLink></li>
-                <li className='w-[285px] cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/6.jpg" alt="6" /><p>미원이 소식입니다:)</p></NavLink></li>
-                <li className='w-[285px] cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/7.jpg" alt="7" /><p>[강남이와가족된후기] 감사합니다</p></NavLink></li>
-                <li className='w-[285px] cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/8.jpg" alt="8" /><p>너무 늦게 소식을 전합니다^^</p></NavLink></li>
+            <ul className='flex flex-wrap lg:gap-x-5 gap-y-10'>
+                <li className='lg:w-[285px] w-60 m-auto
+                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/1.jpg" alt="1" /><p>수리 입양 후 근황입니다:)</p></NavLink></li>
+                <li className='lg:w-[285px] w-60 m-auto
+                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/2.jpg" alt="2" /><p>형아 껌딱지 머핀이 근황사진입니다!</p></NavLink></li>
+                <li className='lg:w-[285px] w-60 m-auto
+                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/3.jpg" alt="3" /><p>궁금해하실 빵이 근황입니다.</p></NavLink></li>
+                <li className='lg:w-[285px] w-60 m-auto
+                text-ellipsis overflow-hidden whitespace-nowrap
+                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/4.jpg" alt="4" /><p>안녕하세요~ 저희 천재 강아지 ♥시루♡ 입양 후 소식 전해드립니다^0^~</p></NavLink></li>
+                <li className='lg:w-[285px] w-60 m-auto
+                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/5.jpg" alt="5" /><p>리본센터에 잭팟 등장!</p></NavLink></li>
+                <li className='lg:w-[285px] w-60 m-auto
+                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/6.jpg" alt="6" /><p>미원이 소식입니다:)</p></NavLink></li>
+                <li className='lg:w-[285px] w-60 m-auto
+                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/7.jpg" alt="7" /><p>[강남이와가족된후기] 감사합니다</p></NavLink></li>
+                <li className='lg:w-[285px] w-60 m-auto
+                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/8.jpg" alt="8" /><p>너무 늦게 소식을 전합니다^^</p></NavLink></li>
             </ul>
         </div>
     );
