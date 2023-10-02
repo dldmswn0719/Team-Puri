@@ -73,24 +73,24 @@ html.fixed{width: 100%; height: 100%; overflow: hidden;}
         bottom: -7px;
         z-index: 99;
     }
-}
-
-@media screen and (min-width: 1024px) {
     #review::before {
         content: url("../public/Images/Main/cloud1.png");
         position: absolute;
         bottom:-5px;
         left: 0;
+        z-index: 99;
     }
     #review::after {
         content: url("../public/Images/Main/cloud2.png");
         position: absolute;
         bottom: -5px;
         right: 0;
+        z-index: 99;
     }
 }
+
 .content3bg {
-    /* background: url("../public/Images/Main/bg--.png"); */
+    background: url("../public/Images/Main/bg--.png");
 }
 .content5bg {
     background: url("../public/Images/Main/bgg.png");

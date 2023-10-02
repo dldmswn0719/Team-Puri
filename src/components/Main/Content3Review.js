@@ -1,10 +1,13 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
 
 function Content3Review() {
     return (
-        <div className='content3bg mt-[155px] pt-[128px] pb-[335px] relative' id='review'>
-            <div className='md:w-[768px] lg:w-[1200px] m-auto pb-[92px]'>
+        <div className='content3bg lg:pt-52 lg:pb-52 relative' id='review'>
+            <div className='md:w-[768px] lg:w-[1200px] m-auto pb-10'>
                 <ul className='md:flex md:justify-between lg:flex lg:justify-between text-center'>
                     <li>
                         <p className='tracking-tight lg:text-5xl lg:mb-[43px]
@@ -20,9 +23,23 @@ function Content3Review() {
                     </li>
                 </ul>
             </div>
-            <div className='w-[1200px] m-auto'>
-                <img src="http://via.placeholder.com/1200x500" alt="1200x500" />
-            </div>
+
+            <Swiper
+                spaceBetween={0}
+                slidesPerView={1}
+                loop={true}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
+                className='md:w-[768px] lg:w-[1200px] m-auto mb-20'
+                >
+
+                <SwiperSlide><img src="./../../Images/Main/r1.png" alt="slide1" /></SwiperSlide>
+                <SwiperSlide><img src="./../../Images/Main/r2.png" alt="slide2" /></SwiperSlide>
+                <SwiperSlide><img src="./../../Images/Main/r3.png" alt="slide3" /></SwiperSlide>
+                <SwiperSlide><img src="./../../Images/Main/r4.png" alt="slide4" /></SwiperSlide>
+            </Swiper>
         </div>
     )
 }
