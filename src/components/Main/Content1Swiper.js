@@ -1,9 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css';
-import { useRef, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 function Content1Swiper() {
     return (
@@ -20,7 +17,7 @@ function Content1Swiper() {
 
                 <p className='absolute z-10 text-white left-[50%] translate-x-[-50%] tracking-tight text-center bottom-5 w-full lg:bottom-[117px]
                 text-2xl md:text-4xl lg:text-6xl'><span className='font-bold'>새로운 시작</span>을 위한 작은 발자국<br/>그 순간, <span className='font-bold'>우리의 이야기</span>가 시작됩니다.</p>
-                <SwiperSlide><img src="./../../Images/Main/slide1.png" alt="slide1" /></SwiperSlide>
+                <SwiperSlide><img src="./../../Images/Main/slide1.png" alt="slide1" className='lg:w-full ' /></SwiperSlide>
                 <SwiperSlide><img src="./../../Images/Main/slide2.png" alt="slide2" /></SwiperSlide>
                 <SwiperSlide><img src="./../../Images/Main/slide3.jpg" alt="slide3" /></SwiperSlide>
                 <SwiperSlide><img src="./../../Images/Main/slide4.jpg" alt="slide4" /></SwiperSlide>
