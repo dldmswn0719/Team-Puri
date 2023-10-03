@@ -6,16 +6,16 @@ import { useSelector } from 'react-redux';
 
 
 function Support_Store() {
-    const NumChk = (e)=>{
-        return e.target.value = e.target.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
+    // const NumChk = (e)=>{
+    //     return e.target.value = e.target.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    // }
     const language = useSelector(state => state.language);
     const messages = language === 'en' ? enMessages : krMessages;
 
     return (
         <>  
             <div className="support w-full h-[650px] overflow-hidden">
-                <div className="w-[1200px] pt-[150px] pl-[200px]" >
+                <div className="w-[1200px] pt-[150px] pl-[10%]" >
                     <div className="mb-[70px]">
                         <p className="text-[40px] text-[#F8F0E5]">{messages.support1}</p>
                         <p className="text-[40px] text-[#F8F0E5]">{messages.support2}</p>
