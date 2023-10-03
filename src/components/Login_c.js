@@ -90,7 +90,7 @@ function Login_c() {
     return (
         <>
             <div className="w-full bg-white dark:bg-[#272929] h-[100vh]">
-                <div className='w-[400px] h-[555px] absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-[30px] dark:bg-[#404343]'>
+                <div className='w-[400px] absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-[30px] dark:bg-[#404343]'>
                     <ul className='text-center'>
                         <li>
                             <img src={
