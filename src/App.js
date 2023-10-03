@@ -126,7 +126,6 @@ function Inner() {
       <Route path="/checkout" element={<CheckoutPage />}></Route>
       <Route path="/success" element={<SuccessPage />}></Route>
       <Route path="/fail" element={<FailPage />}></Route>
-      {/* checkout,success,fail 아직 테스트중 */}
       <Route path="/*" element={<Notpage />}></Route>
     </Routes>
    </>
