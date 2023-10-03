@@ -58,6 +58,12 @@ html.fixed{width: 100%; height: 100%; overflow: hidden;}
 
 #root, html, body{width: 100%; }
 
+@media screen and (max-width: 768px) {
+    #swiper img {
+        /* height: 400px; */
+    }
+}
+
 @media screen and (min-width: 1024px) {
     #swiper::before {
         content: url("../public/Images/Main/cloud1-1.png");
@@ -90,8 +96,10 @@ html.fixed{width: 100%; height: 100%; overflow: hidden;}
 }
 
 .content3bg {
-    background: url("../public/Images/Main/bg--.png");
+    background-image: url("../public/Images/Main/bg--.png");
+    /* background-size: cover; */
 }
 .content5bg {
-    background: url("../public/Images/Main/bgg.png");
+    background-image: url("../public/Images/Main/bgg.png");
+    background-size: cover;
 }
