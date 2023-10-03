@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import "./../../../src/index.css"
 import enMessages from './../../locales/en.json';
 import krMessages from './../../locales/kr.json';
 import { useSelector } from 'react-redux';
+import Modal from '../Modal'
+
 
 function Support_Info() {
   
   const language = useSelector(state => state.language);
   const messages = language === 'en' ? enMessages : krMessages;
+  const view = useParams()
+  const [isModal, setIsModal] = useState(view ? false : true)
+  const memberProfile = useSelector(state => state.user)
 
   const NumChk = (e)=>{
     return e.target.value = e.target.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -87,7 +92,13 @@ function Support_Info() {
 
       navigate('/paycomplete')    
   }
-  
+  if(!memberProfile.loggedIn){
+    return(
+      <>
+        isModal && <Modal error="로그인 이후 이용해주시기 바랍니다!" onClose={()=>{setIsModal(false); navigate('/login')}} />
+      </>
+    )
+  }
 
   const checkedAll = (e)=>{
     if(e.target.checked === true){
