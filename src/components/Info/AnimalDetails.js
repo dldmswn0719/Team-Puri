@@ -75,65 +75,48 @@ function AnimalDetails() {
     return (
         <>
             <div className="max-w-full dark:bg-[#272929]">
-                <div className=" max-w-[1200px]  py-10 mx-auto ">
-                    <div className="flex  justify-center">
-                        <div className="w-full flex min-md:flex-wrap items-center justify-around max-md:justify-center mt-3">
-                        <div>
-                            <img className='w-[550px] h-[550px]  max-md:w-[400px]   max-md:h-[400px]' src={popfile} alt="img" />
-                        </div>
-                            <div className="dark:text-[#ebf4f1]">
-                                <div className=" w-[500px] max-md:w-[400px]">
-                                    <p className='text-xl font-bold mb-2'><FontAwesomeIcon icon={faPaw} /> {kindCd}</p>
-                                    <div className='max-md:w-[400px] border-b-2 border-[#DAC0A3] dark:border-[#dadbdb]'></div>
+                <div className=" max-w-[1200px] py-10 mx-auto ">
+                    <div className="flex justify-center">
+                        <div className="w-full flex items-center justify-center flex-col mt-3">
+                            <div className='w-full flex items-center justify-center  md:w-[500px] sm:w-[400px]'>
+                                <img className=' md:w-[500px] sm:w-[400px]' src={popfile} alt="img" />
+                            </div>
+                            <div className="  md:w-[500px] sm:w-[400px]  dark:text-[#ebf4f1]">
+                                <div className="">
+                                    <p className='text-xl font-bold mt-10 mb-2'><FontAwesomeIcon icon={faPaw} /> 상세 정보</p>
+                                    <div className='border-b-2 border-[#DAC0A3] dark:border-[#dadbdb]'></div>
                                     <div className="">
-                                        <p className='text-xl mt-1'>성별:{sexCd === 'M' ? "남" : sexCd === 'F' ? "여" : "미상"}</p>
-                                        <p className='text-xl mt-1'>나이: {age}추정</p>
-                                        <p className='text-xl mt-1'>몸무게: {weight}</p>
-                                        <p className='text-xl mt-1'>중성화: {neuterYn === 'Y' ? "○" : neuterYn === 'x' ? "아니오" : "모름"}</p>
-                                        <p className='text-xl mt-1'> 모색: {colorCd}</p>
-                                        <p className='text-xl mt-1 '> 특징: {specialMark}</p>
+                                        <p className='mt-1'>품종 : {kindCd}</p>
+                                        <p className='mt-1'>성별 : {sexCd === 'M' ? "남" : sexCd === 'F' ? "여" : "미상"}</p>
+                                        <p className='mt-1'>나이 : {age}추정</p>
+                                        <p className='mt-1'>몸무게 : {weight}</p>
+                                        <p className='mt-1'>중성화 : {neuterYn === 'Y' ? "○" : neuterYn === 'x' ? "아니오" : "모름"}</p>
+                                        <p className='mt-1'>모색 : {colorCd}</p>
+                                        <p className='mt-1 '>특징 : {specialMark}</p>
                                     </div>
                                 </div>
                                 <div>
                                     <p className='text-xl font-bold mt-10 mb-2'><FontAwesomeIcon icon={faPaw} />  구조 정보</p>
-                                    <div className=' w-[500px] max-md:w-[400px] border-b-2 border-[#DAC0A3] dark:border-[#dadbdb]'></div>
+                                    <div className='border-b-2 border-[#DAC0A3] dark:border-[#dadbdb]'></div>
                                     <div className="mt-3">
-                                        <p className='text-xl mt-1'>공고번호 : {noticeNo}</p>
-                                        <p className='text-xl mt-1'>발견장소 : {happenPlace}</p>
-                                        <p className='text-xl mt-1'>보호센터 : {careNm}</p>
-                                        <p className='text-xl mt-1'>담당부서 : {orgNm}</p>
-                                        <p className='text-xl mt-1 max-sm:hidden'>보호센터 Tel : {careTel}</p>
-                                        <p className='text-xl mt-1 max-sm:hidden'>담당부서 Tel : {officetel}</p>
-                                        <p className='max-sm:hidden'>전화 문의는 평일 <span>오전 9시</span>부터 <span>오후 6시까지</span>입니다.</p>
-                                        <p>{`(공휴일 제외)`}</p>
-
-
-
-
+                                        <p className='mt-1'>공고번호 : {noticeNo}</p>
+                                        <p className='mt-1'>발견장소 : {happenPlace}</p>
+                                        <p className='mt-1'>보호센터 : {careNm}</p>
+                                        <p className='mt-1'>담당부서 : {orgNm}</p>
+                                        <p className='mt-1 lg:block md:hidden sm:hidden'>보호센터 Tel : {careTel}</p>
+                                        <p className='mt-1 lg:block md:hidden sm:hidden'>담당부서 Tel : {officetel}</p>
+                                        <p className='lg:block md:hidden sm:hidden sm:text-base'>전화 문의는 평일 <span className='font-bold'>오전 9시 부터 오후 6시까지</span>입니다.</p>
+                                        <p className='lg:block md:hidden sm:hidden'> {`(공휴일 제외)`}</p>
+                                        <TellButton />
+                                        <p className='text-xl   mt-11 dark:text-[#ebf4f1]'><FontAwesomeIcon icon={faLocationDot} color='#ff5b5b' />  보호소 위치</p>
                                     </div>
-
-                                    {/* 
-                                            <TellButton />
-                                            <button title className='font-bold max-w-full lg:hidden h-12 border-2 bg-[#DAC0A3] border-[#DAC0A3] dark:bg-[#272929]  dark:text-[#ebf4f1]  dark:border-[#dadbdb] rounded-[20px] mt-1'><p>보호센터 Tel : {careTel}</p></button>
-                                            <button title className='font-bold max-w-full lg:hidden h-12 border-2 bg-[#DAC0A3] border-[#DAC0A3] dark:bg-[#272929]  dark:text-[#ebf4f1]  dark:border-[#dadbdb] rounded-[20px] mt-1'>  <p>담당부서 Tel : {officetel}</p></button> */}
                                 </div>
-                                
-                       
                             </div>
-
-                        </div>
-                    </div>
-
-                    <div className="flex flex-col max-md:items-center">
-                    <p className='text-xl   mt-11 dark:text-[#ebf4f1]'><FontAwesomeIcon icon={faLocationDot} color='#ff5b5b' />  보호소 위치</p>
-                        <div id='map' className='w-full max-md:w-[400px] h-[500px] max-md:h-[400px]  mt-5'>
-                            {/* <div className='w-full max-md:w-[400px] border-b-2 border-[#DAC0A3] dark:border-[#dadbdb] my-3'></div> */}
+                            <div id='map' className='w-[500px] h-[500px] max-md:w-[400px] max-md:h-[400px] mt-5'></div>
                         </div>
                     </div>
                 </div>
-
             </div>
-            <ScrollUpDown />
         </>
     )
 }

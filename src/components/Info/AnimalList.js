@@ -3,7 +3,7 @@ import { faAnglesLeft, faAnglesRight, faArrowAltCircleDown, faMars, faVenus, faA
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 import Loading from './Loading'
-import ScrollUpDown from './ScrollUpDown'
+
 
 
 function AnimalList() {
@@ -141,7 +141,7 @@ function AnimalList() {
 
     for (let i = startPage; i <= endPage; i++) {
         PageList.push(
-            <li key={i} className={(page === i ? 'max-w-[1200px] rounded-full cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] leading-10 text-cente relative block py-1 px-1.5 lg:mx-3 border-1 border-[#DAC0A3] dark:border-1 dark:border-[#dadbdb]  text-white bg-[#dac0a3] dark:bg-[#404343]' : 'max-w-[1200px] rounded-full cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] leading-10 text-cente relative block py-1 px-1.5 lg:mx-3 border-1 border-[#DAC0A3] text-black shadow-sm dark:text-[#ebf4f1]')} onClick={() => { setLoading(true); setPage(i); }}>{i}
+            <li key={i} className={(page === i ? 'max-w-[1200px]  rounded-full cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] leading-10 text-cente relative block py-1 px-1.5 lg:mx-3  border-1 border-[#DAC0A3] dark:border-1 dark:border-[#dadbdb]  text-white bg-[#dac0a3] dark:bg-[#404343]' : 'max-w-[1200px] rounded-full cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] leading-10 text-cente relative block py-1 px-1.5 lg:mx-3 border-1 border-[#DAC0A3] text-black shadow-sm dark:text-[#ebf4f1]')} onClick={() => { setLoading(true); setPage(i); }}>{i}
             </li>
         )
     }
@@ -215,7 +215,7 @@ function AnimalList() {
                                                 <div className='font-bold px-3 py-3 flex items-center justify-between  dark:bg-[#404343] rounded-t-[20px] dark:text-[#ebf4f1] '>
                                                     <p><FontAwesomeIcon icon={e.sexCd === 'M' ? faMars : e.sexCd === 'F' ? faVenus : ""} className='w-[18px] h-[18px] pr-1 align-text-bottom dark:text-[#ebf4f1] ' />{e.sexCd === 'M' ? "남" : e.sexCd === 'F' ? "여" : "성별 미상"} </p>
                                                 </div>
-                                                <div className="flex h-[380px]">
+                                                <div className="flex h-[370px]">
                                                     <img src={e.popfile} alt="img" className='w-full' />
                                                 </div>
 
