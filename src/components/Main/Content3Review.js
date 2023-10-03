@@ -29,19 +29,19 @@ function Content3Review() {
                 spaceBetween={0}
                 slidesPerView={1}
                 loop={true}
-                autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                }}
-                modules={[Autoplay]}
+                // autoplay={{
+                //     delay: 3000,
+                //     disableOnInteraction: false,
+                // }}
+                // modules={[Autoplay]}
                 className='md:w-[768px] lg:w-[1200px] m-auto mb-20'
                 >
 
-                <SwiperSlide className='md:w-[768px] lg:w-[1200px] lg:bg-white'>
-                    <ul className='lg:flex'>
-                        <li><img src="./../../Images/Main/11.jpg" alt="1" className='lg:w-full w-2/3 m-auto' /></li>
+                <SwiperSlide className='md:w-[768px] lg:w-[1200px] lg:bg-white md:bg-white'>
+                    <ul className='lg:flex md:flex'>
+                        <li><img src="./../../Images/Main/11.jpg" alt="1" className='lg:w-full md:w-2/3 md:m-0 w-2/3 m-auto' /></li>
                         <li>
-                            <ul className='lg:p-14 lg:w-full p-5 bg-white w-2/3 m-auto'>
+                            <ul className='lg:p-14 lg:w-full md:w-full md:px-0 p-5 bg-white w-2/3 m-auto'>
                                 <li><p className='lg:text-3xl font-bold text-[#255db1] text-xl'>캐시<span className='lg:text-base font-normal text-gray-400 ml-5 text-sm'>D2022111756</span></p></li>
                                 <li>
                                     <ul className='lg:mt-16 mt-5 lg:leading-10 leading-7 text-gray-400'>

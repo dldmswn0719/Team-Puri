@@ -22,7 +22,7 @@ function Footer() {
                 <div className='text-white basis-1/2'>
                     <ul className='flex text-sm justify-between pb-8'>
                         <li><NavLink className='text-white'>푸리푸리 소개</NavLink></li>
-                        <li><NavLink className='text-white'>마이페이지</NavLink></li>
+                        <li><NavLink className='text-white'>API</NavLink></li>
                         <li><NavLink className='text-white'>이용약관</NavLink></li>
                         <li><NavLink className='text-white font-bold'>개인정보처리방침</NavLink></li>
                         <li><NavLink className='text-white'>이용안내</NavLink></li>
