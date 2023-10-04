@@ -39,7 +39,18 @@ ul, ol{list-style: none;}
 }
 /* 상세정보 열기전 그라데이션 효과 */
 
-.support{background-image: url('./../public/Images/Support/support-go.jpg'); background-size: cover;}
+.support{background-image: url('./../public/Images/Support/support-go.jpg'); background-size: cover;
+}
+@media screen and (max-width: 1024px){
+    .support {
+        height: 500px;
+    }
+}
+@media screen and (max-width: 768px){
+    .support {
+        height: 300px;
+    }
+}
 .full{background-image: url("./../public/Images/Support/full.jpg"); background-size: cover; background-position: center top; background-attachment: fixed;}
 .info::after{
     content: "";

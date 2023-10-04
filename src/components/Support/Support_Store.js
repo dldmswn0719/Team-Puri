@@ -15,14 +15,16 @@ function Support_Store() {
     return (
         <>  
             <div className="support w-full h-[650px] overflow-hidden">
-                <div className="w-[1200px] pt-[150px] pl-[10%]" >
-                    <div className="mb-[70px]">
-                        <p className="text-[40px] text-[#F8F0E5]">{messages.support1}</p>
-                        <p className="text-[40px] text-[#F8F0E5]">{messages.support2}</p>
-                        <p className="text-[40px] text-[#F8F0E5]">{messages.support3}</p>
+                <div className="w-[1200px] h-full items-center pl-[10%]" >
+                    <div className="flex items-center h-1/2 translate-y-1/2">
+                        <div className="mb-[70px]">
+                            <p className="text-[40px] text-[#F8F0E5] max-lg:text-[30px] max-md:text-xl">{messages.support1}</p>
+                            <p className="text-[40px] text-[#F8F0E5] max-lg:text-[30px] max-md:text-xl">{messages.support2}</p>
+                            <p className="text-[40px] text-[#F8F0E5] max-lg:text-[30px] max-md:text-xl">{messages.support3}</p>
+                        </div>
                     </div>
-                    <div>
-                        <NavLink to="/supportpay" className="w-[190px] h-[75px] bg-[#DAC0A3] rounded-[50px] flex justify-center items-center text-white text-xl dark:bg-[#404343]">{messages.support4}</NavLink>
+                    <div className='h-1/2 translate-y-1/3'>
+                        <NavLink to="/supportpay" className="w-[190px] h-[75px] bg-[#DAC0A3] rounded-[50px] flex justify-center items-center text-white text-xl dark:bg-[#404343] max-lg:w-[150px] max-lg:text-[16px] max-lg:h-[50px] max-md:w-[100px] max-md:h-[35px] max-md:text-[14px]">{messages.support4}</NavLink>
                     </div>
                 </div>
             </div>
@@ -38,7 +40,7 @@ function Support_Store() {
                                 <NavLink to='/store/2'>
                                     <img src="./../../Images/Support/store1.jpg" alt="1" className="w-full" />
                                     <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center dark:bg-[#404343]">
-                                        <p className="text-xl max-md:text-[16px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore1}</p>
+                                        <p className="text-xl max-md:text-[14px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore1}</p>
                                         <span className='text-[18px] font-bold max-md:text-base dark:text-[#ebf4f1]'>15,000</span>
                                         <span className='text-[16px] max-md:text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
                                     </div>
@@ -48,7 +50,7 @@ function Support_Store() {
                                 <NavLink to='/store/3'>
                                     <img src="./../../Images/Support/store9.jpg" alt="1" className="w-full" />
                                     <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center dark:bg-[#404343]">
-                                        <p className="text-xl max-md:text-[16px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore2}</p>
+                                        <p className="text-xl max-md:text-[14px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore2}</p>
                                         <span className='text-[18px] font-bold max-md:text-base dark:text-[#ebf4f1]'>10,000</span>
                                         <span className='text-[16px] max-md:text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
                                     </div>
@@ -58,7 +60,7 @@ function Support_Store() {
                                 <NavLink to='/store/4'>
                                     <img src="./../../Images/Support/store3.jpg" alt="1" className="w-full" />
                                     <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center dark:bg-[#404343]">
-                                        <p className="text-xl max-md:text-[16px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore3}</p>
+                                        <p className="text-xl max-md:text-[14px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore3}</p>
                                         <span className='text-[18px] font-bold max-md:text-base dark:text-[#ebf4f1]'>7,000</span>
                                         <span className='text-[16px] max-md:text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
                                     </div>
@@ -68,7 +70,7 @@ function Support_Store() {
                                 <NavLink to='/store/1'>
                                     <img src="./../../Images/Support/store4.jpg" alt="1" className="w-full" />
                                     <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center dark:bg-[#404343]">
-                                        <p className="text-xl max-md:text-[16px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore4}</p>
+                                        <p className="text-xl max-md:text-[14px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore4}</p>
                                         <span className='text-[18px] font-bold max-md:text-base dark:text-[#ebf4f1]'>18,000</span>
                                         <span className='text-[16px] max-md:text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
                                     </div>
@@ -78,7 +80,7 @@ function Support_Store() {
                                 <NavLink to='/store/5'>
                                     <img src="./../../Images/Support/store5.jpg" alt="1" className="w-full" />
                                     <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center dark:bg-[#404343]">
-                                        <p className="text-xl max-md:text-[16px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore5}</p>
+                                        <p className="text-xl max-md:text-[14px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore5}</p>
                                         <span className='text-[18px] font-bold max-md:text-base dark:text-[#ebf4f1]'>9,000</span>
                                         <span className='text-[16px] max-md:text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
                                     </div>
@@ -88,7 +90,7 @@ function Support_Store() {
                                 <NavLink to='/store/7'>
                                     <img src="./../../Images/Support/store6.jpg" alt="1" className="w-full" />
                                     <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center dark:bg-[#404343]">
-                                        <p className="text-xl max-md:text-[16px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore6}</p>
+                                        <p className="text-xl max-md:text-[14px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore6}</p>
                                         <span className='text-[18px] font-bold max-md:text-base dark:text-[#ebf4f1]'>5,000</span>
                                         <span className='text-[16px] max-md:text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
                                     </div>
@@ -98,7 +100,7 @@ function Support_Store() {
                                 <NavLink to='/store/6'>
                                     <img src="./../../Images/Support/store7.jpg" alt="1" className="w-full" />
                                     <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center dark:bg-[#404343]">
-                                        <p className="text-xl max-md:text-[16px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore7}</p>
+                                        <p className="text-xl max-md:text-[14px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore7}</p>
                                         <span className='text-[18px] font-bold max-md:text-base dark:text-[#ebf4f1]'>15,000</span>
                                         <span className='text-[16px] max-md:text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
                                     </div>
@@ -108,7 +110,7 @@ function Support_Store() {
                                 <NavLink to='/store/8'>
                                     <img src="./../../Images/Support/store8.jpg" alt="1" className="w-full" />
                                     <div className="w-full py-[30px] bg-[#f8f0e5] text-[16px] text-center dark:bg-[#404343]">
-                                        <p className="text-xl max-md:text-[16px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore8}</p>
+                                        <p className="text-xl max-md:text-[14px] max-lg:text-[18px] font-[500] dark:text-[#ebf4f1]">{messages.supstore8}</p>
                                         <span className='text-[18px] font-bold max-md:text-base dark:text-[#ebf4f1]'>35,000</span>
                                         <span className='text-[16px] max-md:text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
                                     </div>
