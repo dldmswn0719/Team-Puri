@@ -6,8 +6,9 @@ import { Autoplay } from "swiper/modules";
 
 function Content3Review() {
     return (
-        <div className='content3bg relative
-        lg:pt-52 lg:pb-52 md:pt-20' id='review'>
+        <div className='content3bg bg-[#F7F0E4] relative mt-20 py-4
+        lg:pt-48 lg:pb-48
+        md:mt-20 md:pb-10' id='review'>
             <div className='md:w-[768px] lg:w-[1200px] m-auto pb-10'>
                 <ul className='md:flex md:justify-between lg:flex lg:justify-between text-center md:text-left'>
                     <li>
@@ -29,11 +30,11 @@ function Content3Review() {
                 spaceBetween={0}
                 slidesPerView={1}
                 loop={true}
-                // autoplay={{
-                //     delay: 3000,
-                //     disableOnInteraction: false,
-                // }}
-                // modules={[Autoplay]}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
+                modules={[Autoplay]}
                 className='md:w-[768px] lg:w-[1200px] m-auto mb-20'
                 >
 
@@ -117,11 +118,11 @@ function Content3Review() {
                         </li>
                     </ul>
                 </SwiperSlide>
-                <SwiperSlide className='md:w-[768px] lg:w-[1200px] lg:bg-white'>
-                    <ul className='lg:flex'>
-                        <li><img src="./../../Images/Main/13.jpg" alt="1" className='lg:w-[500px] w-2/3 m-auto' /></li>
+                <SwiperSlide className='md:w-[768px] lg:w-[1200px] lg:bg-white md:bg-white'>
+                    <ul className='lg:flex md:flex'>
+                        <li><img src="./../../Images/Main/13.jpg" alt="1" className='lg:w-[500px] md:w-[82%] md:my-auto md:m-0 w-2/3 m-auto' /></li>
                         <li>
-                            <ul className='lg:p-14 lg:w-full p-5 bg-white w-2/3 m-auto'>
+                            <ul className='lg:p-14 lg:w-full md:w-96 md:px-0 p-5 bg-white w-2/3 m-auto'>
                                 <li><p className='lg:text-3xl font-bold text-[#255db1] text-xl'>뽀뽀<span className='lg:text-base font-normal text-gray-400 ml-5 text-sm'>D2023061224</span></p></li>
                                 <li>
                                     <ul className='lg:mt-16 mt-5 lg:leading-10 leading-7 text-gray-400'>
@@ -156,11 +157,11 @@ function Content3Review() {
                         </li>
                     </ul>
                 </SwiperSlide>
-                <SwiperSlide className='md:w-[768px] lg:w-[1200px] lg:bg-white'>
-                    <ul className='lg:flex'>
-                        <li><img src="./../../Images/Main/14.jpg" alt="4" className='lg:w-[500px] w-2/3 m-auto' /></li>
+                <SwiperSlide className='md:w-[768px] lg:w-[1200px] lg:bg-white md:bg-white'>
+                    <ul className='lg:flex md:flex'>
+                        <li><img src="./../../Images/Main/14.jpg" alt="4" className='lg:w-[500px] md:w-[82%] md:my-auto md:m-0 w-2/3 m-auto' /></li>
                         <li>
-                            <ul className='lg:p-14 lg:w-full p-5 bg-white w-2/3 m-auto'>
+                            <ul className='lg:p-14 lg:w-full md:w-96 md:px-0 p-5 bg-white w-2/3 m-auto'>
                                 <li><p className='lg:text-3xl font-bold text-[#255db1] text-xl'>마리<span className='lg:text-base font-normal text-gray-400 ml-5 text-sm'>C2018071601</span></p></li>
                                 <li>
                                     <ul className='lg:mt-16 mt-5 lg:leading-10 leading-7 text-gray-400'>
