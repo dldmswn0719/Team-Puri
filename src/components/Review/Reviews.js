@@ -55,7 +55,7 @@ function Reviews() {
   return (
     <>
       <div className="w-full bg-white pt-[60px] relative dark:bg-[#272929]">
-        <div className="max-w-[1400px] h-[1024px] mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="w-[1280px] mx-auto max-lg:w-11/12 max-md:w-5/6">
             <div className="flex text-[15px] gap-y-5 gap-[6px] flex-wrap justify-between mb-[30px]">
               {
