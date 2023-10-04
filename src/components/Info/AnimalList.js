@@ -25,7 +25,6 @@ function AnimalList() {
             // 도시 선택시 스위치문!
             case classValue.includes("cityData"):
                 setCityCode(dataValue)
-
                 break;
             case classValue.includes("kindData"):
                 setKindCode(dataValue)
@@ -37,7 +36,6 @@ function AnimalList() {
                 const dataValue2 = data.target.selectedOptions[0].getAttribute('data-animal-name')
                 setSelectedAnimal(dataValue2);
                 setAnimalCode(dataValue)
-
                 break;
             default:
                 console.log("데이터가 없습니다.");
@@ -56,8 +54,6 @@ function AnimalList() {
         }).then((data) => { setCity(data.response.body.items.item) });
 
     }, []);
-
-
 
 
     useEffect(() => {
@@ -80,6 +76,7 @@ function AnimalList() {
                 const result = await data.response.body?.items.item;
                 const resultCnt = await data.response.body?.totalCount;
                 setData(result)
+                console.log(result)
                 setTotalCnt(resultCnt)
                 setLoading(false)
             });
@@ -208,7 +205,6 @@ function AnimalList() {
                                                 <div className="flex h-[370px]">
                                                     <img src={e.popfile} alt="img" className='w-full' />
                                                 </div>
-
                                             </Link>
                                             <div className="pl-[10px] py-[10px] dark:text-[#ebf4f1] dark:bg-[#404343] dark:rounded-b-[20px]">
                                                 <p className='font-bold text-[14px]'><span className='text-[#999] dark:text-[#ebf4f1]'>품종 :</span> {e.kindCd}</p>

@@ -74,10 +74,10 @@ function AnimalDetails() {
                 <div className=" max-w-[1200px] py-10 mx-auto ">
                     <div className="flex justify-center">
                         <div className="w-full flex items-center justify-center flex-col mt-3">
-                            <div className='w-full flex items-center justify-center md:w-[500px]  sm:w-[400px]'>
-                                <img className=' md:w-[500px] md:h-[500px]  sm:w-[400px] sm:h-[400px]' src={popfile} alt="img" />
+                            <div className=''>
+                                <img className='w-[400px] h-[400px] md:w-[500px] md:h-[500px]  sm:w-[400px] sm:h-[400px]' src={popfile} alt="img" />
                             </div>
-                            <div className="  md:w-[500px] sm:w-[400px]  dark:text-[#ebf4f1]">
+                            <div className="w-[400px]  md:w-[500px] sm:w-[400px]  dark:text-[#ebf4f1]">
                                 <div className="">
                                     <p className='text-xl font-bold mt-10 mb-2'><FontAwesomeIcon icon={faPaw} /> 상세 정보</p>
                                     <div className='border-b-2 border-[#DAC0A3] dark:border-[#dadbdb]'></div>
@@ -99,12 +99,12 @@ function AnimalDetails() {
                                         <p className='mt-1'>발견장소 : {happenPlace}</p>
                                         <p className='mt-1'>보호센터 : {careNm}</p>
                                         <p className='mt-1'>담당부서 : {orgNm}</p>
-                                        <p className='mt-1 lg:block md:hidden sm:hidden'>보호센터 Tel : {careTel}</p>
-                                        <p className='mt-1 lg:block md:hidden sm:hidden'>담당부서 Tel : {officetel}</p>
-                                        <p className='lg:block md:hidden sm:hidden sm:text-base'>전화 문의는 평일 <span className='font-bold'>오전 9시 부터 오후 6시까지</span>입니다.</p>
-                                        <p className='lg:block md:hidden sm:hidden'> {`(공휴일 제외)`}</p>
+                                        <p className='mt-1 hidden lg:block md:hidden sm:hidden'>보호센터 Tel : {careTel}</p>
+                                        <p className='mt-1 hidden lg:block md:hidden sm:hidden'>담당부서 Tel : {officetel}</p>
+                                        <p className='hidden lg:block md:hidden sm:hidden sm:text-base'>전화 문의는 평일 <span className='font-bold'>오전 9시 부터 오후 6시까지</span>입니다.</p>
+                                        <p className='hidden lg:block md:hidden sm:hidden'> {`(공휴일 제외)`}</p>
                                         <TellButton />
-                                        <p className='text-xl   mt-11 dark:text-[#ebf4f1]'><FontAwesomeIcon icon={faLocationDot} color='#ff5b5b' />  보호소 위치</p>
+                                        <p className='text-xl mt-11 dark:text-[#ebf4f1]'><FontAwesomeIcon icon={faLocationDot} color='#ff5b5b' />  보호소 위치</p>
                                     </div>
                                 </div>
                             </div>
