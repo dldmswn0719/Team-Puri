@@ -146,27 +146,37 @@ function AnimalList() {
             }
             <div className='max-w-full min-h-screen overflow-hidden bg-white dark:bg-[#272929]'>
                 <div className="max-w-[1200px] h-full  mx-auto">
-                    <div className="max-w-full max-h-full max-md:border-none border-b-4  py-5  border-[#EADBC8] dark:border-[#dadbdb]">
+                    {/*  border-[#EADBC8] dark:border-[#dadbdb] */}
+                    <div className="max-w-full max-h-full max-md:border-none py-5 ">
                         <div className="max-w-full h-full flex flex-col md:flex-row justify-between text-left max-md:px-28 max-sm:px-9">
-                            <div className="w-full ">
-                                <p className='font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5'>지역</p>
-                                <select onChange={selectedData} className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929] dark:text-[#ebf4f1] cityData'>
+                            <div className="w-full relative">
+                                <p className='font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5 after:absolute after:w-[98%] after:h-1 after:bg-[#EADBC8] after:dark:bg-[#dadbdb] after:-bottom-3
+                                 after:left-2/4 after:-translate-x-2/4'>지역</p>
+                                <select onChange={selectedData} className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929] dark:text-[#ebf4f1]
+                               
+                                cityData'>
 
                                     <option value="">모든 지역</option>
                                     {city.map((el, index) => <option key={index} value={el.orgCd}>{el.orgdownNm}</option>)}
                                 </select>
                             </div>
                             {/* 동물 축종 */}
-                            <div className="w-full">
-                                <p className='font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5'>축종</p>
+                            <div className="w-full relative">
+                                <p className='
+                                font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5 after:absolute after:w-[98%] after:h-1 after:bg-[#EADBC8] after:dark:bg-[#dadbdb] after:-bottom-3
+                                after:left-2/4 after:-translate-x-2/4
+                                '>축종</p>
                                 <select className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929]  dark:text-[#ebf4f1] kindData' onChange={selectedData}>
                                     {kind.map((el, index) => <option key={index} value={index}>{el}</option>)}
                                 </select>
                             </div>
 
                             {/* 동물 품종 */}
-                            <div className="w-full">
-                                <p className='font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5'>품종</p>
+                            <div className="w-full relative">
+                                <p className='
+                                font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5 after:absolute  after:w-[98%] after:h-1 after:bg-[#EADBC8] after:dark:bg-[#dadbdb] after:-bottom-3
+                                after:left-2/4 after:-translate-x-2/4
+                                '>품종</p>
                                 <select className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929]  dark:text-[#ebf4f1] animalData' onChange={selectedData}>
                                     {kindCode !== "3" && <option value="">모든 품종</option>}
                                     {
