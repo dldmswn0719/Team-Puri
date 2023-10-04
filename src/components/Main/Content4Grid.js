@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 function Content4Grid() {
     return (
         <div className='md:w-[768px] lg:w-[1200px] m-auto
-        
+        pt-28
         lg:pt-[130px] lg:pb-[147px]'>
             <ul className='flex flex-wrap lg:gap-x-5 gap-y-10'>
                 <li className='lg:w-[285px] w-60 m-auto

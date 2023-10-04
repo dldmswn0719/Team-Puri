@@ -75,42 +75,93 @@ html.fixed{width: 100%; height: 100%; overflow: hidden;}
     }
 }
 
-@media screen and (min-width: 1024px) {
+/* 여기서부터 Main 이지연 Zone */
+@media screen and (min-width: 1024px) { /* pc 버전일 때 */
+
+    .swiper-button-next:after, .swiper-button-prev:after {
+        position: absolute;
+        color: #fff;
+    }
+    .swiper-button-next:after {
+        right: 300px;
+    }
+    .swiper-button-prev:after {
+        left: 300px;
+    }
+    .swiper-pagination-bullet-active {
+        --swiper-theme-color: rgba(255, 255, 255, 0.8);
+        --swiper-pagination-bullet-width: 30px;
+        --swiper-pagination-bullet-height: 12px;
+        --swiper-pagination-bullet-border-radius: 10px;
+    }
     #swiper::before {
         content: url("../public/Images/Main/cloud1-1.png");
         position: absolute;
         left: 0;
         bottom: -7px;
-        z-index: 99;
-    }
+        z-index: 9;
+    } /* Content1Swiper의 왼쪽 구름 */
     #swiper::after {
         content: url("../public/Images/Main/cloud2.png");
         position: absolute;
         right: 0;
         bottom: -7px;
-        z-index: 99;
-    }
+        z-index: 9;
+    } /* Content1Swiper의 오른쪽 구름 */
     #review::before {
         content: url("../public/Images/Main/cloud1.png");
         position: absolute;
         bottom:-5px;
         left: 0;
-        z-index: 99;
-    }
+        z-index: 9;
+    } /* Content3Review의 왼쪽 구름 */
     #review::after {
         content: url("../public/Images/Main/cloud2.png");
         position: absolute;
         bottom: -5px;
         right: 0;
-        z-index: 99;
+        z-index: 9;
+    } /* Content3Review의 오른쪽 구름 */
+    .content3bg {
+        background: url("../public/Images/Main/bg--.png");
+    } /* Content3Review의 배경 */
+}
+@media screen and (min-width: 768px) { /* tablet 버전일 때 */
+    .content3bg {
+        background: url("../public/Images/Main/bg-tablet.png");
+        background-size: cover;
+    }
+    .swiper-button-next:after, .swiper-button-prev:after {
+        position: absolute;
+        color: #fff;
+    }
+    .swiper-button-next:after {
+        right: 150px;
+    }
+    .swiper-button-prev:after {
+        left: 150px;
+    }
+    .swiper-pagination-bullet-active {
+        --swiper-theme-color: rgba(255, 255, 255, 0.8);
+        --swiper-pagination-bullet-width: 30px;
+        --swiper-pagination-bullet-height: 12px;
+        --swiper-pagination-bullet-border-radius: 10px;
     }
 }
-
-.content3bg {
-    background-image: url("../public/Images/Main/bg--.png");
-    /* background-size: cover; */
+@media screen and (min-width: 480px) { /* mobile 버전일 때 */
+    .content3bg {
+        background: url("../public/Images/Main/bg-mobile.png");
+        background-size: cover;
+    }
+    .swiper-button-next:after, .swiper-button-prev:after {
+        color: #fff;
+    }
+    .swiper-pagination-bullet-active {
+        --swiper-theme-color: rgba(255, 255, 255, 0.8);
+    }
 }
 .content5bg {
     background-image: url("../public/Images/Main/bgg.png");
     background-size: cover;
 }
+/* 여기까지 Main 이지연 공간 */
