@@ -77,31 +77,31 @@ function AnimalDetails() {
                             <div className=''>
                                 <img className='w-[400px] h-[400px] md:w-[500px] md:h-[500px]  sm:w-[400px] sm:h-[400px]' src={popfile} alt="img" />
                             </div>
-                            <div className="w-[400px]  md:w-[500px] sm:w-[400px]  dark:text-[#ebf4f1]">
+                            <div className="w-[400px]  md:w-[500px] sm:w-[400px] dark:text-[#ebf4f1]">
                                 <div className="">
                                     <p className='text-xl font-bold mt-10 mb-2'><FontAwesomeIcon icon={faPaw} /> 상세 정보</p>
                                     <div className='border-b-2 border-[#DAC0A3] dark:border-[#dadbdb]'></div>
-                                    <div className="">
-                                        <p className='mt-1'>품종 : {kindCd}</p>
-                                        <p className='mt-1'>성별 : {sexCd === 'M' ? "남" : sexCd === 'F' ? "여" : "미상"}</p>
-                                        <p className='mt-1'>나이 : {age}추정</p>
-                                        <p className='mt-1'>몸무게 : {weight}</p>
-                                        <p className='mt-1'>중성화 : {neuterYn === 'Y' ? "○" : neuterYn === 'x' ? "아니오" : "모름"}</p>
-                                        <p className='mt-1'>모색 : {colorCd}</p>
-                                        <p className='mt-1 '>특징 : {specialMark}</p>
+                                    <div className="dark:text-[#ebf4f1]">
+                                        <p className='mt-1 text-[#999] dark:text-[#ebf4f1]'>품종 : <span className='text-black dark:text-[#ebf4f1]'>{kindCd}</span> </p>
+                                        <p className='mt-1 text-[#999] dark:text-[#ebf4f1]'>성별 : <span className='text-black dark:text-[#ebf4f1]'>{sexCd === 'M' ? "남" : sexCd === 'F' ? "여" : "미상"}</span></p>
+                                        <p className='mt-1 text-[#999] dark:text-[#ebf4f1]'>나이 : <span className='text-black dark:text-[#ebf4f1]'>{age}추정</span></p>
+                                        <p className='mt-1 text-[#999] dark:text-[#ebf4f1]'>몸무게 :<span className='text-black dark:text-[#ebf4f1]'>{weight}</span></p>
+                                        <p className='mt-1 text-[#999] dark:text-[#ebf4f1]'>중성화 :<span className='text-black dark:text-[#ebf4f1]'>{neuterYn === 'Y' ? "○" : neuterYn === 'x' ? "아니오" : "모름"}</span> </p>
+                                        <p className='mt-1 text-[#999] dark:text-[#ebf4f1]'>모색 : <span className='text-black dark:text-[#ebf4f1]'>{colorCd}</span></p>
+                                        <p className='mt-1 text-[#999] dark:text-[#ebf4f1] '>특징 : <span className='text-black dark:text-[#ebf4f1]'>{specialMark}</span></p>
                                     </div>
                                 </div>
                                 <div>
                                     <p className='text-xl font-bold mt-10 mb-2'><FontAwesomeIcon icon={faPaw} />  구조 정보</p>
                                     <div className='border-b-2 border-[#DAC0A3] dark:border-[#dadbdb]'></div>
                                     <div className="mt-3">
-                                        <p className='mt-1'>공고번호 : {noticeNo}</p>
-                                        <p className='mt-1'>발견장소 : {happenPlace}</p>
-                                        <p className='mt-1'>보호센터 : {careNm}</p>
-                                        <p className='mt-1'>담당부서 : {orgNm}</p>
-                                        <p className='mt-1 hidden lg:block md:hidden sm:hidden'>보호센터 Tel : {careTel}</p>
-                                        <p className='mt-1 hidden lg:block md:hidden sm:hidden'>담당부서 Tel : {officetel}</p>
-                                        <p className='hidden lg:block md:hidden sm:hidden sm:text-base'>전화 문의는 평일 <span className='font-bold'>오전 9시 부터 오후 6시까지</span>입니다.</p>
+                                        <p className='mt-1 text-[#999] dark:text-[#ebf4f1]'>공고번호 : <span className='text-black dark:text-[#ebf4f1]'>{noticeNo}</span></p>
+                                        <p className='mt-1 text-[#999] dark:text-[#ebf4f1]'>발견장소 : <span className='text-black dark:text-[#ebf4f1]'>{happenPlace}</span></p>
+                                        <p className='mt-1 text-[#999] dark:text-[#ebf4f1]'>보호센터 : <span className='text-black dark:text-[#ebf4f1]'>{careNm}</span></p>
+                                        <p className='mt-1 text-[#999] dark:text-[#ebf4f1]'>담당부서 : <span className='text-black dark:text-[#ebf4f1]'>{orgNm}</span></p>
+                                        <p className='mt-1 text-[#999] dark:text-[#ebf4f1] hidden lg:block md:hidden sm:hidden'>보호센터 Tel : <span className='text-black dark:text-[#ebf4f1]'>{careTel}</span></p>
+                                        <p className='mt-1 text-[#999] hidden lg:block md:hidden sm:hidden dark:text-[#ebf4f1]'>담당부서 Tel : <span className='text-black dark:text-[#ebf4f1]'>{officetel}</span></p>
+                                        <p className='hidden lg:block md:hidden sm:hidden sm:text-base'><span className='text-black '></span>전화 문의는 평일 <span className='font-bold'>오전 9시 부터 오후 6시까지</span>입니다.</p>
                                         <p className='hidden lg:block md:hidden sm:hidden'> {`(공휴일 제외)`}</p>
                                         <TellButton />
                                         <p className='text-xl mt-11 dark:text-[#ebf4f1]'><FontAwesomeIcon icon={faLocationDot} color='#ff5b5b' />  보호소 위치</p>
