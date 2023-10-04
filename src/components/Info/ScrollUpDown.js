@@ -6,11 +6,8 @@ import { useState } from 'react';
 
 function ScrollUpDown() {
 
-
-
-
     const [position, setPosition] = useState(0);
-    console.log(position)
+    // console.log(position)
 
 
     useEffect(() => {

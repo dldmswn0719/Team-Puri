@@ -62,10 +62,9 @@ function AnimalList() {
 
     useEffect(() => {
 
-        fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/kind?up_kind_cd=${Array[kindCode]}&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json`).then((res) => {
+        fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/kind?up_kind_cd=${Array[kindCode]}&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json`).then((res) => {
             return res.json()
         }).then((data) => {
-
             setAnimal(data && data.response.body?.items.item)
         });
     }, [kindCode])
@@ -73,7 +72,6 @@ function AnimalList() {
     const [loading, setLoading] = useState(false);
 
     const ResultData = useCallback(() => {
-        console.log(`콜백 : https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json&upkind=${Array[kindCode]}`)
         fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json&upkind=${Array[kindCode]}`).
             then((res) => {
                 return res.json()
@@ -91,18 +89,17 @@ function AnimalList() {
     useEffect(() => {
         setLoading(true);
         ResultData()
-        console.log(`스테이트 : https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json&upkind=${Array[kindCode]}`)
     }, [page])
 
 
     const list = 5;
     //페이지
-    // 같은 api주소에서 토탈카운트 뽑기https://github.com/dldmswn0719/Team-Puri
+    // 같은 api주소에서 토탈카운트 뽑기
     // 페이지 5개씩
     const pagination = 5;
     //최종갯수를 받아오는 State
     const [totalCnt, setTotalCnt] = useState(0);
-    // totalPage 5페이지씩 나오게 "totalCount" : 8308 / 1500 = 5.538866 
+    // totalPage 5페이지씩 나오게
     const totalPage = Math.floor(totalCnt / list);
     // 변수지정은 했지만 값은 대입하지 않겠다는뜻
 
@@ -112,7 +109,7 @@ function AnimalList() {
     //만약 현재 페이지가 1이고 / pagination이 5이고 1/5를 하게되면 -> 0.2 하면 반올림해줘서 1,2,3,4,5 이런식으로 나오게 만듦   
     startPage = (currentBlock - 1) * pagination + 1;
     endPage = startPage + pagination - 1;
-    // endPage >totalPage 다면 endPage를 totalPage로 고정한다   // 230908 pagination 추가
+    // endPage >totalPage 다면 endPage를 totalPage로 고정한다
     if (endPage > totalPage) {
         endPage = totalPage
     }
@@ -153,12 +150,6 @@ function AnimalList() {
             }
             <div className='max-w-full min-h-screen overflow-hidden bg-white dark:bg-[#272929]'>
                 <div className="max-w-[1200px] h-full  mx-auto">
-
-                    {/* <p>도시 : {cityCode}</p>
-                    <p>축종 : {Array[kindCode]}</p>
-                    <p>품종 : {selectedAnimal}</p>
-                    <p>페이지 : {page}</p> */}
-                    {/* <p>https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_apiKey}&_type=json&upkind=${Array[kindCode]}</p> */}
                     <div className="max-w-full max-h-full max-md:border-none border-b-4  py-5  border-[#EADBC8] dark:border-[#dadbdb]">
                         <div className="max-w-full h-full flex flex-col md:flex-row justify-between text-left max-md:px-28 max-sm:px-9">
                             <div className="w-full ">
@@ -233,16 +224,6 @@ function AnimalList() {
 
                     <div className="max-w-[1200px] mx-auto justify-center">
                         <div className="max-w-[1200px] mx-auto py-8 text-center overflow-x-hidden">
-
-                            {/* { data !== undefined ?<ul className='flex justify-center items-center list-style-none'>
-                        <li
-                            className='cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] rounded-full leading-10 text-cente relative block py-1 px-1.5 border-1 border-[#DAC0A3]
-   text-black shadow-sm dark:text-[#ebf4f1]' onClick={PrevBlock}><FontAwesomeIcon icon={faAnglesLeft} /></li>
-                        {PageList}
-                        <li
-                            className='cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] rounded-full leading-10 text-cente relative block py-1 px-1.5 border-1 border-[#DAC0A3]
- text-black shadow-sm focus:shadow-sm dark:text-[#ebf4f1]' onClick={NextBlock}><FontAwesomeIcon icon={faAnglesRight} /></li>
-                    </ul> : ""  } */}
                             <ul className='flex justify-center items-center list-style-none'>
                                 <li
                                     className='cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] rounded-full leading-10 text-cente relative block py-1 px-1.5 border-1 border-[#DAC0A3]
