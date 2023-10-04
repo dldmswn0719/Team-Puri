@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {useNavigate, useParams} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faHeart } from '@fortawesome/free-regular-svg-icons';
@@ -7,6 +7,8 @@ import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import data1 from './../../data/product.json'
 import enMessages from './../../locales/en.json';
 import krMessages from './../../locales/kr.json';
+import { setPrice } from '../../store';
+
 
 function ProductInfo() {
 
@@ -128,6 +130,12 @@ function ProductInfo() {
       navigate('/login')
     }
   }
+
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    const totalPrice = data.price * Number(parseInt(totalCnt));
+    dispatch(setPrice(totalPrice));
+  },[totalCnt])
 
   return (
     <>

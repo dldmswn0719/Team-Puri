@@ -1,7 +1,8 @@
-import {useSearchParams} from "react-router-dom";
+import {useNavigate, useSearchParams} from "react-router-dom";
 
 export function SuccessPage() {
     const [searchParams] = useSearchParams();
+    const navigate = useNavigate();
 
     return (
         <div className="w-full bg-white dark:bg-[#272929] h-[100vh] ">
@@ -10,7 +11,7 @@ export function SuccessPage() {
                 <h1 className=" text-[25px] font-bold py-3">결제가 완료되었습니다.</h1>
                 <div className="text-[18px]">{`주문 아이디: ${searchParams.get("orderId")}`}</div>
                 <div className="text-[18px] pb-10">{`결제 금액: ${Number(searchParams.get("amount")).toLocaleString()}원`}</div>
-                <div>상품 더 보러가기</div>
+                <div onClick={()=>{navigate('/support')}}>상품 더 보러가기</div>
             </div>
         </div>
     );
