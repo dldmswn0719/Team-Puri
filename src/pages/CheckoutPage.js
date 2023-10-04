@@ -35,40 +35,43 @@ export function CheckoutPage() {
     }, [price]);
 
 
-    return (<div className="w-full bg-white dark:bg-[#272929] h-[100vh] ">
-            <div
-                className='w-[700px] text-center border absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] bg-white px-5 py-10 dark:bg-[#404343]'>
-                <h1 className=" text-3xl font-bold py-3">주문서</h1>
-                <span className="text-xl">결제금액 : {`${price.toLocaleString()}원`}</span>
-                {/*<div>*/}
-                {/*    <label>*/}
-                {/*        <input*/}
-                {/*            type="checkbox"*/}
-                {/*            onChange={(event) => {*/}
-                {/*                setPrice(event.target.checked ? price - 5_000 : price + 5_000);*/}
-                {/*            }}*/}
-                {/*        />*/}
-                {/*        5,000원 할인 쿠폰 적용*/}
-                {/*    </label>*/}
-                {/*</div>*/}
-                <div id="payment-widget"/>
-                <button className="w-full py-3 bg-[#162c58] text-white" onClick={async () => {
-                    const paymentWidget = paymentWidgetRef.current;
+    return (
+        <div className="w-full bg-white dark:bg-[#272929] h-[100vh] ">
+            <div className="max-w-7xl mx-auto px-5 py-10">
+                <div className='text-center border bg-white p-5 dark:bg-[#404343]'>
+                    <h1 className=" text-3xl font-bold py-3">주문서</h1>
+                    <span className="text-xl">결제금액 : {`${price.toLocaleString()}원`}</span>
+                    {/*<div>*/}
+                    {/*    <label>*/}
+                    {/*        <input*/}
+                    {/*            type="checkbox"*/}
+                    {/*            onChange={(event) => {*/}
+                    {/*                setPrice(event.target.checked ? price - 5_000 : price + 5_000);*/}
+                    {/*            }}*/}
+                    {/*        />*/}
+                    {/*        5,000원 할인 쿠폰 적용*/}
+                    {/*    </label>*/}
+                    {/*</div>*/}
+                    <div id="payment-widget"/>
+                    <button className="w-full py-3 bg-[#162c58] text-white" onClick={async () => {
+                        const paymentWidget = paymentWidgetRef.current;
 
-                    try {
-                        await paymentWidget?.requestPayment({
-                            orderId: nanoid(),
-                            orderName: "토스 티셔츠 외 2건",
-                            customerName: "김토스",
-                            customerEmail: "customer123@gmail.com",
-                            successUrl: `${window.location.origin}/success`,
-                            failUrl: `${window.location.origin}/fail`
-                        });
-                    } catch (error) {
-                        // handle error
-                    }
-                }}>결제하기
-                </button>
+                        try {
+                            await paymentWidget?.requestPayment({
+                                orderId: nanoid(),
+                                orderName: "토스 티셔츠 외 2건",
+                                customerName: "김토스",
+                                customerEmail: "customer123@gmail.com",
+                                successUrl: `${window.location.origin}/success`,
+                                failUrl: `${window.location.origin}/fail`
+                            });
+                        } catch (error) {
+                            // handle error
+                        }
+                    }}>결제하기
+                    </button>
+                </div>
+                
             </div>
         </div>);
 }

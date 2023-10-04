@@ -230,14 +230,14 @@ function ProductInfo() {
                   <p>{messages.buying}</p>
                 </div>
                 {/* <div className="flex sm:flex-wrap md:flex-wrap">
-                                <div className="w-60 h-[45px] bg-[#EADBC8] cursor-pointer mt-5 mr-[15px] text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
-                                    <p>장바구니</p>
-                                </div>
-                                <div className="w-60 h-[45px] bg-[#EADBC8] cursor-pointer mt-5 text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
-                                    <p className='text-[18px]'>
-                                    <FontAwesomeIcon icon={faHeart} /> 찜하기</p>
-                                </div>
-                                </div> */}
+                  <div className="w-60 h-[45px] bg-[#EADBC8] cursor-pointer mt-5 mr-[15px] text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
+                      <p>장바구니</p>
+                  </div>
+                  <div className="w-60 h-[45px] bg-[#EADBC8] cursor-pointer mt-5 text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
+                      <p className='text-[18px]'>
+                      <FontAwesomeIcon icon={faHeart} /> 찜하기</p>
+                  </div>
+                </div> */}
               </div>
             </div>
           </div>
