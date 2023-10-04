@@ -40,7 +40,6 @@ function Inner() {
 
   const dispatch = useDispatch();
   const uid = sessionStorage.getItem("users");
-  // console.log(uid);
 
   useEffect(() => {
     if (uid) {
@@ -59,11 +58,11 @@ function Inner() {
 
             if (docSnapshot.exists()) {
                 const userData = docSnapshot.data();
-                // console.log(userData);
+                console.log(userData);
                 dispatch(loggedIn(userData));
             }
         } catch(error) {
-            // console.log(error);
+            console.log(error);
         }
     }
     fetchUser();

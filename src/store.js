@@ -40,14 +40,24 @@ let language = createSlice({
     }
 });
 
+let price = createSlice({
+    name: "price",
+    initialState: 0,
+    reducers: {
+      setPrice: (state, action) => action.payload,
+    }
+  });
+
 export const {logIn, logOut, loggedIn} = user.actions;
 export const {toggleTheme} = dark.actions;
 export const { setLanguage } = language.actions;
+export const { setPrice } = price.actions;
 
 export default configureStore({
     reducer : {
         user : user.reducer,
         dark : dark.reducer,
         language: language.reducer,
+        price : price.reducer
     }
 });
