@@ -67,7 +67,7 @@ function Reviews() {
                   return (
                     <div className="relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-lg rounded-[20px] max-md:w-full max-lg:w-[32%] max-lg:h-[500px]" key={i} data-aos="zoom-in">
                       <ul className='flex w-[250px] justify-between mx-auto pt-5 max-lg:w-[90%]'>
-                        <li><img className='w-[25px] h-[25px]' src={theme === 'light' ?
+                        <li><img className='w-7 h-6' src={theme === 'light' ?
                         "./../images/Review/camera-light.png" : "./../Images/Review/camera-dark.png"}
                         alt="camera" /></li>
                         <li><p className='text-[16px] title3 mt-[2px] dark:text-[#ebf4f1]'>PURIPURI STORY</p></li>
@@ -91,22 +91,22 @@ function Reviews() {
                         < FontAwesomeIcon icon={faHeart} 
                         color={likes[i] ? '#FAE5E9' : '#ff5b5b'}
                          className='w-[18px] h-[18px] hover:brightness-75 cursor-pointer' onClick={() => { document.querySelector("html")
-                         toggleLike(i)}}   />
+                         toggleLike(i)}} />
                     
 
 
 
-                        <img className='w-[18px] h-[18px] mx-[10px] ' src={theme === 'light' ?
+                        <img className='w-6 h-5 mx-[10px] ' src={theme === 'light' ?
                         "./../images/Review/chat-light.png" : "./../Images/Review/chat-dark.png"}
                          alt="chat" />
                         
-                        <img className='w-[20px] h-[20px] ' src={theme === 'light' ?
+                        <img className='w-5 ' src={theme === 'light' ?
                         "./../images/Review/airplane-light.png "  : "./../Images/Review/airplane-dark.png"}
                         alt="airplane" />
 
-                        <img className='w-[20px] h-[20px] absolute right-[10px] hover:brightness-75'
+                        <img className='w-5 h-6 absolute right-[10px] hover:brightness-75'
                          src={theme === 'light' ?
-                        "./../images/Review/mark.svg" : "./../Images/Review/mark-dark.png"}
+                        "./../images/Review/mark-light.png" : "./../Images/Review/mark-dark.png"}
                         alt="airplane" />
 
                       </div>
