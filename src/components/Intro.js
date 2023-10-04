@@ -43,7 +43,7 @@ function Intro() {
                           </div>
                       </div>
                       <div className="mt-[20px] ">
-                          <img src="./images/intro.png" alt="intro" />
+                          <img src="./Images/intro.png" alt="intro" />
                       </div>
                   </div>
                 </div>
