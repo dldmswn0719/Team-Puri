@@ -1,9 +1,0 @@
-{
-    "count": 5,
-    "orderItems": [
-        {"name": "최백구", "count": 3, "price": 3000},
-        {"name": "고등어", "count": 5, "price": 5000},
-        {"name": "키링", "count": 1, "price": 1000}
-    ],
-    "totalPrice": 9000
-}
