@@ -80,7 +80,6 @@ function AnimalList() {
                 const result = await data.response.body?.items.item;
                 const resultCnt = await data.response.body?.totalCount;
                 setData(result)
-                console.log(result)
                 setTotalCnt(resultCnt)
                 setLoading(false)
             });
