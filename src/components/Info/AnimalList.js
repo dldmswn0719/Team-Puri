@@ -202,7 +202,7 @@ function AnimalList() {
                                                 <div className='font-bold px-3 py-3 flex items-center justify-between  dark:bg-[#404343] rounded-t-[20px] dark:text-[#ebf4f1] '>
                                                     <p><FontAwesomeIcon icon={e.sexCd === 'M' ? faMars : e.sexCd === 'F' ? faVenus : ""} className='w-[18px] h-[18px] pr-1 align-text-bottom dark:text-[#ebf4f1] ' />{e.sexCd === 'M' ? "남" : e.sexCd === 'F' ? "여" : "성별 미상"} </p>
                                                 </div>
-                                                <div className="flex h-[370px]">
+                                                <div className="flex lg:basis-[32.5%] md:basis-[45%] sm:basis-[70%] h-[380px] lg:h-[380px] md:h-[450px] ">
                                                     <img src={e.popfile} alt="img" className='w-full' />
                                                 </div>
                                             </Link>
