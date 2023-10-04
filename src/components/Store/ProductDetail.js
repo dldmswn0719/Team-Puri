@@ -18,9 +18,9 @@ function ProductDetail() {
                     <div className="text-center relative">
                         <img className='mx-auto' src={
                             language === "kr" ?
-                            "./../images/Store/dog_hand.png"
+                            "./../Images/Store/dog_hand.png"
                             :
-                            "./../images/Store/dog_hand_en.png"
+                            "./../Images/Store/dog_hand_en.png"
                         } alt="강아지 손잡는 사진" />
                     </div>
                     <div className="text-center dark:text-[#ebf4f1]">
