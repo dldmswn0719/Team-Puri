@@ -6,6 +6,7 @@ import { faHeart, faXmark } from '@fortawesome/free-solid-svg-icons';
 import Detaillist from './../../data/Detaillist';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useSelector } from 'react-redux';
 
 
 function Reviews() {
@@ -36,6 +37,9 @@ function Reviews() {
 
   const [likes, setLikes] = useState(Array(Detaillist.length).fill(1));
 
+
+  const theme = useSelector(state => state.dark)
+
   // const toggleLike = (index) =>{
   //                   const newLikes = [...likes];
   //                       newLikes[index] = !newLikes[index]
@@ -55,7 +59,7 @@ function Reviews() {
   return (
     <>
       <div className="w-full bg-white pt-[60px] relative dark:bg-[#272929]">
-        <div className="max-w-[1400px] h-[1024px] mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="w-[1280px] mx-auto max-lg:w-11/12 max-md:w-5/6">
             <div className="flex text-[15px] gap-y-5 gap-[6px] flex-wrap justify-between mb-[30px]">
               {
@@ -63,9 +67,13 @@ function Reviews() {
                   return (
                     <div className="relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-lg rounded-[20px] max-md:w-full max-lg:w-[32%] max-lg:h-[500px]" key={i} data-aos="zoom-in">
                       <ul className='flex w-[250px] justify-between mx-auto pt-5 max-lg:w-[90%]'>
-                        <li><img className='w-[25px] h-[25px]' src="./../images/Review/camera.svg" alt="camera" /></li>
+                        <li><img className='w-[25px] h-[25px]' src={theme === 'light' ?
+                        "./../images/Review/camera-light.png" : "./../Images/Review/camera-dark.png"}
+                        alt="camera" /></li>
                         <li><p className='text-[16px] title3 mt-[2px] dark:text-[#ebf4f1]'>PURIPURI STORY</p></li>
-                        <li><img className='w-[27px] h-[27px]' src="./../images/Review/airplane.svg" alt="aiplane" /></li>
+                        <li><img className='w-[27px] h-[27px]' src={theme === 'light' ?
+                        "./../images/Review/airplane-light.png" : "./../Images/Review/airplane-dark.png"}
+                        alt="aiplane" /></li>
                       </ul>
                       <div className="flex p-[15px]">
                         <img className='w-[40px] h-[40px]' src={e.rogo} alt="1" />
@@ -85,13 +93,22 @@ function Reviews() {
                          className='w-[18px] h-[18px] hover:brightness-75 cursor-pointer' onClick={() => { document.querySelector("html")
                          toggleLike(i)}}   />
                     
-                                            
 
 
 
-                        <img className='w-[18px] h-[18px] mx-[10px] ' src="./../images/Review/chat.svg" alt="chat" />
-                        <img className='w-[20px] h-[20px] ' src="./../images/Review/airplane.svg "  alt="airplane" />
-                        <img className='w-[20px] h-[20px] absolute right-[10px] hover:brightness-75' src="./../images/Review/mark.svg" alt="airplane" />
+                        <img className='w-[18px] h-[18px] mx-[10px] ' src={theme === 'light' ?
+                        "./../images/Review/chat-light.png" : "./../Images/Review/chat-dark.png"}
+                         alt="chat" />
+                        
+                        <img className='w-[20px] h-[20px] ' src={theme === 'light' ?
+                        "./../images/Review/airplane-light.png "  : "./../Images/Review/airplane-dark.png"}
+                        alt="airplane" />
+
+                        <img className='w-[20px] h-[20px] absolute right-[10px] hover:brightness-75'
+                         src={theme === 'light' ?
+                        "./../images/Review/mark.svg" : "./../Images/Review/mark-dark.png"}
+                        alt="airplane" />
+
                       </div>
                       <div className="flex my-[10px]">
                         <div className="sto" ></div>
