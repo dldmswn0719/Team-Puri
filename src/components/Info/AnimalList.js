@@ -18,6 +18,8 @@ function AnimalList() {
     const [selectedAnimal, setSelectedAnimal] = useState("");
     const [data, setData] = useState([]);
 
+
+
     const selectedData = (data) => {
         const classValue = data.target.className;
         const dataValue = data.target.value;
@@ -138,6 +140,43 @@ function AnimalList() {
             </li>
         )
     }
+        // 로컬 스토리지에서 필터링 옵션 값 가져오기     //   로컬 스토리지에 저장하려면 문자열로만 가능하니까...
+        useEffect(() => {
+            const savedCityCode = localStorage.getItem('cityCode');
+            console.log(savedCityCode)
+            if (savedCityCode) {
+                setCityCode(savedCityCode);
+            }
+    
+            const savedKindCode = localStorage.getItem('kindCode');
+            if (savedKindCode) {
+                setKindCode(parseInt(savedKindCode));
+            }
+    
+            const savedAnimalcode = localStorage.getItem('animalCode');
+            if (savedAnimalcode) {
+                setAnimalCode(savedAnimalcode);
+            }
+        }, []);
+    
+        // 도시 선택 시 로컬 스토리지에 저장
+        useEffect(() => {
+            localStorage.setItem('cityCode', cityCode);
+        }, [cityCode]);
+    
+        // 축종 선택 시 로컬 스토리지에 저장
+        useEffect(() => {
+            localStorage.setItem('kindCode', kindCode.toString());
+        }, [kindCode]);
+    
+        // 품종 선택 시 로컬 스토리지에 저장
+        useEffect(() => {
+            localStorage.setItem('animalcode', animalCode.toString());
+        }, [animalCode]);
+
+
+
+
     return (
         <>
 
@@ -147,11 +186,13 @@ function AnimalList() {
             <div className='max-w-full min-h-screen overflow-hidden bg-white dark:bg-[#272929]'>
                 <div className="max-w-[1200px] h-full  mx-auto">
                     {/*  border-[#EADBC8] dark:border-[#dadbdb] */}
-                    <div className="max-w-full max-h-full max-md:border-none py-5 ">
+                    {/* max-w-full max-h-full border-b-4 md:border-b-2 border-[#EADBC8] dark:border-[#dadbdb] py-5 */}
+                    <div className="max-w-full max-h-full max-md:border-none border-b-2 border-[#EADBC8] dark:border-[#dadbdb] py-5 ">
                         <div className="max-w-full h-full flex flex-col md:flex-row justify-between text-left max-md:px-28 max-sm:px-9">
                             <div className="w-full relative">
-                                <p className='font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5 after:absolute after:w-[98%] after:h-1 after:bg-[#EADBC8] after:dark:bg-[#dadbdb] after:-bottom-3
-                                 after:left-2/4 after:-translate-x-2/4'>지역</p>
+                                {/* after:absolute after:w-[98%] after:h-1 after:bg-[#EADBC8] after:dark:bg-[#dadbdb] after:-bottom-3
+                                 after:left-2/4 after:-translate-x-2/4 */}
+                                <p className='font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5 '>지역</p>
                                 <select onChange={selectedData} className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929] dark:text-[#ebf4f1]
                                
                                 cityData'>
@@ -163,9 +204,7 @@ function AnimalList() {
                             {/* 동물 축종 */}
                             <div className="w-full relative">
                                 <p className='
-                                font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5 after:absolute after:w-[98%] after:h-1 after:bg-[#EADBC8] after:dark:bg-[#dadbdb] after:-bottom-3
-                                after:left-2/4 after:-translate-x-2/4
-                                '>축종</p>
+                                font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5'>축종</p>
                                 <select className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929]  dark:text-[#ebf4f1] kindData' onChange={selectedData}>
                                     {kind.map((el, index) => <option key={index} value={index}>{el}</option>)}
                                 </select>
@@ -174,9 +213,7 @@ function AnimalList() {
                             {/* 동물 품종 */}
                             <div className="w-full relative">
                                 <p className='
-                                font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5 after:absolute  after:w-[98%] after:h-1 after:bg-[#EADBC8] after:dark:bg-[#dadbdb] after:-bottom-3
-                                after:left-2/4 after:-translate-x-2/4
-                                '>품종</p>
+                                font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5'>품종</p>
                                 <select className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929]  dark:text-[#ebf4f1] animalData' onChange={selectedData}>
                                     {kindCode !== "3" && <option value="">모든 품종</option>}
                                     {
