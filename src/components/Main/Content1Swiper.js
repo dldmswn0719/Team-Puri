@@ -4,9 +4,12 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { useSelector } from 'react-redux';
 
 function Content1Swiper() {
-    
+
+    // const theme = useSelector(state => state.dark);
+
     return (
         <>
             <Swiper
