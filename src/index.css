@@ -120,9 +120,13 @@ html.fixed{width: 100%; height: 100%; overflow: hidden;}
     .content3bg {
         background: url("../public/Images/Main/bg--.png");
     } /* Content3Review의 배경 */
+    .content3bgdark {
+        background: url("../public/Images/Main/tttt.png");
+    } /* Content3Review darkmode의 배경 */
 }
 @media screen and (min-width: 768px) { /* tablet 버전일 때 */
     .content3bg {
+        
         background: url("../public/Images/Main/bg-tablet.png");
         background-size: cover;
     }

@@ -6,8 +6,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logIn , loggedIn } from '../store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import enMessages from './../locales/en.json';
+import krMessages from './../locales/kr.json';
 
 function Login_c() {
+
+    const language = useSelector(state => state.language);
+    const messages = language === 'en' ? enMessages : krMessages;
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -19,12 +24,12 @@ function Login_c() {
 
     const errorMsg = (errorCode) => {
         const firebaseError = {
-            'auth/user-not-found' : "사용자를 찾을 수 없습니다.",
-            'auth/wrong-password' : "이메일 혹은 비밀번호가 잘못되었습니다.",
-            'auth/invalid-email' : "유효하지 않는 이메일입니다.",
-            'auth/invalid-login-credentials' : "이메일 혹은 비밀번호가 잘못되었습니다."
+            'auth/user-not-found' : `${messages.firebaseError[7]}`,
+            'auth/wrong-password' : `${messages.firebaseError[8]}`,
+            'auth/invalid-email' : `${messages.firebaseError[3]}`,
+            'auth/invalid-login-credentials' : `${messages.firebaseError[8]}`
         }
-        return firebaseError[errorCode] || '알 수 없는 에러가 발생했습니다.'
+        return firebaseError[errorCode] || `${messages.firebaseError[6]}`
     }
 
     const LoginForm = async (e) => {
@@ -35,7 +40,7 @@ function Login_c() {
 
             const user = userLogin.user;
             // console.log(user);
-            alert("로그인 되었습니다.")
+            alert(`${messages.alert[3]}`)
 
             sessionStorage.setItem("users", user.uid);
             dispatch(logIn(user.uid));
@@ -102,18 +107,18 @@ function Login_c() {
                         </li>    
                         <form onSubmit={LoginForm}>
                             <li>
-                                <p className='text-left text-[18px] font-bold pt-[30px] dark:text-[#ebf4f1] pb-2'>이메일</p>
+                                <p className='text-left text-[18px] font-bold pt-[30px] dark:text-[#ebf4f1] pb-2'>{messages.login1}</p>
                                 <input type='email' onChange={(e) => setEmail(e.target.value)} required autoFocus className='email w-full h-[50px] border-b border-[#ddd] text-[16px] p-[15px] text-[#bbb] box-border dark:bg-[#272929] dark:focus:outline-none dark:text-[#ebf4f1] dark:border-none'></input>
                             </li>
                             <li>
-                                <p className='text-left text-[18px] font-bold pt-[20px] dark:text-[#ebf4f1] pb-2'>비밀번호</p>
+                                <p className='text-left text-[18px] font-bold pt-[20px] dark:text-[#ebf4f1] pb-2'>{messages.login2}</p>
                                 <input type='password' onChange={(e) => setPassword(e.target.value)} required className='password w-full h-[50px] border-b border-[#ddd] text-[16px] p-[15px] text-[#bbb] box-border dark:bg-[#272929] dark:focus:outline-none dark:text-[#ebf4f1] dark:border-none'></input>
                             </li>
                             <li>
                                 <p className='pt-4 text-red-500 text-sm text-left'>{error}</p>
                             </li>
                             <li>
-                                <button className='w-full h-[50px] bg-[#162c58] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] mb-[15px] dark:bg-[#272929]' onClick={LoginForm}>로그인</button>
+                                <button className='w-full h-[50px] bg-[#162c58] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] mb-[15px] dark:bg-[#272929]' onClick={LoginForm}>{messages.login3}</button>
                             </li>
                         </form>
                     </ul>
@@ -123,12 +128,12 @@ function Login_c() {
                     <ul className='flex justify-between text-sm text-gray-500'>
                         <li>
                             <NavLink to="/findemail">
-                                <p className='dark:text-[#ebf4f1]'>이메일 찾기 / 비밀번호 재설정</p>
+                                <p className='dark:text-[#ebf4f1]'>{messages.login4}</p>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink to="/member">
-                                <p className='dark:text-[#ebf4f1]'>회원가입</p>
+                                <p className='dark:text-[#ebf4f1]'>{messages.login5}</p>
                             </NavLink>
                         </li>
                     </ul>                   
