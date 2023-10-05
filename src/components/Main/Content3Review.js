@@ -8,17 +8,21 @@ import enMessages from './../../locales/en.json';
 import krMessages from './../../locales/kr.json';
 
 function Content3Review() {
-
+    
+    const theme = useSelector(state => state.dark);
     const language = useSelector(state => state.language);
     const messages = language === 'en' ? enMessages : krMessages;
 
     return (
-        <div className='content3bg bg-[#F7F0E4] relative mt-20 py-4
+        <div
+        className={`bg-cover bg-center dark:bg-[#292929]
+        ${theme === `light`? `content3bg` : `content3bgdark`}
+        relative py-4
         lg:pt-48 lg:pb-48
-        md:mt-20 md:pb-10' id='review'>
+        md:pb-10`} id='review'>
             <div className='md:w-[768px] lg:w-[1200px] m-auto pb-10'>
                 <ul className='md:flex md:justify-between lg:flex lg:justify-between text-center md:text-left'>
-                    <li>
+                    <li className='dark:text-white'>
                         <p className='tracking-tight lg:text-5xl lg:mb-[43px]
                         md:text-3xl md:mb-7 text-2xl mb-4 mt-32'><span className='font-bold'>{messages.cont3review1}</span>{messages.cont3review2}</p>
                         <p className='md:text-xl lg:text-2xl tracking-tight'>{messages.cont3review3}<span className='font-bold'>ON</span> {messages.cont3review4}<span className='font-bold'>OFF</span><br />{messages.cont3review5}</p>
