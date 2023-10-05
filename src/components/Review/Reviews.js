@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Mainlist from './../../data/Mainlist';
+import {Mainlist,enMainlist} from './../../data/Mainlist';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faXmark } from '@fortawesome/free-solid-svg-icons';
-import Detaillist from './../../data/Detaillist';
+import {Detaillist,enDetaillist} from './../../data/Detaillist';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useSelector } from 'react-redux';
@@ -31,9 +31,19 @@ function Reviews() {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [modalOpen1, setModalOpen1] = useState(false);
-
+  const language = useSelector(state => state.language);
   const [review2, setReview2] = useState(Detaillist);
   const [review, setReview] = useState(Mainlist);
+  useEffect(()=>{
+    if(language === "en"){
+      setReview2(enDetaillist);
+      setReview(enMainlist);
+    }else{
+      setReview2(Detaillist);
+      setReview(Mainlist);
+    }
+
+  },[language])
 
   const [likes, setLikes] = useState(Array(Detaillist.length).fill(1));
 

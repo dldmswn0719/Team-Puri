@@ -20,21 +20,13 @@ function StoreAside() {
 
     return (
         <>
-            <div className="fixed right-4 bottom-3 z-10 hidden lg:block">
-                <div className="w-12 h-12 rounded-[45%] bg-[#EADBC8] mb-2 dark:bg-[#404343]">
-                    <FontAwesomeIcon icon={faAngleUp} size='2x' color='#DAC0A3' className='pt-2 pl-[10px] cursor-pointer dark:text-[#ebf4f1]' onClick={MoveToTop}/>
+            <div className="fixed right-4 bottom-3 z-10">
+                <div className="w-12 h-12 rounded-[45%] bg-[#86bcd5] mb-2 dark:bg-[#404343]">
+                    <FontAwesomeIcon icon={faAngleUp} size='2x' color='white' className='pt-2 pl-[10px] cursor-pointer dark:text-[#ebf4f1]' onClick={MoveToTop}/>
                 </div>
-                <div className="w-12 h-12 rounded-[45%] bg-[#EADBC8] mb-2 dark:bg-[#404343]">
-                    <FontAwesomeIcon icon={faAngleDown} size='2x' color='#DAC0A3' className='pt-2 pl-[10px] cursor-pointer dark:text-[#ebf4f1]' onClick={MoveToDown}/>
+                <div className="w-12 h-12 rounded-[45%] bg-[#86bcd5] mb-2 dark:bg-[#404343]">
+                    <FontAwesomeIcon icon={faAngleDown} size='2x' color='white' className='pt-2 pl-[10px] cursor-pointer dark:text-[#ebf4f1]' onClick={MoveToDown}/>
                 </div>     
-            </div>
-            <div className="lg:hidden fixed right-2 bottom-3 z-10">
-                <div className="w-12 h-12 rounded-[45%] bg-[#EADBC8] mb-2 dark:bg-[#404343]">
-                    <FontAwesomeIcon icon={faAngleUp} size='2x' color='#DAC0A3' className='pt-2 pl-[10px] cursor-pointer dark:text-[#ebf4f1]' onClick={MoveToTop}/>
-                </div>
-                <div className="w-12 h-12 rounded-[50%] bg-[#EADBC8] dark:bg-[#404343]">
-                    <FontAwesomeIcon icon={faAngleDown} size='2x' color='#DAC0A3' className='pt-2 pl-[10px] cursor-pointer dark:text-[#ebf4f1]' onClick={MoveToDown}/>
-                </div>
             </div>
         </>
     )
