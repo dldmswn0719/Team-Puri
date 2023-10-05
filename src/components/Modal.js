@@ -8,7 +8,7 @@ function Modal({error, onClose}) {
             <div className='basis-[360px] bg-white pt-14 px-5 pb-10 rounded-lg flex justify-center flex-wrap dark:bg-[#272929]'>
                 <FontAwesomeIcon icon={faTriangleExclamation} className='basis-full text-7xl text-red-500' />
                 <p className='text-base font-bold my-6 mx-0 dark:text-[#ebf4f1]'>{error}</p>
-                <button onClick={onClose} className='w-full p-[10px] rounded-md bg-[#184282] border-none text-white cursor-pointer hover:bg-[#102c57] dark:bg-[#404343]'>확인</button>
+                <button onClick={onClose} className='w-full p-[10px] rounded-md bg-[#60a7c8] border-none text-white cursor-pointer hover:bg-[#327290] dark:bg-[#404343]'>확인</button>
             </div>
         </div>
     )
