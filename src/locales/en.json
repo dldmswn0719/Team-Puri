@@ -360,6 +360,46 @@
         "design_story2": "",
         "design_story3": "",
         "design_story4": ""
-    }
+    },
+    "cont1swiper1" : "A little step ",
+    "cont1swiper2" : "for a New Start",
+    "cont1swiper3" : "At that moment, ",
+    "cont1swiper4" : "our story ",
+    "cont1swiper5" : "begins.",
+
+    "cont2info1" : "A place where you can feel the value",
+    "cont2info2" : "of life where rest and joy meet",
+    "cont2info3" : "Animal Rights Action PuriPuri is a non-profit",
+    "cont2info4" : "organization that is 100% sponsored by",
+    "cont2info5" : "citizens and works transparently and honestly.",
+
+    "cont3review1" : "Meet the review ",
+    "cont3review2" : "of adoption.",
+    "cont3review3" : "Adoption ",
+    "cont3review4" : "Pet shop ",
+    "cont3review5" : "Please participate in creating a society that does not buy and sell animals.",
+    "cont3review6" : "More",
+
+    "cont31" : "breed",
+    "cont32" : "gender(TNR)",
+    "cont33" : "age",
+    "cont34" : "weight",
+    "cont35" : "color",
+    "cont36" : "affinity",
+    "cont37" : "active",
+
+    "cont311" : ["Cash", "Bell", "Popo", "Mari"],
+    "cont312" : ["dog / Pomeranian", "dog / Shuttleland Shipdog", "dog / Jindo mix", "cat / Korean shorthair"],
+    "cont313" : ["Female / ○", "Female / ○", "Female / X", "Female / ○"],
+    "cont314" : ["13", "8", "1", "7"],
+    "cont315" : ["brown", "brown / white", "brown", "three colors"],
+
+    "cont5donate1" : "changes ",
+    "cont5donate2" : "made together by ",
+    "cont5donate3" : "sponsorship",
+    "cont5donate4" : "Expand animal rights in our society through rescue",
+    "cont5donate5" : "and adoption, policy research and legislation,",
+    "cont5donate6" : "and right to life education and campaigns.",
+    "cont5donate7" : "Sponsor"
   }
   
