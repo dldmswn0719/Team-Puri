@@ -5,8 +5,7 @@ import krMessages from './../../locales/kr.json';
 
 function ProductNav() {
 
-    const MoveDetail = (e) => {
-        console.log(e)
+    const MoveDetail = () => {
         window.scrollTo({
           top: document.querySelector(".detail").getBoundingClientRect().top,
           left: 0,
@@ -14,8 +13,7 @@ function ProductNav() {
         })
       }
     
-      const MoveReview = (e) => {
-        console.log(e)
+      const MoveReview = () => {
         window.scrollTo({
           top: document.querySelector(".review").getBoundingClientRect().top,
           left: 0,
@@ -23,8 +21,7 @@ function ProductNav() {
         })
       }
     
-      const MoveQa = (e) => {
-        console.log(e)
+      const MoveQa = () => {
         window.scrollTo({
           top: document.querySelector(".qa").getBoundingClientRect().top,
           left: 0,
@@ -39,7 +36,7 @@ function ProductNav() {
           <>
           <div className="w-full dark:bg-[#272929]">
             <div className="max-w-7xl mx-auto p-5">
-              <div className="pb-5 border-b border-[#EADBC8] dark:border-b dark:border-[#dadbdb]">
+              <div className="pb-5 border-b border-[#86bcd5] dark:border-b dark:border-[#dadbdb]">
                 <ul className="text-[#797979] text-lg text-center flex justify-around font-medium">
                   <li className="cursor-pointer hover:text-[#222] hover:font-bold dark:text-[#fbfdfd] dark:hover:text-[#ebf4f1]" onClick={MoveDetail}>
                     <p>{messages.detailinformation}</p>

@@ -31,24 +31,24 @@ function ProductDetail() {
                             "./../Images/Main/logo_dark_small.png"
                         } alt="로고" />
                         <p className='text-xl leading-9'>{messages.desc1}</p>
-                        <p className='text-xl border-b border-[#EADBC8] pb-[50px] dark:border-[#dadbdb]'>{messages.desc2}</p>
-                        <div className="py-[35px] px-0 text-3xl text-[#DAC0A3] font-medium dark:text-[#ebf4f1]">
+                        <p className='text-xl border-b border-[#86bcd5] pb-[50px] dark:border-[#dadbdb]'>{messages.desc2}</p>
+                        <div className="py-[35px] px-0 text-2xl lg:text-3xl text-[#86bcd5] font-medium dark:text-[#ebf4f1]">
                             <p>{messages.desc3}</p>
                             <p className='leading-[50px]'>{messages.desc4}</p>
                         </div>
                         <div className="flex justify-center pb-[50px] gap-x-[14%]">
                             <div className="pt-[50px] dark:text-[#ebf4f1]">
-                                <FontAwesomeIcon icon={faDog} className="w-[80px] h-[80px] ml-[10px] dark:text-[#ebf4f1]" color='#DAC0A3' />
-                                <p className="font-bold lg:text-[23px] pt-10 text-[20px]">{messages.desc5}</p>
-                                <div className="lg:text-xl text-[17px] leading-8">
+                                <FontAwesomeIcon icon={faDog} className="w-[80px] h-[80px] ml-[10px] dark:text-[#ebf4f1]" color='#86bcd5' />
+                                <p className="font-bold lg:text-[23px] pt-10 text-[17px]">{messages.desc5}</p>
+                                <div className="lg:text-xl text-[16px] leading-8">
                                     <p>{messages.desc6}</p>
                                     <p>{messages.desc7}</p>
                                     <p>{messages.desc8}</p>
                                 </div>
                             </div>
                             <div className="pt-[50px]">
-                                <FontAwesomeIcon icon={faBullhorn} className='w-[70px] h-[70px] ml-[10px] dark:text-[#ebf4f1]' color='#DAC0A3' />
-                                <p className="font-bold lg:text-[23px] pt-10 text-[20px]">{messages.desc9}</p>
+                                <FontAwesomeIcon icon={faBullhorn} className='w-[70px] h-[70px] ml-[10px] dark:text-[#ebf4f1]' color='#86bcd5' />
+                                <p className="font-bold lg:text-[23px] pt-10 text-[17px]">{messages.desc9}</p>
                                 <div className="lg:text-xl text-[17px] leading-8">
                                     <p>{messages.desc10}</p>
                                     <p>{messages.desc11}</p>

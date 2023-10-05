@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, firebaseAuth } from './../firebase';
-import { doc, setDoc, getFirestore, getDoc, updateDoc } from 'firebase/firestore';
+import { doc, setDoc, getFirestore, getDoc, updateDoc, collection, query, where, getDocs } from 'firebase/firestore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from '../store';
 import Modal from './Modal';
 import Modify from '../pages/Modify';
+import { fetchSignInMethodsForEmail, getAuth } from 'firebase/auth';
 import enMessages from './../locales/en.json';
 import krMessages from './../locales/kr.json';
 
@@ -150,12 +151,26 @@ function Member_c() {
 
         } catch (error) {
             setError(errorMsg(error.code));
-            // console.log(error.code);
         }
     }
 
     const userState = useSelector(state => state.user);
-    // console.log(userState.loggedIn);
+
+    const auth = getAuth();
+    const [emailCheckMsg, setEmailCheckMsg] = useState("");
+    const checkEmail = async () => {
+        const userRef = collection(getFirestore(), "users");
+        const q = query(userRef, where("email", "==", email));
+        const querySnapshot = await getDocs(q);
+        
+        if (querySnapshot.empty) {
+        setEmailCheckMsg("사용 가능한 이메일입니다.");
+        return true;
+        } else {
+        setEmailCheckMsg("이미 사용중인 이메일입니다.");
+        return false;
+        }
+    };
 
     return (
         <>
@@ -178,6 +193,8 @@ function Member_c() {
                                             :
                                             <input readOnly defaultValue={email} onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder={messages.login1} autoFocus className='email w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
                                     }
+                                    <button onClick={checkEmail}>중복확인</button>
+                                    <p>{emailCheckMsg}</p>
                                 </li>
                                 {
                                     initialMode &&

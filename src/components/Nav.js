@@ -33,11 +33,11 @@ function Nav() {
 
     return (
         <>
-            <div className="w-full bg-[#fff] dark:bg-[#292929] px-[2%] sticky top-0 pb-4 pt-7 z-50">
+            <div className="w-full bg-[#fff] dark:bg-[#292929] px-[2%] sticky top-0 py-3 z-50 md:py-4 lg:py-6">
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <div>
                         <NavLink to="/">
-                            <img className="items-center w-[200px] h-[65px]" src={
+                            <img className="items-center w-[200px] h-[65px] sm:w-[160px] sm:h-[55px]" src={
                                 theme === 'light' ?
                                     "./../Images/logo_s1.png"
                                     :
@@ -48,22 +48,22 @@ function Nav() {
                     <div className='basis-[60%] hidden lg:block'>
                         <ul className='flex justify-between'>
                             <li className='basis-full text-center text-[18px] relative
-                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-35px] hover:after:left-0
+                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#86bcd5] hover:after:bottom-[-35px] hover:after:left-0
                             after:w-0 after:duration-500 dark:hover:after:bg-[#fff]'>
                                 <NavLink to="/introduce" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1] ">{messages.introduction}</NavLink>
                             </li>
                             <li className='basis-full text-center text-[18px] relative
-                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-35px] hover:after:left-0
+                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#86bcd5] hover:after:bottom-[-35px] hover:after:left-0
                             after:w-0 after:duration-500 dark:hover:after:bg-[#fff]'>
                                 <NavLink to="/info" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1]">{messages.introducinganimal}</NavLink>
                             </li>
                             <li className='basis-full text-center text-[18px] relative
-                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-35px] hover:after:left-0
+                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#86bcd5] hover:after:bottom-[-35px] hover:after:left-0
                             after:w-0 after:duration-500 dark:hover:after:bg-[#fff]'>
                                 <NavLink to="/review_page" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1]">{messages.adoptionreview}</NavLink>
                             </li>
                             <li className='basis-full text-center text-[18px] relative
-                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-35px] hover:after:left-0
+                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#86bcd5] hover:after:bottom-[-35px] hover:after:left-0
                             after:w-0 after:duration-500 dark:hover:after:bg-[#fff]'>
                                 <NavLink to="/support" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1]">{messages.sponsoredstore}</NavLink>
                             </li>
@@ -79,10 +79,10 @@ function Nav() {
                             <li className='basis-2/4 text-center cursor-pointer text-2xl relative group'>
                                 <FontAwesomeIcon icon={faEarthAmericas} className='text-[25px] dark:text-[#ebf4f1]' />
                                 <ul className='z-100 dark:bg-[#272929] absolute w-20 top-[50px] left-[-5px] bg-white transition-all duration-500 flex flex-wrap h-0 overflow-hidden group-hover:h-24'>
-                                    <li onClick={() => changeLanguage('kr')} className='dark:hover:bg-[#404040b3] border w-full basis-full h-12 leading-10 hover:font-bold hover:bg-[#f8f0e5]'>
+                                    <li onClick={() => changeLanguage('kr')} className='dark:hover:bg-[#404040b3] border w-full basis-full h-12 leading-10 hover:font-bold hover:bg-[#86bcd5] hover:text-white'>
                                         <button className='text-sm dark:text-[#ebf4f1]'>{messages.korean}</button>
                                     </li>
-                                    <li onClick={() => changeLanguage('en')} className='dark:hover:bg-[#404040b3] border w-full basis-full h-12 leading-10 hover:font-bold hover:bg-[#f8f0e5]'>
+                                    <li onClick={() => changeLanguage('en')} className='dark:hover:bg-[#404040b3] border w-full basis-full h-12 leading-10 hover:font-bold hover:bg-[#86bcd5] hover:text-white'>
                                         <button className='text-sm dark:text-[#ebf4f1]'>{messages.english}</button>
                                     </li>
                                 </ul>
@@ -126,11 +126,11 @@ function Nav() {
                     <div className='lg:hidden flex'>
                         <div>
                             <button onClick={() => { dispatch(toggleTheme()) }}>
-                                <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} className='text-[25px] dark:text-[#ebf4f1] mt-1' />
+                                <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} className='text-[25px] dark:text-[#ebf4f1] mt-1 sm:w-6 sm:h-6' />
                             </button>
                         </div>
                         <div className='lg:hidden text-center cursor-pointer text-2xl relative group pl-3 pr-2'>
-                            <FontAwesomeIcon icon={faEarthAmericas} className='text-[25px] dark:text-[#ebf4f1]' />
+                            <FontAwesomeIcon icon={faEarthAmericas} className='text-[25px] dark:text-[#ebf4f1] sm:w-6 sm:h-6' />
                             <ul className='z-100 dark:bg-[#272929] absolute w-20 top-[50px] -left-[25px] bg-white transition-all duration-500 flex flex-wrap h-0 overflow-hidden group-hover:h-24'>
                                 <li onClick={() => changeLanguage('kr')} className='dark:hover:bg-[#404040b3] border w-full basis-full h-12 leading-10 hover:font-bold hover:bg-[#f8f0e5]'>
                                     <button className='text-sm dark:text-[#ebf4f1]'>{messages.korean}</button>

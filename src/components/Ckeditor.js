@@ -1,14 +1,15 @@
-import React from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import React, { useState } from "react";
 import Modal from './Modal'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
-import { addDoc, collection, doc, getFirestore, serverTimestamp, updateDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, getFirestore, serverTimestamp, updateDoc  } from 'firebase/firestore';
+import { useEffect } from "react";
+import { data } from "autoprefixer";
 
 const Container = styled.div`
   width: 100%;
@@ -84,13 +85,20 @@ const Button = styled.div`
 	svg{margin-right: 12px;}
 `
 
-function Ckeditor({hideEditor , refreshPosts}) {
+function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,postId }) {
 
     const [txtTitle,setTxtTitle] = useState("");
     const [writeData,setWriteData] = useState("");
     const [isModal,setIsModal] = useState(true);
     const navigate = useNavigate();
     const memberProfile = useSelector(state => state.user);
+
+    useEffect(() => {
+      if(title || content){
+          setTxtTitle(title)
+          setWriteData(content)
+      }
+  }, [title, content])
 
     if(!memberProfile.loggedIn){
         return(
@@ -101,7 +109,7 @@ function Ckeditor({hideEditor , refreshPosts}) {
           </>
         )
       }
-
+      
       const dataSubmit = async ()=>{
         if(txtTitle.length === 0){
             alert("제목을 입력해주세요.")
@@ -110,57 +118,76 @@ function Ckeditor({hideEditor , refreshPosts}) {
             alert("내용을 입력해주세요.")
             return;
         }
-
-        try{
-            await addDoc(collection(getFirestore(),"qna"),{
-                title : txtTitle,
-                content : writeData,
-                view : 1,
-                uid : memberProfile.uid,
-                name : memberProfile.data.name,
-                email : memberProfile.data.email,
-                timestamp : serverTimestamp()
+        if(postId){
+          try{
+            const docRef= doc(getFirestore(),"qna" ,postId);
+            await updateDoc(docRef,{
+              title : txtTitle,
+              content : writeData
             })
-            alert("게시글이 성공적으로 등록 되었습니다.")
+            alert("게시글이 성공적으로 수정 되었습니다.")
+
             hideEditor();
-            refreshPosts();
-        }catch(error){
-            setIsModal(!isModal);
+            refreshPosts(); 
+          }catch(error){
+           console.log(error)
+         }
+        }else{
+          try{
+              await addDoc(collection(getFirestore(),"qna"),{
+                  title : txtTitle,
+                  content : writeData,
+                  uid : memberProfile.uid,
+                  name : memberProfile.data.name,
+                  email : memberProfile.data.email,
+                  timestamp : serverTimestamp()
+              })
+  
+              alert("게시글이 성공적으로 등록 되었습니다.")
+              hideEditor();
+              refreshPosts();
+              resetViewState();
+  
+          }catch(error){
+              setIsModal(!isModal);
+          }
+
         }
-    }
+      }
 
     return (
         <>
         <Container>
             <InnerContainer>
-            <ContentWrapper>
-                <ContentInner>
-                <Title>제목</Title>
-                <TextInput type="text" onChange={(e)=>{setTxtTitle(e.target.value)}} />
-                </ContentInner>
-                <ContentInputWrapper>
-                <ContentLabel>내용</ContentLabel>
-                <CKEditor
-                    editor={ClassicEditor}
-                    config={{
-                    placeholder: "내용을 입력하세요.",
-                    }}
-                    onReady={(editor) => {}}
-                    onChange={ ( event, editor ) => {
-                        const data = editor.getData();
-                        setWriteData(data);
-                        console.log( { event, editor, data } );
-                    } }
-                    onBlur={(event, editor) => {}}
-                    onFocus={(event, editor) => {}}
-                />
-                    <ButtonWrap>
-                        <Button onClick={dataSubmit}>
-                            <FontAwesomeIcon icon={faPen} />완료
-                        </Button>
-                    </ButtonWrap>
-                </ContentInputWrapper>
-            </ContentWrapper>
+              <ContentWrapper>
+                  <ContentInner>
+                  <Title>제목</Title>
+                  <TextInput value={txtTitle} type="text" onChange={(e)=>{setTxtTitle(e.target.value)}} />
+                  </ContentInner>
+                  <ContentInputWrapper>
+                  <ContentLabel>내용</ContentLabel>
+                  <CKEditor
+                      editor={ClassicEditor}
+                      data={writeData}
+                      config={{
+                      placeholder: "내용을 입력하세요.",
+                      }}
+                      onReady={(editor) => {}}
+                      onChange={ ( event, editor ) => {
+                          const data = editor.getData();
+                          setWriteData(data);
+                          // console.log( { event, editor, data } );
+                      } }
+                      onBlur={(event, editor) => {}}
+                      onFocus={(event, editor) => {}}
+                  />
+                      <ButtonWrap>
+                          <Button onClick={dataSubmit}>
+                              <FontAwesomeIcon icon={faPen} />완료
+                          </Button>
+                      </ButtonWrap>
+                  </ContentInputWrapper>
+              </ContentWrapper>
             </InnerContainer>
         </Container>
         </>
