@@ -14,5 +14,4 @@ function Modal({error, onClose}) {
     )
 }
 
-
 export default Modal

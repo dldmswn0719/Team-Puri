@@ -167,10 +167,6 @@ function Member_c() {
                             <h1 className='pb-[20px] text-[24px] font-bold dark:text-[#ebf4f1]'>{initialMode ? "회원가입" : "정보수정"}</h1>
                             <ul>
                                 <li>
-                                    <img src="https://via.placeholder.com/100" alt="100" className='mb-[20px] mx-auto rounded-full cursor-pointer change' onClick={imgChange} />
-                                    <input type="file" class="real-upload hidden" accept="image/*" required multiple />
-                                </li>
-                                <li>
                                     {
                                         initialMode ?
                                             <input defaultValue={email} onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder='이메일' autoFocus className='email w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />

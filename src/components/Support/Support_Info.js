@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import "./../../../src/index.css"
 import enMessages from './../../locales/en.json';
 import krMessages from './../../locales/kr.json';
 import { useSelector } from 'react-redux';
+import Modal from '../Modal'
+
 
 function Support_Info() {
   
   const language = useSelector(state => state.language);
   const messages = language === 'en' ? enMessages : krMessages;
+  const view = useParams()
+  const [isModal, setIsModal] = useState(view ? false : true)
+  const memberProfile = useSelector(state => state.user)
 
   const NumChk = (e)=>{
     return e.target.value = e.target.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -87,7 +92,13 @@ function Support_Info() {
 
       navigate('/paycomplete')    
   }
-  
+  if(!memberProfile.loggedIn){
+    return(
+      <>
+        isModal && <Modal error="로그인 이후 이용해주시기 바랍니다!" onClose={()=>{setIsModal(false); navigate('/login')}} />
+      </>
+    )
+  }
 
   const checkedAll = (e)=>{
     if(e.target.checked === true){
@@ -108,7 +119,7 @@ function Support_Info() {
             <div className="w-[545px] ml-[150px] pt-[50px] max-lg:w-11/12  max-lg:mx-auto max-md:w-11/12">
               <NavLink to='/'><img src="./../../Images/Support/logo.png" alt="로고" className='mb-[50px]' /></NavLink>
               <div className="w-[500px] h-[225px] relative info max-lg:w-full max-lg:h-[190px] max-md:w-full">
-                <ul className="w-full h-[155px] bg-[#f8f0e5] flex justify-around items-center max-lg:h-[120px]">
+                <ul className="w-full h-[155px] bg-[#f8f0e5] flex justify-around items-center max-lg:h-[120px] py-4">
                   <li className="">
                     <p className='h-[72px] font-bold text-xl max-lg:flex max-lg:items-center'>{messages.supportpay1_1}</p>
                   </li>
@@ -122,24 +133,24 @@ function Support_Info() {
               </div>
               <div className="w-[500px] relative py-[50px] info  max-lg:w-full">
                 <p className="mb-[30px] text-xl font-bold">{messages.supportpay1_1}</p>
-                <ul className="flex justify-between mb-[25px]">
-                  <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>{messages.supportpay1_5}</p></li>
-                  <div className="w-[353px] flex gap-x-5 max-lg:w-[600px] max-md:w-[420px]">
-                    <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center max-lg:w-[290px] max-md:w-[200px] ${isActive === true ? "color" : ""}`}  onClick={()=>{setIsActive(!isActive);setActive(false)}}><p>{messages.supportpay1_6}</p></li>
-                    <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center max-lg:w-[290px] max-md:w-[200px] ${Active === true ? "color" : ""}`}  onClick={()=>{setActive(!Active);setIsActive(false)}}><p>{messages.supportpay1_7}</p></li>
+                <ul className="w-full flex justify-between mb-[25px]">
+                  <li className="w-[30%] h-[43px] flex items-center whitespace-nowrap"><p className=''>{messages.supportpay1_5}</p></li>
+                  <div className="w-[70%] flex gap-x-5">
+                    <li className={`cursor-pointer w-[49%] h-[43px] bg-[#f8f0e5] flex justify-center items-center max-md:w-[47%] ${isActive === true ? "color" : ""}`}  onClick={()=>{setIsActive(!isActive);setActive(false)}}><p>{messages.supportpay1_6}</p></li>
+                    <li className={`cursor-pointer w-[49%] h-[43px] bg-[#f8f0e5] flex justify-center items-center max-md:w-[47%] ${Active === true ? "color" : ""}`}  onClick={()=>{setActive(!Active);setIsActive(false)}}><p>{messages.supportpay1_7}</p></li>
                   </div>
                 </ul>
-                <ul className="flex justify-between">
-                  <li className="h-[30px] flex justify-center whitespace-nowrap"><p className='w-[60px]'>{messages.supportpay1_8}</p></li>
-                  <div className="w-[353px] h-[100px] flex gap-x-[15px] flex-wrap max-lg:w-[600px] max-md:w-[420px]">
+                <ul className="flex justify-between w-full">
+                  <li className="w-[30%] h-[30px] flex whitespace-nowrap"><p className='max-md:text-[15px]'>{messages.supportpay1_8}</p></li>
+                  <div className="w-[70%] h-[100px] flex gap-x-[15px] flex-wrap ">
                     {
                       Array(5).fill().map((e,i)=>{
                         return (
-                          <li key={i} className={`w-[105px] h-[40px] flex justify-center items-center bg-[#f8f0e5] cursor-pointer max-lg:w-[190px] max-md:w-[130px] ${money === i ? "color" : ""}`} onClick={()=>{setMoney(i)}}><p>{i+1}0,000{messages.won}</p></li>
+                          <li key={i} className={`w-[30.4%] max-lg:w-[31.2%] max-md:w-[29.1%] h-[40px] flex justify-center items-center bg-[#f8f0e5] cursor-pointer ${money === i ? "color" : ""}`} onClick={()=>{setMoney(i)}}><p>{i+1}0,000{messages.won}</p></li>
                         )
                       })
                     }
-                    <li className="" onClick={()=>{setMoney(money === false ? true : false)}}><input type="text" placeholder={messages.supportpay1_9} onInput={NumChk}  className='w-[105px] h-[38px] flex justify-center items-center text-center border-[1px] border-black max-lg:w-[190px] max-md:w-[130px]' maxLength={11} /></li> 
+                    <li className="w-[30.4%] flex max-lg:w-[31.2%] max-md:w-[29.1%]" onClick={()=>{setMoney(money === false ? true : false)}}><input type="text" placeholder={messages.supportpay1_9} onInput={NumChk}  className='w-full h-[40px] flex justify-center items-center text-center border-[1px] border-black' maxLength={11} /></li> 
                     {/* <li className={`w-[105px] h-[30px] flex justify-center items-center bg-[#f8f0e5] cursor-pointer ${money === true ? "color" : ""}`} onClick={()=>{setMoney(money === false ? true : false)}}><p>10,000원</p></li>
                     <li className={`w-[105px] h-[30px] flex justify-center items-center bg-[#f8f0e5] cursor-pointer ${money === true ? "color" : ""}`} onClick={()=>{setMoney(money === false ? true : false)}}><p>20,000원</p></li>
                     <li className={`w-[105px] h-[30px] flex justify-center items-center bg-[#f8f0e5] cursor-pointer ${money === true ? "color" : ""}`} onClick={()=>{setMoney(money === false ? true : false)}}><p>30,000원</p></li>
@@ -151,22 +162,22 @@ function Support_Info() {
               </div>
               <div className="w-[500px] relative py-[50px] info  max-lg:w-full">
                 <p className='text-xl mb-[30px] font-bold'>개인정보</p>
-                <ul className="flex justify-between mb-[25px]">
-                  <li className='h-[43px] flex items-center whitespace-nowrap'><p className='w-[60px]'>구분</p></li>
-                  <div className="w-[353px] flex gap-x-5 max-lg:w-[600px] max-md:w-[420px]">
-                    <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center max-lg:w-[290px] max-md:w-[200px] ${solo === true ? "color" : ""}`} onClick={()=>{setSolo(!solo);setBuisness(false)}}><p>개인</p></li>
-                    <li className={`cursor-pointer w-40 h-[43px] bg-[#f8f0e5] flex justify-center items-center max-lg:w-[290px] max-md:w-[200px] ${buisness === true ? "color" : ""}`} onClick={()=>{setBuisness(!buisness);setSolo(false)}}><p>단체(사업자)</p></li>
+                <ul className="w-full flex justify-between mb-[25px]">
+                  <li className='w-[30%] h-[43px] flex items-center whitespace-nowrap'><p>구분</p></li>
+                  <div className="w-[70%] flex gap-x-5">
+                    <li className={`w-[49%] cursor-pointerh-[43px] bg-[#f8f0e5] flex justify-center items-center ${solo === true ? "color" : ""}`} onClick={()=>{setSolo(!solo);setBuisness(false)}}><p>개인</p></li>
+                    <li className={`cursor-pointer w-[49%] h-[43px] bg-[#f8f0e5] flex justify-center items-center ${buisness === true ? "color" : ""}`} onClick={()=>{setBuisness(!buisness);setSolo(false)}}><p>단체(사업자)</p></li>
                   </div>
                 </ul>
-                <ul className="flex justify-between mb-[25px]">
-                  <li className="h-[43px] flex items-center whitespace-nowrap" ><p className='w-[60px]'>{buisness === true ? "단체(사업자명)" : "이름"}</p></li>
-                  <li><input type="text"  className='name w-[350px] h-[43px] text-[18px] text-center border-[1px] border-black max-lg:w-[600px] max-md:w-[420px]' /></li>
+                <ul className="w-full flex justify-between mb-[25px]">
+                  <li className="w-[30%] h-[43px] flex items-center whitespace-nowrap" ><p>{buisness === true ? "단체(사업자명)" : "이름"}</p></li>
+                  <li className='w-[70%]'><input type="text"  className='name w-full h-[43px] text-[18px] text-center border-[1px] border-black' /></li>
                 </ul>
-                <ul className="flex justify-between mb-[25px]">
-                  <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>전화번호</p></li>
-                  <div className="flex w-[353px] gap-x-[15px] max-lg:w-[600px] max-md:w-[420px]">
-                    <li className="">
-                      <select className='flex flex-wrap w-[105px] h-10 border-[1px] border-black text-center text-[17px] max-lg:w-[190px] max-md:w-[130px]'>
+                <ul className="w-full flex justify-between mb-[25px]">
+                  <li className="w-[30%] h-[43px] flex items-center whitespace-nowrap"><p>전화번호</p></li>
+                  <div className="flex w-[70%] gap-x-[15px]">
+                    <li className="w-[31.5%] max-md:w-[30%]">
+                      <select className='flex flex-wrap w-full h-10 border-[1px] border-black text-center text-[17px]'>
                         <option value="0">010</option>
                         <option value="1">011</option>
                         <option value="2">016</option>
@@ -175,50 +186,50 @@ function Support_Info() {
                         <option value="5">019</option>
                       </select>
                     </li>
-                    <li className=""><input type="text" className='middle-nb w-[105px] h-10 border-[1px] border-black text-center text-[17px] max-lg:w-[190px] max-md:w-[130px]' maxLength={4} onInput={Num} /></li>
-                    <li className=""><input type="text" className='end-nb w-[105px] h-10 border-[1px] border-black text-center text-[17px] max-lg:w-[190px] max-md:w-[130px]' maxLength={4} onInput={Num} /></li>
+                    <li className="w-[31.5%]"><input type="text" className='middle-nb w-full h-10 border-[1px] border-black text-center text-[17px]' maxLength={4} onInput={Num} /></li>
+                    <li className="w-[31.4%]"><input type="text" className='end-nb w-full h-10 border-[1px] border-black text-center text-[17px]' maxLength={4} onInput={Num} /></li>
                   </div>
                 </ul>
-                <ul className="flex justify-between">
-                  <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>이메일</p></li>
-                  <li className=""><input type="email" className='e-mail w-[350px] h-10 border-[1px] border-black text-center text-[18px] max-lg:w-[600px] max-md:w-[420px]' /></li>
+                <ul className="w-full flex justify-between">
+                  <li className="w-[30%] h-[43px] flex items-center whitespace-nowrap"><p>이메일</p></li>
+                  <li className="w-[70%]"><input type="email" className='e-mail w-full h-10 border-[1px] border-black text-center text-[18px]' /></li>
                 </ul>
               </div>
-              <div className="info w-[500px] relative py-[50px] info max-lg:w-full">
+              <div className="w-[500px] relative py-[50px] info  max-lg:w-full">
                 <p className="text-xl mb-[30px] font-bold">결제정보</p>
-                <ul className="flex justify-between mb-[25px]">
-                  <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>결제수단</p></li>
-                  <div className="w-[353px] h-[43px] max-lg:w-[600px] max-md:w-[420px]">
-                    <li className={`w-40 h-full bg-[#f8f0e5] flex justify-center items-center cursor-pointer max-md:w-[200px] max-lg:w-[290px] ${card === true ? "color" : ""}`} onClick={()=>setCard(card === false ? true : false)}><p>신용카드</p></li>
+                <ul className="w-full flex justify-between mb-[25px]">
+                  <li className="w-[30%] h-[43px] flex items-center whitespace-nowrap"><p>결제수단</p></li>
+                  <div className="w-[70%] h-[43px]">
+                    <li className={`w-[49%] h-full bg-[#f8f0e5] flex justify-center items-center cursor-pointer ${card === true ? "color" : ""}`} onClick={()=>setCard(card === false ? true : false)}><p>신용카드</p></li>
                   </div>
                 </ul>
-                <ul className="flex justify-between mb-[25px]">
-                  <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>카드번호</p></li>
-                  <li className=""><input type="text"  className='card-nb w-[350px] h-10 border-[1px] border-black text-center text-[18px] max-lg:w-[600px] max-md:w-[420px]' onInput={Hyphen} maxLength={19} /></li>
+                <ul className="w-full flex justify-between mb-[25px]">
+                  <li className="w-[30%] h-[43px] flex items-center whitespace-nowrap"><p>카드번호</p></li>
+                  <li className="w-[70%]"><input type="text"  className='card-nb w-full h-10 border-[1px] border-black text-center text-[18px]' onInput={Hyphen} maxLength={19} /></li>
                 </ul>
-                <ul className="flex justify-between mb-[25px]">
-                  <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>유효기간</p></li>
-                  <div className="w-[353px] flex gap-x-5 max-lg:w-[600px] max-md:w-[420px]">
-                    <li className=""><input type="text" placeholder='MM' maxLength={2}  className='month w-[160px] h-10 border-[1px] border-black text-center text-[18px] max-lg:w-[290px] max-md:w-[200px]' onInput={Num} /></li>
-                    <li className=""><input type="text" placeholder='YY' maxLength={2}  className='year w-[160px] h-10 border-[1px] border-black text-center text-[18px] max-lg:w-[290px]  max-md:w-[200px]' onInput={Num} /></li>
+                <ul className="w-full flex justify-between mb-[25px]">
+                  <li className="w-[30%] h-[43px] flex items-center whitespace-nowrap"><p>유효기간</p></li>
+                  <div className="w-[70%] flex gap-x-5">
+                    <li className="w-[49%]"><input type="text" placeholder='MM' maxLength={2}  className='month w-full h-10 border-[1px] border-black text-center text-[18px]' onInput={Num} /></li>
+                    <li className="w-[49%]"><input type="text" placeholder='YY' maxLength={2}  className='year w-full h-10 border-[1px] border-black text-center text-[18px]' onInput={Num} /></li>
                   </div>
                 </ul>
-                <ul className="flex justify-between mb-[25px]">
-                  <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>카드주명</p></li>
-                  <li className=""><input type="text" className='card-name w-[350px] h-10 border-[1px] border-black text-center text-[18px] max-lg:w-[600px] max-md:w-[420px]' /></li>
+                <ul className="w-full flex justify-between mb-[25px]">
+                  <li className="w-[30%] h-[43px] flex items-center whitespace-nowrap"><p>카드주명</p></li>
+                  <li className="w-[70%]"><input type="text" className='card-name w-full h-10 border-[1px] border-black text-center text-[18px]' /></li>
                 </ul>
-                <ul className="flex justify-between mb-[25px]">
-                  <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>생년월일</p></li>
-                  <li className=""><input type="text" onInput={Num} maxLength={buisness === true ? 10 : 6} placeholder='주민번호 앞 6자리(또는 사업자번호)' className='birth w-[350px] h-10 border-[1px] border-black text-center text-[18px] max-lg:w-[600px] max-md:w-[420px]' /></li>
+                <ul className="w-full flex justify-between mb-[25px]">
+                  <li className="w-[30%] h-[43px] flex items-center whitespace-nowrap"><p>생년월일</p></li>
+                  <li className="w-[70%]"><input type="text" onInput={Num} maxLength={buisness === true ? 10 : 6} placeholder='주민번호 앞 6자리(또는 사업자번호)' className='birth w-full h-10 border-[1px] border-black text-center text-[18px]' /></li>
                 </ul>
-                <ul className="flex justify-between mb-[25px]">
-                  <li className="w-[60px]h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>비밀번호</p></li>
-                  <li className=""><input type="text" onInput={Num} maxLength={2} placeholder='카드 비밀번호 앞 2자리' className='password w-[350px] h-10 border-[1px] border-black text-center text-[18px] max-lg:w-[600px] max-md:w-[420px]' /></li>
+                <ul className="w-full flex justify-between mb-[25px]">
+                  <li className="w-[30%] h-[43px] flex items-center whitespace-nowrap"><p>비밀번호</p></li>
+                  <li className="w-[70%]"><input type="text" onInput={Num} maxLength={2} placeholder='카드 비밀번호 앞 2자리' className='password w-full h-10 border-[1px] border-black text-center text-[18px]' /></li>
                 </ul>
-                <ul className='flex justify-between mb-[25px]' style={{display: Active === true ? "flex" : "none"}}>
-                  <li className="h-[43px] flex items-center whitespace-nowrap"><p className='w-[60px]'>결제일</p></li>
-                  <div className="w-[353px] h-[43px] relative max-lg:w-[600px] max-md:w-[420px]">
-                    <select className='w-40 h-10 text-center text-[17px] border-[1px] border-black max-md:w-[200px] max-lg:w-[290px]'>
+                <ul className='w-full flex justify-between mb-[25px]' style={{display: Active === true ? "flex" : "none"}}>
+                  <li className="w-[30%] h-[43px] flex items-center whitespace-nowrap"><p>결제일</p></li>
+                  <div className="w-[70%] h-[43px] relative">
+                    <select className='w-[49%] h-10 text-center text-[17px] border-[1px] border-black'>
                       <option value="0">매월 10일</option>
                       <option value="1">매월 20일</option>
                       <option value="2">매월 30일</option>

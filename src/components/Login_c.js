@@ -73,7 +73,7 @@ function Login_c() {
             console.log(user)
             sessionStorage.setItem("users",user.uid)
             dispatch(logIn(user.uid))
-            navigate("/member" ,{
+            navigate("/" ,{
                 state:
                 {
                 name : user.displayName,

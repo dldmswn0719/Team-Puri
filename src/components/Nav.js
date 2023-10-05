@@ -47,16 +47,24 @@ function Nav() {
                     </div>
                     <div className='basis-[60%] hidden lg:block'>
                         <ul className='flex justify-between'>
-                            <li className='basis-full text-center hover:font-bold text-[18px] relative after:w-0 hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0 after:duration-500 dark:hover:after:bg-[#fff]'>
+                            <li className='basis-full text-center text-[18px] relative
+                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-35px] hover:after:left-0
+                            after:w-0 after:duration-500 dark:hover:after:bg-[#fff]'>
                                 <NavLink to="/introduce" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1] ">{messages.introduction}</NavLink>
                             </li>
-                            <li className='hover:font-bold text-[18px]  text-center basis-full relative after:w-0 hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0 after:duration-500 dark:hover:after:bg-[#fff]'>
+                            <li className='basis-full text-center text-[18px] relative
+                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-35px] hover:after:left-0
+                            after:w-0 after:duration-500 dark:hover:after:bg-[#fff]'>
                                 <NavLink to="/info" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1]">{messages.introducinganimal}</NavLink>
                             </li>
-                            <li className='hover:font-bold text-[18px]  text-center after:transition-all basis-full relative after:w-0 hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0 after:duration-500 dark:hover:after:bg-[#fff]'>
+                            <li className='basis-full text-center text-[18px] relative
+                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-35px] hover:after:left-0
+                            after:w-0 after:duration-500 dark:hover:after:bg-[#fff]'>
                                 <NavLink to="/review_page" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1]">{messages.adoptionreview}</NavLink>
                             </li>
-                            <li className='hover:font-bold text-[18px] text-center after:transition-all basis-full relative after:w-0 hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-23px] hover:after:left-0 after:duration-500 dark:hover:after:bg-[#fff]'>
+                            <li className='basis-full text-center text-[18px] relative
+                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#162c58] hover:after:bottom-[-35px] hover:after:left-0
+                            after:w-0 after:duration-500 dark:hover:after:bg-[#fff]'>
                                 <NavLink to="/support" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1]">{messages.sponsoredstore}</NavLink>
                             </li>
                         </ul>

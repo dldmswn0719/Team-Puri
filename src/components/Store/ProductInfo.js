@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import {useNavigate, useParams} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import data1 from './../../data/product.json'
 import enMessages from './../../locales/en.json';
 import krMessages from './../../locales/kr.json';
+import { setPrice } from '../../store';
+
 
 function ProductInfo() {
 
@@ -47,7 +49,8 @@ function ProductInfo() {
     try {
       if (data.option[i].count > 1) {
         decreasedCount(data.option[i]);
-      } else if (data.option[i].count < 2) {
+        setTotalCnt(totalCnt - 1);
+      } else if (data.option[i].count === 1) {
         alert("최소 주문 수량은 1개입니다.")
         return;
       }
@@ -107,8 +110,32 @@ function ProductInfo() {
     }
   }
 
+  useEffect(() => {
+  data.option = Object.entries(data.option).map(([key, value]) => ({
+    ...value,
+    count: 0,
+  }));
+}, []);
+
   const language = useSelector(state => state.language);
   const messages = language === 'en' ? enMessages : krMessages;
+
+  const navigate = useNavigate();
+  const userState = useSelector(state => state.user.loggedIn);
+  const handlecheckout = () =>{
+    if(userState){
+      navigate('/checkout');
+    }else{
+      alert("로그인이 필요한 서비스입니다.")
+      navigate('/login')
+    }
+  }
+
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    const totalPrice = data.price * Number(parseInt(totalCnt));
+    dispatch(setPrice(totalPrice));
+  },[totalCnt])
 
   return (
     <>
@@ -155,7 +182,7 @@ function ProductInfo() {
                     return (
                       <>
                       <div className='px-5'>
-                        <div className="border-b relative py-5 text-xl font-medium" key={i}>
+                        <div className="border-b relative py-5 text-[17px] font-medium" key={i}>
                           <div className='dark:text-[#ebf4f1]'>{messages[`product_${params.id}`].option[i].name}</div>
                           <div className={`text-xl flex ${params.id === "1" || params.id === "2" || params.id === "6" ? 'my-[3%]' : 'mt-[10px]'}`}>
                             <div className="flex border dark:border-none">
@@ -207,18 +234,18 @@ function ProductInfo() {
                 }
               </div>
               <div className="mx-auto p-5">
-                <div className="basis-full h-[45px] bg-[#DAC0A3] cursor-pointer text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
+                <div onClick={handlecheckout} className="basis-full h-[45px] bg-[#DAC0A3] cursor-pointer text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
                   <p>{messages.buying}</p>
                 </div>
                 {/* <div className="flex sm:flex-wrap md:flex-wrap">
-                                <div className="w-60 h-[45px] bg-[#EADBC8] cursor-pointer mt-5 mr-[15px] text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
-                                    <p>장바구니</p>
-                                </div>
-                                <div className="w-60 h-[45px] bg-[#EADBC8] cursor-pointer mt-5 text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
-                                    <p className='text-[18px]'>
-                                    <FontAwesomeIcon icon={faHeart} /> 찜하기</p>
-                                </div>
-                                </div> */}
+                  <div className="w-60 h-[45px] bg-[#EADBC8] cursor-pointer mt-5 mr-[15px] text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
+                      <p>장바구니</p>
+                  </div>
+                  <div className="w-60 h-[45px] bg-[#EADBC8] cursor-pointer mt-5 text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
+                      <p className='text-[18px]'>
+                      <FontAwesomeIcon icon={faHeart} /> 찜하기</p>
+                  </div>
+                </div> */}
               </div>
             </div>
           </div>

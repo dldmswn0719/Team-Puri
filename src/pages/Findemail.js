@@ -93,7 +93,7 @@ function Findemail() {
         <>
         <Nav />
         <div className="w-full bg-white dark:bg-[#272929] h-[100vh]">
-            <div className='w-[400px] h-[515px] absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-[30px] dark:bg-[#404343]'>
+            <div className='w-[400px] absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-[30px] dark:bg-[#404343]'>
                 <img src={
                         theme === 'light' ? 
                         "./../Images/logo_s1.png"
@@ -116,7 +116,7 @@ function Findemail() {
                 </div>
                 <div className='relative mb-5'>
                     {resultEmail && 
-                        <button className="w-full h-[50px] bg-[#162c58] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mb-[30px] dark:bg-[#272929]" onClick={passwordEdit}>
+                        <button className="w-full h-[50px] bg-[#162c58] text-[#fff] text-[18px] rounded-[10px] cursor-pointer dark:bg-[#272929]" onClick={passwordEdit}>
                             <p className='dark:text-[#ebf4f1]'> 패스워드 재설정</p>
                         </button>
                     }

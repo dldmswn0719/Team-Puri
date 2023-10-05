@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 function Content4Grid() {
     return (
         <div className='md:w-[768px] lg:w-[1200px] m-auto
-        
+        pt-28
         lg:pt-[130px] lg:pb-[147px]'>
             <ul className='flex flex-wrap lg:gap-x-5 gap-y-10'>
                 <li className='lg:w-[285px] w-60 m-auto
@@ -14,8 +14,7 @@ function Content4Grid() {
                 <li className='lg:w-[285px] w-60 m-auto
                 cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/3.jpg" alt="3" /><p>궁금해하실 빵이 근황입니다.</p></NavLink></li>
                 <li className='lg:w-[285px] w-60 m-auto
-                text-ellipsis overflow-hidden whitespace-nowrap
-                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/4.jpg" alt="4" /><p>안녕하세요~ 저희 천재 강아지 ♥시루♡ 입양 후 소식 전해드립니다^0^~</p></NavLink></li>
+                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/4.jpg" alt="4" /><p className='text-ellipsis overflow-hidden whitespace-nowrap'>안녕하세요~ 저희 천재 강아지 ♥시루♡ 입양 후 소식 전해드립니다^0^~</p></NavLink></li>
                 <li className='lg:w-[285px] w-60 m-auto
                 cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/5.jpg" alt="5" /><p>리본센터에 잭팟 등장!</p></NavLink></li>
                 <li className='lg:w-[285px] w-60 m-auto
