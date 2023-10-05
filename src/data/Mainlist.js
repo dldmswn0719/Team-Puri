@@ -226,62 +226,62 @@ const review = [
         "region" : "서울광역시",
         "group" : 4
     },
-    {
-        "rogo" : "./../images/Review/프로필.png",
-        "img" : "./../images/Review/프로필.png",
-        "Text" : "#후기 작성해주세요",
-        "region" : "지역",
-        "group" : 5
-    },
-    {
-        "rogo" : "./../images/Review/프로필.png",
-        "img" : "./../images/Review/프로필.png",
-        "Text" : "#후기 작성해주세요",
-        "region" : "지역",
-        "group" : 5
-    },
-    {
-        "rogo" : "./../images/Review/프로필.png",
-        "img" : "./../images/Review/프로필.png",
-        "Text" : "#후기 작성해주세요",
-        "region" : "지역",
-        "group" : 5
-    },
-    {
-        "rogo" : "./../images/Review/프로필.png",
-        "img" : "./../images/Review/프로필.png",
-        "Text" : "#후기 작성해주세요",
-        "region" : "지역",
-        "group" : 5
-    },
-    {
-        "rogo" : "./../images/Review/프로필.png",
-        "img" : "./../images/Review/프로필.png",
-        "Text" : "#후기 작성해주세요",
-        "region" : "지역",
-        "group" : 5
-    },
-    {
-        "rogo" : "./../images/Review/프로필.png",
-        "img" : "./../images/Review/프로필.png",
-        "Text" : "#후기 작성해주세요",
-        "region" : "지역",
-        "group" : 5
-    },
-    {
-        "rogo" : "./../images/Review/프로필.png",
-        "img" : "./../images/Review/프로필.png",
-        "Text" : "#후기 작성해주세요",
-        "region" : "지역",
-        "group" : 5
-    },
-    {
-        "rogo" : "./../images/Review/프로필.png",
-        "img" : "./../images/Review/프로필.png",
-        "Text" : "#후기 작성해주세요",
-        "region" : "지역",
-        "group" : 5
-    },
+    // {
+    //     "rogo" : "./../images/Review/프로필.png",
+    //     "img" : "./../images/Review/프로필.png",
+    //     "Text" : "#후기 작성해주세요",
+    //     "region" : "지역",
+    //     "group" : 5
+    // },
+    // {
+    //     "rogo" : "./../images/Review/프로필.png",
+    //     "img" : "./../images/Review/프로필.png",
+    //     "Text" : "#후기 작성해주세요",
+    //     "region" : "지역",
+    //     "group" : 5
+    // },
+    // {
+    //     "rogo" : "./../images/Review/프로필.png",
+    //     "img" : "./../images/Review/프로필.png",
+    //     "Text" : "#후기 작성해주세요",
+    //     "region" : "지역",
+    //     "group" : 5
+    // },
+    // {
+    //     "rogo" : "./../images/Review/프로필.png",
+    //     "img" : "./../images/Review/프로필.png",
+    //     "Text" : "#후기 작성해주세요",
+    //     "region" : "지역",
+    //     "group" : 5
+    // },
+    // {
+    //     "rogo" : "./../images/Review/프로필.png",
+    //     "img" : "./../images/Review/프로필.png",
+    //     "Text" : "#후기 작성해주세요",
+    //     "region" : "지역",
+    //     "group" : 5
+    // },
+    // {
+    //     "rogo" : "./../images/Review/프로필.png",
+    //     "img" : "./../images/Review/프로필.png",
+    //     "Text" : "#후기 작성해주세요",
+    //     "region" : "지역",
+    //     "group" : 5
+    // },
+    // {
+    //     "rogo" : "./../images/Review/프로필.png",
+    //     "img" : "./../images/Review/프로필.png",
+    //     "Text" : "#후기 작성해주세요",
+    //     "region" : "지역",
+    //     "group" : 5
+    // },
+    // {
+    //     "rogo" : "./../images/Review/프로필.png",
+    //     "img" : "./../images/Review/프로필.png",
+    //     "Text" : "#후기 작성해주세요",
+    //     "region" : "지역",
+    //     "group" : 5
+    // },
 ]
 
 export default review 

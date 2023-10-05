@@ -58,6 +58,12 @@ function Reviews() {
 
   return (
     <>
+
+    
+    <div className="mx-auto w-[160px] h-[5] dark:bg-[#272929] ">
+        <button className='bg-[#D3C09D] text-white w-[160px] h-[35px] '>후기 작성하기</button>
+          </div>
+            
       <div className="w-full bg-white pt-[60px] relative dark:bg-[#272929]">
         <div className="max-w-[1400px] mx-auto">
           <div className="w-[1280px] mx-auto max-lg:w-11/12 max-md:w-5/6">
@@ -68,11 +74,11 @@ function Reviews() {
                     <div className="relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-lg rounded-[20px] max-md:w-full max-lg:w-[32%] max-lg:h-[500px]" key={i} data-aos="zoom-in">
                       <ul className='flex w-[250px] justify-between mx-auto pt-5 max-lg:w-[90%]'>
                         <li><img className='w-7 h-6' src={theme === 'light' ?
-                        "./../images/Review/camera-light.png" : "./../Images/Review/camera-dark.png"}
+                        "./../Images/Review/camera-light.png" : "./../Images/Review/camera-dark.png"}
                         alt="camera" /></li>
                         <li><p className='text-[16px] title3 mt-[2px] dark:text-[#ebf4f1]'>PURIPURI STORY</p></li>
                         <li><img className='w-[27px] h-[27px]' src={theme === 'light' ?
-                        "./../images/Review/airplane-light.png" : "./../Images/Review/airplane-dark.png"}
+                        "./../Images/Review/airplane-light.png" : "./../Images/Review/airplane-dark.png"}
                         alt="aiplane" /></li>
                       </ul>
                       <div className="flex p-[15px]">
@@ -97,16 +103,16 @@ function Reviews() {
 
 
                         <img className='w-6 h-5 mx-[10px] ' src={theme === 'light' ?
-                        "./../images/Review/chat-light.png" : "./../Images/Review/chat-dark.png"}
+                        "./../Images/Review/chat-light.png" : "./../Images/Review/chat-dark.png"}
                          alt="chat" />
                         
                         <img className='w-5 ' src={theme === 'light' ?
-                        "./../images/Review/airplane-light.png "  : "./../Images/Review/airplane-dark.png"}
+                        "./../Images/Review/airplane-light.png "  : "./../Images/Review/airplane-dark.png"}
                         alt="airplane" />
 
                         <img className='w-5 h-6 absolute right-[10px] hover:brightness-75'
                          src={theme === 'light' ?
-                        "./../images/Review/mark-light.png" : "./../Images/Review/mark-dark.png"}
+                        "./../Images/Review/mark-light.png" : "./../Images/Review/mark-dark.png"}
                         alt="airplane" />
 
                       </div>
@@ -179,16 +185,16 @@ function Reviews() {
                     <div className="flex justify-between mb-[10px]">
                       <ul className="flex">
                         <li><FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px]' /></li>
-                        <li><img className='w-[18px] h-[18px] mx-[10px] mt-1 ' src="./../images/Review/chat.svg" alt="chat" /></li>
-                        <li><img className='w-[20px] h-[20px] mt-1' src="./../images/Review/4.png" alt="airplane" /></li>
+                        <li><img className='w-[18px] h-[18px] mx-[10px] mt-1 ' src="./../Images/Review/chat.svg" alt="chat" /></li>
+                        <li><img className='w-[20px] h-[20px] mt-1' src="./../Images/Review/4.png" alt="airplane" /></li>
                       </ul>
                       <ul>
-                        <li><img className='w-[20px] h-[20px]' src="./../images/Review/mark.svg" alt="airplane" /></li>
+                        <li><img className='w-[20px] h-[20px]' src="./../Images/Review/mark.svg" alt="airplane" /></li>
                       </ul>
                     </div>
                     <div>
                       <ul className="flex items-center">
-                        <li className='mr-[7px]'><img className='w-5 h-5' src="./../images/Review/human.svg" alt="사람" /></li>
+                        <li className='mr-[7px]'><img className='w-5 h-5' src="./../Images/Review/human.svg" alt="사람" /></li>
                         <li className='flex items-center'><span className='text-[12px]'>PURI_PURI님 외 여러 명이 좋아합니다 </span></li>
                       </ul>
                     </div>
@@ -234,16 +240,16 @@ function Reviews() {
                     <div className="flex justify-between mb-[10px]">
                       <ul className="flex">
                         <li ><FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px]' /></li>
-                        <li><img className='w-[18px] h-[18px] mx-[10px] mt-1 ' src="./../images/Review/chat.svg" alt="chat" /></li>
-                        <li><img className='w-[20px] h-[20px] mt-1' src="./../images/Review/airplane.svg" alt="airplane" /></li>
+                        <li><img className='w-[18px] h-[18px] mx-[10px] mt-1 ' src="./../Images/Review/chat.svg" alt="chat" /></li>
+                        <li><img className='w-[20px] h-[20px] mt-1' src="./../Images/Review/airplane.svg" alt="airplane" /></li>
                       </ul>
                       <ul>
-                        <li><img className='w-[20px] h-[20px]' src="./../images/Review/mark.svg" alt="airplane" /></li>
+                        <li><img className='w-[20px] h-[20px]' src="./../Images/Review/mark.svg" alt="airplane" /></li>
                       </ul>
                     </div>
                     <div>
                       <ul className="flex items-center">
-                        <li className='mr-[7px]'><img className='w-5 h-5' src="./../images/Review/human.svg" alt="사람" /></li>
+                        <li className='mr-[7px]'><img className='w-5 h-5' src="./../Images/Review/human.svg" alt="사람" /></li>
                         <li className='flex items-center'><span className='text-[12px]'>PURI_PURI님 외 여러 명이 좋아합니다 </span></li>
                       </ul>
                     </div>
