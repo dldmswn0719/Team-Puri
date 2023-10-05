@@ -389,7 +389,7 @@
     "cont37" : "active",
 
     "cont311" : ["Cash", "Bell", "Popo", "Mari"],
-    "cont312" : ["dog / Pomeranian", "dog / Shuttleland Shipdog", "dog / Jindo mix", "cat / Korean shorthair"],
+    "cont312" : ["dog / Pomeranian", "dog / Shuttleland Shipdog", "dog / Jindo mix", "cat / K-shorthair"],
     "cont313" : ["Female / ○", "Female / ○", "Female / X", "Female / ○"],
     "cont314" : ["13", "8", "1", "7"],
     "cont315" : ["brown", "brown / white", "brown", "three colors"],
@@ -400,6 +400,56 @@
     "cont5donate4" : "Expand animal rights in our society through rescue",
     "cont5donate5" : "and adoption, policy research and legislation,",
     "cont5donate6" : "and right to life education and campaigns.",
-    "cont5donate7" : "Sponsor"
+    "cont5donate7" : "Sponsor",
+
+    "footer1" : "INTRO",
+    "footer2" : "EMPLOY",
+    "footer3" : "PARTNERSHIP",
+    "footer4" : "POLICY",
+    "footer5" : "PRIVACY",
+    "footer6" : "CS",
+    "footer7" : "SPONSOR",
+
+    "footer8" : "Corporate : Puripuri",
+    "footer9" : "Business number : 505-82-91522",
+    "footer10" : "Business registration number : No. 2023-Jung-gu, Daegu-00505",
+    "footer11" : "Protection : React Puri",
+    "footer12" : "Inquiries : 505-8282",
+
+    "login1" : "E-mail",
+    "login2" : "Password",
+    "login3" : "Login",
+    "login4" : "find email / password reset",
+    "login5" : "Join",
+
+    "member1" : "Password confirm",
+    "member2" : "Name",
+    "member3" : "Phone number",
+    "member4" : "Edit",
+
+    "setError" : [
+        "Please enter a valid phone number.",
+        "Please enter a valid email address.",
+        "Passwords do not match.",
+        " is empty."
+    ],
+    "firebaseError" : [
+        "There's a blank.",
+        "This email is already in use.",
+        "There's a blank",
+        "Invalid email address",
+        "Your email/password account is disabled",
+        "Please set a password of 6 digits or more",
+        "An unknown error has occurred.",
+
+        "The user was not found",
+        "E-mail or password is incorrect."
+    ],
+    "alert" : [
+        "Your membership is complete",
+        "Information modification is complete",
+        "You're already logged in.",
+        "You're logged in."
+    ]
   }
   
