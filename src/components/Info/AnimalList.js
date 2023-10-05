@@ -32,7 +32,7 @@ function AnimalList() {
                 setKindCode(dataValue)
                 setAnimal("");
                 setAnimalCode("");
-                setSelectedAnimal("");
+                // setSelectedAnimal("");
                 break;
             case classValue.includes("animalData"):
                 const dataValue2 = data.target.selectedOptions[0].getAttribute('data-animal-name')
@@ -89,6 +89,8 @@ function AnimalList() {
         ResultData()
     }, [page])
 
+  
+
 
     const list = 5;
     //페이지
@@ -136,40 +138,27 @@ function AnimalList() {
 
     for (let i = startPage; i <= endPage; i++) {
         PageList.push(
-            <li key={i} className={(page === i ? 'max-w-[1200px]  rounded-full cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] leading-10 text-cente relative block py-1 px-1.5 lg:mx-3  border-1 border-[#DAC0A3] dark:border-1 dark:border-[#dadbdb]  text-white bg-[#dac0a3] dark:bg-[#404343]' : 'max-w-[1200px] rounded-full cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] leading-10 text-cente relative block py-1 px-1.5 lg:mx-3 border-1 border-[#DAC0A3] text-black shadow-sm dark:text-[#ebf4f1]')} onClick={() => { setLoading(true); setPage(i); }}>{i}
+            <li key={i} className={(page === i ? 'rounded-full cursor-pointer w-[50px] h-[50px]  leading-10 text-center relative block py-1 px-1.5 lg:mx-3  border-2 border-[#86bcd5] dark:border-1 dark:border-[#dadbdb]  text-white bg-[#86bcd5] dark:bg-[#404343]' : ' rounded-full cursor-pointer w-[50px] h-[50px] leading-10 text-center relative block py-1 px-1.5 lg:mx-3 border-1 border-[#DAC0A3] text-black shadow-sm dark:text-[#ebf4f1]')} onClick={() => { setLoading(true); setPage(i); }}>{i}
             </li>
         )
     }
-        // 로컬 스토리지에서 필터링 옵션 값 가져오기     //   로컬 스토리지에 저장하려면 문자열로만 가능하니까...
-        useEffect(() => {
-            const savedCityCode = localStorage.getItem('cityCode');
-            console.log(savedCityCode)
-            if (savedCityCode) {
-                setCityCode(savedCityCode);
-            }
-    
-            const savedKindCode = localStorage.getItem('kindCode');
-            if (savedKindCode) {
-                setKindCode(parseInt(savedKindCode));
-            }
-    
-            const savedAnimalcode = localStorage.getItem('animalCode');
-            if (savedAnimalcode) {
-                setAnimalCode(savedAnimalcode);
-            }
-        }, []);
-    
-        // 도시 선택 시 로컬 스토리지에 저장
+        // 로컬 스토리지에서 필터링 옵션 값 가져오기 //   로컬 스토리지에 저장하려면 문자열로만 가능하니까...
+ 
+        // const [save, setSave] = useState([])
+         // setSave(ResultData) = useSessionStorage('test-key', 0) 
+
+        // 저장이 안되는 이유는 뭘가...
+        // 도시 선택 시 로컬 스토리지 저장
         useEffect(() => {
             localStorage.setItem('cityCode', cityCode);
         }, [cityCode]);
     
-        // 축종 선택 시 로컬 스토리지에 저장
+        // 축종 선택 시 로컬 스토리지 저장
         useEffect(() => {
             localStorage.setItem('kindCode', kindCode.toString());
         }, [kindCode]);
     
-        // 품종 선택 시 로컬 스토리지에 저장
+        // 품종 선택 시 로컬 스토리지 저장
         useEffect(() => {
             localStorage.setItem('animalcode', animalCode.toString());
         }, [animalCode]);
@@ -187,9 +176,9 @@ function AnimalList() {
                 <div className="max-w-[1200px] h-full  mx-auto">
                     {/*  border-[#EADBC8] dark:border-[#dadbdb] */}
                     {/* max-w-full max-h-full border-b-4 md:border-b-2 border-[#EADBC8] dark:border-[#dadbdb] py-5 */}
-                    <div className="max-w-full max-h-full max-md:border-none border-b-2 border-[#EADBC8] dark:border-[#dadbdb] py-5 ">
-                        <div className="max-w-full h-full flex flex-col md:flex-row justify-between text-left max-md:px-28 max-sm:px-9">
-                            <div className="w-full relative">
+                    <div className="min-w-full max-h-full max-md:border-none sm:border-none  border-b-4 border-[#86bcd5] dark:border-[#dadbdb] py-5 px-4 md:px-9 sm:px-11 ">
+                        <div className="max-w-full h-full flex sm:flex-col justify-between text-left">
+                            <div className="w-full pb-2">
                                 {/* after:absolute after:w-[98%] after:h-1 after:bg-[#EADBC8] after:dark:bg-[#dadbdb] after:-bottom-3
                                  after:left-2/4 after:-translate-x-2/4 */}
                                 <p className='font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5 '>지역</p>
@@ -202,7 +191,7 @@ function AnimalList() {
                                 </select>
                             </div>
                             {/* 동물 축종 */}
-                            <div className="w-full relative">
+                            <div className="w-full pb-2">
                                 <p className='
                                 font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5'>축종</p>
                                 <select className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929]  dark:text-[#ebf4f1] kindData' onChange={selectedData}>
@@ -211,7 +200,7 @@ function AnimalList() {
                             </div>
 
                             {/* 동물 품종 */}
-                            <div className="w-full relative">
+                            <div className="w-full pb-2">
                                 <p className='
                                 font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5'>품종</p>
                                 <select className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929]  dark:text-[#ebf4f1] animalData' onChange={selectedData}>
@@ -225,31 +214,30 @@ function AnimalList() {
                                     }
                                 </select>
                             </div>
-                            <div className="w-full flex items-center justify-end font-bold">
-                                <button className="font-bold w-48 h-12 max-md:basis-full max-md:mt-7 border-2 rounded-[20px] bg-[#DAC0A3] border-[#DAC0A3] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-[#dadbdb]"
+                            <div className="w-full flex items-center justify-end sm:justify-center  font-bold">
+                                <button className="font-bold sm:w-full lg:w-48 md:w-38 h-12 md:basis-full max-md:mt-7 border-2 rounded-[20px] bg-[#86bcd5] border-[#86bcd5] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-[#dadbdb]"
                                     onClick={() => {
                                         setLoading(true);
                                         ResultData();
                                         PageReset();
                                     }}>검색하기</button>
                             </div>
-
                         </div>
                     </div>
 
 
-                    <div className="max-w-full max-h-full flex text-[15px] gap-y-4 flex-wrap justify-start gap-x-3 max-sm:px-9 max-md:justify-center max-lg:justify-center pt-8">
+                    <div className="max-w-full max-h-full flex text-[15px] gap-x-3 gap-y-4 lg:px-4 flex-wrap justify-start   md:justify-between md:px-9 sm:justify-center  pt-8">
                         {
                             data === undefined ? <div className='w-full h-full flex items-center justify-center'><p className='text-[32px] text-[#999] font-bold dark:text-[#ebf4f1]'>검색 결과가 없습니다.</p></div> :
                                 data && data.map((e, i) => {
                                     return (
                                         <div className="w-full h-full relative box-border 
-                                        border-2 border-[#f1f1ef] shadow-lg rounded-[20px] flex-wrap lg:basis-[32.5%] md:basis-[45%] sm:basis-[70%] shadow-[4px_4px_4px_-4px_rgb(119, 112, 112)] rounded-[20px] " key={i}>
+                                        border-2 border-[#f1f1ef] shadow-lg rounded-[20px] flex-wrap lg:basis-[32.5%] md:basis-[48%] sm:basis-[80%] shadow-[4px_4px_4px_-4px_rgb(119, 112, 112)] rounded-[20px] " key={i}>
                                             <Link to={`/infodetail/${e.desertionNo}`} state={{ e: e }}>
                                                 <div className='font-bold px-3 py-3 flex items-center justify-between  dark:bg-[#404343] rounded-t-[20px] dark:text-[#ebf4f1] '>
                                                     <p><FontAwesomeIcon icon={e.sexCd === 'M' ? faMars : e.sexCd === 'F' ? faVenus : ""} className='w-[18px] h-[18px] pr-1 align-text-bottom dark:text-[#ebf4f1] ' />{e.sexCd === 'M' ? "남" : e.sexCd === 'F' ? "여" : "성별 미상"} </p>
                                                 </div>
-                                                <div className="flex lg:basis-[32.5%] md:basis-[45%] sm:basis-[70%] h-[380px] lg:h-[380px] md:h-[450px] ">
+                                                <div className="flex lg:basis-[32.5%] md:basis-[48%] sm:basis-[100%] h-[380px] lg:h-[380px] md:h-[450px] ">
                                                     <img src={e.popfile} alt="img" className='w-full' />
                                                 </div>
                                             </Link>
@@ -268,11 +256,11 @@ function AnimalList() {
                         <div className="max-w-[1200px] mx-auto py-8 text-center overflow-x-hidden">
                             <ul className='flex justify-center items-center list-style-none'>
                                 <li
-                                    className='cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] rounded-full leading-10 text-cente relative block py-1 px-1.5 border-1 border-[#DAC0A3]
+                                    className='cursor-pointer min-w-[50px] min-h-[50px] sm:w-[30px]  sm:h-[30px]  rounded-full leading-10 text-center relative block py-1 px-1.5 border-1 border-[#DAC0A3]
    text-black shadow-sm dark:text-[#ebf4f1]' onClick={PrevBlock}><FontAwesomeIcon icon={faAnglesLeft} /></li>
                                 {PageList}
                                 <li
-                                    className='cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] rounded-full leading-10 text-cente relative block py-1 px-1.5 border-1 border-[#DAC0A3]
+                                    className='cursor-pointer min-w-[50px] min-h-[50px] sm:w-[30px] sm:h-[30px] rounded-full leading-10 text-center relative block py-1 px-1.5 border-1 border-[#DAC0A3]
  text-black shadow-sm focus:shadow-sm dark:text-[#ebf4f1]' onClick={NextBlock}><FontAwesomeIcon icon={faAnglesRight} /></li>
                             </ul>
                         </div>
