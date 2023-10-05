@@ -51,6 +51,11 @@ ul, ol{list-style: none;}
         height: 300px;
     }
 }
+@media screen and (max-width: 300px){
+    .support {
+        height: 250px;
+    }
+}
 .full{background-image: url("./../public/Images/Support/full.jpg"); background-size: cover; background-position: center top; background-attachment: fixed;}
 .info::after{
     content: "";
