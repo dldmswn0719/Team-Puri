@@ -20,14 +20,16 @@ function Content2Info() {
                     <p className='text-lg lg:text-2xl mt-[20px] dark:text-white'>{messages.cont2info3}<br />{messages.cont2info4}<br />{messages.cont2info5}</p>
                 </div>
                 <div className='relative'>
-                    <img src="./../../Images/Main/deco_needle_leaf.png" alt="2" className=' absolute w-[10%]
-                    -left-20 lg:left-[-170px] lg:top-[50px]' />
-                    <img src="./../../Images/Main/deco_needle.png" alt="1" className=' absolute w-[25%]
-                    -left-16 top-6 lg:left-[-100px]' />
-                    <img src="./../../Images/Main/deco_flower2.png" alt="3" className=' absolute w-[15%]
-                    -right-10 lg:right-[-150px] lg:top-[50px]' />
-                    <img src="./../../Images/Main/deco_needle2.png" alt="4" className=' absolute w-[30%]
-                    -right-20 top-20 lg:right-[-140px] lg:top-[150px]' />
+                    <img src="./../../Images/Main/deco_needle_leaf.png" alt="잎1개" className={`absolute w-[13%] -left-56 bottom-10 -rotate-45
+                    lg:block md:hidden hidden
+                    ${language === `en` ? `rotate-0 -left-16` : ``}`} />
+                    <img src="./../../Images/Main/deco_needle.png" alt="왼쪽이파리" className={`absolute w-2/5 top-32 -left-44
+                    lg:block md:hidden hidden
+                    ${language === `en` ? `w-1/5 -left-24 top-52` : ``}`} />
+                    <img src="./../../Images/Main/deco_flower2.png" alt="꽃" className=' absolute w-[15%] right-[-150px] top-[50px]
+                    lg:block md:hidden hidden' />
+                    <img src="./../../Images/Main/deco_needle2.png" alt="오른쪽이파리" className=' absolute w-[30%] right-[-140px] top-[150px]
+                    lg:block md:hidden hidden' />
                     <img src="./../../Images/Main/content1.png" alt="content1" className='rounded-3xl
                     w-80 md:w-[350px] lg:w-[500px]' />
                 </div>
