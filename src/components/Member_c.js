@@ -9,8 +9,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from '../store';
 import Modal from './Modal';
 import Modify from '../pages/Modify';
+import enMessages from './../locales/en.json';
+import krMessages from './../locales/kr.json';
 
 function Member_c() {
+
+    const language = useSelector(state => state.language);
+    const messages = language === 'en' ? enMessages : krMessages;
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -72,14 +77,14 @@ function Member_c() {
 
     const errorMsg = (errorCode) => {
         const firebaseError = {
-            "auth/admin-restriced-operation": "빈칸이 있습니다.",
-            "auth/email-already-in-use": "이미 사용중인 이메일입니다.",
-            "invalid-argument": "빈칸이 있습니다.",
-            "auth/invlid-email": "유효하지 않은 이메일 주소입니다",
-            "auth/operation-not-allowed": "이메일/비밀번호 계정이 비활성화 되어 있습니다",
-            "auth/weak-password": "비밀번호 6자리이상 설정해주세요."
+            "auth/admin-restriced-operation": `${messages.firebaseError[0]}`,
+            "auth/email-already-in-use": `${messages.firebaseError[1]}`,
+            "invalid-argument": `${messages.firebaseError[2]}`,
+            "auth/invlid-email": `${messages.firebaseError[3]}`,
+            "auth/operation-not-allowed": `${messages.firebaseError[4]}`,
+            "auth/weak-password": `${messages.firebaseError[5]}`
         }
-        return firebaseError[errorCode] || "알 수 없는 에러가 발생하였습니다."
+        return firebaseError[errorCode] || `${messages.firebaseError[6]}`
     }
 
     const isValidPhone = (phoneNumber) => {
@@ -98,24 +103,24 @@ function Member_c() {
         let errorMessage = "";
 
         if (name.length === 0) {
-            errorMessage = "이름";
+            errorMessage = `${messages.member2}`;
         } else if (!isValidPhone(phoneNumber)) {
-            setError("유효한 전화번호를 입력해주세요.");
+            setError(`${messages.setError[0]}`);
             return;
         } else if (!isValidEmail(email)) {
-            setError("유효한 이메일 주소를 입력해주세요.");
+            setError(`${messages.setError[1]}`);
             return;
         } else if (password.length === 0 && initialMode) {
-            errorMessage = "비밀번호";
+            errorMessage = `${messages.login2}`;
         } else if (passwordConfirm.length === 0 && initialMode) {
-            errorMessage = "비밀번호 확인";
+            errorMessage = `${messages.member1}`;
         } else if (password !== passwordConfirm && initialMode) {
-            setError("비밀번호가 일치하지 않습니다.");
+            setError(`${messages.setError[2]}`);
             return;
         }
 
         if (errorMessage) {
-            setError(errorMessage + "이(가) 비어있습니다.");
+            setError(errorMessage + `${messages.setError[3]}`);
             return;
         }
 
@@ -133,12 +138,12 @@ function Member_c() {
                 sessionStorage.setItem("users", user.uid);
                 dispatch(logIn(user.uid));
 
-                alert("회원가입이 완료되었습니다.");
+                alert(`${messages.alert[0]}`);
             } else {
                 if (userUid) {
                     const userRef = doc(getFirestore(), "users", userUid);
                     await updateDoc(userRef, userProfile);
-                    alert("정보수정이 완료되었습니다.");
+                    alert(`${messages.alert[1]}`);
                 }
             }
             navigate('/');
@@ -161,17 +166,17 @@ function Member_c() {
                     <Modify />
             }
             {
-                userState.loggedIn && initialMode ? <Modal error="이미 로그인 중입니다." onClose={() => { navigate('/') }} /> :
+                userState.loggedIn && initialMode ? <Modal error={`${messages.alert[2]}`} onClose={() => { navigate('/') }} /> :
                     <div className='w-full bg-white dark:bg-[#272929] h-[100vh]'>
                         <div className='w-[400px] py-[30px] text-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white dark:bg-[#404343]'>
-                            <h1 className='pb-[20px] text-[24px] font-bold dark:text-[#ebf4f1]'>{initialMode ? "회원가입" : "정보수정"}</h1>
+                            <h1 className='pb-[20px] text-[24px] font-bold dark:text-[#ebf4f1]'>{initialMode ? `${messages.login5}` : `${messages.member4}`}</h1>
                             <ul>
                                 <li>
                                     {
                                         initialMode ?
-                                            <input defaultValue={email} onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder='이메일' autoFocus className='email w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                            <input defaultValue={email} onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder={messages.login1} autoFocus className='email w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
                                             :
-                                            <input readOnly defaultValue={email} onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder='이메일' autoFocus className='email w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                            <input readOnly defaultValue={email} onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder={messages.login1} autoFocus className='email w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
                                     }
                                 </li>
                                 {
@@ -179,29 +184,29 @@ function Member_c() {
                                     <>
                                         <li>
                                             <div className='relative w-full'>
-                                                <input onChange={(e) => { setPassword(e.target.value) }} type={eye[0] ? "text" : "password"} placeholder='비밀번호' className='password w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                                <input onChange={(e) => { setPassword(e.target.value) }} type={eye[0] ? "text" : "password"} placeholder={messages.login2} className='password w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
                                                 <FontAwesomeIcon icon={eye[0] ? faEye : faEyeSlash} onClick={() => { toggleEye(0) }} className='absolute cursor-pointer right-7 top-4 dark:text-[#ebf4f1]' />
                                             </div>
                                         </li>
                                         <li>
                                             <div className='relative w-full'>
-                                                <input onChange={(e) => { setPasswordConfirm(e.target.value) }} type={eye[1] ? "text" : "password"} placeholder='비밀번호 확인' className='confirm_password w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                                <input onChange={(e) => { setPasswordConfirm(e.target.value) }} type={eye[1] ? "text" : "password"} placeholder={messages.member1} className='confirm_password w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
                                                 <FontAwesomeIcon icon={eye[1] ? faEye : faEyeSlash} onClick={() => { toggleEye(1) }} className='absolute cursor-pointer right-7 top-4 dark:text-[#ebf4f1]' />
                                             </div>
                                         </li>
                                     </>
                                 }
                                 <li>
-                                    <input defaultValue={name} onChange={(e) => { setName(e.target.value) }} type="text" placeholder='이름' className='name w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                    <input defaultValue={name} onChange={(e) => { setName(e.target.value) }} type="text" placeholder={messages.member2} className='name w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
                                 </li>
                                 <li>
-                                    <input defaultValue={phoneNumber} onInput={PhoneNumber} type="text" maxLength={13} placeholder='휴대폰 번호' className='phone w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                    <input defaultValue={phoneNumber} onInput={PhoneNumber} type="text" maxLength={13} placeholder={messages.member3} className='phone w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
                                 </li>
                                 {
                                     initialMode ? <p className='text-red-500 dark:text-[#ebf4f1]'>{error}</p> : ""
                                 }
                                 <li>
-                                    <button className='w-[360px] h-[60px] bg-[#162c58] text-white text-[18px] rounded-[10px] mt-[10px] cursor-pointer dark:bg-[#272929]' onClick={signUp}>{initialMode ? "가입" : "수정"}</button>
+                                    <button className='w-[360px] h-[60px] bg-[#162c58] text-white text-[18px] rounded-[10px] mt-[10px] cursor-pointer dark:bg-[#272929]' onClick={signUp}>{initialMode ? `${messages.login5}` : `${messages.member4}`}</button>
                                 </li>
                             </ul>
                         </div>
