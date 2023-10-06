@@ -168,14 +168,18 @@ function Reviews() {
 
               <div className="lg:flex md:flex  w-full lg:h-full md:h-full h-48  relative">
                 <div style={{ backgroundImage: `url(${Mainlist[one].img})`, backgroundSize: "cover", backgroundPosition: "center", flexBasis: "55%", height: "100%", margin: 0 }} className='rounded-tl-[20px] rounded-l-[20px]'></div>
+
+
                 <div className="flex">
                   <div className="w-10 h-10 overflow-hidden ml-[10px] mt-[30px] mr-[10px]">
                     {
                       <img src={review[one].rogo} alt="로고" />
                     }
                   </div>
+
+
                   <div className=" mt-[30px] mb-[10px] flex lg:hidden md:hidden">
-                    <div className="">
+                    <div className="w-10 h-10 overflow-hidden ml-[10px] mt-[30px] mr-[10px]">
                       <p className='text-[14px] font-bold'>PURI_PURI</p>
                       <p className='text-[13px]'>{review2[one].Name}</p>
                     </div>
