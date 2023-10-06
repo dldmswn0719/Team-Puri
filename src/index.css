@@ -51,7 +51,7 @@ ul, ol{list-style: none;}
         height: 300px;
     }
 }
-@media screen and (max-width: 300px){
+@media screen and (max-width: 350px){
     .support {
         height: 250px;
     }
@@ -59,12 +59,18 @@ ul, ol{list-style: none;}
 .full{background-image: url("./../public/Images/Support/full.jpg"); background-size: cover; background-position: center top; background-attachment: fixed;}
 .info::after{
     content: "";
-    position: absolute; border-bottom: 2px solid #DAC0A3;
+    position: absolute; border-bottom: 2px solid #86bcd5;
     width: 520px; bottom: 0; left: -10px;
 }
 @media screen and (max-width: 1024px) {
     .info::after{
         width: 103%;
+    }
+}
+@media screen and (max-width: 350px) {
+    .info::after{
+        width: 103%;
+        margin-left: 3%;
     }
 }
 
