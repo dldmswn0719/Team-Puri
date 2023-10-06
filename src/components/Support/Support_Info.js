@@ -233,14 +233,14 @@ function Support_Info() {
                     </select>
                   </div>
                 </ul>
-                <ul className="w-full block bg-[#f8f0e5] py-[30px] pl-5">
+                <ul className="w-full block bg-[#86bcd5] py-[30px] pl-5 text-[#1e4557]">
                   <li className='font-bold mb-[10px]'><p>[출금정책 안내]</p></li>
                   <li className='text-[13px] mb-[5px]'><p>* 일시후원은 당일 바로 결제됩니다.</p></li>
                   <li className='text-[13px] mb-[5px]'><p>* 정기출금일은 매월 10, 20, 30일입니다.</p></li>
                   <li className='text-[13px] mb-[5px]'><p>* 첫 후원금은 지정일이 아닌 가까운 정기출금일에 출금될 수 있습니다.</p></li>
-                  <li className='text-[13px] mb-[5px] text-[#a37541]'><p>예) 지정일은 10일이나 첫 후원금은 30일에 출금</p></li>
+                  <li className='text-[13px] mb-[5px] text-[#1e4557]'><p>예) 지정일은 10일이나 첫 후원금은 30일에 출금</p></li>
                   <li className='text-[13px] mb-[5px]'><p>* 지정일에 미출금된 경우 다음달에 합산 출금될 수 있습니다.</p></li>
-                  <li className='text-[13px] mb-[5px] text-[#a37541]'><p>예) 5월분 1만원의 미출금으로 6월에 5,6월분 합계인 2만원이 출금</p></li>
+                  <li className='text-[13px] mb-[5px] text-[#1e4557]'><p>예) 5월분 1만원의 미출금으로 6월에 5,6월분 합계인 2만원이 출금</p></li>
                 </ul>
               </div>
               <div className="py-[50px] relative lg:w-[500px] md:w-full sm:w-full">

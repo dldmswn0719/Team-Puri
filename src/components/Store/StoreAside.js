@@ -20,12 +20,12 @@ function StoreAside() {
 
     return (
         <>
-            <div className="fixed right-4 bottom-3 z-10">
-                <div className="w-12 h-12 rounded-[45%] bg-[#86bcd5] mb-2 dark:bg-[#404343]">
-                    <FontAwesomeIcon icon={faAngleUp} size='2x' color='white' className='pt-2 pl-[10px] cursor-pointer dark:text-[#ebf4f1]' onClick={MoveToTop}/>
+            <div className="fixed right-2 md:right-4 lg:right-4 bottom-3 z-10">
+                <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-[45%] bg-[#86bcd5] mb-2 dark:bg-[#404343]">
+                    <FontAwesomeIcon icon={faAngleUp} size='2x' color='white' className='pt-2 pl-[8px] lg:pl-[10px] cursor-pointer dark:text-[#ebf4f1]' onClick={MoveToTop}/>
                 </div>
-                <div className="w-12 h-12 rounded-[45%] bg-[#86bcd5] mb-2 dark:bg-[#404343]">
-                    <FontAwesomeIcon icon={faAngleDown} size='2x' color='white' className='pt-2 pl-[10px] cursor-pointer dark:text-[#ebf4f1]' onClick={MoveToDown}/>
+                <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-[45%] bg-[#86bcd5] mb-2 dark:bg-[#404343]">
+                    <FontAwesomeIcon icon={faAngleDown} size='2x' color='white' className='pt-2 pl-[8px] lg:pl-[10px] cursor-pointer dark:text-[#ebf4f1]' onClick={MoveToDown}/>
                 </div>     
             </div>
         </>

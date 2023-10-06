@@ -144,12 +144,12 @@ function ProductInfo() {
             <div className='basis-full md:basis-1/2 lg:basis-1/2 px-4 md:py-4 lg:py-6'>
               <img src={data.imageUrl} alt={data.name} className='mx-auto' />
             </div>
-            <div className='p-5 basis-full md:basis-[50%] lg:basis-[50%]'>
+            <div className='p-5 md:pl-1 basis-full md:basis-[50%] lg:basis-[50%]'>
               <p className="lg:text-xl font-medium  text-[#73b1ce] dark:text-[#ebf4f1]">{messages[`product_${params.id}`].hash}</p>
               <p className="pt-3 lg:pb-3 text-xl font-medium  lg:text-[27px] bg-white  dark:bg-[#272929]  dark:text-[#ebf4f1]">{messages[`product_${params.id}`].name}</p>
               <p className="py-3  text-3xl lg:text-4xl font-medium  dark:text-[#ebf4f1]">{(data.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{messages.won}</p>
               <p className="lg:pt-3 lg:text-xl text-[18px] font-medium dark:text-[#ebf4f1]">
-                <FontAwesomeIcon icon={faTruck} className='pr-1 text-[#112731]'/>
+                <FontAwesomeIcon icon={faTruck} className='pr-1 text-[#112731] dark:text-[#ebf4f1]'/>
                 {messages.delivery}
               </p>
               <p className="py-2 lg:py-3 lg:text-xl text-[17px] font-medium dark:text-[#ebf4f1]">

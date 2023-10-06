@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons';
 import { faBars, faEarthAmericas, faLock, faUserPen, faXmark, faUser } from '@fortawesome/free-solid-svg-icons';
-// import { signOut } from 'firebase/auth';
-// import { firebaseAuth } from '../firebase';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLanguage, toggleTheme } from '../store';
@@ -21,7 +19,6 @@ function Nav() {
     }
 
     const userState = useSelector(state => state.user);
-    // console.log(userState);
 
     const language = useSelector(state => state.language);
     const messages = language === 'en' ? enMessages : krMessages;
@@ -125,7 +122,7 @@ function Nav() {
                     {/* 모바일 네비 시작 */}
                     <div className='lg:hidden flex'>
                         <div>
-                            <button onClick={() => { dispatch(toggleTheme()) }}>
+                            <button onClick={() => {dispatch(toggleTheme()) }}>
                                 <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} className='text-[25px] dark:text-[#ebf4f1] mt-1 sm:w-6 sm:h-6' />
                             </button>
                         </div>
@@ -149,7 +146,7 @@ function Nav() {
                             }
                         </div>
                     </div>
-                    <div className={`w-80 h-full fixed bg-gray-100 dark:bg-[#272929] z-50 p-12 top-0 box-border transition-all duration-500 lg:hidden ${hamburger ? 'right-0' : '-right-80'}`}>
+                    <div className={`w-[280px] md:w-80 h-full fixed bg-gray-100 dark:bg-[#272929] z-50 p-8 md:p-12 top-0 box-border transition-all duration-500 lg:hidden ${hamburger ? 'right-0' : '-right-80'}`}>
                         <ul className='flex mt-3'>
                             <FontAwesomeIcon icon={faLock} className='mt-[5px] w-5 h-5 dark:text-[#ebf4f1] pr-2' />
                             <li className='mt-1 text-center cursor-pointer dark:text-[#ebf4f1]'>

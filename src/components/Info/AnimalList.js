@@ -14,14 +14,14 @@ function AnimalList() {
     const Array = ["", "417000", "422400", "429900"]
     const [city, setCity] = useState([])
     const [cityCode, setCityCode] = useState("")
-    const kind = ["모든 축종", "개", "고양이", "기타"];
+    const language = useSelector(state => state.language);
+    const messages = language === 'en' ? enMessages : krMessages;
+    const kind = [`${messages.animal4}`, "개", "고양이", "기타"];
     const [kindCode, setKindCode] = useState(0);
     const [animal, setAnimal] = useState("");
     const [animalCode, setAnimalCode] = useState("");
     const [selectedAnimal, setSelectedAnimal] = useState("");
     const [data, setData] = useState([]);
-    const language = useSelector(state => state.language);
-    const messages = language === 'en' ? enMessages : krMessages;
 
 
     const selectedData = (data) => {

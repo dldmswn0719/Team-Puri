@@ -5,7 +5,6 @@ import Modal from '../components/Modal';
 
 function Modify() {
     const userState = useSelector(state => state.user.loggedIn);
-    // console.log(userState);
     const navigate = useNavigate();
 
       return (

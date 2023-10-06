@@ -83,7 +83,7 @@ function Reviews() {
             
             <div className="flex text-[15px] gap-y-5 gap-[6px] flex-wrap justify-between mb-[30px]">
               {
-                Mainlist.filter(item => item.group <= currentPage).map((e, i) => {
+                review.filter(item => item.group <= currentPage).map((e, i) => {
                   return (
                     <div className="relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-lg rounded-[20px] 
                     // 두개
@@ -158,7 +158,7 @@ function Reviews() {
               }
             </div>
             <div className="mx-auto w-[160px]">
-              <button onClick={() => { setCurrentPage(currentPage + 1) }} className='bg-[#D3C09D] text-white w-[160px] h-[50px] my-[40px] '>더보기 +</button>
+              <button onClick={() => { setCurrentPage(currentPage + 1) }} className='bg-[#D3C09D] text-white w-[160px] h-[50px] my-[40px] '>{messages.reviewmore} +</button>
             </div>
           </div>
         </div>
