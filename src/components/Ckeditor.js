@@ -1,89 +1,14 @@
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import React, { useState } from "react";
-import Modal from './Modal'
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { addDoc, collection, doc, getFirestore, serverTimestamp, updateDoc  } from 'firebase/firestore';
-import { useEffect } from "react";
-import { data } from "autoprefixer";
-
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  margin-top: 60px;
-`;
-
-const InnerContainer = styled.div`
-  margin: 0 4px;
-  max-width: 1280px;
-  margin: 0 auto;
-`;
-
-const ContentWrapper = styled.div`
-  width: auto;
-  height: auto;
-  margin-top: 10px;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.375rem;
-  padding-right: 50px;
-`;
-
-const ContentInner = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-top: 10px;
-  text-align: center;
-`;
-
-const Title = styled.h2`
-  font-size: 20px;
-  margin-top: 10px;
-`;
-
-const TextInput = styled.input`
-  height: 40px;
-  border: 1px solid #e5e7eb;
-  flex-basis: 75%;
-`;
-
-const ContentInputWrapper = styled.div`
-  width: auto;
-  margin-top: 20px;
-  margin-left: 70px;
-`;
-
-const ContentLabel = styled.p`
-  margin-bottom: 15px;
-`;
-
-const ButtonWrap = styled.div`
-    display: flex;
-	  justify-content: space-between;
-`
-
-const Button = styled.div`
-    border-radius: 0.5rem;
-    margin: 20px 0px;
-    background-color: #eb7a7a;
-    padding: 0.625rem 1.25rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: bold;
-    color: white;
-    display: flex; align-items: center;
-    outline: none; border: none;
-    cursor: pointer;
-	&:nth-child(1){
-	    background-color: #f1a7a7;
-	}
-	a{color : white;}
-	svg{margin-right: 12px;}
-`
+import Modal from './Modal'
 
 function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,postId }) {
 
@@ -130,7 +55,7 @@ function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,post
             hideEditor();
             refreshPosts(); 
           }catch(error){
-           console.log(error)
+          //  console.log(error)
          }
         }else{
           try{
@@ -151,21 +76,19 @@ function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,post
           }catch(error){
               setIsModal(!isModal);
           }
-
         }
       }
 
     return (
         <>
-        <Container>
-            <InnerContainer>
-              <ContentWrapper>
-                  <ContentInner>
-                  <Title>제목</Title>
-                  <TextInput value={txtTitle} type="text" onChange={(e)=>{setTxtTitle(e.target.value)}} />
-                  </ContentInner>
-                  <ContentInputWrapper>
-                  <ContentLabel>내용</ContentLabel>
+        <div className="w-full h-auto py-2">
+            <div className="max-w-7xl mx-auto">
+              <div className="w-auto h-auto mt-[10px] border border-[#e5e7eb] rounded-[4.5px]">
+                  <div className="flex justify-start w-full mt-[10px] text-center flex-wrap px-5">
+                    <h2 className="text-xl mt-4 mr-3 dark:text-[#ebf4f1]">제목</h2>
+                    <input className="mt-[10px] py-1 border border-[#e5e7eb] w-3/4" value={txtTitle} type="text" onChange={(e)=>{setTxtTitle(e.target.value)}} />
+                  </div>
+                  <div className="w-auto mt-5 px-5">
                   <CKEditor
                       editor={ClassicEditor}
                       data={writeData}
@@ -176,20 +99,19 @@ function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,post
                       onChange={ ( event, editor ) => {
                           const data = editor.getData();
                           setWriteData(data);
-                          // console.log( { event, editor, data } );
                       } }
                       onBlur={(event, editor) => {}}
                       onFocus={(event, editor) => {}}
                   />
-                      <ButtonWrap>
-                          <Button onClick={dataSubmit}>
-                              <FontAwesomeIcon icon={faPen} />완료
-                          </Button>
-                      </ButtonWrap>
-                  </ContentInputWrapper>
-              </ContentWrapper>
-            </InnerContainer>
-        </Container>
+                      <div className="flex justify-end">
+                          <div className="rounded-md my-5 bg-[#86bcd5] py-2 px-4 text-xs leading-4 font-bold text-white flex items-center outline-none border-none cursor-pointer dark:bg-[#404343]" onClick={dataSubmit}>
+                              <FontAwesomeIcon className="mr-3" icon={faPen} />완료
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
         </>
     );
 }

@@ -69,12 +69,12 @@ function ProductDesc() {
                                         close === false &&
                                         <div className="gradient"></div>
                                     }
-                                    <div className="text-xl font-medium mr-3 ">{messages.detailinformation}</div>
-                                    <FontAwesomeIcon icon={faAngleUp} className={`w-8 h-8 ${close === false ? 'rotate-180' : ''}`} />
+                                    <div className="text-[18px] lg:text-xl font-medium mr-3 ">{messages.detailinformation}</div>
+                                    <FontAwesomeIcon icon={faAngleUp} className={`w-6 h-6 pt-[3px] lg:w-8 lg:h-8 ${close === false ? 'rotate-180' : ''}`} />
                                 </div>
                             </div>
-                            <div className="max-w-[900px] text-white mx-auto bg-[#86bcd5] leading-10 mb-[40px] text-[20px] font-[500] dark:bg-[#404343] dark:text-[#ebf4f1] pb-[70px]">
-                                <p className='text-[32px] font-bold pt-[70px] title'>{messages[`product_${params.id}`].Main_title_1}</p>
+                            <div className="max-w-[900px] text-white mx-auto bg-[#86bcd5] leading-10 mb-[40px] lg:text-[20px] font-[500] dark:bg-[#404343] dark:text-[#ebf4f1] py-[70px] px-5">
+                                <p className='text-[27px] lg:text-[32px] font-bold title'>{messages[`product_${params.id}`].Main_title_1}</p>
                                 {
                                     ['desc2', 'desc3', 'desc4'].map((desc, i) => (
                                         <React.Fragment key={i}>
@@ -82,21 +82,23 @@ function ProductDesc() {
                                             {
                                                 [0, 1, 2].map(j => (
                                                 messages[`product_${params.id}`][`${desc}${j === 0 ? '' : `_${j}`}`] && 
-                                                    <p className='text-[#404040b3] text-white dark:text-[#ebf4f1]' key={j}>{messages[`product_${params.id}`][`${desc}${j === 0 ? '' : `_${j}`}`]}</p>
+                                                    <p className='text-[#404040b3] text-white dark:text-[#ebf4f1]' key={j}>
+                                                        {messages[`product_${params.id}`][`${desc}${j === 0 ? '' : `_${j}`}`]}
+                                                    </p>
                                                 ))
                                             }
                                         </React.Fragment>
                                     ))
                                 }
                             </div>
-                            <div className="pb-[30px] text-xl leading-[35px] dark:text-[#ebf4f1]">
+                            <div className="pb-[30px] text-base md:text-xl lg:text-xl md:leading-[35px] lg:leading-[35px] dark:text-[#ebf4f1]">
                                 <p>{messages.desc14}</p>
                                 <p>{messages.desc15}</p>
                                 <p>{messages.desc16}</p>
                                 <p>{messages.desc17}</p>
                             </div>
                             <img className='mx-auto pt-5' src={data.endImageUrl} alt={data.name} />
-                            <div className="py-10 text-xl leading-[35px] text-[#86bcd5] dark:text-[#ebf4f1]">
+                            <div className="pt-10 lg:pb-0 pb-10 text-[18px] lg:text-xl leading-[35px] text-[#86bcd5] dark:text-[#ebf4f1]">
                                 <FontAwesomeIcon icon={faBone} className='mx-auto dark:text-[#ebf4f1] w-[50px] h-[50px]' color='#86bcd5' />
                                 <p className='title2'>{messages.desc18}</p>
                                 <p className='title2'>{messages.desc19}</p>

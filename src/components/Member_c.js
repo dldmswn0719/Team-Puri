@@ -29,12 +29,7 @@ function Member_c() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const initialMode = window.location.pathname.includes("member");
-    // alert(initialMode)
     const [userUid, setUserUid] = useState("");
-
-    function imgChange() {
-        document.querySelector(".real-upload").click();
-    }
 
     useEffect(() => {
         if (!initialMode) {
@@ -44,6 +39,7 @@ function Member_c() {
                 }
             });
         }
+        
     }, [initialMode]);
 
     useEffect(() => {
