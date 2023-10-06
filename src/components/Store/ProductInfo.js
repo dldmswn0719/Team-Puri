@@ -141,13 +141,13 @@ function ProductInfo() {
     <>
       <div className="w-full dark:bg-[#272929] pb-[15px]">
         <div className="max-w-7xl mx-auto">
-          <div className="h-auto flex overflow-hidden pt-8 flex-wrap justify-between">
-            <div className='basis-full md:basis-[50%] py-6 px-4'>
+          <div className="h-auto flex overflow-hidden pt-3 flex-wrap justify-between md:pt-0">
+            <div className='basis-full md:basis-1/2 lg:basis-1/2 py-2 px-4 md:py-4 lg:py-6'>
               <img src={data.imageUrl} alt={data.name} className='mx-auto' />
             </div>
-            <div className='basis-full md:basis-[50%]'>
-              <p className="p-5 text-xl font-medium bg-white  dark:bg-[#272929]  dark:text-[#ebf4f1]">{messages[`product_${params.id}`].name}</p>
-              <p className="max-w-auto mx-5 text-xl font-medium bg-[#EADBC8] dark:text-[#ebf4f1] dark:bg-[#404343]">{messages[`product_${params.id}`].hash}</p>
+            <div className='basis-full md:basis-[50%] lg:basis-[50%]'>
+              <p className="md:p-4 p-5 text-xl font-medium bg-white  dark:bg-[#272929]  dark:text-[#ebf4f1]">{messages[`product_${params.id}`].name}</p>
+              <p className="max-w-auto mx-5 text-xl font-medium bg-[#86bcd5] text-white dark:text-[#ebf4f1] dark:bg-[#404343]">{messages[`product_${params.id}`].hash}</p>
               <p className="p-5 text-4xl font-medium text-[#102C57] dark:text-[#ebf4f1]">{(data.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{messages.won}</p>
               <p className="px-5 py-3 text-xl font-medium dark:text-[#ebf4f1]">{messages.delivery}</p>
               <p className="px-5 py-3 text-xl font-medium dark:text-[#ebf4f1]">{messages.delivery_price}</p>
@@ -234,7 +234,7 @@ function ProductInfo() {
                 }
               </div>
               <div className="mx-auto p-5">
-                <div onClick={handlecheckout} className="basis-full h-[45px] bg-[#DAC0A3] cursor-pointer text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
+                <div onClick={handlecheckout} className="basis-full h-[45px] bg-[#86bcd5] cursor-pointer text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
                   <p>{messages.buying}</p>
                 </div>
                 {/* <div className="flex sm:flex-wrap md:flex-wrap">
