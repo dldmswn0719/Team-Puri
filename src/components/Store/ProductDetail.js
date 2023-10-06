@@ -24,36 +24,39 @@ function ProductDetail() {
                         } alt="강아지 손잡는 사진" />
                     </div>
                     <div className="text-center dark:text-[#ebf4f1]">
-                        <img className='pt-[40px] pb-[40px] my-0 mx-auto' src={
+                        <img className='lg:py-10 py-5 mx-auto lg:w-[200px] w-[170px]' src={
                             theme === 'light' ?
                             "./../Images/logo_s1.png" 
                             :
                             "./../Images/Main/logo_dark_small.png"
                         } alt="로고" />
-                        <p className='text-xl leading-9'>{messages.desc1}</p>
-                        <p className='text-xl border-b border-[#86bcd5] pb-[50px] dark:border-[#dadbdb]'>{messages.desc2}</p>
-                        <div className="py-[35px] px-0 text-2xl lg:text-3xl text-[#86bcd5] font-medium dark:text-[#ebf4f1]">
+                        <p className='lg:text-xl text-[18px] leading-9'>{messages.desc1}</p>
+                        <p className='lg:text-xl text-[18px] border-b border-[#86bcd5] pb-[50px] dark:border-[#dadbdb]'>{messages.desc2}</p>
+                        <div className="py-[35px] px-0 text-2xl lg:text-4xl text-[#86bcd5] font-medium dark:text-[#ebf4f1]">
                             <p>{messages.desc3}</p>
                             <p className='leading-[50px]'>{messages.desc4}</p>
                         </div>
-                        <div className="flex justify-center pb-[50px] gap-x-[14%]">
+                        <div className="flex justify-center lg:pb-[50px] gap-x-[14%]">
                             <div className="pt-[50px] dark:text-[#ebf4f1]">
-                                <FontAwesomeIcon icon={faDog} className="w-[80px] h-[80px] ml-[10px] dark:text-[#ebf4f1]" color='#86bcd5' />
-                                <p className="font-bold lg:text-[23px] pt-10 text-[17px]">{messages.desc5}</p>
-                                <div className="lg:text-xl text-[16px] leading-8">
-                                    <p>{messages.desc6}</p>
-                                    <p>{messages.desc7}</p>
-                                    <p>{messages.desc8}</p>
+                                <FontAwesomeIcon icon={faDog} className="lg:w-[80px] lg:h-[80px] w-[65px] h-[65px] dark:text-[#ebf4f1]" color='#86bcd5' />
+                                <p className="font-bold lg:text-[23px] pt-10 text-[20px] pb-1">{messages.desc5}</p>
+                                <div className="lg:text-[20px] text-[18px] lg:leading-9 leading-7">
+                                    {
+                                        [6, 7, 8].map(i => (
+                                            <p key={i}>{messages[`desc${i}`]}</p>
+                                        ))
+                                    }
                                 </div>
                             </div>
                             <div className="pt-[50px]">
-                                <FontAwesomeIcon icon={faBullhorn} className='w-[70px] h-[70px] ml-[10px] dark:text-[#ebf4f1]' color='#86bcd5' />
-                                <p className="font-bold lg:text-[23px] pt-10 text-[17px]">{messages.desc9}</p>
-                                <div className="lg:text-xl text-[17px] leading-8">
-                                    <p>{messages.desc10}</p>
-                                    <p>{messages.desc11}</p>
-                                    <p>{messages.desc12}</p>
-                                    <p>{messages.desc13}</p>
+                                <FontAwesomeIcon icon={faBullhorn} className='lg:w-[80px] lg:h-[80px] w-[65px] h-[65px] dark:text-[#ebf4f1]' color='#86bcd5' />
+                                <p className="font-bold lg:text-[23px] pt-10 text-[20px] pb-1">{messages.desc9}</p>
+                                <div className="lg:text-[20px] text-[18px] lg:leading-9 leading-7">
+                                    {
+                                        [10, 11, 12 , 13].map(i => (
+                                            <p key={i}>{messages[`desc${i}`]}</p>
+                                        ))
+                                    }
                                 </div>
                             </div>
                         </div>
