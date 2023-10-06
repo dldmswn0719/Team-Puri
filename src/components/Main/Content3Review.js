@@ -2,7 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Autoplay } from "swiper/modules";
+import 'swiper/css/pagination';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { useSelector } from 'react-redux';
 import enMessages from './../../locales/en.json';
 import krMessages from './../../locales/kr.json';
@@ -45,7 +46,8 @@ function Content3Review() {
                     delay: 3000,
                     disableOnInteraction: false,
                 }}
-                modules={[Autoplay]}
+                pagination={{clickable: true}}
+                modules={[Autoplay, Pagination]}
                 className='md:w-[768px] lg:w-[1200px] m-auto mb-20'
                 >
 
