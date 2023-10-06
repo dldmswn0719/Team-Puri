@@ -1,12 +1,11 @@
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import styled from "styled-components";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { faCancel, faPen } from "@fortawesome/free-solid-svg-icons";
 import { addDoc, collection, doc, getFirestore, serverTimestamp, updateDoc  } from 'firebase/firestore';
 import Modal from './Modal'
 
@@ -106,6 +105,9 @@ function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,post
                       <div className="flex justify-end">
                           <div className="rounded-md my-5 bg-[#86bcd5] py-2 px-4 text-xs leading-4 font-bold text-white flex items-center outline-none border-none cursor-pointer dark:bg-[#404343]" onClick={dataSubmit}>
                               <FontAwesomeIcon className="mr-3" icon={faPen} />완료
+                          </div>
+                          <div className="rounded-md my-5 bg-[#86bcd5] py-2 px-4 text-xs leading-4 font-bold text-white flex items-center outline-none border-none cursor-pointer dark:bg-[#404343]" onClick={()=>{hideEditor()}}>
+                              <FontAwesomeIcon className="mr-3" icon={faCancel} />취소
                           </div>
                       </div>
                   </div>

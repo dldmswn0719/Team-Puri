@@ -5,8 +5,6 @@ import { faLocationDot, faPaw } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-
-
 function AnimalDetails() {
     const [mapX, setMapX] = useState(0)
     const [mapY, setMapY] = useState(0)

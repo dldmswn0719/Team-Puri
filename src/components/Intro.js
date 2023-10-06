@@ -4,7 +4,7 @@ import React from 'react'
 function Intro() {
   return (
     <>
-      <div className=" flex justify-center items-center w-full h-full  dark:bg-[#272929] overflow-x-hidden">
+      <div className=" flex justify-center items-center w-full h-full dark:bg-[#272929] overflow-x-hidden">
       {/*  container*/}
           <div className="w-[1200px] h-full">
               <div className="mt-[50px]">

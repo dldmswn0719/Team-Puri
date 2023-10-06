@@ -1,8 +1,8 @@
-import { faFacebook, faGithub, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faGithub, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import enMessages from './../locales/en.json';
 import krMessages from './../locales/kr.json';
 
