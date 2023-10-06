@@ -17,9 +17,9 @@ function Footer() {
                 <div>
                     <img src="./../../Images/Main/logo_dark_small.png" alt="footerlogo" className='m-auto' />
                 </div>
-                <ul className='flex text-xs justify-around m-auto py-5
-                md:text-sm md:py-8 md:justify-between
-                lg:text-base lg:py-8 lg:w-5/6 lg:justify-between'>
+                <ul className={`flex text-xs justify-around m-auto py-5 w-60 flex-wrap
+                md:text-sm md:py-8 md:justify-between md:w-5/6
+                lg:text-base lg:py-8 lg:w-5/6 lg:justify-between`}>
                     <li><NavLink to='/introduce' className='text-white'>{messages.footer1}</NavLink></li>
                     <li><NavLink className='text-white'>{messages.footer2}</NavLink></li>
                     <li><NavLink className='text-white'>{messages.footer3}</NavLink></li>
