@@ -4,10 +4,11 @@ import Ckeditor from "../Ckeditor";
 import { deleteDoc, doc } from 'firebase/firestore';
 import {collection, getDocs , getFirestore , orderBy , query} from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
-import { faPenSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faCircleQuestion, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
+import { faLock, faPenSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import enMessages from "./../../locales/en.json";
 import krMessages from "./../../locales/kr.json";
+
 
 function StoreQna() {
   const language = useSelector((state) => state.language);
@@ -60,18 +61,19 @@ function StoreQna() {
     <>
       <div className="w-full h-full bg-white dark:bg-[#272929]">
         <div className="max-w-7xl mx-auto qa">
-          <div className="pt-[8%] text-[18px] lg:text-xl px-5">
-            <div className="flex leading-10 dark:text-[#ebf4f1]">
+          <div className="pt-[8%] px-5">
+            <div className="text-[18px] lg:text-[22px] flex leading-10 dark:text-[#ebf4f1]">
               <p className="pr-1">{messages.qna}</p>
               <p className="text-[#86bcd5] dark:text-[#ebf4f1]">( {posts.length} )</p>
             </div>
-            <p className="dark:text-[#ebf4f1]">{messages.desc23}</p>
-            <div className="w-[170px] h-[55px] bg-[#86bcd5] mt-[25px] cursor-pointer dark:bg-[#404343]"onClick={() => setShowEditor(true)}>
-              <p className="text-white leading-[55px] text-center dark:text-[#ebf4f1]">
+            <p className="dark:text-[#ebf4f1] lg:text-[17px]">{messages.desc23}</p>
+            <div className="w-[170px] h-[55px] bg-[#86bcd5] mt-[20px] cursor-pointer dark:bg-[#404343]"onClick={() => setShowEditor(true)}>
+              <p className="text-white leading-[55px] text-center dark:text-[#ebf4f1] lg:text-[17px]">
                 {messages.desc24}
+              <FontAwesomeIcon icon={faPenToSquare} className="pl-2" />
               </p>
             </div>
-            <div className="max-w-7xl h-auto border-t border-[#86bcd5] mt-8 pb-[10%] lg:mt-[50px] text-center dark:border-[#dadbdb]">
+            <div className="max-w-7xl h-auto lg:text-[20px]  border-t border-[#86bcd5] mt-8 pb-[15%] lg:mt-[40px] text-center dark:border-[#dadbdb]">
             {
             showEditor && 
               <Ckeditor hideEditor={() => setShowEditor(false)} refreshPosts={fetchPosts} resetViewState={() => setViewState(null)}/>
@@ -86,7 +88,13 @@ function StoreQna() {
                   </p>
                 </>
                 :
-                <div className="max-w-7xl my-2 mx-auto text-[14px] lg:text-[18px]">  
+                <div className="max-w-7xl mx-auto text-[14px] lg:text-[18px]">
+                  <ul className="flex py-2 border-b border-[#86bcd5]">
+                    <li className="lg:basis-[15%] basis-[5%]">No</li>
+                    <li className="basis-[80%]">제목</li>
+                    <li className="lg:basis-[20%] md:basis-[15%] basis-[30%]">글쓴이</li>
+                    <li className="lg:basis-[20%] md:basis-[15%] sm:hidden fold:hidden">작성날짜</li>
+                  </ul>
                   {posts.map((e, i) => {
                     return (
                       <React.Fragment key={i}>
@@ -98,22 +106,33 @@ function StoreQna() {
                                 setEditEditor(false)
                             }
                         }}>
-                            <li className="py-[10px] px-1 lg:px-5 text-center lg:basis-[10%] basis-[5%]">{posts.length - i}</li>
-                            <li className="py-[10px] px-2 lg:px-5 text-center basis-[80%] text-ellipsis whitespace-nowrap overflow-hidden">{e.title}</li>
+                            <li className="py-[10px] px-1 lg:px-5 text-center lg:basis-[15%] basis-[5%]">{posts.length - i}</li>
+                            <li className="py-[10px] px-2 lg:px-5 text-left basis-[80%] text-ellipsis whitespace-nowrap overflow-hidden">
+                              {
+                                e.isSecret && <FontAwesomeIcon icon={faLock} className="mr-1" />
+                              }
+                              {e.title}
+                            </li>
                             <li className="py-[10px] lg:px-5 text-center lg:basis-[20%] md:basis-[15%] basis-[30%] ">{e.name}</li>
                             <li className="py-[10px] lg:px-5 text-center lg:basis-[20%] md:basis-[15%] sm:hidden fold:hidden">{e.timestamp.toDate().toLocaleDateString()}</li>
                         </ul>
                       {
                         viewState === i &&
-                        <ul className="flex border-b border-[#86bcd5] py-10 dark:text-[#ebf4f1] dark:border-[#dadbdb]">
-                            <li className="px-5 lg:w-[77%] md:w-[85%] w-[75%] fold:w-[70%]">
-                                <p dangerouslySetInnerHTML={{__html : e.content}} />  
+                        <ul className="flex justify-between border-b border-[#86bcd5] py-10 dark:text-[#ebf4f1] dark:border-[#dadbdb]">
+                            <li className="px-5 lg:w-[32%] md:w-[16%] w-[18%] fold:w-[90%]">
+                            {
+                              e.isSecret && memberProfile.uid !== e.uid ? (
+                                <p>비밀글입니다.</p>
+                              )
+                              :
+                              (<p dangerouslySetInnerHTML={{__html: e.content}} />)
+                            }
                             </li>
                             <li className="lg:w-[23%] md:w-[15%] w-[25%] fold:w-[30%] text-right pr-5">
                               {memberProfile.uid === e.uid && (
                                 <>
                                   <button onClick={()=>{editPost(e.id)}}><FontAwesomeIcon icon={faPenSquare} /> 수정</button>
-                                  <button onClick={()=>{deletePost(e.id)}}><FontAwesomeIcon icon={faTrash} /> 삭제</button>
+                                  <button onClick={()=>{deletePost(e.id)}}><FontAwesomeIcon icon={faTrash} /> 삭제 </button>
                                 </>
                                 )}
                             </li>

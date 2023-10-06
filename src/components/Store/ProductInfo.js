@@ -122,6 +122,12 @@ function ProductInfo() {
   const userState = useSelector(state => state.user.loggedIn);
 
   const handlecheckout = () =>{
+
+    if(totalCnt <= 0) {
+      alert("상품을 선택해주세요.");
+      return;
+    }
+
     if(userState){
       navigate('/checkout');
     }else{
@@ -131,9 +137,17 @@ function ProductInfo() {
   }
 
   const dispatch = useDispatch();
+
   useEffect(()=>{
-    const totalPrice = data.price * Number(parseInt(totalCnt));
-    dispatch(setPrice(totalPrice));
+    const totalPrice = () => {
+      if(data.option.length === 0){
+        return data.price * Number(parseInt(totalCnt)+1);
+      }else{
+        return data.price * Number(parseInt(totalCnt));
+      }
+    }
+    
+    dispatch(setPrice(totalPrice()));
   },[totalCnt])
 
   return (
@@ -155,6 +169,7 @@ function ProductInfo() {
               <p className="py-2 lg:py-3 lg:text-xl text-[17px] font-medium dark:text-[#ebf4f1]">
                 {messages.delivery_price}
               </p>
+              <p className='pb-2 lg:pb-3 lg:text-[18px] text-[16px] font-medium dark:text-[#ebf4f1] text-[#999]'>{messages.deliveryplusprice}</p>
               {
                 data.option.length > 0 &&
                 data.option[0].name !== '' &&

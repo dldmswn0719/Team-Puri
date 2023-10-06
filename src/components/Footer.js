@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faGithub, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faGithub, faInstagram, faReact, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import enMessages from './../locales/en.json';
 import krMessages from './../locales/kr.json';
 
@@ -33,7 +33,8 @@ function Footer() {
                 lg:text-7xl lg:w-2/5 lg:m-auto'>
                     <li><NavLink><FontAwesomeIcon icon={faGithub} color='white' /></NavLink></li>
                     <li><NavLink><FontAwesomeIcon icon={faInstagram} color='white' /></NavLink></li>
-                    <li><NavLink><FontAwesomeIcon icon={faFacebook} color='white' /></NavLink></li>
+                    <li><NavLink><FontAwesomeIcon icon={faReact} color='white' /></NavLink></li>
+                    {/* <li><NavLink><FontAwesomeIcon icon={faFacebook} color='white' /></NavLink></li> */}
                     <li><NavLink><FontAwesomeIcon icon={faYoutube} color='white' /></NavLink></li>
                 </ul>
                 <ul className='lg:flex lg:justify-between text-white text-sm hidden'>

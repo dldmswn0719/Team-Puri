@@ -12,7 +12,6 @@ function ProductDesc() {
     const params = useParams();
     const data = data1[(params.id - 1)]
     const [close, setClose] = useState(false);
-    // console.log(params.id)
     const theme = useSelector(state => state.dark)
     const language = useSelector(state => state.language);
     const messages = language === 'en' ? enMessages : krMessages;
@@ -22,16 +21,16 @@ function ProductDesc() {
             <div className="w-full bg-white dark:bg-[#272929] detail">
                 <div className="max-w-7xl mx-auto">
                     <div className='text-center px-5'>
-                        <div className="text-center text-xl font-normal dark:text-[#ebf4f1]">
-                            <p className='leading-10 title2'>{data.title}</p>
-                            <p className="text-3xl font-bold leading-10 tracking-wider">{messages[`product_${params.id}`].Main_title}</p>
-                            <p className='pb-[45px] leading-10 title2'>{data.Sub_title}</p>
+                        <div className="text-center font-normal dark:text-[#ebf4f1] pt-5">
+                            <p className='text-[20px] lg:leading-10 title2'>{data.title}</p>
+                            <p className="text-[27px] lg:text-3xl font-bold leading-10 tracking-wider">{messages[`product_${params.id}`].Main_title}</p>
+                            <p className='text-[18px] pb-[25px] lg:pb-[45px] leading-10 title2'>{data.Sub_title}</p>
                             <img className='mx-auto lg:py-5' src={data.imageUrl1} alt={data.name} />
-                            <p className="font-bold text-[32px] leading-10 py-2 title">{data.Sub_title}</p>
-                            <p className="text-[25px]">{messages[`product_${params.id}`].Sub_title_2}</p>
-                            <p className="text-[25px] py-3 text-[#86bcd5]">{messages[`product_${params.id}`].Sub_title_3}</p>
-                            <p className="text-[25px]">{messages[`product_${params.id}`].Sub_title_4}</p>
-                            <div className="leading-8 pb-4 ">
+                            <p className="font-bold text-[27px] pt-6 lg:text-[32px] leading-10 lg:pt-2 title">{data.Sub_title}</p>
+                            <p className="text-[18px] lg:text-[25px]">{messages[`product_${params.id}`].Sub_title_2}</p>
+                            <p className="text-[18px] lg:text-[25px] py-3 text-[#86bcd5]">{messages[`product_${params.id}`].Sub_title_3}</p>
+                            <p className="text-[18px] lg:text-[25px]">{messages[`product_${params.id}`].Sub_title_4}</p>
+                            <div className="leading-8">
                                 {
                                     [0, 1, 2, 3, 4].map(i => (
                                         <p key={i}>{messages[`product_${params.id}`][`desc${i === 0 ? '' : `_${i}`}`]}</p>
@@ -59,7 +58,7 @@ function ProductDesc() {
                             {
                                 Object.entries(data.img).map((e, i) => {
                                     return (
-                                        <img key={i} className='mx-auto py-5 dark:text-[#ebf4f1]' src={e[1]} alt={data.name} />
+                                        <img key={i} className='mx-auto pt-5 dark:text-[#ebf4f1]' src={e[1]} alt={data.name} />
                                     )
                                 })
                             }
@@ -73,7 +72,7 @@ function ProductDesc() {
                                     <FontAwesomeIcon icon={faAngleUp} className={`w-6 h-6 pt-[3px] lg:w-8 lg:h-8 ${close === false ? 'rotate-180' : ''}`} />
                                 </div>
                             </div>
-                            <div className="max-w-[900px] text-white mx-auto bg-[#86bcd5] leading-10 mb-[40px] lg:text-[20px] font-[500] dark:bg-[#404343] dark:text-[#ebf4f1] py-[70px] px-5">
+                            <div className="max-w-[900px] text-white mx-auto bg-[#86bcd5] leading-10 mb-5 lg:mb-[40px] lg:text-[20px] font-[500] dark:bg-[#404343] dark:text-[#ebf4f1] py-[70px] px-5">
                                 <p className='text-[27px] lg:text-[32px] font-bold title'>{messages[`product_${params.id}`].Main_title_1}</p>
                                 {
                                     ['desc2', 'desc3', 'desc4'].map((desc, i) => (
@@ -91,14 +90,14 @@ function ProductDesc() {
                                     ))
                                 }
                             </div>
-                            <div className="pb-[30px] text-base md:text-xl lg:text-xl md:leading-[35px] lg:leading-[35px] dark:text-[#ebf4f1]">
+                            <div className="lg:pb-[30px] text-base md:text-xl lg:text-xl md:leading-[35px] lg:leading-[35px] dark:text-[#ebf4f1]">
                                 <p>{messages.desc14}</p>
                                 <p>{messages.desc15}</p>
                                 <p>{messages.desc16}</p>
                                 <p>{messages.desc17}</p>
                             </div>
                             <img className='mx-auto pt-5' src={data.endImageUrl} alt={data.name} />
-                            <div className="pt-10 lg:pb-0 pb-10 text-[18px] lg:text-xl leading-[35px] text-[#86bcd5] dark:text-[#ebf4f1]">
+                            <div className="py-10 text-[18px] lg:pb-0  lg:text-xl leading-[35px] text-[#86bcd5] dark:text-[#ebf4f1]">
                                 <FontAwesomeIcon icon={faBone} className='mx-auto dark:text-[#ebf4f1] w-[50px] h-[50px]' color='#86bcd5' />
                                 <p className='title2'>{messages.desc18}</p>
                                 <p className='title2'>{messages.desc19}</p>

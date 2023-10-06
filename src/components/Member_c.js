@@ -4,12 +4,11 @@ import { createUserWithEmailAndPassword, firebaseAuth } from './../firebase';
 import { doc, setDoc, getFirestore, getDoc, updateDoc, collection, query, where, getDocs } from 'firebase/firestore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
-import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from '../store';
 import Modal from './Modal';
 import Modify from '../pages/Modify';
-import { fetchSignInMethodsForEmail, getAuth } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 import enMessages from './../locales/en.json';
 import krMessages from './../locales/kr.json';
 
@@ -120,12 +119,14 @@ function Member_c() {
             return;
         }
 
+        
+        if (!isEmailChecked && initialMode) { // isEmailChecked 상태 확인
+            setError("이메일 중복확인을 진행해주세요."); // 또는 해당 언어의 적절한 메시지
+            return;
+        }
+        
+        const userProfile = { name, phoneNumber, email }
         try {
-            const userProfile = {
-                name,
-                phoneNumber,
-                email
-            }
 
             if (initialMode) {
                 const { user } = await createUserWithEmailAndPassword(firebaseAuth, email, password);
@@ -136,11 +137,26 @@ function Member_c() {
 
                 alert(`${messages.alert[0]}`);
             } else {
-                if (userUid) {
+
                     const userRef = doc(getFirestore(), "users", userUid);
-                    await updateDoc(userRef, userProfile);
-                    alert(`${messages.alert[1]}`);
-                }
+                    const docSnap= await getDoc(userRef);
+
+                    if(docSnap.exists()){
+                        const data=docSnap.data();
+            
+                        // 만약 데이터가 변경되지 않았다면 
+                        if(data.name===userProfile.name&&data.phoneNumber===userProfile.phoneNumber&&data.email===userProfile.email){
+                          alert("변경된 사항이 없습니다.");
+                          navigate('/modify');
+                          return; 
+                        }
+                        
+                        // 데이터가 변경되었다면 update 진행
+                        await updateDoc(userRef,userProfile); 
+                        alert(`${messages.alert[1]}`);
+            
+                      }
+
             }
             navigate('/');
 
@@ -153,17 +169,35 @@ function Member_c() {
 
     const auth = getAuth();
     const [emailCheckMsg, setEmailCheckMsg] = useState("");
+    const [isEmailChecked, setIsEmailChecked] = useState(false) 
+    // 중복확인을 누르면 true
+    
     const checkEmail = async () => {
+
+        if (!email) {
+            setEmailCheckMsg("이메일을 입력하세요."); 
+            return;
+        }
+
+        if (!isValidEmail(email)) { 
+            setEmailCheckMsg("유효한 이메일 주소를 입력해주세요."); 
+            return;
+        }
+
         const userRef = collection(getFirestore(), "users");
         const q = query(userRef, where("email", "==", email));
         const querySnapshot = await getDocs(q);
         
         if (querySnapshot.empty) {
         setEmailCheckMsg("사용 가능한 이메일입니다.");
+        setIsEmailChecked(true);
         return true;
+
         } else {
         setEmailCheckMsg("이미 사용중인 이메일입니다.");
+        setIsEmailChecked(false);
         return false;
+
         }
     };
 
@@ -184,12 +218,14 @@ function Member_c() {
                                 <li>
                                     {
                                         initialMode ?
-                                            <input defaultValue={email} onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder={messages.login1} autoFocus className='email w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                            <div className='relative w-full'>
+                                                <input defaultValue={email} onChange={(e) => { setEmail(e.target.value); setIsEmailChecked(false);}} type="email" placeholder={messages.login1} autoFocus className='email w-[360px] h-[50px] mb-[5px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                                <button className='dark:border-none dark:bg-[#404343] dark:text-[#ebf4f1] absolute right-7 top-2 border px-2 py-1' onClick={checkEmail}>중복확인</button>
+                                            </div>
                                             :
-                                            <input readOnly defaultValue={email} onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder={messages.login1} autoFocus className='email w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                            <input readOnly defaultValue={email} onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder={messages.login1} autoFocus className='email w-[360px] h-[50px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
                                     }
-                                    <button onClick={checkEmail}>중복확인</button>
-                                    <p>{emailCheckMsg}</p>
+                                    <p className='mb-[10px] text-red-500 dark:text-[#ebf4f1]'>{emailCheckMsg}</p>
                                 </li>
                                 {
                                     initialMode &&
@@ -218,7 +254,7 @@ function Member_c() {
                                     initialMode ? <p className='text-red-500 dark:text-[#ebf4f1]'>{error}</p> : ""
                                 }
                                 <li>
-                                    <button className='w-[360px] h-[60px] bg-[#162c58] text-white text-[18px] rounded-[10px] mt-[10px] cursor-pointer dark:bg-[#272929]' onClick={signUp}>{initialMode ? `${messages.login5}` : `${messages.member4}`}</button>
+                                    <button className='w-[360px] h-[60px] bg-[#60a7c8] text-white text-[18px] rounded-[10px] mt-[10px] cursor-pointer dark:bg-[#272929]' onClick={signUp}>{initialMode ? `${messages.login5}` : `${messages.member4}`}</button>
                                 </li>
                             </ul>
                         </div>
