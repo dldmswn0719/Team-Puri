@@ -11,6 +11,10 @@ import Introduce from "./pages/Introduce";
 import SupportPay from "./pages/SupportPay";
 import PayComplete from "./pages/PayComplete";
 import Review_Page from "./pages/Review_Page";
+<<<<<<< HEAD
+=======
+import Mypage from "./pages/Mypage";
+>>>>>>> 555e6458b7375957d729061beea0f421334be988
 import Login from "./pages/Login";
 import Logout from "./components/Logout";
 import Member from "./pages/Member";
@@ -99,7 +103,11 @@ function Inner() {
     <Routes>
       <Route path="/" element={<Main />}></Route>
       <Route path="/info" element={<Info />}></Route>
+<<<<<<< HEAD
       <Route path="/infodetail/:desertionNo" element={<InfoDetail />}></Route>   
+=======
+      <Route path="/infodetail/:desertionNo" element={<InfoDetail />}></Route>
+>>>>>>> 555e6458b7375957d729061beea0f421334be988
       <Route path="/introduce" element={<Introduce />}></Route>
       <Route path="/review_page" element={<Review_Page />}></Route>
       <Route path="/store/:id" element={<StorePage />}></Route>
