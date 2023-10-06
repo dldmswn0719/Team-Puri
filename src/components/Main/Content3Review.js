@@ -41,10 +41,10 @@ function Content3Review() {
                 spaceBetween={0}
                 slidesPerView={1}
                 loop={true}
-                // autoplay={{
-                //     delay: 3000,
-                //     disableOnInteraction: false,
-                // }}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
                 modules={[Autoplay]}
                 className='md:w-[768px] lg:w-[1200px] m-auto mb-20'
                 >

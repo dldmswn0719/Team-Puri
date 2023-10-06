@@ -29,8 +29,6 @@ function Content1Swiper() {
                 pagination={{clickable: true}}
                 modules={[Autoplay, Navigation, Pagination]}
 
-                onSlideChange={() => console.log('slide change')}
-                // onSwiper={(swiper) => console.log(swiper)}
                 id='swiper'
                 >
 
