@@ -11,7 +11,6 @@ import Introduce from "./pages/Introduce";
 import SupportPay from "./pages/SupportPay";
 import PayComplete from "./pages/PayComplete";
 import Review_Page from "./pages/Review_Page";
-import Info_Test from "./components/Info_Test";
 import Mypage from "./pages/Mypage";
 import Login from "./pages/Login";
 import Logout from "./components/Logout";
@@ -107,9 +106,7 @@ function Inner() {
     <Routes>
       <Route path="/" element={<Main />}></Route>
       <Route path="/info" element={<Info />}></Route>
-      <Route path="/info2" element={<Info_Test />}></Route>
       <Route path="/infodetail/:desertionNo" element={<InfoDetail />}></Route>
-      
       <Route path="/introduce" element={<Introduce />}></Route>
       <Route path="/review_page" element={<Review_Page />}></Route>
       <Route path="/store/:id" element={<StorePage />}></Route>
