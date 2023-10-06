@@ -15,30 +15,42 @@ function Intro() {
               <div className="text-center">
                 <p className='text-[#162C58] dark:text-[#ebf4f1] text-[17px] lg:text-[20px] md:text-[18px]  tracking-[-2px] animate__animated animate__backInRight animate__delay-1s	1s'>애정 어린 소리로 유기동물을 지칭하는 이름으로, 보호와 관심을 나타냅니다.</p>
               </div>
-              <div className='flex flex-col'>
-              <div className="max-md:flex max-md:flex-col max-md:justify-start justify-center items-center md:px-5">
-                  <div className="mt-[50px]">
-                    <span className="font-bold text-[20px]  text-[#162C58] dark:text-[#ebf4f1] tracking-[-3px]">푸리푸리</span>
+              <div className=''>
+              <div className=" ">
+                  {/* <div className="mt-[50px] md:text-left sm:text-left md:w-auto md:items-center sm:items-end  sm:px-5 items-center">
+                    <span className="font-bold text-[20px] text-[#162C58] dark:text-[#ebf4f1] tracking-[-3px]">푸리푸리</span>
                     <span className='text-[20px] text-[#162C58] dark:text-[#ebf4f1]'>는</span>
                     <p className='text-[20px] text-[#162C58] dark:text-[#ebf4f1] tracking-[-1px]'>사지 않고 입양하는 문화를 만듭니다.</p>
-                  </div>
+                  </div> */}
 
-                  <div className="mt-[50px] w-1/2">
+                  {/* <div className="mt-[50px] md:text-left sm:text-left md:w-auto md:items-start sm:items-end  sm:px-5 items-center ">
                     <p className='text-[#162C58] dark:text-[#ebf4f1] text-[20px] tracking-[-1px]'>잊혀져가는 유기동물들을 세상에 알리고</p>
                     <p className='text-[#162C58] dark:text-[#ebf4f1] text-[20px] tracking-[-1px]'>소중한 가족을 찾아주는 플랫폼입니다.</p>
+                  </div> */}
                   </div>
+                  <div className="flex items-center w-auto md:flex-col md:px-5 sm:flex-col sm:text-center">
+                      <div className="w-1/2 sm:w-auto">
+                          <div className="mt-[60px]  text-[#162C58] dark:text-[#ebf4f1]">
+                            <span className=" text-[20px] font-bold tracking-[-3px]">푸리푸리</span>
+                            <span className='tracking-[-3px] text-[20px]'>는</span>
+                            <p className='text-[20px] tracking-[-1px]'>사지 않고 입양하는 문화를 만듭니다.</p>
+                          </div>
+                          <div className="mt-[60px]  text-[#162C58] dark:text-[#ebf4f1]  md:text-right">
+                            <p className='text-[#162C58] dark:text-[#ebf4f1] text-[20px] tracking-[-1px]'>잊혀져가는 유기동물들을 세상에 알리고</p>
+                            <p className='text-[#162C58] dark:text-[#ebf4f1] text-[20px] tracking-[-1px]'>소중한 가족을 찾아주는 플랫폼입니다.</p>
+                          </div>
+                      </div>
                   </div>
 
-                  <div className="flex max-md:justify-end  items-center max-md:flex-col justify-center  md:px-5">
-                      <div className="w-1/2">
-                          <div className="mt-[60px] text-right max-md:text-left text-[#162C58] dark:text-[#ebf4f1]">
-                            <span className=" text-[20px] 
-                            font-bold tracking-[-3px] ">푸리푸리</span>
+                  <div className="flex items-center md:flex-col md:px-5 sm:flex-col  ">
+                      <div className="w-1/2 sm:w-auto">
+                          <div className="mt-[60px] text-right md:text-left sm:text-center  sm:w-auto text-[#162C58] dark:text-[#ebf4f1]">
+                            <span className=" text-[20px] font-bold tracking-[-3px] ">푸리푸리</span>
                             <span className='tracking-[-3px] text-[20px]'>는</span>
                             <p className='text-[20px] tracking-[-1px]'>버려진 동물들의 새로운 시작을 도와줄 뿐만 아니라</p>
                             <p className='text-[20px] tracking-[-1px]'>더 나은 세상을 위해 함께 노력하는 공동체의 일원입니다.</p>
                           </div>
-                          <div className="mt-[60px] text-right text-[#162C58] dark:text-[#ebf4f1]  max-md:text-left">
+                          <div className="mt-[60px] text-right text-[#162C58] dark:text-[#ebf4f1]  max-md:text-left sm:text-center">
                             <span className="font-bold text-[20px] tracking-[-1px] ">함께해주세요.</span>
                             <p className='text-[20px] tracking-[-1px] '>당신의 포옹이, </p>
                             <p className='text-[20px] tracking-[-1px] '>그 작은 생명에게 큰 희망을 가져다줄 것입니다.</p>

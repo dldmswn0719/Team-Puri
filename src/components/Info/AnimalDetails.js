@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import ScrollUpDown from './ScrollUpDown'
 import TellButton from './TellButton'
 import { faLocationDot, faPaw } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -72,15 +71,15 @@ function AnimalDetails() {
         <>
             <div className="max-w-full dark:bg-[#272929]">
                 <div className=" max-w-[1200px] py-10 mx-auto ">
-                    <div className="flex justify-center">
-                        <div className="w-full flex items-center justify-center flex-col mt-3 max-sm:px-4 ">
+                    <div className="flex justify-center ">
+                        <div className="w-full flex items-center justify-center flex-col mt-3">
                             <div className=''>
-                            <img className='w-[300px] h-[300px] md:w-[500px] md:h-[500px]  sm:w-[400px] sm:h-[400px]' src={popfile} alt="img" />
+                            <img className='w-[500px] h-[500px] md:w-[400px] md:h-[400px] sm:w-[300px] sm:h-[300px]  ' src={popfile} alt="img" />
                             </div>
-                            <div className="w-[300px] md:w-[500px]  sm:w-[400px]  dark:text-[#ebf4f1]">
+                            <div className="w-[500px]  md:w-[400px]  sm:w-[300px]  dark:text-[#ebf4f1]">
                                 <div className="">
                                     <p className='text-xl font-bold mt-10 mb-2'><FontAwesomeIcon icon={faPaw} /> 상세 정보</p>
-                                    <div className='border-b-2 border-[#DAC0A3] dark:border-[#dadbdb]'></div>
+                                    <div className='border-b-2 border-[#86bcd5] dark:border-[#dadbdb]'></div>
                                     <div className="dark:text-[#ebf4f1]">
                                         <p className='mt-1 text-[#999] dark:text-[#ebf4f1]'>품종 : <span className='text-black dark:text-[#ebf4f1]'>{kindCd}</span> </p>
                                         <p className='mt-1 text-[#999] dark:text-[#ebf4f1]'>성별 : <span className='text-black dark:text-[#ebf4f1]'>{sexCd === 'M' ? "남" : sexCd === 'F' ? "여" : "미상"}</span></p>
@@ -93,7 +92,7 @@ function AnimalDetails() {
                                 </div>
                                 <div>
                                     <p className='text-xl font-bold mt-10 mb-2'><FontAwesomeIcon icon={faPaw} />  구조 정보</p>
-                                    <div className='border-b-2 border-[#DAC0A3] dark:border-[#dadbdb]'></div>
+                                    <div className='border-b-2 border-[#86bcd5] dark:border-[#dadbdb]'></div>
                                     <div className="mt-3">
                                         <p className='mt-1 text-[#999] dark:text-[#ebf4f1]'>공고번호 : <span className='text-black dark:text-[#ebf4f1]'>{noticeNo}</span></p>
                                         <p className='mt-1 text-[#999] dark:text-[#ebf4f1]'>발견장소 : <span className='text-black dark:text-[#ebf4f1]'>{happenPlace}</span></p>
@@ -108,7 +107,7 @@ function AnimalDetails() {
                                     </div>
                                 </div>
                             </div>
-                            <div id='map' className='w-[300px] h-[300px] md:w-[500px] md:h-[500px] sm:w-[400px] sm:h-[400px] mt-5'></div>
+                            <div id='map' className='w-[500px] h-[500px] md:w-[400px] md:h-[400px] sm:w-[300px] sm:h-[300px]  mt-5'></div>
                         </div>
                     </div>
                 </div>

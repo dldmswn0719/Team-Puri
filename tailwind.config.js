@@ -6,6 +6,7 @@ module.exports = {
     screens : {
       'fold' : {'max' : '350px'},
       'sm': {'min': '351px', 'max': '767px'},
+
       'md': {'min': '768px', 'max': '1023px'},
       'lg': {'min': '1024px'}
     },
@@ -13,4 +14,3 @@ module.exports = {
   },
   plugins: [],
 } 
-

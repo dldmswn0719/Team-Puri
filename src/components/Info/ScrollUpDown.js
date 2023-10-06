@@ -46,8 +46,8 @@ function ScrollUpDown() {
 
   return (
     <>
-        <div className='fixed rounded-full cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] leading-10 text-center  block py-1 px-1.5 lg:mx-3 border-1 border-[#DAC0A3] dark:border-1 dark:border-[#dadbdb]  text-black bg-[#dac0a3] dark:bg-[#404343] dark:text-[#ebf4f1] right-2 bottom-[100px] md:right-2 md:bottom-[30px]  
-        sm:right-2 sm:bottom-[40px]
+        <div className='fixed rounded-full cursor-pointer min-w-[50px] min-h-[50px] sm:w-[40px] sm:h-[40px] leading-10 text-center  block py-1 px-1.5 lg:mx-3 border-1 border-[#86bcd5] dark:border-1 dark:border-[#dadbdb]  text-black bg-[#86bcd5] dark:bg-[#404343] dark:text-[#ebf4f1] right-2 bottom-[100px] md:right-2 md:bottom-[30px]  
+        sm:right-2 sm:bottom-[100px]
         z-10' onScroll={ScrollUpDown} onClick={click}>
         {
             position<=100 ? <FontAwesomeIcon icon={faArrowDown}/> : <FontAwesomeIcon icon={faArrowUp}/>
