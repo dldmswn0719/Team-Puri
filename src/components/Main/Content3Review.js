@@ -42,10 +42,10 @@ function Content3Review() {
                 spaceBetween={0}
                 slidesPerView={1}
                 loop={true}
-                autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                }}
+                // autoplay={{
+                //     delay: 3000,
+                //     disableOnInteraction: false,
+                // }}
                 pagination={{clickable: true}}
                 modules={[Autoplay, Pagination]}
                 className='md:w-[768px] lg:w-[1200px] m-auto mb-20'
@@ -62,7 +62,7 @@ function Content3Review() {
                                 <li>
                                     <ul className='lg:mt-16 mt-5 lg:leading-10 leading-7 text-gray-400'>
                                         <li><p>{messages.cont31}<span className={`text-black lg:text-lg lg:ml-[119px] ml-[90px] ${language === `en` ? `ml-20 lg:ml-[136px]` : ``}`}>{messages.cont312[0]}</span></p></li>
-                                        <li><p>{messages.cont32}<span className={`text-black lg:text-lg lg:ml-[86px] ml-14 ${language === `en` ? `ml-10` : ``}`}>{messages.cont313[0]}</span></p></li>
+                                        <li><p>{messages.cont32}<span className={`text-black lg:text-lg lg:ml-[86px] ml-14 ${language === `en` ? `lg:ml-[84px] ml-[38px]` : ``}`}>{messages.cont313[0]}</span></p></li>
                                         <li><p>{messages.cont33}<span className={`text-black lg:text-lg lg:ml-28 ml-20 ${language === `en` ? `ml-[108px] lg:ml-[151px]` : ``}`}>{messages.cont314[0]}</span></p></li>
                                         <li><p>{messages.cont34}<span className={`text-black lg:text-lg lg:ml-32 ml-24 ${language === `en` ? `ml-[84px]` : ``}`}>3.3kg</span></p></li>
                                         <li><p>{messages.cont35}<span className={`text-black lg:text-lg lg:ml-[142px] ml-28 ${language === `en` ? `ml-[98px]` : ``}`}>{messages.cont315[0]}</span></p></li>
@@ -101,7 +101,7 @@ function Content3Review() {
                                 <li>
                                     <ul className='lg:mt-16 mt-5 lg:leading-10 leading-7 text-gray-400'>
                                         <li><p>{messages.cont31}<span className={`text-black lg:text-lg lg:ml-[119px] ml-[90px] ${language === `en` ? `ml-20 lg:ml-[136px]` : ``}`}>{messages.cont312[1]}</span></p></li>
-                                        <li><p>{messages.cont32}<span className={`text-black lg:text-lg lg:ml-[86px] ml-14 ${language === `en` ? `ml-10` : ``}`}>{messages.cont313[1]}</span></p></li>
+                                        <li><p>{messages.cont32}<span className={`text-black lg:text-lg lg:ml-[86px] ml-14 ${language === `en` ? `lg:ml-[84px] ml-[38px]` : ``}`}>{messages.cont313[1]}</span></p></li>
                                         <li><p>{messages.cont33}<span className={`text-black lg:text-lg lg:ml-28 ml-20 ${language === `en` ? `ml-[108px] lg:ml-[151px]` : ``}`}>{messages.cont314[1]}</span></p></li>
                                         <li><p>{messages.cont34}<span className={`text-black lg:text-lg lg:ml-32 ml-24 ${language === `en` ? `ml-[84px]` : ``}`}>7.8kg</span></p></li>
                                         <li><p>{messages.cont35}<span className={`text-black lg:text-lg lg:ml-[142px] ml-28 ${language === `en` ? `ml-[98px]` : ``}`}>{messages.cont315[1]}</span></p></li>
@@ -140,7 +140,7 @@ function Content3Review() {
                                 <li>
                                     <ul className='lg:mt-16 mt-5 lg:leading-10 leading-7 text-gray-400'>
                                         <li><p>{messages.cont31}<span className={`text-black lg:text-lg lg:ml-[119px] ml-[90px] ${language === `en` ? `ml-20 lg:ml-[136px]` : ``}`}>{messages.cont312[2]}</span></p></li>
-                                        <li><p>{messages.cont32}<span className={`text-black lg:text-lg lg:ml-[86px] ml-14 ${language === `en` ? `ml-10` : ``}`}>{messages.cont313[2]}</span></p></li>
+                                        <li><p>{messages.cont32}<span className={`text-black lg:text-lg lg:ml-[86px] ml-14 ${language === `en` ? `lg:ml-[84px] ml-[38px]` : ``}`}>{messages.cont313[2]}</span></p></li>
                                         <li><p>{messages.cont33}<span className={`text-black lg:text-lg lg:ml-28 ml-20 ${language === `en` ? `ml-[108px] lg:ml-[151px]` : ``}`}>{messages.cont314[2]}</span></p></li>
                                         <li><p>{messages.cont34}<span className={`text-black lg:text-lg lg:ml-32 ml-24 ${language === `en` ? `ml-[84px]` : ``}`}>11.5kg</span></p></li>
                                         <li><p>{messages.cont35}<span className={`text-black lg:text-lg lg:ml-[142px] ml-28 ${language === `en` ? `ml-[98px]` : ``}`}>{messages.cont315[2]}</span></p></li>
@@ -179,7 +179,7 @@ function Content3Review() {
                                 <li>
                                     <ul className='lg:mt-16 mt-5 lg:leading-10 leading-7 text-gray-400'>
                                         <li><p>{messages.cont31}<span className={`text-black lg:text-lg lg:ml-[119px] ml-[90px] ${language === `en` ? `ml-20 lg:ml-[136px]` : ``}`}>{messages.cont312[3]}</span></p></li>
-                                        <li><p>{messages.cont32}<span className={`text-black lg:text-lg lg:ml-[86px] ml-14 ${language === `en` ? `ml-10` : ``}`}>{messages.cont313[3]}</span></p></li>
+                                        <li><p>{messages.cont32}<span className={`text-black lg:text-lg lg:ml-[86px] ml-14 ${language === `en` ? `lg:ml-[84px] ml-[38px]` : ``}`}>{messages.cont313[3]}</span></p></li>
                                         <li><p>{messages.cont33}<span className={`text-black lg:text-lg lg:ml-28 ml-20 ${language === `en` ? `ml-[108px] lg:ml-[151px]` : ``}`}>{messages.cont314[3]}</span></p></li>
                                         <li><p>{messages.cont34}<span className={`text-black lg:text-lg lg:ml-32 ml-24 ${language === `en` ? `ml-[84px]` : ``}`}>5.1kg</span></p></li>
                                         <li><p>{messages.cont35}<span className={`text-black lg:text-lg lg:ml-[142px] ml-28 ${language === `en` ? `ml-[98px]` : ``}`}>{messages.cont315[3]}</span></p></li>
