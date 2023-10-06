@@ -182,11 +182,11 @@ function Reviews() {
                   </div>
                 </div>
                 <div className="relative lg:w-1/2 md:w-1/2 
-                overflow-y-auto  h-4/5">
+                  h-4/5">
 
-                <div className=" h-full w-full lg:pr-10 md:pr-10   
+                <div className=" h-full overflow-y-auto w-full lg:pr-10 md:pr-10   
                
-                  md:overflow-hidden">
+                  ">
                   <div className=" mt-[30px] mb-[10px] flex sm:hidden">
                     <div className="">
                       <p className='text-[14px] font-bold'>PURI_PURI</p>
@@ -197,7 +197,7 @@ function Reviews() {
                     <p>{review2[one].story}</p>
                   </div>
                 </div>
-                  <div className="absolute lg:bottom-[25px] md:bottom-[25px] w-full border-t-2 pt-[10px]  sm:left-1/2 sm:-translate-x-1/2   md: right-[37px] lg:right-[37px]">
+                  <div className="w-full border-t-2 pt-[10px]">
                     <div className="flex justify-between mb-[10px]">
                       <ul className="flex">
                         <li><FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px]' /></li>
