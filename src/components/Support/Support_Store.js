@@ -8,9 +8,6 @@ import { faStore } from '@fortawesome/free-solid-svg-icons';
 
 
 function Support_Store() {
-    // const NumChk = (e)=>{
-    //     return e.target.value = e.target.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    // }
     const language = useSelector(state => state.language);
     const messages = language === 'en' ? enMessages : krMessages;
 
@@ -32,19 +29,19 @@ function Support_Store() {
             </div>
             <div className="w-full dark:bg-[#272929] overflow-hidden">
                 <div className="lg:w-9/12 pb-[70px] my-0 mx-auto md:w-5/6 w-11/12 fold:w-10/12">
-                    <div className="text-center pt-[30px] lg:text-3xl font-bold md:text-3xl text-[25px] dark:text-[#ebf4f1]">
+                    <div className="text-center pt-[100px] lg:text-3xl font-bold md:text-3xl text-[25px] dark:text-[#ebf4f1]">
                         <FontAwesomeIcon className='text-[#86bcd5]' icon={faStore} />
                         <p className='pt-1'>{messages.supstoretitle}</p>
                      </div>
-                    <div className="flex text-center justify-center items-center lg:w-11/12 h-[75px] bg-[#86bcd5] text-white mt-[30px] mb-[50px] mx-auto  md:w-full w-full lg:h-[70px] md:h-[75px] dark:bg-[#404343]">
+                    <div className="flex text-center justify-center items-center h-[75px] bg-[#86bcd5] text-white mt-[30px] lg:mb-[50px] md:mb-[50px] mb-[30px] mx-auto  md:w-full w-full lg:h-[70px] md:h-[75px] dark:bg-[#404343]">
                         <p className="lg:text-[23px] md:text-xl text-[16px] dark:text-[#ebf4f1]">{messages.supstoresubtitle}</p>
                     </div>
                     <div className="w-full">
-                        <div className="w-full flex flex-wrap justify-between gap-y-[20px]">
+                        <div className="w-full flex flex-wrap justify-between gap-y-[15px]">
                             <div className="lg:w-[24%] w-[49%] md:w-[32%] fold:w-full">
                                 <NavLink to='/store/2'>
                                     <img src="./../../Images/Support/store1.jpg" alt="1" className="w-full fold:h-[200px]" />
-                                    <div className="w-full py-[30px] bg-[#86bcd5] text-white text-[16px] dark:bg-[#404343] pl-4 sm:py-3 fold:py-3">
+                                    <div className="w-full py-[30px] bg-[#86bcd5] text-white text-[16px] dark:bg-[#404343] lg:pl-[6%] md:pl-[6%] pl-[5%] sm:py-3 fold:py-3">
                                         <p className="lg:text-[17px] text-[15px] md:text-[16px] font-[500] dark:text-[#ebf4f1]">{messages.supstore1}</p>
                                         <span className='lg:text-xl md:text-[19px] text-[17px] font-bold dark:text-[#ebf4f1]'>15,000</span>
                                         <span className='lg:text-[17px] md:text-[16px] text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
@@ -54,7 +51,7 @@ function Support_Store() {
                             <div className="lg:w-[24%] w-[49%] md:w-[32%] fold:w-full">
                                 <NavLink to='/store/3'>
                                     <img src="./../../Images/Support/store9.jpg" alt="1" className="w-full fold:h-[200px]" />
-                                    <div className="w-full py-[30px] bg-[#86bcd5] text-white text-[16px] pl-4 dark:bg-[#404343] sm:py-3 fold:py-3">
+                                    <div className="w-full py-[30px] bg-[#86bcd5] text-white text-[16px] lg:pl-[6%] md:pl-[6%] pl-[5%] dark:bg-[#404343] sm:py-3 fold:py-3">
                                         <p className="lg:text-[17px] text-[15px] md:text-[16px] font-[500] dark:text-[#ebf4f1]">{messages.supstore2}</p>
                                         <span className='lg:text-xl md:text-[19px] text-[17px] font-bold dark:text-[#ebf4f1]'>10,000</span>
                                         <span className='lg:text-[17px] md:text-[16px] text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
@@ -64,7 +61,7 @@ function Support_Store() {
                             <div className="lg:w-[24%] w-[49%] md:w-[32%] fold:w-full">
                                 <NavLink to='/store/4'>
                                     <img src="./../../Images/Support/store3.jpg" alt="1" className="w-full fold:h-[200px]" />
-                                    <div className="w-full py-[30px] bg-[#86bcd5] text-white text-[16px] pl-4 dark:bg-[#404343] sm:py-3 fold:py-3">
+                                    <div className="w-full py-[30px] bg-[#86bcd5] text-white text-[16px] lg:pl-[6%] md:pl-[6%] pl-[5%] dark:bg-[#404343] sm:py-3 fold:py-3">
                                         <p className="lg:text-[17px] text-[15px] md:text-[16px] font-[500] dark:text-[#ebf4f1]">{messages.supstore3}</p>
                                         <span className='lg:text-xl md:text-[19px] text-[17px] font-bold dark:text-[#ebf4f1]'>7,000</span>
                                         <span className='lg:text-[17px] md:text-[16px] text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
@@ -74,7 +71,7 @@ function Support_Store() {
                             <div className="lg:w-[24%] w-[49%] md:w-[32%] fold:w-full">
                                 <NavLink to='/store/1'>
                                     <img src="./../../Images/Support/store4.jpg" alt="1" className="w-full fold:h-[200px]" />
-                                    <div className="w-full py-[30px]  bg-[#86bcd5] text-white text-[16px] pl-4 dark:bg-[#404343] sm:py-3 fold:py-3">
+                                    <div className="w-full py-[30px]  bg-[#86bcd5] text-white text-[16px] lg:pl-[6%] md:pl-[6%] pl-[5%] dark:bg-[#404343] sm:py-3 fold:py-3">
                                         <p className="lg:text-[17px] text-[15px] md:text-[16px] font-[500] dark:text-[#ebf4f1]">{messages.supstore4}</p>
                                         <span className='lg:text-xl md:text-[19px] text-[17px] font-bold dark:text-[#ebf4f1]'>18,000</span>
                                         <span className='lg:text-[17px] md:text-[16px] text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
@@ -84,7 +81,7 @@ function Support_Store() {
                             <div className="lg:w-[24%] w-[49%] md:w-[32%] fold:w-full">
                                 <NavLink to='/store/5'>
                                     <img src="./../../Images/Support/store5.jpg" alt="1" className="w-full fold:h-[200px]" />
-                                    <div className="w-full py-[30px]  bg-[#86bcd5] text-white text-[16px] pl-4 dark:bg-[#404343] sm:py-3 fold:py-3">
+                                    <div className="w-full py-[30px]  bg-[#86bcd5] text-white text-[16px] lg:pl-[6%] md:pl-[6%] pl-[5%] dark:bg-[#404343] sm:py-3 fold:py-3">
                                         <p className="lg:text-[17px] text-[15px] md:text-[16px] font-[500] dark:text-[#ebf4f1]">{messages.supstore5}</p>
                                         <span className='lg:text-xl md:text-[19px] text-[17px] font-bold dark:text-[#ebf4f1]'>9,000</span>
                                         <span className='lg:text-[17px] md:text-[16px] text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
@@ -94,7 +91,7 @@ function Support_Store() {
                             <div className="lg:w-[24%] w-[49%] md:w-[32%] fold:w-full">
                                 <NavLink to='/store/7'>
                                     <img src="./../../Images/Support/store6.jpg" alt="1" className="w-full fold:h-[200px]" />
-                                    <div className="w-full py-[30px] bg-[#86bcd5] text-white text-[16px] pl-4 dark:bg-[#404343] sm:py-3 fold:py-3">
+                                    <div className="w-full py-[30px] bg-[#86bcd5] text-white text-[16px] lg:pl-[6%] md:pl-[6%] pl-[5%] dark:bg-[#404343] sm:py-3 fold:py-3">
                                         <p className="lg:text-[17px] text-[15px] md:text-[16px] font-[500] dark:text-[#ebf4f1]">{messages.supstore6}</p>
                                         <span className='lg:text-xl md:text-[19px] text-[17px] font-bold dark:text-[#ebf4f1]'>5,000</span>
                                         <span className='lg:text-[17px] md:text-[16px] text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
@@ -104,7 +101,7 @@ function Support_Store() {
                             <div className="lg:w-[24%] w-[49%] md:w-[32%] fold:w-full">
                                 <NavLink to='/store/6'>
                                     <img src="./../../Images/Support/store7.jpg" alt="1" className="w-full fold:h-[200px]" />
-                                    <div className="w-full py-[30px] bg-[#86bcd5] text-white text-[16px] pl-4 dark:bg-[#404343] sm:py-3 fold:py-3">
+                                    <div className="w-full py-[30px] bg-[#86bcd5] text-white text-[16px] lg:pl-[6%] md:pl-[6%] pl-[5%] dark:bg-[#404343] sm:py-3 fold:py-3">
                                         <p className="lg:text-[17px] text-[15px] md:text-[16px] font-[500] dark:text-[#ebf4f1]">{messages.supstore7}</p>
                                         <span className='lg:text-xl md:text-[19px] text-[17px] font-bold dark:text-[#ebf4f1]'>15,000</span>
                                         <span className='lg:text-[17px] md:text-[16px] text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
@@ -114,7 +111,7 @@ function Support_Store() {
                             <div className="lg:w-[24%] w-[49%] md:w-[32%] fold:w-full">
                                 <NavLink to='/store/8'>
                                     <img src="./../../Images/Support/store8.jpg" alt="1" className="w-full fold:h-[200px]" />
-                                    <div className="w-full py-[30px]  bg-[#86bcd5] text-white text-[16px] pl-4 dark:bg-[#404343] sm:py-3 fold:py-3">
+                                    <div className="w-full py-[30px]  bg-[#86bcd5] text-white text-[16px] lg:pl-[6%] md:pl-[6%] pl-[5%] dark:bg-[#404343] sm:py-3 fold:py-3">
                                         <p className="lg:text-[17px] text-[15px] md:text-[16px] font-[500] dark:text-[#ebf4f1]">{messages.supstore8}</p>
                                         <span className='lg:text-xl md:text-[19px] text-[17px] font-bold dark:text-[#ebf4f1]'>35,000</span>
                                         <span className='lg:text-[17px] md:text-[16px] text-[15px] dark:text-[#ebf4f1]'>{messages.won}</span>
