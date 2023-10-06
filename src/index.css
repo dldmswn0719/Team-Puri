@@ -123,16 +123,16 @@ html.fixed{width: 100%; height: 100%; overflow: hidden;}
         z-index: 9;
     } /* Content3Review의 오른쪽 구름 */
     .content3bg {
-        background: url("../public/Images/Main/bg--.png");
+        background: url("../public/Images/Main/skybluepc.png");
     } /* Content3Review의 배경 */
     .content3bgdark {
         background: url("../public/Images/Main/tttt.png");
     } /* Content3Review darkmode의 배경 */
 }
-@media screen and (min-width: 768px) { /* tablet 버전일 때 */
+@media screen and (min-width: 768px) and (max-width: 1023px) { /* tablet 버전일 때 */
     .content3bg {
         
-        background: url("../public/Images/Main/bg-tablet.png");
+        background: url("../public/Images/Main/skybluetablet.png");
         background-size: cover;
     }
     .swiper-button-next:after, .swiper-button-prev:after {
@@ -152,9 +152,9 @@ html.fixed{width: 100%; height: 100%; overflow: hidden;}
         --swiper-pagination-bullet-border-radius: 10px;
     }
 }
-@media screen and (min-width: 480px) { /* mobile 버전일 때 */
+@media screen and (min-width: 480px) and (max-width: 767px) { /* mobile 버전일 때 */
     .content3bg {
-        background: url("../public/Images/Main/bg-mobile.png");
+        background: url("../public/Images/Main/skybluemobile.png");
         background-size: cover;
     }
     .swiper-button-next:after, .swiper-button-prev:after {

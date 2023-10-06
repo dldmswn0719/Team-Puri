@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {useNavigate, useParams} from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { setPrice } from '../../store';
 import data1 from './../../data/product.json'
 import enMessages from './../../locales/en.json';
 import krMessages from './../../locales/kr.json';
-import { setPrice } from '../../store';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleUp, faTruck } from '@fortawesome/free-solid-svg-icons';
 
 
 function ProductInfo() {
@@ -119,9 +118,9 @@ function ProductInfo() {
 
   const language = useSelector(state => state.language);
   const messages = language === 'en' ? enMessages : krMessages;
-
   const navigate = useNavigate();
   const userState = useSelector(state => state.user.loggedIn);
+
   const handlecheckout = () =>{
     if(userState){
       navigate('/checkout');
@@ -142,19 +141,24 @@ function ProductInfo() {
       <div className="w-full dark:bg-[#272929] pb-[15px]">
         <div className="max-w-7xl mx-auto">
           <div className="h-auto flex overflow-hidden pt-3 flex-wrap justify-between md:pt-0">
-            <div className='basis-full md:basis-1/2 lg:basis-1/2 py-2 px-4 md:py-4 lg:py-6'>
+            <div className='basis-full md:basis-1/2 lg:basis-1/2 px-4 md:py-4 lg:py-6'>
               <img src={data.imageUrl} alt={data.name} className='mx-auto' />
             </div>
-            <div className='basis-full md:basis-[50%] lg:basis-[50%]'>
-              <p className="md:p-4 p-5 text-xl font-medium bg-white  dark:bg-[#272929]  dark:text-[#ebf4f1]">{messages[`product_${params.id}`].name}</p>
-              <p className="max-w-auto mx-5 text-xl font-medium bg-[#86bcd5] text-white dark:text-[#ebf4f1] dark:bg-[#404343]">{messages[`product_${params.id}`].hash}</p>
-              <p className="p-5 text-4xl font-medium text-[#102C57] dark:text-[#ebf4f1]">{(data.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{messages.won}</p>
-              <p className="px-5 py-3 text-xl font-medium dark:text-[#ebf4f1]">{messages.delivery}</p>
-              <p className="px-5 py-3 text-xl font-medium dark:text-[#ebf4f1]">{messages.delivery_price}</p>
+            <div className='p-5 basis-full md:basis-[50%] lg:basis-[50%]'>
+              <p className="lg:text-xl font-medium  text-[#73b1ce] dark:text-[#ebf4f1]">{messages[`product_${params.id}`].hash}</p>
+              <p className="pt-3 lg:pb-3 text-xl font-medium  lg:text-[27px] bg-white  dark:bg-[#272929]  dark:text-[#ebf4f1]">{messages[`product_${params.id}`].name}</p>
+              <p className="py-3  text-3xl lg:text-4xl font-medium  dark:text-[#ebf4f1]">{(data.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{messages.won}</p>
+              <p className="lg:pt-3 lg:text-xl text-[18px] font-medium dark:text-[#ebf4f1]">
+                <FontAwesomeIcon icon={faTruck} className='pr-1 text-[#112731]'/>
+                {messages.delivery}
+              </p>
+              <p className="py-2 lg:py-3 lg:text-xl text-[17px] font-medium dark:text-[#ebf4f1]">
+                {messages.delivery_price}
+              </p>
               {
                 data.option.length > 0 &&
                 data.option[0].name !== '' &&
-                <div className="px-5 py-2 text-xl font-medium">
+                <div className="py-2 text-xl font-medium">
                   <button onClick={() => { setVisible(!visible) }} className='p-1 relative border text-[17px] text-left cursor-pointer w-full '>
                     <p className='dark:text-[#ebf4f1] pl-1'>{messages[`product_${params.id}`].option_title}</p>
                     <FontAwesomeIcon icon={faAngleUp} className={`w-6 h-6 absolute right-3 bottom-2 dark:text-[#ebf4f1] ${visible === false ? 'rotate-180' : ''}`} />
@@ -181,13 +185,12 @@ function ProductInfo() {
                   if (data.option.length > 0 && data.option[i].count > 0) {
                     return (
                       <>
-                      <div className='px-5'>
-                        <div className="border-b relative py-5 text-[17px] font-medium" key={i}>
+                        <div className="border-b relative py-5 lg:text-[18px] font-medium" key={i}>
                           <div className='dark:text-[#ebf4f1]'>{messages[`product_${params.id}`].option[i].name}</div>
                           <div className={`text-xl flex ${params.id === "1" || params.id === "2" || params.id === "6" ? 'my-[3%]' : 'mt-[10px]'}`}>
                             <div className="flex border dark:border-none">
                               <button onClick={() => { handleDecrease(i) }} className='border bg-white dark:bg-[#404343] px-[10px] dark:text-[#f1f2f4]'>–</button>
-                              <div className='border px-[30px] py-1 bg-white dark:bg-[#404343] dark:text-[#f1f2f4]'>{data.option[i].count}</div>
+                              <div className='border px-6 lg:px-[30px] py-1 bg-white dark:bg-[#404343] dark:text-[#f1f2f4]'>{data.option[i].count}</div>
                               <button onClick={() => { handleIncrease(i) }} className='border bg-white dark:bg-[#404343] font-bold px-[10px] dark:text-[#f1f2f4]'>+</button>
                             </div>
                             <div className="flex absolute right-0 dark:text-[#ebf4f1]">
@@ -196,7 +199,6 @@ function ProductInfo() {
                             </div>
                           </div>
                         </div>
-                      </div>
                       </>
                     )
                   }
@@ -206,7 +208,6 @@ function ProductInfo() {
                 isCnt &&
                 !data.option.length &&
                 <>
-                  <div className=' px-5'>
                     <div className="border-y relative py-3 text-xl font-medium">
                       <div className={`text-xl flex ${params.id === "1" || params.id === "2" || params.id === "6" ? 'my-[3%]' : 'mt-[10px]'}`}>
                         <div className="flex my-0 border">
@@ -216,36 +217,24 @@ function ProductInfo() {
                         </div>
                       </div>
                     </div>
-                  </div>
                 </>
               }
-              <div className="flex justify-between">
+              <div className="flex justify-between font-medium">
                 {
                   data.option.length === 0 ?
                     <>
-                      <p className='text-[17px] p-5 font-medium text-[#404040b3] dark:text-[#ebf4f1]'>{messages.totalamountofgoods}({parseInt(totalCnt) + 1}{messages.ea}) </p>
-                      <p className="text-[26px] p-5 font-medium text-[#102C57] dark:text-[#ebf4f1]">{(data.price * Number(parseInt(totalCnt) + 1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{messages.won}</p>
+                      <p className='text-[17px] py-5  text-[#404040b3] dark:text-[#ebf4f1]'>{messages.totalamountofgoods}({parseInt(totalCnt) + 1}{messages.ea}) </p>
+                      <p className="text-[26px] py-5  text-[#102C57] dark:text-[#ebf4f1]">{(data.price * Number(parseInt(totalCnt) + 1)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{messages.won}</p>
                     </>
                     :
                     <>
-                      <p className='text-[17px] p-5 font-medium text-[#404040b3] dark:text-[#ebf4f1]'>{messages.totalamountofgoods}({parseInt(totalCnt)}{messages.ea}) </p>
-                      <p className="text-[26px] p-5 font-medium text-[#102C57] dark:text-[#ebf4f1]">{(data.price * Number(parseInt(totalCnt))).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{messages.won}</p>
+                      <p className='text-[17px] py-5  text-[#404040b3] dark:text-[#ebf4f1]'>{messages.totalamountofgoods}({parseInt(totalCnt)}{messages.ea}) </p>
+                      <p className="text-[26px] py-5  text-[#102C57] dark:text-[#ebf4f1]">{(data.price * Number(parseInt(totalCnt))).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{messages.won}</p>
                     </>
                 }
               </div>
-              <div className="mx-auto p-5">
-                <div onClick={handlecheckout} className="basis-full h-[45px] bg-[#86bcd5] cursor-pointer text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
-                  <p>{messages.buying}</p>
-                </div>
-                {/* <div className="flex sm:flex-wrap md:flex-wrap">
-                  <div className="w-60 h-[45px] bg-[#EADBC8] cursor-pointer mt-5 mr-[15px] text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
-                      <p>장바구니</p>
-                  </div>
-                  <div className="w-60 h-[45px] bg-[#EADBC8] cursor-pointer mt-5 text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
-                      <p className='text-[18px]'>
-                      <FontAwesomeIcon icon={faHeart} /> 찜하기</p>
-                  </div>
-                </div> */}
+              <div onClick={handlecheckout} className="bg-[#86bcd5] cursor-pointer text-[21px] text-center text-white leading-[45px] dark:text-[#ebf4f1] dark:bg-[#404343]">
+                <p>{messages.buying}</p>
               </div>
             </div>
           </div>

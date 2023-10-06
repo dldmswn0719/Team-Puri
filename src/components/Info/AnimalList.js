@@ -3,6 +3,9 @@ import { faAnglesLeft, faAnglesRight, faMars, faVenus } from '@fortawesome/free-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 import Loading from './Loading'
+import { useSelector } from 'react-redux'
+import enMessages from './../../locales/en.json';
+import krMessages from './../../locales/kr.json';
 
 
 
@@ -17,7 +20,8 @@ function AnimalList() {
     const [animalCode, setAnimalCode] = useState("");
     const [selectedAnimal, setSelectedAnimal] = useState("");
     const [data, setData] = useState([]);
-
+    const language = useSelector(state => state.language);
+    const messages = language === 'en' ? enMessages : krMessages;
 
 
     const selectedData = (data) => {
@@ -163,17 +167,17 @@ function AnimalList() {
                     <div className="min-w-full max-h-full max-md:border-none sm:border-none fold:border-none border-b-4 border-[#86bcd5] dark:border-[#dadbdb] py-5 px-4 md:px-9 sm:px-11 ">
                         <div className="max-w-full h-full flex sm:flex-col fold:flex-col justify-between text-left">
                             <div className="w-full pb-2">
-                                <p className='font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5'>지역</p>
+                                <p className='font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5 '>{messages.animal1}</p>
                                 <select onChange={selectedData} className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929] dark:text-[#ebf4f1]
                                 cityData'>
-                                    <option value="">모든 지역</option>
+                                    <option value="">{messages.animal2}</option>
                                     {city.map((el, index) => <option key={index} value={el.orgCd}>{el.orgdownNm}</option>)}
                                 </select>
                             </div>
                             {/* 동물 축종 */}
                             <div className="w-full pb-2">
                                 <p className='
-                                font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5'>축종</p>
+                                font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5'>{messages.animal3}</p>
                                 <select className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929]  dark:text-[#ebf4f1] kindData' onChange={selectedData}>
                                     {kind.map((el, index) => <option key={index} value={index}>{el}</option>)}
                                 </select>
@@ -181,9 +185,9 @@ function AnimalList() {
                             {/* 동물 품종 */}
                             <div className="w-full pb-2">
                                 <p className='
-                                font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5'>품종</p>
+                                font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5'>{messages.animal5}</p>
                                 <select className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929]  dark:text-[#ebf4f1] animalData' onChange={selectedData}>
-                                    {kindCode !== "3" && <option value="">모든 품종</option>}
+                                    {kindCode !== "3" && <option value="">{messages.animal6}</option>}
                                     {
                                         animal && animal.map((e, i) => {
                                             return (
@@ -199,7 +203,7 @@ function AnimalList() {
                                         setLoading(true);
                                         ResultData();
                                         PageReset();
-                                    }}>검색하기</button>
+                                    }}>{messages.animal7}</button>
                             </div>
                         </div>
                     </div>
