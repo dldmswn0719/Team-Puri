@@ -253,113 +253,113 @@ const enDetaillist = [
         "ID" : 10
     },
     {
-        "Name" : "모카라떼",
-        "story" : "모카라떼 온지 3개월 이나 됐어요!!! 시간이지나서 그런가 모카는 살짝 살이 빠졌지만 아픈 곳 없이 아주 잘 먹고 잘 지내고 있답니다❤️",
+        "Name" : "Mocha Latte",
+        "story" : "It's been 3 months since Mocha Latte came!!! Maybe it's because time has passed, but Mocha has lost a bit of weight, but Mocha is doing very well with no health issues ❤️",
         "ID" : 11
     },
     {
-        "Name" : "나지",
-        "story" : "안기는 심술쟁이  나지예요 몸무게도 1키로에서 1.5키로로 늘어  엄청 활기찬 아이가 됐어요",
+        "Name" : "Na-ji",
+        "story" : " I'm Na-ji, the one who loves to be held. My weight has increased from 1 kilogram to 1.5 kilograms, and I've become a very lively kid.",
         "ID" : 12
     },
     {
-        "Name" : "우미",
-        "story" : "애교쟁이 우미는 이제 우리가족의 귀여움을 담당하는 막내로 잘 살고 있습니다. 하루에 두번씩 산책을 하며 주변 이웃들에게 애교를 부리다 보니 어느덧 아파트의 마스코트가 되었네요^^ 멍멍이유치원에서 친구들과도 잘 놀고 집에서도 한껏 애교를 부리며 행복한 하루하루를 보내고 있습니다!!",
+        "Name" : "Umi",
+        "story" : "Umi, the sweetheart, is now living well as the youngest member of our family. Umi goes for a walk twice a day and charms the neighbors with cuteness, and now Umi has become the mascot of the apartment complex^^ Umi plays well with friends at the dog kindergarten and enjoys a happy day at home, showing plenty of charm!!",
         "ID" : 13
     },
     {
-        "Name" : "누비",
-        "story" : "기존 냥이와 합사는 아직 진행중이지만, 아직 둘 다 하악질을 하거나 하는 등의 스트레스는 없어서 요즘은 남편과 밤마다 합사관련 유튜브를 보면서 공부 중이에요ㅎㅎㅎ",
+        "Name" : "Nubi",
+        "story" : "The process of integrating with the existing cat is still ongoing, but both of them are not stressed out, such as growling or anything like that. These days, I study about integration by watching YouTube videos related to integration every night with my husband. ",
         "ID" : 14
     },
     {
-        "Name" : "블랙키",
-        "story" : "이제는 꽤나 어른스러워진 버터를 보면서 기특하기도 하고 의지도 되고 그럽니다. 회사도 함께 출근하고 함께 퇴근하면서 많은 시간을 함께 할 수 있어서 다행이고 또 행복합니다.",
+        "Name" : "Blacky",
+        "story" : "Now, Butter has grown quite mature, and I feel proud and attached when I look at Butter. I'm fortunate and happy to be able to go to work and come home together with Butter.",
         "ID" : 15
     },
     {
-        "Name" : "쟈니",
-        "story" : "쟈니는 어릴때부터 겁이 많았는데 아직도 그렇습니다.시끄러운 소음이 나거나 낯선 사람이 접근하면 겁을 먹고 경계합니다.후기를 읽어보니 양주 출신 아이들이 대체로 겁이 많은 것 같더군요.",
+        "Name" : "Johnny",
+        "story" : "Johnny has been timid since childhood and still is. When loud noises occur or unfamiliar people approach, Johnny gets scared and remains cautious. After reading the reviews, it seems that Yangju-born dogs tend to be timid in general.",
         "ID" : 16
     },
     {
-        "Name" : "슈슈",
-        "story" : "슈슈 엄마 입니다. 사랑을 줄수 있어서 너무 행복하고 열무를 통해 얻는 행복이 너무 큽니다. 이런 좋은 기회를 얻게되어 감사합니다. 조만간 또 올게요!",
+        "Name" : "ShuShu",
+        "story" : "I'm ShuShu's mom. I'm so happy to be able to give love, and I'm so grateful for the happiness I get through radishes. Thank you for giving me this wonderful opportunity. I'll come back soon!",
         "ID" : 17
     },
     {
-        "Name" : "깡이",
-        "story" : "잘크고 있어요😙 밥달라고 조르긴 하지만 제가 집에 들어오는 시간부터 앉지도 않고 저만 기다리는 꼬마가삐져서 저를 쳐다도 안보고 종일 저렇게 등 돌리고 있더라고요...;;이틀만에 겨우 풀렸습니다;;;;;;; 꼬마 무서워서 늦게 귀가를 못 해요;;;; ",
+        "Name" : "Ggangi",
+        "story" : "Ggangi is doing well 😙 Ggangi sometimes asks for food, but this little one just waits for me without even sitting down and just looks away from me all day... ;; It took two days to finally get used to it. Ggangi is so scared that I can't go home late.;;; ",
         "ID" : 18
     },
     {
-        "Name" : "노노",
-        "story" : "노노 잘 지내고 있어요. 여름에 폭염을 피해 새벽 6시에 산책다니고 친구들과 수영장도 놀러가고 수술한것도 너무 잘 회복되었고 이제 고관절 부분 수술없이 지켜주려고 매주 레이저 치료도 다니고 있어요. ",
+        "Name" : "Nono",
+        "story" : "Nono is doing well. To avoid the summer heat, we go for a walk at 6 AM, go to the swimming pool with friends, and recover well after surgery. Now, we go for laser therapy every week to keep the hip joint healthy without surgery. ",
         "ID" : 19
     },
     {
-        "Name" : "루아",
-        "story" : "루아 건강하게 잘지내고 있습니다.칸이 부모와 누나들도 건강했으면 좋겠습니다.",
+        "Name" : "Lua",
+        "story" : "Lua is doing well. I hope Kan's parents and sisters are also healthy.",
         "ID" : 20
     },
     {
-        "Name" : "토로",
-        "story" : "토로는 많이 밝아졌구 ~~, 😙잘 먹구 ~~,  응가도 잘하구~~~, 물도 잘 먹구~~,잘 지내는것 같아요여전히 응가 후엔 우다다다로 세레머니를 하구요:)",
+        "Name" : "Toro",
+        "story" : "Toro has become much brighter~~, 😙eats well~~, does its business well~~, and drinks water well~~. It seems to be doing well. After doing its business, Toro still does a little ceremony:).",
         "ID" : 21
     },
     {
-        "Name" : "하두",
-        "story" : "다른 형제자매들도 궁금하네요.어디서나 잘 자라기를 바랍니다.또 소식 전하고, 궁금하면 데리고 남양주에 가겠습니다. 수고하세요~",
+        "Name" : "Hadu",
+        "story" : "I'm curious about my other siblings. I hope they grow up well wherever they are. I'll share news and bring them to Namyangju if you're curious. Keep up the good work~",
         "ID" : 22
     },
     {
-        "Name" : "해리",
-        "story" : "처음엔 너무 무서워 산책도 하지 못했었는데 지금은 집 안에서는 너무 활발히 잘 지내요. 😙물론 밖에서는 익숙한 길은 잘 다니지만 익숙하지 않은 길은 무서워 하긴 해요. 요즘은 갓난아기와 지내고 있는데 익숙하지 않은지 아기가 울기만 하면 도망가기 일쑤내요~^^ 자주 후기올릴 수 있도록 하겠습니다.",
+        "Name" : "Harry",
+        "story" : "At first, I was too scared to go for a walk, but now I'm doing well indoors. 😙 Of course, I walk well on familiar streets, but I'm still scared of unfamiliar ones. These days, I'm spending time with a newborn baby, but when the baby cries, I often run away because it's unfamiliar~^^ I'll try to post reviews more often.",
         "ID" : 23
     },
     {
-        "Name" : "사온",
-        "story" : "밥이나 간식 시간 전에는 혼자 계속 으르렁 으름장 놓고 침도 뚝뚝 흘리는데 안쓰럽기도 하고 귀엽기도 합니다 뭔가 종이호랑이느낌이에요",
+        "Name" : "Saon",
+        "story" : "Before meal or snack time, Saon keeps growling and making a fuss on its own and even drools, which is both pitiful and cute. It feels like a paper tiger in some way.",
         "ID" : 24
     },
     {
-        "Name" : "냥미미",
-        "story" : "사람에게 정말 프렌들리하고 눈치도 빠르고 말도 잘 알아듣습니다.😙 앞으로도 건강하고 행복하게 지낼 수 있도록 노력하겠습니다. ",
+        "Name" : "Nyang Mimi",
+        "story" : "Very friendly to people, quick-witted, and understands well. 😙 I will continue to make an effort to keep you healthy and happy.",
         "ID" : 25
     },
     {
-        "Name" : "미미,다리,뉴아,사라",
-        "story" : "처음에는 잘 적응할지 걱정했는데 워낙 무던한 성격이라 처음부터 자기집인 것처럼 지내더니 지금도 잘 지내고 있습니다.",
+        "Name" : "Mimi, Dari, Newa, Sara",
+        "story" : " I was worried if they would adapt well at first, but they were so adaptable that they acted like it was their own home from the beginning, and they are still doing well now.",
         "ID" : 26
     },
     {
-        "Name" : "규미",
-        "story" : "미용도하고 헤이리가서 기념하려구 가족사진도 찍고 왔답니다.전보다 더 졸졸 따라다니고 간식도 잘 받아먹고 대신 맛난것만 먹다보니 그냥 건사료만은 안먹는 부작용속출!!ㅎㅎ 신랑하고도 천천히 친해지는 중이예요.",
+        "Name" : "Gyumi",
+        "story" : " I got a haircut and went to Heyri to celebrate. I took a family photo. I follow you more than before, eat snacks well, but the side effect is that I only eat tasty things and avoid dry food!! 😅 I'm gradually getting closer to my husband.",
         "ID" : 27
     },
     {
-        "Name" : "리리",
-        "story" : "캐나다에서 가족을 만난 퐁이의 사진이 오랜만에 도착했습니다. 벌써 다섯 살이 된 퐁이, 어딘가 굉장히 의젓해 보이지 않나요? 퐁이야, 앞으로도 항상 건강하고 행복하게 지내!",
+        "Name" : "Liri",
+        "story" : "A photo of Pongi, who met his family in Canada, has arrived after a long time. Pongi, who is already five years old, doesn't he look very dignified somewhere? Pongi, I hope you always stay healthy and happy!",
         "ID" : 28
     },
     {
-        "Name" : "슈아",
-        "story" : "공실이가 나온 후에는 5시간을 운전해 집에 왔고요. 하지만 그날은 소중한 날입니다. 공실이를 가족으로 맞았으니까요. 공실이는 도도하기도 한데 게으르기도 해요.😙😙😙 ",
+        "Name" : "Shua",
+        "story" : "After a 5-hour drive following Gongshili's departure, I finally arrived home. However, that day is a precious day. Gongshili became a family member. Gongshili can be a bit arrogant but also lazy. 😙😙😙 ",
         "ID" : 29
     },
     {
-        "Name" : "라라리",
-        "story" : "라라리는 장난감도 많이 선물 받고, 아기처럼 곤히 잠을 자며 평온한 매일매일을 보내고 있습니다 :)",
+        "Name" : "Lalari",
+        "story" : " Lalari has received many toys as gifts, sleeps deeply like a baby, and spends peaceful days every day :).",
         "ID" : 30
     },
     {
-        "Name" : "깨리",
-        "story" : "동물자유연대를 통한 동물 입양은 구조 동물에게 새로운 삶을 안겨줄 뿐만 아니라 위기에 처해있는 또 다른 동물을 구조할 기회를 마련해줍니다. 사지마세요, 입양하세요!🧡",
+        "Name" : "Kkaeri",
+        "story" : "Animal adoption through the Animal Freedom Union not only gives rescue animals a new life but also provides an opportunity to rescue other animals in crisis. Don't buy, adopt! 🧡",
         "ID" : 31
     },
     {
-        "Name" : "토미",
-        "story" : "놀이에 별관심이 없어서...집사는 고민이네요,,,,집사가 제안하는 놀이가 별루인건지 아니면 그냥 놀기 싫은건지...내년에 또 글 올릴께요",
+        "Name" : "Tomi",
+        "story" : " I'm not very interested in playing... My human is worried,,,,, whether the games my human suggests are not fun or if I just don't feel like playing... I'll post again next year.",
         "ID" : 32
     },
     {

@@ -93,7 +93,7 @@ function StoreQna() {
           <div className="pt-[8%] text-xl px-5">
             <div className="flex leading-10 dark:text-[#ebf4f1]">
               <p className="pr-1">{messages.qna}</p>
-              <p className="text-[#86bcd5] dark:text-[#ebf4f1]">(0)</p>
+              <p className="text-[#86bcd5] dark:text-[#ebf4f1]">( {posts.length} )</p>
             </div>
             <p className="dark:text-[#ebf4f1]">{messages.desc23}</p>
             <div className="w-[170px] h-[55px] bg-[#86bcd5] mt-[25px] cursor-pointer dark:bg-[#404343]"onClick={() => setShowEditor(true)}>

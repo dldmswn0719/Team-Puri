@@ -287,80 +287,80 @@ const enMainlist = [
     {
         "rogo" : "./../images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2020/03/31/19/20/dog-4988985_1280.jpg",
-        "Text" : "#기뻐sdfsdfsdfsdfsdfsd요 #푸리푸리",
-        "Review" : "우리 가족에게 새로운 가족 구성원이 더해졌어요!",
-        "region" : "대구광역시",
+        "Text" : "#Happy #PURIPURI",
+        "Review" : "A new family member has been added to our family!",
+        "region" : "Daegu",
         "group" : 1
     },
     {
         "rogo" : "./../images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2016/07/15/15/55/dachshund-1519374_1280.jpg",
-        "Review" : "우리 가족에게 새로운 가족 구성원이 더해졌어요!",
-        "Text" : "#노는게 좋아 #푸리푸리 짱",
-        "region" : "서울광역시",
+        "Review" : "A new family member has been added to our family!",
+        "Text" : "#LovesToPlay #PURIPURI Best",
+        "region" : "Seoul",
         "group" : 1
     },
     {
         "rogo" : "./../images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_1280.jpg",
-        "Text" : "#행복해요 #입양스토리",
-        "region" : "부산광역시",
+        "Text" : "#Happy #AdoptionStory",
+        "region" : "Busan",
         "group" : 1
     },
     {
         "rogo" : "./../images/Review/K_02.png",
         "img" : "https://cdn.pixabay.com/photo/2016/03/28/10/05/kitten-1285341_1280.jpg",
-        "Text" : "#잘살고있어요 #입양후기",
-        "region" : "대전광역시",
+        "Text" : "#LivingWell #AdoptionReview",
+        "region" : "Daejeon",
         "group" : 1
     },
     {
         "rogo" : "./../images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2016/01/05/17/51/maltese-1123016_1280.jpg",
-        "Text" : "#산책하는중 #입양후기",
-        "region" : "인천광역시",
+        "Text" : "#WalkingAround #AdoptionReview",
+        "region" : "Incheon",
         "group" : 1
     },
     {
         "rogo" : "./../images/Review/K_02.png",
         "img" : "https://mblogthumb-phinf.pstatic.net/MjAxODAyMDdfNTUg/MDAxNTE4MDExODU4Mzc1.dMog2XzKBUMpL8tEolaqQ-TK185gKH37PYanHkd7iPQg.xRPyvqRn0Pa4GR-nmPH70Kb7lzDoI5RNgC-LWr5o7DMg.JPEG.knicjin/01-20180207.jpg?type=w800",
-        "Text" : "#행복한 집사생활 #입양사랑",
-        "region" : "서울광역시",
+        "Text" : "#HappyCatLife #AdoptionLove",
+        "region" : "Seoul ",
         "group" : 1
     },
     {
         "rogo" : "./../images/Review/K_02.png",
         "img" : "https://cdn.pixabay.com/photo/2019/10/11/16/56/cat-4542301_1280.jpg",
-        "Text" : "#잘크는중 #입양가족",
-        "region" : "광주광역시",
+        "Text" : "#SleepingWell #AdoptedFamily",
+        "region" : "Gwangju ",
         "group" : 1
     },
     {
         "rogo" : "./../images/Review/K_02.png",
         "img" : "https://cdn.pixabay.com/photo/2017/01/20/21/22/kitten-asleep-in-a-pot-1995961_1280.jpg",
-        "Text" : "#집에가는게 좋은이유 #입양후기",
-        "region" : "울산광역시",
+        "Text" : "#ReasonsToGoHome #AdoptionReview",
+        "region" : "Ulsan ",
         "group" : 1
     },
     {
         "rogo" : "./../images/Review/K_02.png",
         "img" : "https://cdn.pixabay.com/photo/2017/04/30/18/33/kittens-2273598_1280.jpg",
-        "Text" : "#짱 #푸리푸리 #입양스토리",
-        "region" : "대구광역시",
+        "Text" : "#Awesome #FurryFurry #AdoptionStory",
+        "region" : "Daegu ",
         "group" : 2
     },
     {
         "rogo" : "./../images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_1280.jpg",
-        "Text" : "#새로운 가족",
-        "region" : "대전광역시",
+        "Text" : "#NewFamily",
+        "region" : "Daejeon ",
         "group" : 2
     },
     {
         "rogo" : "./../images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2019/03/27/15/24/animal-4085255_1280.jpg",
-        "Text" : "#행복ㅎㅎ #동물사랑",
-        "region" : "부산광역시",
+        "Text" : "#Happy :) #AnimalLove",
+        "region" : "Busan ",
         "group" : 2
     },
     {

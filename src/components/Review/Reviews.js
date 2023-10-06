@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {Mainlist,enMainlist} from './../../data/Mainlist';
-
+import enMessages from './../../locales/en.json';
+import krMessages from './../../locales/kr.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faXmark } from '@fortawesome/free-solid-svg-icons';
 import {Detaillist,enDetaillist} from './../../data/Detaillist';
@@ -42,6 +43,7 @@ function Reviews() {
       setReview2(Detaillist);
       setReview(Mainlist);
     }
+    //아직 메인리스트 다국어 적용 x
 
   },[language])
 
@@ -66,6 +68,7 @@ function Reviews() {
     setLikes(newLikes);
   }
 
+  const messages = language === 'en' ? enMessages : krMessages;
   return (
     <>
 
@@ -134,11 +137,11 @@ function Reviews() {
                       <div className="flex my-[10px]">
                         <div className="sto" ></div>
                         <FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[15px] h-[15px] ml-5 mt-[3px] ' />
-                        <p className='text-[12px] ml-[10px] mt-[1px] dark:text-[#ebf4f1]' >PURI_PURI 님 외 <span className='font-bold cursor-pointer' 
+                        <p className='text-[12px] ml-[10px] mt-[1px] dark:text-[#ebf4f1]' >PURI_PURI {messages.reviewlike1} <span className='font-bold cursor-pointer' 
                         onClick={() => { document.querySelector("html").classList.add("fixed")
                         setModalOpen1(true);
                         setOne(i); 
-                      }}>여러 명</span>이 좋아합니다 </p>
+                      }}>{messages.reviewlike2}</span>{messages.reviewlike3} </p>
                       </div>
                       <div className="text-[13px] ml-[20px]">
                         <p className='font-bold dark:text-[#ebf4f1]'>PURI_PURI</p>
@@ -218,7 +221,7 @@ function Reviews() {
                     <div>
                       <ul className="flex items-center">
                         <li className='mr-[7px]'><img className='w-5 h-5' src="./../Images/Review/human.svg" alt="사람" /></li>
-                        <li className='flex items-center'><span className='text-[12px]'>PURI_PURI님 외 여러 명이 좋아합니다 </span></li>
+                        <li className='flex items-center'><span className='text-[12px]'>PURI_PURI {messages.reviewlike} </span></li>
                       </ul>
                     </div>
                   </div>
@@ -273,7 +276,7 @@ function Reviews() {
                     <div>
                       <ul className="flex items-center">
                         <li className='mr-[7px]'><img className='w-5 h-5' src="./../Images/Review/human.svg" alt="사람" /></li>
-                        <li className='flex items-center'><span className='text-[12px]'>PURI_PURI님 외 여러 명이 좋아합니다 </span></li>
+                        <li className='flex items-center'><span className='text-[12px]'>PURI_PURI {messages.reviewlike} </span></li>
                       </ul>
                     </div>
                   </div>
