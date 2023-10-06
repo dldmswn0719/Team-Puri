@@ -61,7 +61,7 @@ function Content4Grid() {
                 }
                 {
                     arr.map((e, index) => {
-                        console.log(e, index);
+                        // console.log(e, index);
                         
                     })
                 }
