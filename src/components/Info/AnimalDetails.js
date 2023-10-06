@@ -23,8 +23,6 @@ function AnimalDetails() {
         var callback = async function (result, status) {
             if (status === kakao.maps.services.Status.OK) {
                 let data = await result;
-
-                console.log(data[0])
                 if (data[0].x !== 126.570667) {
                     setMapX(data[0].x)
                 }

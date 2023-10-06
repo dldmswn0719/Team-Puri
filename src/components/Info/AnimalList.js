@@ -164,7 +164,7 @@ function AnimalList() {
             }
             <div className='max-w-full min-h-screen overflow-hidden bg-white dark:bg-[#272929]'>
                 <div className="max-w-[1200px] h-full mx-auto">
-                    <div className="min-w-full max-h-full max-md:border-none sm:border-none fold:border-none border-b-4 border-[#86bcd5] dark:border-[#dadbdb] py-5 px-4 md:px-9 sm:px-11 ">
+                    <div className="min-w-full max-h-full max-md:border-none sm:border-none fold:border-none border-b-4 border-[#86bcd5] dark:border-[#dadbdb] py-5 md:px-9 sm:px-11 ">
                         <div className="max-w-full h-full flex sm:flex-col fold:flex-col justify-between text-left">
                             <div className="w-full pb-2">
                                 <p className='font-bold text-[#999] dark:text-[#ebf4f1] max-md:mt-5 '>{messages.animal1}</p>
@@ -207,7 +207,7 @@ function AnimalList() {
                             </div>
                         </div>
                     </div>
-                    <div className="max-w-full max-h-full flex text-[15px] gap-x-3 gap-y-4 lg:px-4 flex-wrap justify-start md:justify-between md:px-9 sm:justify-center fold:sm fold:px-3  pt-8">
+                    <div className="max-w-full max-h-full flex text-[15px] gap-x-3 gap-y-3  flex-wrap justify-start md:justify-between md:px-9 sm:justify-center fold:sm fold:px-3  pt-4 md:pt-9">
                         {
                             data === undefined ? <div className='w-full h-full flex items-center justify-center'><p className='text-[32px] fold:text-2xl text-[#999] font-bold dark:text-[#ebf4f1]'>검색 결과가 없습니다.</p></div> :
                                 data && data.map((e, i) => {
