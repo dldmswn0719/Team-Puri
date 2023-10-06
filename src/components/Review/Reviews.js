@@ -168,36 +168,35 @@ function Reviews() {
 
               <div className="lg:flex md:flex  w-full lg:h-full md:h-full h-48  relative">
                 <div style={{ backgroundImage: `url(${Mainlist[one].img})`, backgroundSize: "cover", backgroundPosition: "center", flexBasis: "55%", height: "100%", margin: 0 }} className='rounded-tl-[20px] rounded-l-[20px]'></div>
-                <div className="flex">
-                  <div className="w-10 h-10 overflow-hidden ml-[10px] mt-[30px] mr-[10px]">
-                    {
-                      <img src={review[one].rogo} alt="로고" />
-                    }
-                  </div>
-                  <div className=" mt-[30px] mb-[10px] flex lg:hidden md:hidden">
-                    <div className="">
-                      <p className='text-[14px] font-bold'>PURI_PURI</p>
-                      <p className='text-[13px]'>{review2[one].Name}</p>
-                    </div>
-                  </div>
-                </div>
                 <div className="relative lg:w-1/2 md:w-1/2 
                   h-4/5">
 
-                <div className=" h-full overflow-y-auto w-full lg:pr-10 md:pr-10   
                
-                  ">
-                  <div className=" mt-[30px] mb-[10px] flex sm:hidden">
-                    <div className="">
-                      <p className='text-[14px] font-bold'>PURI_PURI</p>
-                      <p className='text-[13px]'>{review2[one].Name}</p>
+                  <div className="mt-[30px] mb-[10px] lg:pl-8">
+                    <div className="flex items-center fixed">
+                      <div className="w-10 h-10 overflow-hidden mx-[10px]">
+                        {
+                          <img src={review[one].rogo} alt="로고" />
+                        }
+                      </div>
+                      
+                      <div>
+                        <p className='text-[14px] font-bold'>PURI_PURI</p>
+                        <p className='text-[13px]'>{review2[one].Name}</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="">
+
+                  <div className="lg:pt-10  md:pt-10 sm:pt-12">
+                  <div className="h-72 overflow-y-auto w-full 
+                  md:px-10 lg:px-10 
+                  md:h-[310px] lg:h-80 sm:h-[230px]">
                     <p>{review2[one].story}</p>
                   </div>
+                  
                 </div>
-                  <div className="w-full border-t-2 pt-[10px]">
+                  <div className="w-full border-t-2 pt-[10px] 
+                  lg:px-10 md:px-10 ">
                     <div className="flex justify-between mb-[10px]">
                       <ul className="flex">
                         <li><FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px]' /></li>
