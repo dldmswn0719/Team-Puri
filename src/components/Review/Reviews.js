@@ -24,8 +24,6 @@ function Reviews() {
     AOS.init();
   })
   
-  // const [review , setReview] = useState(Mainlist); 
-  //데이터 가져올떄 사용
   const [currentPage, setCurrentPage] = useState(1);
 
   const [one, setOne] = useState(null);
@@ -43,7 +41,6 @@ function Reviews() {
       setReview2(Detaillist);
       setReview(Mainlist);
     }
-    //아직 메인리스트 다국어 적용 x
 
   },[language])
 
@@ -52,17 +49,9 @@ function Reviews() {
 
   const theme = useSelector(state => state.dark)
 
-  // const toggleLike = (index) =>{
-  //                   const newLikes = [...likes];
-  //                       newLikes[index] = !newLikes[index]
-  //                       setLikes(newLikes);
-  //                   }
-
 
   const toggleLike = (index) =>{
-    // 1. 원래 값을 복사
-    // 2. 복사한 배열의 원하는 인덱스 번호의 값을 변경
-    // 3. 그 값을 원래 값에 붙여 넣기
+
     const newLikes = [...likes];
     newLikes[index] = !newLikes[index]
     setLikes(newLikes);
@@ -179,11 +168,6 @@ function Reviews() {
 
               <div className="lg:flex md:flex  w-full lg:h-full md:h-full h-48  relative">
                 <div style={{ backgroundImage: `url(${Mainlist[one].img})`, backgroundSize: "cover", backgroundPosition: "center", flexBasis: "55%", height: "100%", margin: 0 }} className='rounded-tl-[20px] rounded-l-[20px]'></div>
-                {/* <img src={Mainlist[one].img} className='w-[500px] h-[500px]' alt="review_img"/> */}
-                {/* <div className='basis-[45%]'>
-                <p >{review2[one].Name}</p>
-                <p >{review2[one].story}</p> 
-                </div> */}
                 <div className="flex">
                   <div className="w-10 h-10 overflow-hidden ml-[10px] mt-[30px] mr-[10px]">
                     {
@@ -197,7 +181,12 @@ function Reviews() {
                     </div>
                   </div>
                 </div>
-                <div className="lg:w-1/2 md:w-1/2 w-full lg:pr-10 md:pr-10 relative">
+                <div className="relative lg:w-1/2 md:w-1/2 
+                overflow-y-auto  h-4/5">
+
+                <div className=" h-full w-full lg:pr-10 md:pr-10   
+               
+                  md:overflow-hidden">
                   <div className=" mt-[30px] mb-[10px] flex sm:hidden">
                     <div className="">
                       <p className='text-[14px] font-bold'>PURI_PURI</p>
@@ -207,7 +196,8 @@ function Reviews() {
                   <div className="">
                     <p>{review2[one].story}</p>
                   </div>
-                  <div className="absolute lg:bottom-[25px] md:bottom-[25px] lg:w-[370px] border-t-2 pt-[10px] md:w-[95%] w-11/12 sm:left-1/2 sm:-translate-x-1/2">
+                </div>
+                  <div className="absolute lg:bottom-[25px] md:bottom-[25px] w-full border-t-2 pt-[10px]  sm:left-1/2 sm:-translate-x-1/2   md: right-[37px] lg:right-[37px]">
                     <div className="flex justify-between mb-[10px]">
                       <ul className="flex">
                         <li><FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px]' /></li>
@@ -239,7 +229,6 @@ function Reviews() {
       {
         modalOpen1 &&
         <div>
-          {/* <div className="opacity-60 fixed left-2/4 top-2/4 w-full h-full bg-[#e6e6e6] p-[20%] -translate-x-2/4 -translate-y-2/4 "></div> */}
           <div className="relative">
             <div className="fixed left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 w-[250px] h-[300px] bg-white rounded-[20px] md:w-6/5 ">
 
@@ -288,18 +277,6 @@ function Reviews() {
       }
 
 
-
-
-
-
-
-        {/* <div className='w-100 bg-sky-200 z-10'>
-          <div className='rounded-[20px]   bg-sky-800'>
-            <div className='text-10'>
-              <p className='text-[14px] font-bold'>PURI_PURI{review2[one].Name}</p>
-            </div>
-          </div>
-        </div> */}
 
 
     </>
