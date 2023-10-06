@@ -25,10 +25,7 @@ function Logout() {
         <>
             {
             isModal &&
-                <Modal error="로그아웃 되었습니다." onClose={() => {
-                    setIsModal(false);
-                    navigate('/');
-                }} />
+                <Modal error="로그아웃 되었습니다." onClose={() => {setIsModal(false); navigate('/'); }} />
             }
         </>
     )

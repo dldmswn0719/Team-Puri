@@ -4,6 +4,10 @@ import TellButton from './TellButton'
 import { faLocationDot, faPaw } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 555e6458b7375957d729061beea0f421334be988
 function AnimalDetails() {
     const [mapX, setMapX] = useState(0)
     const [mapY, setMapY] = useState(0)

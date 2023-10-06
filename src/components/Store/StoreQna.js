@@ -71,7 +71,7 @@ function StoreQna() {
                 {messages.desc24}
               </p>
             </div>
-            <div className="max-w-7xl h-[550px] border-t border-[#86bcd5] mt-8 lg:mt-[50px] text-center dark:border-[#dadbdb]">
+            <div className="max-w-7xl h-auto border-t border-[#86bcd5] mt-8 pb-[10%] lg:mt-[50px] text-center dark:border-[#dadbdb]">
             {
             showEditor && 
               <Ckeditor hideEditor={() => setShowEditor(false)} refreshPosts={fetchPosts} resetViewState={() => setViewState(null)}/>

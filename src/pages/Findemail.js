@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { collection, query, where, getDocs, getFirestore, Firestore } from 'firebase/firestore';
-import { firebaseAuth, sendPasswordResetEmail } from '../firebase';
-import Nav from './../components/Nav'
 import { useSelector } from 'react-redux';
+import Nav from './../components/Nav'
+import { firebaseAuth, sendPasswordResetEmail } from '../firebase';
+import { collection, query, where, getDocs, getFirestore } from 'firebase/firestore';
 
 function Findemail() {
     
@@ -79,12 +79,10 @@ function Findemail() {
         sendPasswordResetEmail(firebaseAuth,resultEmail)
         .then(function(){
             setMessage(`${resultEmail.replace(/(.{3}).+(@.+)/,"$1*****$2")}로 메일을 발송하였습니다.`);
-            // setModalOpen(!isModalOpen);
             return;
         })
         .catch(error=>{
             setMessage(error);
-            // setModalOpen(!isModalOpen);
             return;
         })
       }

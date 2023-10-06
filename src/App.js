@@ -1,17 +1,20 @@
 import React, { useEffect } from 'react';
 import { Route, Routes } from "react-router-dom";
+import { Provider, useDispatch, useSelector } from "react-redux";
+import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
 import Main from "./pages/Main";
 import Info from "./pages/Info";
 import StorePage from "./pages/StorePage";
 import Support from "./pages/Support";
-import Qa_Input from "./pages/Qa_Input";
-import Review_Input from "./pages/Review_Input";
 import InfoDetail from "./pages/InfoDetail";
 import Introduce from "./pages/Introduce";
 import SupportPay from "./pages/SupportPay";
 import PayComplete from "./pages/PayComplete";
 import Review_Page from "./pages/Review_Page";
+<<<<<<< HEAD
+=======
 import Mypage from "./pages/Mypage";
+>>>>>>> 555e6458b7375957d729061beea0f421334be988
 import Login from "./pages/Login";
 import Logout from "./components/Logout";
 import Member from "./pages/Member";
@@ -20,9 +23,7 @@ import Notpage from "./pages/Notpage";
 import { CheckoutPage } from "./pages/CheckoutPage";
 import { SuccessPage } from "./pages/SuccessPage";
 import { FailPage } from "./pages/FailPage";
-import { Provider, useDispatch, useSelector } from "react-redux";
 import store, { logIn, loggedIn, toggleTheme } from "./store";
-import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
 
 
 function App() {
@@ -39,7 +40,6 @@ function Inner() {
 
   const dispatch = useDispatch();
   const uid = sessionStorage.getItem("users");
-  // console.log(uid);
 
   useEffect(() => {
     if (uid) {
@@ -50,15 +50,12 @@ function Inner() {
         if (!uid) return;
 
         const userDoc = doc(collection(getFirestore(), "users"), uid);
-        // console.log(userDoc);
 
         try {
             const docSnapshot = await getDoc(userDoc);
-            // console.log(docSnapshot);
 
             if (docSnapshot.exists()) {
                 const userData = docSnapshot.data();
-                // console.log(userData);
                 dispatch(loggedIn(userData));
             }
         } catch(error) {
@@ -106,16 +103,17 @@ function Inner() {
     <Routes>
       <Route path="/" element={<Main />}></Route>
       <Route path="/info" element={<Info />}></Route>
+<<<<<<< HEAD
+      <Route path="/infodetail/:desertionNo" element={<InfoDetail />}></Route>   
+=======
       <Route path="/infodetail/:desertionNo" element={<InfoDetail />}></Route>
+>>>>>>> 555e6458b7375957d729061beea0f421334be988
       <Route path="/introduce" element={<Introduce />}></Route>
       <Route path="/review_page" element={<Review_Page />}></Route>
       <Route path="/store/:id" element={<StorePage />}></Route>
       <Route path="/support" element={<Support />}></Route>
       <Route path="/supportpay" element={<SupportPay />}></Route>
       <Route path="/paycomplete" element={<PayComplete />}></Route>
-      <Route path="/review_input" element={<Review_Input />}></Route>
-      <Route path="/qa_input" element={<Qa_Input />}></Route>
-      <Route path="/mypage" element={<Mypage />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/logout" element={<Logout />}></Route>
       <Route path="/member" element={<Member />}></Route>

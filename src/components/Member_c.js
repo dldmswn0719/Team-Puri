@@ -25,7 +25,6 @@ function Member_c() {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [error, setError] = useState("");
     const [eye, setEye] = useState([0, 0]);
-    const [isModal, setIsModal] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const initialMode = window.location.pathname.includes("member");

@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCommentDots } from '@fortawesome/free-regular-svg-icons';
 import enMessages from './../../locales/en.json';
@@ -22,9 +21,7 @@ function StoreReview() {
                         </div>
                         <p className='dark:text-[#ebf4f1]'>{messages.desc20}</p>
                         <div className="w-[170px] h-[55px] bg-[#86bcd5] mt-[25px] cursor-pointer dark:bg-[#404343]">
-                            <NavLink to='/review_input'>
-                                <p className="text-white leading-[55px] text-center">{messages.desc21}</p>
-                            </NavLink>
+                            <p className="text-white leading-[55px] text-center">{messages.desc21}</p>
                         </div>
                         <div className="max-w-7xl h-[550px] border-t border-[#86bcd5] mt-8 lg:mt-[50px] text-center dark:border-[#dadbdb]">
                             <FontAwesomeIcon icon={faCommentDots} className='mt-[230px] mx-auto dark:text-[#ebf4f1]' color='#86bcd5' size='2x'/>
