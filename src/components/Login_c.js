@@ -113,7 +113,7 @@ function Login_c() {
                                 <p className='pt-4 text-red-500 text-sm text-left'>{error}</p>
                             </li>
                             <li>
-                                <button className='w-full h-[50px] bg-[#162c58] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] mb-[15px] dark:bg-[#272929]' onClick={LoginForm}>{messages.login3}</button>
+                                <button className='w-full h-[50px] bg-[#60a7c8] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] mb-[15px] dark:bg-[#272929]' onClick={LoginForm}>{messages.login3}</button>
                             </li>
                         </form>
                     </ul>

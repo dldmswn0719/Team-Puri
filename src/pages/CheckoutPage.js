@@ -11,7 +11,8 @@ export function CheckoutPage() {
     const paymentWidgetRef = useRef(null);
     const paymentMethodsWidgetRef = useRef(null);
     const price = useSelector(state => state.price);
-    const deliveryFee = 3000; // 배송비 상수 선언
+
+    const deliveryFee = price >= 50000 ? 0 : 3000; // 상품 금액이 5만원 이상일 경우 무료배송
 
     useEffect(() => {
         (async () => {
@@ -27,45 +28,50 @@ export function CheckoutPage() {
     }, []);
 
     useEffect(() => {
+        const deliveryFeeUpdated= price >= 50000 ? 0 : 3000; // 상품 금액이 업데이트될 때마다 무료배송 조건 체크
         const paymentMethodsWidget = paymentMethodsWidgetRef.current;
 
         if (paymentMethodsWidget == null) {
             return;
         }
 
-         // 결제 위젯을 업데이트할 때도 총 금액에 배송비를 포함
-         const totalAmountWithDeliveryFeeUpdated= price + deliveryFee;
+        const totalAmountWithDeliveryFeeUpdated= price + deliveryFee;
 
-         paymentMethodsWidget.updateAmount(totalAmountWithDeliveryFeeUpdated, paymentMethodsWidget.UPDATE_REASON.COUPON);
+        if (paymentMethodsWidgetRef.current) {
+        paymentMethodsWidgetRef.current.updateAmount(totalAmountWithDeliveryFeeUpdated, 
+        paymentMethodsWidgetRef.current.UPDATE_REASON.COUPON);
+        }
+
     }, [price]);
 
 
     return (
-        <div className="w-full bg-white dark:bg-[#272929] h-[100vh] ">
+        <div className="w-full bg-white dark:bg-[#272929] h-[100vh]  ">
             <div className="max-w-7xl mx-auto px-5 py-10">
                 <div className='text-center border bg-white p-5 dark:bg-[#404343]'>
                     <h1 className=" text-3xl font-bold py-3">주문서</h1>
-                    <span className="text-xl"> 상품금액 : {`${price.toLocaleString()}원`} + </span>
-                    <span className="text-xl"> 배송비 : {`${deliveryFee.toLocaleString()}원`} = </span>
-                    <span className="text-xl"> 결제금액 : {`${(price + deliveryFee).toLocaleString()}원`}</span>
+                    <span className="lg:text-xl"> 상품금액 : {`${price.toLocaleString()}원`} + </span>
+                    <span className="lg:text-xl"> 배송비 : {`${deliveryFee.toLocaleString()}원`}</span>
+                    <br />
+                    <span className="lg:text-xl"> 결제금액 : {`${(price + deliveryFee).toLocaleString()}원`}</span>
                     <div id="payment-widget"/>
-                    <button className="w-full py-3 bg-[#162c58] text-white" onClick={async () => {
-                        const paymentWidget = paymentWidgetRef.current;
+                        <button className="w-full py-3 bg-[#86bcd5] text-white" onClick={async () => {
+                            const paymentWidget = paymentWidgetRef.current;
 
-                        try {
-                            await paymentWidget?.requestPayment({
-                                orderId: nanoid(),
-                                orderName: "토스 티셔츠 외 2건",
-                                customerName: "김토스",
-                                customerEmail: "customer123@gmail.com",
-                                successUrl: `${window.location.origin}/success`,
-                                failUrl: `${window.location.origin}/fail`
-                            });
-                        } catch (error) {
-                            // handle error
-                        }
-                    }}>결제하기
-                    </button>
+                            try {
+                                await paymentWidget?.requestPayment({
+                                    orderId: nanoid(),
+                                    orderName: "믹스패밀리 페이스 그립톡 외 2건",
+                                    customerName: "푸리",
+                                    customerEmail: "puripuri1010@gmail.com",
+                                    successUrl: `${window.location.origin}/success`,
+                                    failUrl: `${window.location.origin}/fail`
+                                });
+                            } catch (error) {
+                                // handle error
+                            }
+                        }}>결제하기
+                        </button>
                 </div>                
             </div>
         </div>);
