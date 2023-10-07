@@ -16,23 +16,23 @@ function Content1Swiper() {
     
     const slogan = [
         {
-            "desc1" : "새로운 시작을 위한 작은 발자국",
-            "desc2" : "그 순간, 우리의 이야기가 시작됩니다.",
+            "desc1" : `${messages.slogan11}`,
+            "desc2" : `${messages.slogan12}`,
             "img" : "./../../Images/Main/slide1"
         },
         {
-            "desc1" : "하나의 입양,",
-            "desc2" : "두 마음을 채워요.",
+            "desc1" : `${messages.slogan21}`,
+            "desc2" : `${messages.slogan22}`,
             "img" : "./../../Images/Main/slide2"
         },
         {
-            "desc1" : "작은 변화,",
-            "desc2" : "큰 영향.",
+            "desc1" : `${messages.slogan31}`,
+            "desc2" : `${messages.slogan32}`,
             "img" : "./../../Images/Main/slide3"
         },
         {
-            "desc1" : "우리의 선택이",
-            "desc2" : "동물의 운명을 바꿉니다.",
+            "desc1" : `${messages.slogan41}`,
+            "desc2" : `${messages.slogan42}`,
             "img" : "./../../Images/Main/slide4"
         }
     ];
@@ -60,12 +60,8 @@ function Content1Swiper() {
                                     <img src={`${e.img}.png`} alt={`slide${i + 1}`} className='lg:block md:block hidden' />
                                     <img src={`${e.img}-mobile.png`} alt={`slide${i + 1}mobile`} className='lg:hidden md:hidden block' />
                                     <p key={i} className='absolute z-10 text-white left-[50%] translate-x-[-50%] tracking-tight text-center bottom-10 w-full text-2xl
-                                    lg:bottom-[117px] lg:text-6xl
-                                    md:text-4xl'>
-                                        {/* <span className='font-bold'>{messages.cont1swiper1}</span>{messages.cont1swiper2}<br/>{messages.cont1swiper3}<span className='font-bold'>{messages.cont1swiper4}</span>{messages.cont1swiper5} */}
-                                        {e.desc1}<br />
-                                        {e.desc2}
-                                    </p>
+                                    lg:bottom-20 lg:text-6xl
+                                    md:text-4xl font-bold'>{e.desc1}<br /><br />{e.desc2}</p>
                                 </SwiperSlide>
                             </>
                             )

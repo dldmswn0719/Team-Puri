@@ -71,22 +71,22 @@ function Nav() {
                     <div className='basis-[60%] hidden lg:block'>
                         <ul className='flex justify-between'>
                             <li className='basis-full text-center text-[18px] relative
-                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#86bcd5] hover:after:bottom-[-35px] hover:after:left-0
+                            hover:font-bold hover:after:w-full hover:after:h-[7px] hover:after:absolute hover:after:bg-[#86bcd5] hover:after:bottom-[-43px] hover:after:left-0
                             after:w-0 after:duration-500 dark:hover:after:bg-[#fff]'>
                                 <NavLink to="/introduce" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1] ">{messages.introduction}</NavLink>
                             </li>
                             <li className='basis-full text-center text-[18px] relative
-                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#86bcd5] hover:after:bottom-[-35px] hover:after:left-0
+                            hover:font-bold hover:after:w-full hover:after:h-[7px] hover:after:absolute hover:after:bg-[#86bcd5] hover:after:bottom-[-43px] hover:after:left-0
                             after:w-0 after:duration-500 dark:hover:after:bg-[#fff]'>
                                 <NavLink to="/info" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1]">{messages.introducinganimal}</NavLink>
                             </li>
                             <li className='basis-full text-center text-[18px] relative
-                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#86bcd5] hover:after:bottom-[-35px] hover:after:left-0
+                            hover:font-bold hover:after:w-full hover:after:h-[7px] hover:after:absolute hover:after:bg-[#86bcd5] hover:after:bottom-[-43px] hover:after:left-0
                             after:w-0 after:duration-500 dark:hover:after:bg-[#fff]'>
                                 <NavLink to="/review_page" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1]">{messages.adoptionreview}</NavLink>
                             </li>
                             <li className='basis-full text-center text-[18px] relative
-                            hover:font-bold hover:after:w-full hover:after:h-[3px] hover:after:absolute hover:after:bg-[#86bcd5] hover:after:bottom-[-35px] hover:after:left-0
+                            hover:font-bold hover:after:w-full hover:after:h-[7px] hover:after:absolute hover:after:bg-[#86bcd5] hover:after:bottom-[-43px] hover:after:left-0
                             after:w-0 after:duration-500 dark:hover:after:bg-[#fff]'>
                                 <NavLink to="/support" className="text-[#797979] hover:text-[#222] dark:text-[#ebf4f1]">{messages.sponsoredstore}</NavLink>
                             </li>
@@ -195,7 +195,7 @@ function Nav() {
                                 </p>
                             </button>
                         </div>
-                        {/* <img src='./../Images/mobilenav.jpg' alt='img' className='pt-8'/> */}
+                        <img src='./../Images/mobilenav.jpg' alt='img' className='pt-8'/>
                     </div>
                     {/* 모바일 네비 끝 */}
                 </div>

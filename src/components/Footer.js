@@ -13,7 +13,7 @@ function Footer() {
 
     return (
         <div className='bg-[#292929] w-full'>
-            <div className='m-auto py-10 lg:w-[1200px] md:w-[768px]'>
+            <div className='m-auto py-10 lg:max-w-[1200px] md:max-w-[768px]'>
                 <div>
                     <img src="./../../Images/Main/logo_dark_small.png" alt="footerlogo" className='m-auto' />
                 </div>
@@ -37,7 +37,7 @@ function Footer() {
                     {/* <li><NavLink><FontAwesomeIcon icon={faFacebook} color='white' /></NavLink></li> */}
                     <li><NavLink><FontAwesomeIcon icon={faYoutube} color='white' /></NavLink></li>
                 </ul>
-                <ul className='lg:flex lg:justify-between text-white text-sm hidden'>
+                <ul className='lg:flex lg:justify-around text-white text-sm hidden'>
                     <li>{messages.footer8}</li>
                     <li>{messages.footer9}</li>
                     <li>{messages.footer10}</li>

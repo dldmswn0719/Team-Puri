@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 
 function Content4Grid() {
@@ -44,15 +44,29 @@ function Content4Grid() {
             "age" : "2019년생 추정"
         }
     ];
+
+    // useEffect (() => {
+    //     const RandomData = () => {
+    //         const Array = [];
+    //         const Result = AnimalData.filter((e) => e.firstImageUrl !== '');
+    //         for (let i = 0; i < 16; i++){            
+    //             const Random = Math.floor(Math.random() * Result.length);
+    //             Array.push(Result[Random]);
+    //             setData(Array);
+    //         }
+    //     }
+    //     RandomData();
+    // }, []);
+
     return (
-        <div className='md:w-[768px] lg:w-[1200px] m-auto
+        <div className='md:w-[768px] lg:max-w-[1200px] m-auto
         pt-28
         lg:pt-[130px] lg:pb-[147px]'>
-            <ul className='flex flex-wrap lg:justify-start justify-between'>
+            <ul className='flex flex-wrap justify-start lg:justify-between'>
                 {
                     Array(8).fill().map((_, i) => {
                         return (
-                            <li key={i} className={`lg:basis-1/4 md:basis-1/3 basis-1/2 m-auto
+                            <li key={i} className={`lg:basis-1/4 md:basis-1/3 basis-1/2 
                             cursor-pointer duration-300 relative
                             hover:scale-105 hover:after:w-full hover:after:h-full hover:after:bg-black hover:after:bg-opacity-30 hover:after:absolute hover:after:top-0 hover:after:left-0 hover:after:content-["개"] hover:after:text-white hover:after:text-center hover:after:items-center hover:after:text-3xl`}><Link to='/infodetail/444450202101068' /><img src={`./../../Images/Main/list${i + 1}.png`} alt={i + 1} className='w-full'/>
                             </li>
