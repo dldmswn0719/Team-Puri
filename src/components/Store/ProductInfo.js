@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {useNavigate, useParams} from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleUp, faTruck } from '@fortawesome/free-solid-svg-icons';
 import { setPrice } from '../../store';
 import data1 from './../../data/product.json'
 import enMessages from './../../locales/en.json';
 import krMessages from './../../locales/kr.json';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleUp, faTruck } from '@fortawesome/free-solid-svg-icons';
 
 
 function ProductInfo() {
@@ -27,6 +27,7 @@ function ProductInfo() {
     return item.count;
   }
   //옵션있는것 수량감소
+
   const updatedCount = (item) => {
     item.count += 1;
     return item.count;
@@ -50,14 +51,14 @@ function ProductInfo() {
         decreasedCount(data.option[i]);
         setTotalCnt(totalCnt - 1);
       } else if (data.option[i].count === 1) {
-        alert("최소 주문 수량은 1개입니다.")
+        alert(messages.storealert)
         return;
       }
     } catch (error) {
       console.error("handleDecrease 에러" + error)
     }
     if (!data.option.length && totalCnt < 1) {
-      alert("최소 주문 수량은 1개입니다.")
+      alert(messages.storealert)
       return;
     }
     setTotalCnt(totalCnt - 1);
@@ -92,7 +93,7 @@ function ProductInfo() {
     if (!selectTxt.includes(e.name)) {
       return setOptionSelectNum(2)
     } else if (selectTxt.includes(e.name)) {
-      alert("이미 선택한 옵션입니다.")
+      alert(messages.storealert1)
       return
     }
   }
@@ -121,17 +122,25 @@ function ProductInfo() {
   const navigate = useNavigate();
   const userState = useSelector(state => state.user.loggedIn);
 
-  const handlecheckout = () =>{
+  const handlecheckout = () =>{   
 
-    if(totalCnt <= 0) {
-      alert("상품을 선택해주세요.");
-      return;
-    }
+    if(data.option.length === 0){
+      if(totalCnt <= -1){
+        alert(messages.storealert2);
+        return;
+      }
+      // 옵션 없는것 총 상품금액이 1개이상 구매 넘기기
+    }else{
+      if(totalCnt <= 0) {
+        alert(messages.storealert2);
+        return;
+      }
+    } // 옵션 있는것 총 0개면 alert창 , 1개 이상이면 구매 넘기기
 
     if(userState){
       navigate('/checkout');
     }else{
-      alert("로그인이 필요한 서비스입니다.")
+      alert(messages.storealert3)
       navigate('/login')
     }
   }

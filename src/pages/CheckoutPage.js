@@ -3,6 +3,7 @@ import {loadPaymentWidget} from "@tosspayments/payment-widget-sdk";
 import {nanoid} from "nanoid";
 import { useSelector } from "react-redux";
 
+
 const selector = "#payment-widget";
 const clientKey = "test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq";
 const customerKey = "YbX2HuSlsC9uVJW6NMRMj";
