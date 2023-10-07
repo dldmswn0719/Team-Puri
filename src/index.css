@@ -172,4 +172,13 @@ html.fixed{width: 100%; height: 100%; overflow: hidden;}
     background-image: url("../public/Images/Main/bgg.png");
     background-size: cover;
 }
+@media screen and (max-width: 479px) {
+    .content3bg {
+        background: url("../public/Images/Main/skybluemobile.png");
+        background-size: cover;
+    }
+    .swiper-button-next:after, .swiper-button-prev:after, .swiper-pagination-bullet {
+        visibility: hidden;
+    }
+}
 /* 여기까지 Main 이지연 공간 */
