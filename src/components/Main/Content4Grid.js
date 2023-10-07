@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 
 function Content4Grid() {
@@ -44,6 +44,20 @@ function Content4Grid() {
             "age" : "2019년생 추정"
         }
     ];
+
+    // useEffect (() => {
+    //     const RandomData = () => {
+    //         const Array = [];
+    //         const Result = AnimalData.filter((e) => e.firstImageUrl !== '');
+    //         for (let i = 0; i < 16; i++){            
+    //             const Random = Math.floor(Math.random() * Result.length);
+    //             Array.push(Result[Random]);
+    //             setData(Array);
+    //         }
+    //     }
+    //     RandomData();
+    // }, []);
+
     return (
         <div className='md:w-[768px] lg:max-w-[1200px] m-auto
         pt-28

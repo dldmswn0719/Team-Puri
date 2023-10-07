@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import enMessages from './../../locales/en.json';
 import krMessages from './../../locales/kr.json';
@@ -9,14 +9,16 @@ function Content2Info() {
     const language = useSelector(state => state.language);
     const messages = language === 'en' ? enMessages : krMessages;
 
-    return (
+    return (        
         <>
+        
+
         <div className='bg-white dark:bg-[#292929]'>
             <div className='md:w-[768px] lg:max-w-[1200px] m-auto flex items-center pb-10
             flex-col md:flex-row md:justify-between lg:flex-row lg:justify-between
             pt-20 md:pb-20 md:pt-36 lg:py-64 relative'>
                 <div className='text-center tracking-tight lg:mb-0 mb-5 basis-1/2'>
-                    <p className='text-2xl lg:text-[40px] font-bold leading-none dark:text-white'>{messages.cont2info1}<br />{messages.cont2info2}</p>
+                    <p className='text-2xl lg:text-[40px] font-bold leading-none dark:text-white animate__animated animate__fadeInDown animate__delay-2s'>{messages.cont2info1}<br />{messages.cont2info2}</p>
                     <p className='text-lg lg:text-2xl mt-[20px] dark:text-white'>{messages.cont2info3}<br />{messages.cont2info4}<br />{messages.cont2info5}</p>
                 </div>
                 <div className='lg:basis-1/2'>

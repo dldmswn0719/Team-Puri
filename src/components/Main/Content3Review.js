@@ -2,8 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/pagination';
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import { useSelector } from 'react-redux';
 import enMessages from './../../locales/en.json';
 import krMessages from './../../locales/kr.json';
@@ -65,7 +64,10 @@ function Content3Review() {
             lg:pt-48 lg:pb-48 lg:max-w-[1200px]
             md:pb-10 md:max-w-[768px]`} id='review'>
                 <div className=' pb-10'>
-                    <ul className='md:flex md:justify-between lg:flex lg:justify-between text-center md:text-left'>
+                    <ul className='md:flex md:justify-between lg:flex lg:justify-between text-center md:text-left lg:relative'>
+                        <li className='absolute -right-1/3 top-96 z-10 lg:block hidden hover:after:content-["슬라이드해보세요"]'>
+                            <img src="./../../Images/Main/clickclick.gif" alt="click" className='lg:w-1/6 cursor-pointer' />
+                        </li>
                         <li className='dark:text-white'>
                             <p className='tracking-tight lg:text-5xl lg:mb-[43px]
                             md:text-3xl md:mb-7 text-2xl mb-4 mt-32'><span className='font-bold'>{messages.cont3review1}</span>{messages.cont3review2}</p>
@@ -85,12 +87,11 @@ function Content3Review() {
                     spaceBetween={0}
                     slidesPerView={1}
                     loop={true}
-                    // autoplay={{
-                    //     delay: 3000,
-                    //     disableOnInteraction: false,
-                    // }}
-                    pagination={{clickable: true}}
-                    modules={[Autoplay, Pagination]}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
+                    modules={[Autoplay]}
                     className='md:basis-full lg:basis-full m-auto mb-20'
                     >
                         {
