@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import {Link, useLocation } from 'react-router-dom'
 import TellButton from './TellButton'
 import { faLocationDot, faPaw } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {Swiper, SwiperSlide} from 'swiper/react'
+import {Navigation, Autoplay, Pagination} from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import AnimalData from './../../data/AnimalData.json';
 
 
 function AnimalDetails() {
+  
     const [mapX, setMapX] = useState(0)
     const [mapY, setMapY] = useState(0)
     const location = useLocation();
     const detaildata = location.state.e;
     const { popfile, kindCd, sexCd, age, weight, neuterYn, colorCd, specialMark, noticeNo, happenPlace, careNm, careTel, orgNm, officetel, careAddr } = detaildata
 
-
+    console.log(detaildata)
     const { kakao } = window;
-
+    const [data, setData] = useState([])
     useEffect(() => {
-
         var geocoder = new kakao.maps.services.Geocoder(),
             wtmX = 160082.538257218,
             wtmY = -4680.975749087054;
@@ -33,8 +39,6 @@ function AnimalDetails() {
 
             }
         };
-
-
         // WTM 좌표를 WGS84 좌표계의 좌표로 변환한다
         geocoder.transCoord(wtmX, wtmY, callback, {
             input_coord: kakao.maps.services.Coords.WTM,
@@ -61,18 +65,61 @@ function AnimalDetails() {
         });
         marker.setMap(map);
     }, [mapX])
-
+    useEffect(()=>{
+        const RandomData = ()=>{
+          const Array = [];
+          const Result = AnimalData.filter((e) => e.firstImageUrl !== '')
+          for(let i = 0; i < 16; i++){
+            
+            const Random = Math.floor(Math.random() * Result.length);
+            Array.push(Result[Random])
+            setData(Array)
+            // console.log(Array)
+          }
+        }
+        RandomData()
+      }, [])
 
     return (
         <>
+    
             <div className="max-w-full dark:bg-[#272929]">
-                <div className=" max-w-[1200px] py-5 mx-auto ">
+                <div className=" max-w-[1200px] py-5 mx-auto">
                     <div className="flex justify-center ">
                         <div className="w-full flex items-center justify-center flex-col mt-3">
-                            <div className=''>
-                            <img className='w-[500px] h-[500px] md:w-[400px] md:h-[400px] sm:w-[300px] sm:h-[300px] fold:w-[250px] fold:h-[250px]  ' src={popfile} alt="img" />
+                            <div className='flex justify-between items-center md:justify-center'>
+                            <img className='lg:w-[800px] lg:h-[800px] md:w-[400px] md:h-[400px] sm:w-[300px] sm:h-[300px] fold:w-[250px] fold:h-[250px]  ' src={popfile} alt="img"/>
                             </div>
-                            <div className="w-[500px]  md:w-[400px]  sm:w-[300px] fold:w-[250px]  dark:text-[#ebf4f1]">
+                            <div className="w-[800px] mt-10 flex justify-between items-center md:w-[400px] sm:w-[300px] overflow-hidden">
+                            <Swiper
+                                // autoplay = {{
+                                // delay : 2000,
+                                // disableOnInteraction: false
+                                // }}
+                                loop={true}
+                                slidesperview={1}
+                                spaceBetween={2}
+                                navigation= {{clickable: true}}
+                                pagination= {{clickable: true}}
+                          
+                                modules={[Autoplay,Navigation, Pagination]}
+                                >
+                                    {
+                                        data.map((e,i)=>{
+                                            return (
+                                                <>
+                                                 <SwiperSlide className='basis-1/4' key={i} >
+                                                 <Link to={`/infodetail/${e.desertionNo}`} state={{ e: e }}><img className= 'w-[200px] h-[200px]' src={e.image} alt="img"/></Link>  
+                                                 </SwiperSlide>
+                                                </>
+                                            )
+                                        })
+                                    }
+                                
+                                </Swiper>
+                            </div>
+                        
+                            <div className="w-[800px]  md:w-[400px]  sm:w-[300px] fold:w-[250px]  dark:text-[#ebf4f1]">
                                 <div className="">
                                     <p className='text-xl fold:text-lg font-bold mt-10 mb-2'><FontAwesomeIcon icon={faPaw} /> 상세 정보</p>
                                     <div className='border-b-2 border-[#86bcd5] dark:border-[#dadbdb]'></div>
