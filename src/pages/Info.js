@@ -2,6 +2,7 @@ import React from "react";
 import Nav from '../components/Nav'
 import AnimalList from "../components/Info/AnimalList";
 import StoreAside from "../components/Store/StoreAside";
+import QuickMenu from "../components/Info/QuickMenu";
 
 
 function Info() {
@@ -9,7 +10,8 @@ function Info() {
     <>
       <Nav />
       <AnimalList/>
-      <StoreAside />
+      <QuickMenu/>
+      {/* <StoreAside /> */}
     </>
   );
 }

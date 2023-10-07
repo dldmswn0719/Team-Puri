@@ -5,7 +5,6 @@ function TellButton() {
     const location = useLocation();
     const detaildata = location.state.e;
     const {careTel, officetel} = detaildata
-    console.log(`보호센터:${careTel} 담당부서:${officetel}`)
     const careTell = () => {
         window.location.href = `tel:${careTel}`
     }

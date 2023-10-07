@@ -11,13 +11,13 @@ function Intro() {
   return (
     <>
       <div className=" flex justify-center items-center w-full h-full  dark:bg-[#272929] overflow-x-hidden">
-        <div className="w-[1200px] h-full">
+        <div className="w-[1200px] min-h-screen">
           <div className="mt-[50px] ">
-            <p className='text-center text-[28px] lg:text-[48px] md:text-[34px] fold:text-[22px] text-[#162C58] dark:text-[#ebf4f1] animate__animated animate__backInLeft'>{messages.introduce.desc1}
+            <p className='text-center text-[28px] lg:text-[48px] md:text-[34px] fold:text-[22px] text-[#162C58] dark:text-[#ebf4f1] animate__animated animate__backInLeft sm:px-3'>{messages.introduce.desc1}
               <span className='font-bold tracking-[-2px] fold:tracking-[-2px] dark:text-[#ebf4f1'>{messages.introduce.desc2}</span>{messages.introduce.desc3}</p>
           </div>
           <div className="text-center">
-            <p className='text-[#162C58] dark:text-[#ebf4f1] text-[17px] lg:text-[20px] md:text-[18px] fold:text-[16.5px] tracking-[-1px] animate__animated animate__backInRight animate__delay-1s	1s'>{messages.introduce.desc4}</p>
+            <p className='text-[#162C58] dark:text-[#ebf4f1] text-[17px] lg:text-[20px] md:text-[18px] fold:text-[16.5px] tracking-[-1px] animate__animated animate__backInRight animate__delay-1s	1s sm:px-3'>{messages.introduce.desc4}</p>
           </div>
           <div className=''>
             <div className="flex items-center w-auto md:flex-col md:px-5 sm:flex-col sm:text-center fold:flex-col fold:text-center">

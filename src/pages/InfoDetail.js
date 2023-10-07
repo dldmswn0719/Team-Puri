@@ -1,7 +1,9 @@
 import React from 'react'
 import Nav from '../components/Nav'
 import AnimalDetails from '../components/Info/AnimalDetails'
-import StoreAside from '../components/Store/StoreAside'
+// import StoreAside from '../components/Store/StoreAside'
+import QuickMenu from '../components/Info/QuickMenu'
+
 
 
 function InfoDetail() {
@@ -9,7 +11,8 @@ function InfoDetail() {
     <>
         <Nav />
         <AnimalDetails />
-        <StoreAside />
+        {/* <StoreAside /> */}
+        <QuickMenu/>
     </>
   )
 }
