@@ -73,7 +73,7 @@ function StoreQna() {
               <FontAwesomeIcon icon={faPenToSquare} className="pl-2" />
               </p>
             </div>
-            <div className="max-w-7xl h-auto lg:text-[20px]  border-t border-[#86bcd5] mt-8 pb-[15%] lg:mt-[40px] text-center dark:border-[#dadbdb]">
+            <div className="max-w-7xl h-auto lg:text-[20px]  border-t border-[#86bcd5] mt-8 pb-[15%] lg:mt-[40px] text-center dark:border-none   dark:border-[#dadbdb]">
             {
             showEditor && 
               <Ckeditor hideEditor={() => setShowEditor(false)} refreshPosts={fetchPosts} resetViewState={() => setViewState(null)}/>
@@ -89,11 +89,11 @@ function StoreQna() {
                 </>
                 :
                 <div className="max-w-7xl mx-auto text-[14px] lg:text-[18px]">
-                  <ul className="flex py-2 border-b border-[#86bcd5]">
-                    <li className="lg:basis-[15%] basis-[5%]">No</li>
-                    <li className="basis-[80%]">제목</li>
-                    <li className="lg:basis-[20%] md:basis-[15%] basis-[30%]">글쓴이</li>
-                    <li className="lg:basis-[20%] md:basis-[15%] sm:hidden fold:hidden">작성날짜</li>
+                  <ul className="flex py-2  bg-[#86bcd5] dark:text-[#ebf4f1] text-white dark:bg-[#404343]">
+                    <li className="lg:basis-[15%] basis-[5%]">{messages.qnatitle1}</li>
+                    <li className="basis-[80%]">{messages.qnatitle2}</li>
+                    <li className="lg:basis-[20%] md:basis-[15%] basis-[30%]">{messages.qnatitle3}</li>
+                    <li className="lg:basis-[20%] md:basis-[15%] sm:hidden fold:hidden">{messages.qnatitle4}</li>
                   </ul>
                   {posts.map((e, i) => {
                     return (
@@ -119,10 +119,10 @@ function StoreQna() {
                       {
                         viewState === i &&
                         <ul className="flex justify-between border-b border-[#86bcd5] py-10 dark:text-[#ebf4f1] dark:border-[#dadbdb]">
-                            <li className="px-5 lg:w-[32%] md:w-[16%] w-[18%] fold:w-[90%]">
+                            <li className="px-5 lg:w-[70%] md:w-[50%] w-[18%] fold:w-[90%]">
                             {
                               e.isSecret && memberProfile.uid !== e.uid ? (
-                                <p>비밀글입니다.</p>
+                                <p>{messages.secret1}</p>
                               )
                               :
                               (<p dangerouslySetInnerHTML={{__html: e.content}} />)
@@ -131,8 +131,8 @@ function StoreQna() {
                             <li className="lg:w-[23%] md:w-[15%] w-[25%] fold:w-[30%] text-right pr-5">
                               {memberProfile.uid === e.uid && (
                                 <>
-                                  <button onClick={()=>{editPost(e.id)}}><FontAwesomeIcon icon={faPenSquare} /> 수정</button>
-                                  <button onClick={()=>{deletePost(e.id)}}><FontAwesomeIcon icon={faTrash} /> 삭제 </button>
+                                  <button onClick={()=>{editPost(e.id)}}><FontAwesomeIcon icon={faPenSquare} /> {messages.member4}</button>
+                                  <button onClick={()=>{deletePost(e.id)}}><FontAwesomeIcon icon={faTrash} /> {messages.delete} </button>
                                 </>
                                 )}
                             </li>

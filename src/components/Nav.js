@@ -31,7 +31,7 @@ function Nav() {
         <>
             <div className="w-full bg-[#fff] dark:bg-[#292929] px-[2%] sticky top-0 py-3 z-50 md:py-4 lg:pb-6">
                 <div className="max-w-7xl mx-auto hidden lg:block">
-                    <ul className='flex justify-end py-1 pr-2'>
+                    <ul className='flex justify-end py-1'>
                         <FontAwesomeIcon icon={faLock} className='dark:text-[#ebf4f1] mt-1' />
                         <li className='dark:text-[#ebf4f1]'>
                             <NavLink to={userState.data?.email ? "/logout" : "/login"}>
@@ -190,7 +190,7 @@ function Nav() {
                                 <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} className='text-[25px] dark:text-[#ebf4f1] mt-1 w-6 h-6' />
                                 <p className='dark:text-[#ebf4f1] pl-2 pt-1'>
                                     {
-                                        theme === 'light' ? "다크 모드" : "라이트 모드"
+                                        theme === 'light' ? `${messages.mnavdark}` : `${messages.mnavlight}`
                                     }
                                 </p>
                             </button>

@@ -30,7 +30,7 @@ function ProductDesc() {
                             <p className="text-[18px] lg:text-[25px]">{messages[`product_${params.id}`].Sub_title_2}</p>
                             <p className="text-[18px] lg:text-[25px] py-3 text-[#86bcd5]">{messages[`product_${params.id}`].Sub_title_3}</p>
                             <p className="text-[18px] lg:text-[25px]">{messages[`product_${params.id}`].Sub_title_4}</p>
-                            <div className="leading-8">
+                            <div className="leading-8 lg:text-[20px]">
                                 {
                                     [0, 1, 2, 3, 4].map(i => (
                                         <p key={i}>{messages[`product_${params.id}`][`desc${i === 0 ? '' : `_${i}`}`]}</p>

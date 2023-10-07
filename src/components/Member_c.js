@@ -13,10 +13,7 @@ import enMessages from './../locales/en.json';
 import krMessages from './../locales/kr.json';
 
 function Member_c() {
-
-    const language = useSelector(state => state.language);
-    const messages = language === 'en' ? enMessages : krMessages;
-
+    
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -28,6 +25,10 @@ function Member_c() {
     const dispatch = useDispatch();
     const initialMode = window.location.pathname.includes("member");
     const [userUid, setUserUid] = useState("");
+    const [test, setTest] = useState(false);
+
+    const language = useSelector(state => state.language);
+    const messages = language === 'en' ? enMessages : krMessages;
 
     useEffect(() => {
         if (!initialMode) {
@@ -39,6 +40,60 @@ function Member_c() {
         }
         
     }, [initialMode]);
+
+
+    const signUpTest = ()=>{
+        let errorMessage = "";
+
+        if (name.length === 0) {
+            errorMessage = `${messages.member2}`;
+        } else if (!isValidPhone(phoneNumber)) {
+            setError(`${messages.setError[0]}`);
+            return;
+        } else if (!isValidEmail(email)) {
+            setError(`${messages.setError[1]}`);
+            return;
+        } else if (password.length === 0 && initialMode) {
+            errorMessage = `${messages.login2}`;
+        } else if (passwordConfirm.length === 0 && initialMode) {
+            errorMessage = `${messages.member1}`;
+        } else if (password !== passwordConfirm && initialMode) {
+            setError(`${messages.setError[2]}`);
+            return;
+        }
+
+        if (errorMessage) {
+            setError(errorMessage + `${messages.setError[3]}`);
+            return;
+        }
+
+        if (!isEmailChecked && initialMode) { // isEmailChecked 상태 확인
+            setError(`${messages.setError[6]}`);
+            return;
+        }
+    }
+
+    const checkEmailTest = () =>{
+        if (!email) {
+            setEmailCheckMsg(`${messages.setError[7]}`); 
+            return;
+        }
+
+        if (!isValidEmail(email)) { 
+            setEmailCheckMsg(`${messages.setError[8]}`); 
+            return;
+        }
+
+    }
+
+    useEffect(() => {
+        
+        if (test) {
+            signUpTest();
+            checkEmailTest();
+        }
+            
+    }, [language, test]);
 
     useEffect(() => {
         if (!initialMode && userUid) {
@@ -94,38 +149,10 @@ function Member_c() {
 
     const signUp = async (e) => {
         e.preventDefault();
-
-        let errorMessage = "";
-
-        if (name.length === 0) {
-            errorMessage = `${messages.member2}`;
-        } else if (!isValidPhone(phoneNumber)) {
-            setError(`${messages.setError[0]}`);
-            return;
-        } else if (!isValidEmail(email)) {
-            setError(`${messages.setError[1]}`);
-            return;
-        } else if (password.length === 0 && initialMode) {
-            errorMessage = `${messages.login2}`;
-        } else if (passwordConfirm.length === 0 && initialMode) {
-            errorMessage = `${messages.member1}`;
-        } else if (password !== passwordConfirm && initialMode) {
-            setError(`${messages.setError[2]}`);
-            return;
-        }
-
-        if (errorMessage) {
-            setError(errorMessage + `${messages.setError[3]}`);
-            return;
-        }
-
-        
-        if (!isEmailChecked && initialMode) { // isEmailChecked 상태 확인
-            setError("이메일 중복확인을 진행해주세요."); // 또는 해당 언어의 적절한 메시지
-            return;
-        }
+        setTest(true)
         
         const userProfile = { name, phoneNumber, email }
+
         try {
 
             if (initialMode) {
@@ -136,8 +163,7 @@ function Member_c() {
                 dispatch(logIn(user.uid));
 
                 alert(`${messages.alert[0]}`);
-            } else {
-
+            }else{
                     const userRef = doc(getFirestore(), "users", userUid);
                     const docSnap= await getDoc(userRef);
 
@@ -146,7 +172,7 @@ function Member_c() {
             
                         // 만약 데이터가 변경되지 않았다면 
                         if(data.name===userProfile.name&&data.phoneNumber===userProfile.phoneNumber&&data.email===userProfile.email){
-                          alert("변경된 사항이 없습니다.");
+                          alert(`${messages.alert[4]}`);
                           navigate('/modify');
                           return; 
                         }
@@ -171,30 +197,30 @@ function Member_c() {
     const [emailCheckMsg, setEmailCheckMsg] = useState("");
     const [isEmailChecked, setIsEmailChecked] = useState(false) 
     // 중복확인을 누르면 true
+
+    useEffect(() => {
+        // isEmailChecked 상태 값에 따라 적절한 에러 메세지 재설정
+        if (isEmailChecked) {
+            setEmailCheckMsg(`${messages.setError[9]}`);
+        } else if (email) {  // email 값이 있는 경우에만 에러 메세지 설정
+            setEmailCheckMsg(`${messages.setError[10]}`);
+        }
+    }, [language]);
     
     const checkEmail = async () => {
-
-        if (!email) {
-            setEmailCheckMsg("이메일을 입력하세요."); 
-            return;
-        }
-
-        if (!isValidEmail(email)) { 
-            setEmailCheckMsg("유효한 이메일 주소를 입력해주세요."); 
-            return;
-        }
-
+        setTest(true)
+       
         const userRef = collection(getFirestore(), "users");
         const q = query(userRef, where("email", "==", email));
         const querySnapshot = await getDocs(q);
         
         if (querySnapshot.empty) {
-        setEmailCheckMsg("사용 가능한 이메일입니다.");
+        setEmailCheckMsg(`${messages.setError[9]}`);
         setIsEmailChecked(true);
         return true;
 
         } else {
-        setEmailCheckMsg("이미 사용중인 이메일입니다.");
+        setEmailCheckMsg(`${messages.setError[10]}`);
         setIsEmailChecked(false);
         return false;
 
@@ -203,62 +229,60 @@ function Member_c() {
 
     return (
         <>
+            { initialMode ? "" : <Modify /> }
             {
-                initialMode ?
-                    ""
-                    :
-                    <Modify />
-            }
-            {
-                userState.loggedIn && initialMode ? <Modal error={`${messages.alert[2]}`} onClose={() => { navigate('/') }} /> :
-                    <div className='w-full bg-white dark:bg-[#272929] h-[100vh]'>
-                        <div className='w-[400px] py-[30px] text-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white dark:bg-[#404343]'>
-                            <h1 className='pb-[20px] text-[24px] font-bold dark:text-[#ebf4f1]'>{initialMode ? `${messages.login5}` : `${messages.member4}`}</h1>
-                            <ul>
-                                <li>
-                                    {
-                                        initialMode ?
-                                            <div className='relative w-full'>
-                                                <input defaultValue={email} onChange={(e) => { setEmail(e.target.value); setIsEmailChecked(false);}} type="email" placeholder={messages.login1} autoFocus className='email w-[360px] h-[50px] mb-[5px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
-                                                <button className='dark:border-none dark:bg-[#404343] dark:text-[#ebf4f1] absolute right-7 top-2 border px-2 py-1' onClick={checkEmail}>중복확인</button>
-                                            </div>
-                                            :
-                                            <input readOnly defaultValue={email} onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder={messages.login1} autoFocus className='email w-[360px] h-[50px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
-                                    }
-                                    <p className='mb-[10px] text-red-500 dark:text-[#ebf4f1]'>{emailCheckMsg}</p>
-                                </li>
+                userState.loggedIn && initialMode ? <Modal error={`${messages.alert[2]}`} onClose={() => { navigate('/') }} />
+                :
+                <div className='w-full bg-white dark:bg-[#272929] h-[100vh]'>
+                    <div className='w-[400px] py-[30px] text-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white dark:bg-[#404343]'>
+                        <h1 className='pb-[20px] text-[24px] font-bold dark:text-[#ebf4f1]'>
+                            {initialMode ? `${messages.login5}` : `${messages.member4}`}
+                        </h1>
+                        <ul>
+                            <li>
                                 {
-                                    initialMode &&
-                                    <>
-                                        <li>
-                                            <div className='relative w-full'>
-                                                <input onChange={(e) => { setPassword(e.target.value) }} type={eye[0] ? "text" : "password"} placeholder={messages.login2} className='password w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
-                                                <FontAwesomeIcon icon={eye[0] ? faEye : faEyeSlash} onClick={() => { toggleEye(0) }} className='absolute cursor-pointer right-7 top-4 dark:text-[#ebf4f1]' />
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div className='relative w-full'>
-                                                <input onChange={(e) => { setPasswordConfirm(e.target.value) }} type={eye[1] ? "text" : "password"} placeholder={messages.member1} className='confirm_password w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
-                                                <FontAwesomeIcon icon={eye[1] ? faEye : faEyeSlash} onClick={() => { toggleEye(1) }} className='absolute cursor-pointer right-7 top-4 dark:text-[#ebf4f1]' />
-                                            </div>
-                                        </li>
-                                    </>
+                                    initialMode ?
+                                        <div className='relative w-full'>
+                                            <input defaultValue={email} onChange={(e) => { setEmail(e.target.value); setIsEmailChecked(false);}} type="email" placeholder={messages.login1} autoFocus className='email w-[360px] h-[50px] mb-[5px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                            <button className='dark:border-none dark:bg-[#404343] dark:text-[#ebf4f1] absolute right-7 top-2 border px-2 py-1' onClick={checkEmail}>{messages.member5}</button>
+                                        </div>
+                                        :
+                                        <input readOnly defaultValue={email} onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder={messages.login1} autoFocus className='email w-[360px] h-[50px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
                                 }
-                                <li>
-                                    <input defaultValue={name} onChange={(e) => { setName(e.target.value) }} type="text" placeholder={messages.member2} className='name w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
-                                </li>
-                                <li>
-                                    <input defaultValue={phoneNumber} onInput={PhoneNumber} type="text" maxLength={13} placeholder={messages.member3} className='phone w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
-                                </li>
-                                {
-                                    initialMode ? <p className='text-red-500 dark:text-[#ebf4f1]'>{error}</p> : ""
-                                }
-                                <li>
-                                    <button className='w-[360px] h-[60px] bg-[#60a7c8] text-white text-[18px] rounded-[10px] mt-[10px] cursor-pointer dark:bg-[#272929]' onClick={signUp}>{initialMode ? `${messages.login5}` : `${messages.member4}`}</button>
-                                </li>
-                            </ul>
-                        </div>
+                                <p className='mb-[10px] text-red-500 dark:text-[#ebf4f1]'>{emailCheckMsg}</p>
+                            </li>
+                            {
+                                initialMode &&
+                                <>
+                                    <li>
+                                        <div className='relative w-full'>
+                                            <input onChange={(e) => { setPassword(e.target.value) }} type={eye[0] ? "text" : "password"} placeholder={messages.login2} className='password w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                            <FontAwesomeIcon icon={eye[0] ? faEye : faEyeSlash} onClick={() => { toggleEye(0) }} className='absolute cursor-pointer right-7 top-4 dark:text-[#ebf4f1]' />
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div className='relative w-full'>
+                                            <input onChange={(e) => { setPasswordConfirm(e.target.value) }} type={eye[1] ? "text" : "password"} placeholder={messages.member1} className='confirm_password w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                            <FontAwesomeIcon icon={eye[1] ? faEye : faEyeSlash} onClick={() => { toggleEye(1) }} className='absolute cursor-pointer right-7 top-4 dark:text-[#ebf4f1]' />
+                                        </div>
+                                    </li>
+                                </>
+                            }
+                            <li>
+                                <input defaultValue={name} onChange={(e) => { setName(e.target.value) }} type="text" placeholder={messages.member2} className='name w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                            </li>
+                            <li>
+                                <input defaultValue={phoneNumber} onInput={PhoneNumber} type="text" maxLength={13} placeholder={messages.member3} className='phone w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                            </li>
+                            {
+                                initialMode ? <p className='text-red-500 dark:text-[#ebf4f1]'>{error}</p> : ""
+                            }
+                            <li>
+                                <button className='w-[360px] h-[60px] bg-[#60a7c8] text-white text-[18px] rounded-[10px] mt-[10px] cursor-pointer dark:bg-[#272929]' onClick={signUp}>{initialMode ? `${messages.login5}` : `${messages.member4}`}</button>
+                            </li>
+                        </ul>
                     </div>
+                </div>
             }
         </>
     )

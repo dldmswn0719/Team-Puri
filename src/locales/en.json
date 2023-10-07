@@ -7,6 +7,12 @@
     "english" : "english",
     "login" : "Login",
     "logout" : "Logout",
+    "logout1" : "You have been logged out.",
+    "editor" : "Please use it after logging in.",
+    "editor1" : "Please enter the subject.",
+    "editor2" : "Please enter your details.",
+    "editor3" : "The post has been successfully edited.",
+    "editor4" : "The post has been successfully registered.",
     "member" : "Join",
     "modify" : "modify",
     "animal1": "Region",
@@ -32,6 +38,15 @@
     "detailinformation" : "Detail",
     "productreview" : "Review",
     "qna" : "Q & A",
+    "storealert" : "Minimum order quantity is 1.", 
+    "storealert1" :  "Option already selected.", 
+    "storealert2" :  "Please select a product." , 
+    "storealert3" : "Login is required for this service." , 
+    "qnatitle1" : "No",
+    "qnatitle2" : "Title",
+    "qnatitle3" : "Author",
+    "qnatitle4" : "Date of Writing",
+    "delete" : "delete",
     "desc1" : "Through Puripuri goods, let's spread the adoption culture message in our daily lives",
     "desc2" : "create a virtuous cycle of adoption culture.",
     "desc3" : "Puripuri goods",
@@ -137,10 +152,13 @@
     "complete6" : "will do that.",
     "complete7" : "Go to Main Screen",
     "registration" : "Registration",
-    "cancel" : "Cancel",
+    "cancel" : "cancel",
+    "complete" : "complete",
     "authorname" : "Author Name",
     "password" : "password",
     "title" : "title",
+    "secret" : "secret",
+    "secret1" : "this is a secret",
     "entercontent" : "Please enter the contents.",
     "product_1" : {
         "name": "[Abandoned Animal Sponsorship]Mix Family Reusable Cup",
@@ -421,6 +439,8 @@
         "desc15" :"Please give them hug.",
         "desc16" :"we believe that it would give great hope for our pets"
     },
+    "mnavdark" : "Dark mode",
+    "mnavlight" : "Light mode",
     "cont1swiper1" : "A little step ",
     "cont1swiper2" : "for a New Start",
     "cont1swiper3" : "At that moment, ",
@@ -486,12 +506,21 @@
     "member2" : "Name",
     "member3" : "Phone number",
     "member4" : "Edit",
+    "member5" : "double check",
+    "find" : "Find your email",
 
     "setError" : [
         "Please enter a valid phone number.",
         "Please enter a valid email address.",
         "Passwords do not match.",
-        " is empty."
+        " is empty.",
+        "There is no account registered with that name and phone number.",
+        "Your email information could not be found.",
+        "Please proceed with the duplicate email confirmation.",
+        "Please enter your email.",
+        "Please enter a valid email address.",
+        "This email is available.",
+        "This email is already in use."
     ],
     "firebaseError" : [
         "There's a blank.",
@@ -509,7 +538,8 @@
         "Your membership is complete",
         "Information modification is complete",
         "You're already logged in.",
-        "You're logged in."
+        "You're logged in.",
+        "No changes have been made."
     ]
   }
   

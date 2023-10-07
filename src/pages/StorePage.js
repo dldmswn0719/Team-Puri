@@ -9,6 +9,7 @@ import StoreQna from '../components/Store/StoreQna'
 import StoreAside from '../components/Store/StoreAside'
 
 function StorePage() {
+    
     return (
         <>
             <Nav />

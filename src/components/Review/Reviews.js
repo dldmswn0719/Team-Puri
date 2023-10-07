@@ -41,7 +41,6 @@ function Reviews() {
       setReview2(Detaillist);
       setReview(Mainlist);
     }
-
   },[language])
 
   const [likes, setLikes] = useState(Array(Detaillist.length).fill(1));
