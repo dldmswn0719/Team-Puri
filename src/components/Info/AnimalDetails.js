@@ -18,8 +18,6 @@ function AnimalDetails() {
     const location = useLocation();
     const detaildata = location.state.e;
     const { popfile, kindCd, sexCd, age, weight, neuterYn, colorCd, specialMark, noticeNo, happenPlace, careNm, careTel, orgNm, officetel, careAddr } = detaildata
-
-    console.log(detaildata)
     const { kakao } = window;
     const [data, setData] = useState([])
     useEffect(() => {
@@ -65,20 +63,36 @@ function AnimalDetails() {
         });
         marker.setMap(map);
     }, [mapX])
+
     useEffect(()=>{
         const RandomData = ()=>{
           const Array = [];
-          const Result = AnimalData.filter((e) => e.firstImageUrl !== '')
-          for(let i = 0; i < 16; i++){
-            
+          const Result = AnimalData.filter((e) => e.image !== '')
+          let count = 0;
+          while (count < 61) { // 슬라이더 개수 제한
             const Random = Math.floor(Math.random() * Result.length);
-            Array.push(Result[Random])
-            setData(Array)
-            // console.log(Array)
+            Array.push(Result[Random]);
+            count++;
           }
+          
+          setData(Array);
         }
         RandomData()
       }, [])
+    //   useEffect(()=>{
+    //     const RandomData = ()=>{
+    //       const Array = [];
+    //       const Result = AnimalData.filter((e) => e.firstImageUrl !== '')
+    //       for(let i = 0; i < 16; i++){
+            
+    //         const Random = Math.floor(Math.random() * Result.length);
+    //         Array.push(Result[Random])
+    //         setData(Array)
+    //         console.log(Array)
+    //       }
+    //     }
+    //     RandomData()
+    //   }, [])
 
     return (
         <>
@@ -92,17 +106,15 @@ function AnimalDetails() {
                             </div>
                             <div className="w-[800px] mt-10 flex justify-between items-center md:w-[400px] sm:w-[300px] overflow-hidden">
                             <Swiper
-                                // autoplay = {{
-                                // delay : 2000,
-                                // disableOnInteraction: false
-                                // }}
+                                autoplay = {{
+                                delay : 1000,
+                                disableOnInteraction: false
+                                }}
                                 loop={true}
-                                slidesperview={1}
-                                spaceBetween={2}
+                                slidesperview={4}
                                 navigation= {{clickable: true}}
-                                pagination= {{clickable: true}}
-                          
-                                modules={[Autoplay,Navigation, Pagination]}
+                                modules={[Autoplay,Navigation]}
+                                
                                 >
                                     {
                                         data.map((e,i)=>{
@@ -115,7 +127,7 @@ function AnimalDetails() {
                                             )
                                         })
                                     }
-                                
+                              
                                 </Swiper>
                             </div>
                         
@@ -143,8 +155,8 @@ function AnimalDetails() {
                                         <p className='mt-1 text-[#999] dark:text-[#ebf4f1]'>담당부서 : <span className='text-black dark:text-[#ebf4f1]'>{orgNm}</span></p>
                                         <p className='mt-1 text-[#999] dark:text-[#ebf4f1] hidden lg:block md:hidden sm:hidden'>보호센터 Tel : <span className='text-black dark:text-[#ebf4f1]'>{careTel}</span></p>
                                         <p className='mt-1 text-[#999] hidden lg:block md:hidden sm:hidden dark:text-[#ebf4f1]'>담당부서 Tel : <span className='text-black dark:text-[#ebf4f1]'>{officetel}</span></p>
-                                        <p className='hidden lg:block md:hidden sm:hidden sm:text-base text-[#999]'>전화 문의는 평일 <span className='font-bold text-black '>오전 9시 <span className='text-[#999] '>부터</span><span className='text-black'>오후 6시</span></span>까지 입니다.</p>
-                                        <p className='hidden lg:block md:hidden sm:hidden text-black'> {`(공휴일 제외)`}</p>
+                                        <p className='hidden lg:block md:hidden sm:hidden sm:text-base text-[#999] dark:text-[#ebf4f1]'>전화 문의는 평일 <span className='font-bold text-black dark:text-[#ebf4f1]'>오전 9시 <span className='text-[#999] dark:text-[#ebf4f1]'>부터</span><span className='text-black dark:text-[#ebf4f1]'>오후 6시</span></span>까지 입니다.</p>
+                                        <p className='hidden lg:block md:hidden sm:hidden text-black dark:text-[#ebf4f1]'> {`(공휴일 제외)`}</p>
                                         <TellButton />
                                         <p className='text-xl mt-11 dark:text-[#ebf4f1]'><FontAwesomeIcon icon={faLocationDot} color='#ff5b5b' />  보호소 위치</p>
                                     </div>
