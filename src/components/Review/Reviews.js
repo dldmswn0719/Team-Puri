@@ -268,7 +268,7 @@ function Reviews() {
                   <div className="lg:pt-10  md:pt-10 sm:pt-12">
                   <div className="h-72 overflow-y-auto w-full 
                   md:px-10 lg:px-10 
-                  md:h-[310px] lg:h-80 sm:h-[230px]">
+                  md:h-[30px] lg:h-30 sm:h-[30px]">
                     
                   </div>
                   
