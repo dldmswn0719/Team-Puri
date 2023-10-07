@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 import enMessages from './../../locales/en.json';
 import krMessages from './../../locales/kr.json';
 import QuickMenu from './QuickMenu'
-import AnimalDetails from './AnimalDetails'
+
 
 
 
