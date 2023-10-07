@@ -1,50 +1,24 @@
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import Ckeditor from "../Ckeditor";
+import { deleteDoc, doc } from 'firebase/firestore';
+import {collection, getDocs , getFirestore , orderBy , query} from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
+import { faCircleQuestion, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
+import { faLock, faPenSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import enMessages from "./../../locales/en.json";
 import krMessages from "./../../locales/kr.json";
-import Ckeditor from "../Ckeditor";
-import { deleteDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
-import {collection, getDocs , getFirestore , orderBy , query} from "firebase/firestore";
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { faPenSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
-
-const BoardWrapper = styled.div`
-  max-width: 1280px;
-  margin: 10px auto;
-`;
-
-const List = styled.ul`
-  display: flex;
-  border-bottom: 1px solid #86bcd5;
-`;
-
-const ListItem = styled.li`
-  padding: 10px 20px;
-  text-align: center;
-  flex-basis: 10%;
-  &:nth-child(2) {
-    flex-basis: 50%;
-  } //제목
-  &:nth-child(3) {
-    flex-basis: 20%;
-  } //작성자
-  &:nth-child(4) {
-    flex-basis: 20%;
-  } //작성일
-`;
-
 
 
 function StoreQna() {
   const language = useSelector((state) => state.language);
   const messages = language === "en" ? enMessages : krMessages;
   const memberProfile = useSelector(state => state.user);
-
   const [showEditor, setShowEditor] = useState(false);
   const [editEditor,setEditEditor] = useState(false)
   const [posts, setPosts] = useState([]);
+  const [viewState, setViewState] = useState(null)
+  const [editingPostId,setEditingPostId]=useState(null);
  
   const fetchPosts = async () => {
     try {
@@ -66,12 +40,9 @@ function StoreQna() {
     fetchPosts();
   }, []);
 
-  const [viewState, setViewState] = useState(null)
-  const [editingPostId,setEditingPostId]=useState(null);
-
   const editPost = (postId) => {
     setEditingPostId(postId);
-    setEditEditor(true);
+    setEditEditor(!editEditor);
   };
 
   const deletePost = async (data)=>{
@@ -88,23 +59,24 @@ function StoreQna() {
 
   return (
     <>
-      <div className="w-full bg-white dark:bg-[#272929]">
+      <div className="w-full h-full bg-white dark:bg-[#272929]">
         <div className="max-w-7xl mx-auto qa">
-          <div className="pt-[8%] text-xl px-5">
-            <div className="flex leading-10 dark:text-[#ebf4f1]">
+          <div className="pt-[8%] px-5">
+            <div className="text-[18px] lg:text-[22px] flex leading-10 dark:text-[#ebf4f1]">
               <p className="pr-1">{messages.qna}</p>
               <p className="text-[#86bcd5] dark:text-[#ebf4f1]">( {posts.length} )</p>
             </div>
-            <p className="dark:text-[#ebf4f1]">{messages.desc23}</p>
-            <div className="w-[170px] h-[55px] bg-[#86bcd5] mt-[25px] cursor-pointer dark:bg-[#404343]"onClick={() => setShowEditor(true)}>
-              <p className="text-white leading-[55px] text-center dark:text-[#ebf4f1]">
+            <p className="dark:text-[#ebf4f1] lg:text-[17px]">{messages.desc23}</p>
+            <div className="w-[170px] h-[55px] bg-[#86bcd5] mt-[20px] cursor-pointer dark:bg-[#404343]"onClick={() => setShowEditor(true)}>
+              <p className="text-white leading-[55px] text-center dark:text-[#ebf4f1] lg:text-[17px]">
                 {messages.desc24}
+              <FontAwesomeIcon icon={faPenToSquare} className="pl-2" />
               </p>
             </div>
-            <div className="max-w-7xl h-[550px] border-t border-[#86bcd5] mt-[50px] text-center dark:border-[#dadbdb]">
+            <div className="max-w-7xl h-auto lg:text-[20px]  border-t border-[#86bcd5] mt-8 pb-[15%] lg:mt-[40px] text-center dark:border-none   dark:border-[#dadbdb]">
             {
             showEditor && 
-            <Ckeditor hideEditor={() => setShowEditor(false)} refreshPosts={fetchPosts} resetViewState={() => setViewState(null)}/>
+              <Ckeditor hideEditor={() => setShowEditor(false)} refreshPosts={fetchPosts} resetViewState={() => setViewState(null)}/>
             }
               <>
               {
@@ -116,37 +88,55 @@ function StoreQna() {
                   </p>
                 </>
                 :
-                <BoardWrapper>
+                <div className="max-w-7xl mx-auto text-[14px] lg:text-[18px]">
+                  <ul className="flex py-2  bg-[#86bcd5] dark:text-[#ebf4f1] text-white dark:bg-[#404343]">
+                    <li className="lg:basis-[15%] basis-[5%]">{messages.qnatitle1}</li>
+                    <li className="basis-[80%]">{messages.qnatitle2}</li>
+                    <li className="lg:basis-[20%] md:basis-[15%] basis-[30%]">{messages.qnatitle3}</li>
+                    <li className="lg:basis-[20%] md:basis-[15%] sm:hidden fold:hidden">{messages.qnatitle4}</li>
+                  </ul>
                   {posts.map((e, i) => {
                     return (
                       <React.Fragment key={i}>
-                        <List onClick={()=>{
+                        <ul className="flex border-b border-[#86bcd5] dark:text-[#ebf4f1] dark:border-[#dadbdb]" onClick={()=>{
                             if(viewState === i){
                                 setViewState(null)
                             }else{
                                 setViewState(i)
+                                setEditEditor(false)
                             }
                         }}>
-                            <ListItem>{posts.length - i}</ListItem>
-                            <ListItem>{e.title}</ListItem>
-                            <ListItem>{e.name}</ListItem>
-                            <ListItem>{e.timestamp.toDate().toLocaleDateString()}</ListItem>
-                        </List>
+                            <li className="py-[10px] px-1 lg:px-5 text-center lg:basis-[15%] basis-[5%]">{posts.length - i}</li>
+                            <li className="py-[10px] px-2 lg:px-5 text-left basis-[80%] text-ellipsis whitespace-nowrap overflow-hidden">
+                              {
+                                e.isSecret && <FontAwesomeIcon icon={faLock} className="mr-1" />
+                              }
+                              {e.title}
+                            </li>
+                            <li className="py-[10px] lg:px-5 text-center lg:basis-[20%] md:basis-[15%] basis-[30%] ">{e.name}</li>
+                            <li className="py-[10px] lg:px-5 text-center lg:basis-[20%] md:basis-[15%] sm:hidden fold:hidden">{e.timestamp.toDate().toLocaleDateString()}</li>
+                        </ul>
                       {
                         viewState === i &&
-                        <List>
-                            <li className="basis-3/4">
-                                <p dangerouslySetInnerHTML={{__html : e.content}} />  
+                        <ul className="flex justify-between border-b border-[#86bcd5] py-10 dark:text-[#ebf4f1] dark:border-[#dadbdb]">
+                            <li className="px-5 lg:w-[70%] md:w-[50%] w-[18%] fold:w-[90%]">
+                            {
+                              e.isSecret && memberProfile.uid !== e.uid ? (
+                                <p>{messages.secret1}</p>
+                              )
+                              :
+                              (<p dangerouslySetInnerHTML={{__html: e.content}} />)
+                            }
                             </li>
-                            <li>
-                            {memberProfile.uid === e.uid && (
-                              <>
-                              <button onClick={()=>{editPost(e.id)}}><FontAwesomeIcon icon={faPenSquare} /> 수정</button>
-                              <button onClick={()=>{deletePost(e.id)}}><FontAwesomeIcon icon={faTrash} /> 삭제</button>
-                              </>
-                              )}
+                            <li className="lg:w-[23%] md:w-[15%] w-[25%] fold:w-[30%] text-right pr-5">
+                              {memberProfile.uid === e.uid && (
+                                <>
+                                  <button onClick={()=>{editPost(e.id)}}><FontAwesomeIcon icon={faPenSquare} /> {messages.member4}</button>
+                                  <button onClick={()=>{deletePost(e.id)}}><FontAwesomeIcon icon={faTrash} /> {messages.delete} </button>
+                                </>
+                                )}
                             </li>
-                        </List>
+                        </ul>
                       }
                       {
                         viewState === i &&
@@ -156,7 +146,7 @@ function StoreQna() {
                       </React.Fragment>
                     );
                   })}
-                </BoardWrapper>
+                </div>
               }
               </>
             </div>

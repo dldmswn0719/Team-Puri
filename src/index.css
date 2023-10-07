@@ -21,7 +21,6 @@ ul, ol{list-style: none;}
     font-weight: normal;
     font-style: normal;
 }
-
 @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
@@ -35,7 +34,7 @@ ul, ol{list-style: none;}
 
 .gradient{
     background-image : linear-gradient(to bottom, rgba(255, 255, 255, 0) 5%, rgba(255, 255, 255, 0.8));
-    width: 100%; height: 100%; position: absolute; bottom: 83px;
+    width: 100%; height: 100%; position: absolute; bottom: 86px;
 }
 /* 상세정보 열기전 그라데이션 효과 */
 
@@ -45,13 +44,15 @@ ul, ol{list-style: none;}
     .support {
         height: 500px;
     }
+    .gradient{bottom: 60px;}
 }
 @media screen and (max-width: 768px){
     .support {
         height: 300px;
     }
+    .gradient{bottom: 60px;}
 }
-@media screen and (max-width: 300px){
+@media screen and (max-width: 350px){
     .support {
         height: 250px;
     }
@@ -59,12 +60,18 @@ ul, ol{list-style: none;}
 .full{background-image: url("./../public/Images/Support/full.jpg"); background-size: cover; background-position: center top; background-attachment: fixed;}
 .info::after{
     content: "";
-    position: absolute; border-bottom: 2px solid #DAC0A3;
+    position: absolute; border-bottom: 2px solid #86bcd5;
     width: 520px; bottom: 0; left: -10px;
 }
 @media screen and (max-width: 1024px) {
     .info::after{
         width: 103%;
+    }
+}
+@media screen and (max-width: 350px) {
+    .info::after{
+        width: 103%;
+        margin-left: 3%;
     }
 }
 
@@ -83,10 +90,10 @@ html.fixed{width: 100%; height: 100%; overflow: hidden;}
         color: #fff;
     }
     .swiper-button-next:after {
-        right: 300px;
+        right: 500%;
     }
     .swiper-button-prev:after {
-        left: 300px;
+        left: 500%;
     }
     .swiper-pagination-bullet-active {
         --swiper-theme-color: rgba(255, 255, 255, 0.8);
@@ -123,16 +130,16 @@ html.fixed{width: 100%; height: 100%; overflow: hidden;}
         z-index: 9;
     } /* Content3Review의 오른쪽 구름 */
     .content3bg {
-        background: url("../public/Images/Main/bg--.png");
+        background: url("../public/Images/Main/skybluepc.png");
     } /* Content3Review의 배경 */
     .content3bgdark {
         background: url("../public/Images/Main/tttt.png");
     } /* Content3Review darkmode의 배경 */
 }
-@media screen and (min-width: 768px) { /* tablet 버전일 때 */
+@media screen and (min-width: 768px) and (max-width: 1023px) { /* tablet 버전일 때 */
     .content3bg {
         
-        background: url("../public/Images/Main/bg-tablet.png");
+        background: url("../public/Images/Main/skybluetablet.png");
         background-size: cover;
     }
     .swiper-button-next:after, .swiper-button-prev:after {
@@ -140,10 +147,10 @@ html.fixed{width: 100%; height: 100%; overflow: hidden;}
         color: #fff;
     }
     .swiper-button-next:after {
-        right: 150px;
+        right: 200%;
     }
     .swiper-button-prev:after {
-        left: 150px;
+        left: 200%;
     }
     .swiper-pagination-bullet-active {
         --swiper-theme-color: rgba(255, 255, 255, 0.8);
@@ -152,20 +159,26 @@ html.fixed{width: 100%; height: 100%; overflow: hidden;}
         --swiper-pagination-bullet-border-radius: 10px;
     }
 }
-@media screen and (min-width: 480px) { /* mobile 버전일 때 */
+@media screen and (min-width: 480px) and (max-width: 767px) { /* mobile 버전일 때 */
     .content3bg {
-        background: url("../public/Images/Main/bg-mobile.png");
+        background: url("../public/Images/Main/skybluemobile.png");
         background-size: cover;
     }
-    .swiper-button-next:after, .swiper-button-prev:after {
-        color: #fff;
-    }
-    .swiper-pagination-bullet-active {
-        --swiper-theme-color: rgba(255, 255, 255, 0.8);
+    .swiper-button-next:after, .swiper-button-prev:after, .swiper-pagination-bullet {
+        visibility: hidden;
     }
 }
 .content5bg {
     background-image: url("../public/Images/Main/bgg.png");
     background-size: cover;
+}
+@media screen and (max-width: 479px) {
+    .content3bg {
+        background: url("../public/Images/Main/skybluemobile.png");
+        background-size: cover;
+    }
+    .swiper-button-next:after, .swiper-button-prev:after, .swiper-pagination-bullet {
+        visibility: hidden;
+    }
 }
 /* 여기까지 Main 이지연 공간 */

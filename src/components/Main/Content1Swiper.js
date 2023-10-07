@@ -14,7 +14,28 @@ function Content1Swiper() {
     const language = useSelector(state => state.language);
     const messages = language === 'en' ? enMessages : krMessages;
     
-
+    const slogan = [
+        {
+            "desc1" : `${messages.slogan11}`,
+            "desc2" : `${messages.slogan12}`,
+            "img" : "./../../Images/Main/slide1"
+        },
+        {
+            "desc1" : `${messages.slogan21}`,
+            "desc2" : `${messages.slogan22}`,
+            "img" : "./../../Images/Main/slide2"
+        },
+        {
+            "desc1" : `${messages.slogan31}`,
+            "desc2" : `${messages.slogan32}`,
+            "img" : "./../../Images/Main/slide3"
+        },
+        {
+            "desc1" : `${messages.slogan41}`,
+            "desc2" : `${messages.slogan42}`,
+            "img" : "./../../Images/Main/slide4"
+        }
+    ];
     return (
         <>
             <Swiper
@@ -28,26 +49,24 @@ function Content1Swiper() {
                 navigation={{clickable: true}}
                 pagination={{clickable: true}}
                 modules={[Autoplay, Navigation, Pagination]}
-
-                onSlideChange={() => console.log('slide change')}
-                // onSwiper={(swiper) => console.log(swiper)}
+                
                 id='swiper'
                 >
-
-                <p className='absolute z-10 text-white left-[50%] translate-x-[-50%] tracking-tight text-center bottom-10 w-full text-2xl
-                lg:bottom-[117px] lg:text-6xl
-                md:text-4xl'><span className='font-bold'>{messages.cont1swiper1}</span>{messages.cont1swiper2}<br/>{messages.cont1swiper3}<span className='font-bold'>{messages.cont1swiper4}</span>{messages.cont1swiper5}</p>
-                {
-                    Array(4).fill().map((_, i) => {
-                        return (
-                            <SwiperSlide key={i}>
-                                <img src={`./../../Images/Main/slide${i + 1}.png`} alt={`slide${i + 1}`} className='lg:block md:block hidden' />
-                                <img src={`./../../Images/Main/slide${i + 1}-mobile.png`} alt={`slide${i + 1}mobile`} className='lg:hidden md:hidden block' />
-                            </SwiperSlide>
-                        )
-                    })
-                }
-                
+                    {
+                        slogan.map((e, i) => {
+                            return (
+                                <>
+                                <SwiperSlide key={i} className='relative'>
+                                    <img src={`${e.img}.png`} alt={`slide${i + 1}`} className='lg:block md:block hidden' />
+                                    <img src={`${e.img}-mobile.png`} alt={`slide${i + 1}mobile`} className='lg:hidden md:hidden block' />
+                                    <p key={i} className='absolute z-10 text-white left-[50%] translate-x-[-50%] tracking-tight text-center bottom-10 w-full text-2xl
+                                    lg:bottom-20 lg:text-6xl
+                                    md:text-4xl font-bold'>{e.desc1}<br /><br />{e.desc2}</p>
+                                </SwiperSlide>
+                            </>
+                            )
+                        })
+                    }                
             </Swiper>
         </>
     )

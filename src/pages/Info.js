@@ -1,16 +1,17 @@
 import React from "react";
 import Nav from '../components/Nav'
-import ScrollUpDown from "../components/Info/ScrollUpDown";
 import AnimalList from "../components/Info/AnimalList";
-
+import StoreAside from "../components/Store/StoreAside";
+import QuickMenu from "../components/Info/QuickMenu";
 
 
 function Info() {
   return (
     <>
-    <Nav />
-    <AnimalList/>
-    <ScrollUpDown/>
+      <Nav />
+      <AnimalList/>
+      <QuickMenu/>
+      {/* <StoreAside /> */}
     </>
   );
 }

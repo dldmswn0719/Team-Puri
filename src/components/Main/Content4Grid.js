@@ -1,29 +1,90 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { Link, NavLink } from 'react-router-dom';
 
 function Content4Grid() {
+    const arr = [
+        {
+            "type" : "품종 : 개",
+            "gender" : "성별 : 수컷",
+            "age" : "2019년생 추정"
+        },
+        {
+            "type" : "품종 : 개",
+            "gender" : "성별 : 암컷",
+            "age" : "2019년생 추정"
+        },
+        {
+            "type" : "품종 : 개",
+            "gender" : "성별 : 수컷",
+            "age" : "2019년생 추정"
+        },
+        {
+            "type" : "품종 : 개",
+            "gender" : "성별 : 수컷",
+            "age" : "2019년생 추정"
+        },
+        {
+            "type" : "품종 : 개",
+            "gender" : "성별 : 수컷",
+            "age" : "2019년생 추정"
+        },
+        {
+            "type" : "품종 : 개",
+            "gender" : "성별 : 수컷",
+            "age" : "2019년생 추정"
+        },
+        {
+            "type" : "품종 : 개",
+            "gender" : "성별 : 수컷",
+            "age" : "2019년생 추정"
+        },
+        {
+            "type" : "품종 : 개",
+            "gender" : "성별 : 수컷",
+            "age" : "2019년생 추정"
+        }
+    ];
+
+    // useEffect (() => {
+    //     const RandomData = () => {
+    //         const Array = [];
+    //         const Result = AnimalData.filter((e) => e.firstImageUrl !== '');
+    //         for (let i = 0; i < 16; i++){            
+    //             const Random = Math.floor(Math.random() * Result.length);
+    //             Array.push(Result[Random]);
+    //             setData(Array);
+    //         }
+    //     }
+    //     RandomData();
+    // }, []);
+
     return (
-        <div className='md:w-[768px] lg:w-[1200px] m-auto
+        <div className='md:w-[768px] lg:max-w-[1200px] m-auto
         pt-28
         lg:pt-[130px] lg:pb-[147px]'>
-            <ul className='flex flex-wrap lg:gap-x-5 gap-y-10'>
-                <li className='lg:w-[285px] w-52 m-auto
-                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/1.jpg" alt="1" /><p>수리 입양 후 근황입니다:)</p></NavLink></li>
-                <li className='lg:w-[285px] w-52 m-auto
-                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/2.jpg" alt="2" /><p className='text-ellipsis overflow-hidden whitespace-nowrap'>형아 껌딱지 머핀이 근황사진입니다!</p></NavLink></li>
-                <li className='lg:w-[285px] w-52 m-auto
-                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/3.jpg" alt="3" /><p>궁금해하실 빵이 근황입니다.</p></NavLink></li>
-                <li className='lg:w-[285px] w-52 m-auto
-                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/4.jpg" alt="4" /><p className='text-ellipsis overflow-hidden whitespace-nowrap'>안녕하세요~ 저희 천재 강아지 ♥시루♡ 입양 후 소식 전해드립니다^0^~</p></NavLink></li>
-                <li className='lg:w-[285px] w-52 m-auto
-                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/5.jpg" alt="5" /><p>리본센터에 잭팟 등장!</p></NavLink></li>
-                <li className='lg:w-[285px] w-52 m-auto
-                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/6.jpg" alt="6" /><p>미원이 소식입니다:)</p></NavLink></li>
-                <li className='lg:w-[285px] w-52 m-auto
-                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/7.jpg" alt="7" /><p className='text-ellipsis overflow-hidden whitespace-nowrap'>[강남이와가족된후기] 감사합니다</p></NavLink></li>
-                <li className='lg:w-[285px] w-52 m-auto
-                cursor-pointer hover:scale-105 duration-300'><NavLink><img src="./../../Images/Main/8.jpg" alt="8" /><p>너무 늦게 소식을 전합니다^^</p></NavLink></li>
+            <ul className='flex flex-wrap justify-start lg:justify-between'>
+                {
+                    Array(8).fill().map((_, i) => {
+                        return (
+                            <li key={i} className={`lg:basis-1/4 md:basis-1/3 basis-1/2 
+                            cursor-pointer duration-300 relative
+                            hover:scale-105 hover:after:w-full hover:after:h-full hover:after:bg-black hover:after:bg-opacity-30 hover:after:absolute hover:after:top-0 hover:after:left-0 hover:after:content-["개"] hover:after:text-white hover:after:text-center hover:after:items-center hover:after:text-3xl`}><Link to='/infodetail/444450202101068' /><img src={`./../../Images/Main/list${i + 1}.png`} alt={i + 1} className='w-full'/>
+                            </li>
+                        )
+                    })
+                }
+                {
+                    arr.map((e, index) => {
+                        // console.log(e, index);
+                        
+                    })
+                }
             </ul>
+            <div className='text-center'>
+                <button className='bg-[#E75A56] text-white font-bold cursor-pointer duration-500 hover:bg-[#b3312c] rounded-full w-48 h-12 mt-10 text-lg
+                md:w-80 md:h-16 md:text-xl md:mt-36
+                lg:w-80 lg:h-20 lg:text-2xl lg:mt-20'><NavLink to='/info' className='text-white'>보호동물 더 보기</NavLink></button>
+            </div>
         </div>
     );
 }

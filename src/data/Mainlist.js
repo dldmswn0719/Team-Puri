@@ -366,148 +366,148 @@ const enMainlist = [
     {
         "rogo" : "./../Images/Review/K_02.png",
         "img" : "https://cdn.pixabay.com/photo/2017/08/01/16/50/pillow-2566613_1280.jpg",
-        "Text" : "#좋은인연 #입양가족",
-        "region" : "서울광역시",
+        "Text": "#GoodConnection #AdoptiveFamily",
+        "region": "Seoul",
         "group" : 2
     },
     {
         "rogo" : "./../Images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2017/08/01/09/04/dog-2563759_1280.jpg",
-        "Text" : "#잘놀아요 #입양가족",
-        "region" : "대구광역시",
+        "Text": "#HavingFun #AdoptiveFamily",
+        "region": "Daegu",
         "group" : 2
     },
     {
         "rogo" : "./../Images/Review/K_02.png",
         "img" : "https://cdn.pixabay.com/photo/2017/08/02/21/29/cat-2573570_1280.jpg",
-        "Text" : "#집에오면 즐거워 #유기견 입양",
-        "region" : "서울광역시",
+        "Text": "#HappinessAtHome #AdoptingStrayDogs",
+        "region": "Seoul",
         "group" : 2
     },
     {
         "rogo" : "./../Images/Review/K_02.png",
         "img" : "https://cdn.pixabay.com/photo/2016/11/21/14/47/kitten-1845789_1280.jpg",
-        "Text" : "#귀욤 #유기견 입양",
-        "region" : "서울광역시",
+        "Text": "#Cuteness #AdoptingStrayDogs",
+        "region": "Seoul",
         "group" : 2
     },
     {
         "rogo" : "./../Images/Review/K_02.png",
         "img" : "https://cdn.pixabay.com/photo/2019/07/12/21/47/kitten-4333662_1280.jpg",
-        "Text" : "#ㅎㅎㅎ #입양스토리",
-        "region" : "서울광역시",
+        "Text": "#:) :) :) #AdoptionStory",
+        "region": "Seoul",
         "group" : 2
     },
     {
         "rogo" : "./../Images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2020/05/03/13/09/puppy-5124948_1280.jpg",
-        "Text" : "#몽실몽실 #입양후기",
-        "region" : "대구광역시",
+        "Text": "#Fluffy #AdoptionReview",
+        "region": "Daegu",
         "group" : 3
     },
     {
         "rogo" : "./../Images/Review/K_02.png",
         "img" : "https://cdn.pixabay.com/photo/2018/03/27/17/26/cat-3266675_1280.jpg",
-        "Text" : "#잘 커보자 #입양스토리 #입양후기",
-        "region" : "부산광역시",
+        "Text": "#Let'sGrowWell #AdoptionStory",
+        "region": "Busan",
         "group" : 3
     },
     {
         "rogo" : "./../Images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2016/05/09/10/42/weimaraner-1381186_1280.jpg",
-        "Text" : "#날 기다려주는 반려견 #입양스토리 #입양후기",
-        "region" : "울산광역시",
+        "Text": "#MyWaitingCompanion #AdoptionStory ",
+        "region": "Ulsan",
         "group" : 3
     },
     {
         "rogo" : "./../Images/Review/K_02.png",
         "img" : "https://src.hidoc.co.kr/image/lib/2022/11/15/1668491763670_0.jpg",
-        "Text" : "#입양후 3개월후 #유기견 입양",
-        "region" : "서울광역시",
+        "Text": "#3MonthsAfterAdoption #AdoptingStrayDogs",
+        "region": "Seoul",
         "group" : 3
     },
     {
         "rogo" : "./../Images/Review/K_02.png",
         "img" : "https://www.sisain.co.kr/news/photo/202109/45623_82189_2148.jpg",
-        "Text" : "#새로온 친구랑 잘지내는중 #입양스토리 #입양후기",
-        "region" : "서울광역시",
+        "Text": "#Getting Along Well With New Friend",
+        "region": "Seoul",
         "group" : 3
     },
     {
         "rogo" : "./../Images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2016/03/27/20/51/dogs-1284238_1280.jpg",
-        "Text" : "#말썽꾸러기 #놀아달라는중 #입양후기",
-        "region" : "대전광역시",
+        "Text": "#Troublemaker #AskingToPlay",
+        "region": "Daejeon",
         "group" : 3
     },
     {
         "rogo" : "./../Images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2018/10/01/09/21/pets-3715733_1280.jpg",
-        "Text" : "#꽃 단장 #새친구 #입양스토리",
-        "region" : "서울광역시",
+        "Text": "#FlowerDecoration #NewFriend",
+        "region": "Seoul",
         "group" : 3
     },
     {
         "rogo" : "./../Images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2023/09/04/06/59/dog-8232158_640.jpg",
-        "Text" : "#옷입히기놀이중 #입양가족",
-        "region" : "대구광역시",
+        "Text": "#PlayingDressUp #AdoptiveFamily",
+        "region": "Daegu",
         "group" : 3
     },
     {
         "rogo" : "./../Images/Review/K_02.png",
         "img" : "https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_1280.jpg",
-        "Text" : "#밥달라는중 #입양후기 #입양가족",
-        "region" : "서울광역시",
+        "Text": "#AskingForFood #AdoptiveFamily",
+        "region": "Seoul",
         "group" : 4
     },
     {
         "rogo" : "./../Images/Review/K_02.png",
         "img" : "https://cdn.pixabay.com/photo/2018/07/13/10/20/kittens-3535404_1280.jpg",
-        "Text" : "#사이좋게 잘크는중 #유기견 입양",
-        "region" : "서울광역시",
+        "Text": "#SleepingPeacefully #AdoptingStrayDogs",
+        "region": "Seoul",
         "group" : 4
     },
     {
         "rogo" : "./../Images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2016/11/22/20/10/dog-1850465_1280.jpg",
-        "Text" : "#곰돌이ㅎㅎ #입양후기",
-        "region" : "서울광역시",
+        "Text": "#Cutie :) #AdoptionReview",
+        "region": "Seoul",
         "group" : 4
     },
     {
         "rogo" : "./../Images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2019/08/19/07/45/corgi-4415649_1280.jpg",
-        "Text" : "#목욕중 #입양가족",
-        "region" : "서울광역시",
+        "Text": "#BathingTime #AdoptiveFamily",
+        "region": "Seoul",
         "group" : 4
     },
     {
         "rogo" : "./../Images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2017/09/25/13/14/dog-2785077_1280.jpg",
-        "Text" : "#기다리는중 #입양후기",
-        "region" : "서울광역시",
+        "Text": "#WaitingPatiently #AdoptionReview",
+        "region": "Seoul",
         "group" : 4
     },
     {
         "rogo" : "./../Images/Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2019/07/23/13/51/shepherd-dog-4357790_1280.jpg",
-        "Text" : "#갸우뚱 #유기견 입양",
-        "region" : "대구광역시",
+        "Text": "#TumblingAround #AdoptingStrayDogs",
+        "region": "Daegu",
         "group" : 4
     },
     {
         "rogo" : "./../Images/Review/K_02.png",
         "img" : "https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_1280.jpg",
-        "Text" : "#똘망똘망 #입양스토리 #입양가족",
-        "region" : "서울광역시",
+        "Text": "#FluffyFluffy #AdoptionStory",
+        "region": "Seoul",
         "group" : 4
     },
     {
         "rogo" : "./../Images/Review/K_02.png",
         "img" : "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg",
-        "Text" : "#ㅋㅋㅋ #입양후기",
-        "region" : "서울광역시",
+        "Text": "#Hahaha #AdoptionReview",
+        "region": "Seoul",
         "group" : 4
     },
     {

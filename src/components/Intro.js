@@ -4,7 +4,7 @@ import React from 'react'
 function Intro() {
   return (
     <>
-      <div className=" flex justify-center items-center w-full h-full  dark:bg-[#272929] overflow-x-hidden">
+      <div className=" flex justify-center items-center w-full h-full dark:bg-[#272929] overflow-x-hidden">
       {/*  container*/}
           <div className="w-[1200px] h-full">
               <div className="mt-[50px]">
@@ -13,7 +13,7 @@ function Intro() {
               </div>
           
               <div className="text-center">
-                <p className='text-[#162C58] dark:text-[#ebf4f1] text-[17px] lg:text-[20px] md:text-[18px]  tracking-[-2px] animate__animated animate__backInRight animate__delay-1s	1s'>애정 어린 소리로 유기동물을 지칭하는 이름으로, 보호와 관심을 나타냅니다.</p>
+                <p className='text-[#162C58] dark:text-[#ebf4f1] text-[17px] lg:text-[20px] md:text-[18px]  tracking-[-2px] animate__animated animate__backInRight animate__delay-1s 1s'>애정 어린 소리로 유기동물을 지칭하는 이름으로, 보호와 관심을 나타냅니다.</p>
               </div>
               <div className=''>
               <div className=" ">

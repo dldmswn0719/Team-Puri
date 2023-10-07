@@ -1,8 +1,8 @@
-import { faFacebook, faGithub, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faGithub, faInstagram, faReact, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import enMessages from './../locales/en.json';
 import krMessages from './../locales/kr.json';
 
@@ -13,13 +13,13 @@ function Footer() {
 
     return (
         <div className='bg-[#292929] w-full'>
-            <div className='m-auto py-10 lg:w-[1200px] md:w-[768px]'>
+            <div className='m-auto py-10 lg:max-w-[1200px] md:max-w-[768px]'>
                 <div>
                     <img src="./../../Images/Main/logo_dark_small.png" alt="footerlogo" className='m-auto' />
                 </div>
-                <ul className='flex text-xs justify-around m-auto py-5
-                md:text-sm md:py-8 md:justify-between
-                lg:text-base lg:py-8 lg:w-5/6 lg:justify-between'>
+                <ul className={`flex text-xs justify-around m-auto py-5 w-60 flex-wrap
+                md:text-sm md:py-8 md:justify-between md:w-5/6
+                lg:text-base lg:py-8 lg:w-5/6 lg:justify-between`}>
                     <li><NavLink to='/introduce' className='text-white'>{messages.footer1}</NavLink></li>
                     <li><NavLink className='text-white'>{messages.footer2}</NavLink></li>
                     <li><NavLink className='text-white'>{messages.footer3}</NavLink></li>
@@ -33,10 +33,11 @@ function Footer() {
                 lg:text-7xl lg:w-2/5 lg:m-auto'>
                     <li><NavLink><FontAwesomeIcon icon={faGithub} color='white' /></NavLink></li>
                     <li><NavLink><FontAwesomeIcon icon={faInstagram} color='white' /></NavLink></li>
-                    <li><NavLink><FontAwesomeIcon icon={faFacebook} color='white' /></NavLink></li>
+                    <li><NavLink><FontAwesomeIcon icon={faReact} color='white' /></NavLink></li>
+                    {/* <li><NavLink><FontAwesomeIcon icon={faFacebook} color='white' /></NavLink></li> */}
                     <li><NavLink><FontAwesomeIcon icon={faYoutube} color='white' /></NavLink></li>
                 </ul>
-                <ul className='lg:flex lg:justify-between text-white text-sm hidden'>
+                <ul className='lg:flex lg:justify-around text-white text-sm hidden'>
                     <li>{messages.footer8}</li>
                     <li>{messages.footer9}</li>
                     <li>{messages.footer10}</li>

@@ -1,89 +1,15 @@
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import React, { useState } from "react";
-import Modal from './Modal'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen } from "@fortawesome/free-solid-svg-icons";
-import { addDoc, collection, doc, getFirestore, serverTimestamp, updateDoc  } from 'firebase/firestore';
 import { useEffect } from "react";
-import { data } from "autoprefixer";
-
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  margin-top: 60px;
-`;
-
-const InnerContainer = styled.div`
-  margin: 0 4px;
-  max-width: 1280px;
-  margin: 0 auto;
-`;
-
-const ContentWrapper = styled.div`
-  width: auto;
-  height: auto;
-  margin-top: 10px;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.375rem;
-  padding-right: 50px;
-`;
-
-const ContentInner = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-top: 10px;
-  text-align: center;
-`;
-
-const Title = styled.h2`
-  font-size: 20px;
-  margin-top: 10px;
-`;
-
-const TextInput = styled.input`
-  height: 40px;
-  border: 1px solid #e5e7eb;
-  flex-basis: 75%;
-`;
-
-const ContentInputWrapper = styled.div`
-  width: auto;
-  margin-top: 20px;
-  margin-left: 70px;
-`;
-
-const ContentLabel = styled.p`
-  margin-bottom: 15px;
-`;
-
-const ButtonWrap = styled.div`
-    display: flex;
-	  justify-content: space-between;
-`
-
-const Button = styled.div`
-    border-radius: 0.5rem;
-    margin: 20px 0px;
-    background-color: #eb7a7a;
-    padding: 0.625rem 1.25rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: bold;
-    color: white;
-    display: flex; align-items: center;
-    outline: none; border: none;
-    cursor: pointer;
-	&:nth-child(1){
-	    background-color: #f1a7a7;
-	}
-	a{color : white;}
-	svg{margin-right: 12px;}
-`
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCancel, faPen } from "@fortawesome/free-solid-svg-icons";
+import { addDoc, collection, doc, getFirestore, serverTimestamp, updateDoc  } from 'firebase/firestore';
+import Modal from './Modal'
+import enMessages from './../locales/en.json';
+import krMessages from './../locales/kr.json';
 
 function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,postId }) {
 
@@ -92,6 +18,9 @@ function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,post
     const [isModal,setIsModal] = useState(true);
     const navigate = useNavigate();
     const memberProfile = useSelector(state => state.user);
+    const [isSecret, setIsSecret] = useState(false);
+    const language = useSelector(state => state.language);
+    const messages = language === 'en' ? enMessages : krMessages;
 
     useEffect(() => {
       if(title || content){
@@ -104,7 +33,7 @@ function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,post
         return(
           <>
             {
-              isModal && <Modal error="로그인 이후 이용해주시길 바랍니다." onClose={()=>{setIsModal(false); navigate('/login')}} />
+              isModal && <Modal error={messages.editor} onClose={()=>{setIsModal(false); navigate('/login')}} />
             } 
           </>
         )
@@ -112,10 +41,10 @@ function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,post
       
       const dataSubmit = async ()=>{
         if(txtTitle.length === 0){
-            alert("제목을 입력해주세요.")
+            alert(messages.editor1)
             return;
         }else if(writeData.length === 0){
-            alert("내용을 입력해주세요.")
+            alert(messages.editor2)
             return;
         }
         if(postId){
@@ -123,14 +52,15 @@ function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,post
             const docRef= doc(getFirestore(),"qna" ,postId);
             await updateDoc(docRef,{
               title : txtTitle,
-              content : writeData
+              content : writeData,
+              isSecret: isSecret
             })
-            alert("게시글이 성공적으로 수정 되었습니다.")
+            alert(messages.editor3)
 
             hideEditor();
             refreshPosts(); 
           }catch(error){
-           console.log(error)
+          //  console.log(error)
          }
         }else{
           try{
@@ -140,10 +70,11 @@ function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,post
                   uid : memberProfile.uid,
                   name : memberProfile.data.name,
                   email : memberProfile.data.email,
-                  timestamp : serverTimestamp()
+                  timestamp : serverTimestamp(),
+                  isSecret: isSecret
               })
   
-              alert("게시글이 성공적으로 등록 되었습니다.")
+              alert(messages.editor4)
               hideEditor();
               refreshPosts();
               resetViewState();
@@ -151,45 +82,49 @@ function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,post
           }catch(error){
               setIsModal(!isModal);
           }
-
         }
       }
 
     return (
         <>
-        <Container>
-            <InnerContainer>
-              <ContentWrapper>
-                  <ContentInner>
-                  <Title>제목</Title>
-                  <TextInput value={txtTitle} type="text" onChange={(e)=>{setTxtTitle(e.target.value)}} />
-                  </ContentInner>
-                  <ContentInputWrapper>
-                  <ContentLabel>내용</ContentLabel>
+        <div className="w-full h-auto py-2">
+            <div className="max-w-7xl mx-auto">
+              <div className="w-auto h-auto mt-[10px] border border-[#e5e7eb] rounded-[4.5px]">
+                  <div className="flex justify-between w-full mt-[10px] text-center flex-wrap px-5">
+                    <h2 className="text-xl mt-4 mr-3 dark:text-[#ebf4f1]">{messages.title}</h2>
+                    <input className="mt-[10px] py-1 border border-[#e5e7eb] w-3/4" value={txtTitle} type="text" onChange={(e)=>{setTxtTitle(e.target.value)}} />
+                    <div className="flex">
+                      <input className="mt-3" type="checkbox" checked={isSecret} onChange={(e) => setIsSecret(e.target.checked)} />
+                      <p className="mt-4 pl-2">{messages.secret}</p>
+                    </div>
+                  </div>
+                  <div className="w-auto mt-5 px-5">
                   <CKEditor
                       editor={ClassicEditor}
                       data={writeData}
                       config={{
-                      placeholder: "내용을 입력하세요.",
+                      placeholder: messages.entercontent,
                       }}
                       onReady={(editor) => {}}
                       onChange={ ( event, editor ) => {
                           const data = editor.getData();
                           setWriteData(data);
-                          // console.log( { event, editor, data } );
                       } }
                       onBlur={(event, editor) => {}}
                       onFocus={(event, editor) => {}}
                   />
-                      <ButtonWrap>
-                          <Button onClick={dataSubmit}>
-                              <FontAwesomeIcon icon={faPen} />완료
-                          </Button>
-                      </ButtonWrap>
-                  </ContentInputWrapper>
-              </ContentWrapper>
-            </InnerContainer>
-        </Container>
+                      <div className="flex justify-end">
+                          <div className="rounded-md my-5 bg-[#86bcd5] py-2 px-4 text-xs leading-4 font-bold text-white flex items-center outline-none border-none cursor-pointer dark:bg-[#404343]" onClick={dataSubmit}>
+                              <FontAwesomeIcon className="mr-3" icon={faPen} />{messages.complete}
+                          </div>
+                          <div className="ml-4 rounded-md my-5 bg-[#86bcd5] py-2 px-4 text-xs leading-4 font-bold text-white flex items-center outline-none border-none cursor-pointer dark:bg-[#404343]" onClick={()=>{hideEditor()}}>
+                              <FontAwesomeIcon className="mr-3" icon={faCancel} />{messages.cancel}
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
         </>
     );
 }

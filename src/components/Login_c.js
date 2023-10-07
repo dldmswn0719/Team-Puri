@@ -36,10 +36,8 @@ function Login_c() {
         e.preventDefault();
         try {
             const userLogin = await signInWithEmailAndPassword(firebaseAuth, email, password);
-            // console.log(userLogin);
 
             const user = userLogin.user;
-            // console.log(user);
             alert(`${messages.alert[3]}`)
 
             sessionStorage.setItem("users", user.uid);
@@ -57,12 +55,10 @@ function Login_c() {
 
         } catch(error) {
             setError(errorMsg(error.code));
-            // console.log(error.code);
         }
     }
 
     const snsLogin = async (data) =>{
-        // alert(data)
         let provider;
         switch(data){
             case 'google' : 
@@ -86,7 +82,6 @@ function Login_c() {
                 }
             })
           }catch(error){
-            // console.log(error) 
             setError(errorMsg(error))
           }
         
@@ -118,7 +113,7 @@ function Login_c() {
                                 <p className='pt-4 text-red-500 text-sm text-left'>{error}</p>
                             </li>
                             <li>
-                                <button className='w-full h-[50px] bg-[#162c58] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] mb-[15px] dark:bg-[#272929]' onClick={LoginForm}>{messages.login3}</button>
+                                <button className='w-full h-[50px] bg-[#60a7c8] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] mb-[15px] dark:bg-[#272929]' onClick={LoginForm}>{messages.login3}</button>
                             </li>
                         </form>
                     </ul>
