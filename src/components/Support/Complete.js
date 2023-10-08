@@ -3,6 +3,9 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom'
 import enMessages from './../../locales/en.json';
 import krMessages from './../../locales/kr.json';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+
 
 function Complete() {
 
@@ -10,24 +13,27 @@ function Complete() {
     const messages = language === 'en' ? enMessages : krMessages;
   return (
     <>
-        <div className="w-[1200px] h-[800px] bg-[#86bcd5] absolute mx-auto my-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-lg:w-11/12 max-md:w-3/4 max-lg:h-full max-md:h-full">
-            <ul className="mb-[50px] text-center relative top-[150px]">
-                <li className="text-3xl  leading-10 max-lg:text-2xl max-md:text-xl">
+        <div className="w-11/12 h-full bg-[#86bcd5] absolute mx-auto my-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-10/12 md:w-10/12 lg:h-full md:h-full">
+            <ul className="lg:mb-[4%] md:mb-[7%] mb-[8%] fold:mb-[12%] text-center relative lg:top-[15%] md:top-[17%] top-[18%]">
+                <li className="text-[17px]  lg:text-3xl md:text-2xl fold:text-[13px]">
                     <p>{messages.complete1}</p>
                     <p>{messages.complete2}<br />{messages.complete3}</p>
                 </li>
             </ul>
-            <ul className='mb-[50px] text-center relative top-[150px]'>
-                <li className='text-3xl  leading-10 max-lg:text-2xl max-md:text-xl'>
-                    <p>여러분의 소중한 후원 금액은</p>
-                    <p>유기동물들의 입양 활동 금액으로 사용됩니다.</p>
-                    <p>다시 한번, 소중한 후원에 감사드립니다.</p>
+            <ul className='lg:mb-[4%] md:mb-[7%] mb-[8%] fold:mb-[12%] text-center relative lg:top-[15%] md:top-[17%] top-[18%]'>
+                <li className='text-[17px]  lg:text-3xl md:text-2xl fold:text-[13px]'>
+                    <p>{messages.complete4}</p>
+                    <p>{messages.complete5}</p>
+                    <p>{messages.complete6}</p>
                 </li>
             </ul>
-            <ul className='text-center relative top-[150px] '>
-                <li className="text-3xl leading-10 max-lg:text-2xl max-md:text-xl"><p>{messages.complete4}<br /><span className='text-white text-[35px] max-lg:text-[29px] max-md:text-[25px]'>{messages.complete5} </span>{messages.complete6}</p></li>
+            <ul className='text-center relative lg:top-[15%] md:top-[17%] top-[18%] lg:mb-[5%] md:mb-[7%] mb-[15%] '>
+                <li className="text-[17px] lg:text-3xl md:text-2xl fold:text-[13px]"><p>{messages.complete7}<br /><span className='text-white text-[25px] lg:text-[35px] md:text-[29px] fold:text-[18px]'>{messages.complete8} </span>{messages.complete9}</p></li>
             </ul>
-            <NavLink to='/' className="w-[180px] h-[70px] bg-[#1e4557] flex justify-center items-center text-white mx-auto relative top-[200px] max-lg:w-[150px] max-lg:h-[50px] max-lg:text-[14px] max-md:w-[130px] max-md:h-[40px] max-md:text-[13px] rounded-[50px]">{messages.complete7}</NavLink>
+            <div className='lg:w-[180px] lg:h-[70px] bg-[#1e4557] flex justify-center items-center text-white mx-auto relative lg:top-[15%] md:top-[17%] top-[18%]  w-[140px] h-[45px] fold:w-[120px] fold:h-[40px] lg:text-[16px] text-[14px] rounded-[50px]'>
+                <FontAwesomeIcon icon={faHome} className='pr-1 text-white lg:text-[16px] text-[14px] fold:text-[12px]' />
+                <NavLink to='/' className="text-white lg:text-[16px] md:text-[14px] text-[13px] fold:text-[12px]">{messages.complete10}</NavLink>
+            </div>
         </div>
     </>
   )
