@@ -8,9 +8,6 @@ import enMessages from './../../locales/en.json';
 import krMessages from './../../locales/kr.json';
 import QuickMenu from './QuickMenu'
 
-
-
-
 function AnimalList() {
     const [page, setPage] = useState(1)
     const Array = ["", "417000", "422400", "429900"]
