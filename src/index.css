@@ -164,8 +164,14 @@ html.fixed{width: 100%; height: 100%; overflow: hidden;}
         background: url("../public/Images/Main/skybluemobile.png");
         background-size: cover;
     }
-    .swiper-button-next:after, .swiper-button-prev:after, .swiper-pagination-bullet {
+    .swiper-button-next:after, .swiper-button-prev:after {
         visibility: hidden;
+    }
+    .swiper-pagination-bullet-active {
+        --swiper-theme-color: rgba(255, 255, 255, 0.8);
+        --swiper-pagination-bullet-width: 30px;
+        --swiper-pagination-bullet-height: 12px;
+        --swiper-pagination-bullet-border-radius: 10px;
     }
 }
 .content5bg {
@@ -177,8 +183,14 @@ html.fixed{width: 100%; height: 100%; overflow: hidden;}
         background: url("../public/Images/Main/skybluemobile.png");
         background-size: cover;
     }
-    .swiper-button-next:after, .swiper-button-prev:after, .swiper-pagination-bullet {
+    .swiper-button-next:after, .swiper-button-prev:after {
         visibility: hidden;
+    }
+    .swiper-pagination-bullet-active {
+        --swiper-theme-color: rgba(255, 255, 255, 0.8);
+        --swiper-pagination-bullet-width: 30px;
+        --swiper-pagination-bullet-height: 12px;
+        --swiper-pagination-bullet-border-radius: 10px;
     }
 }
 /* 여기까지 Main 이지연 공간 */

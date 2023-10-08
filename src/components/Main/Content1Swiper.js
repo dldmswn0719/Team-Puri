@@ -59,7 +59,7 @@ function Content1Swiper() {
                                 <SwiperSlide key={i} className='relative'>
                                     <img src={`${e.img}.png`} alt={`slide${i + 1}`} className='lg:block md:block hidden' />
                                     <img src={`${e.img}-mobile.png`} alt={`slide${i + 1}mobile`} className='lg:hidden md:hidden block' />
-                                    <p key={i} className='absolute z-10 text-white left-[50%] translate-x-[-50%] tracking-tight text-center bottom-10 w-full text-2xl
+                                    <p key={i} className='absolute z-10 text-white left-[50%] translate-x-[-50%] tracking-tight text-center bottom-16 md:bottom-10 w-full text-2xl
                                     lg:bottom-20 lg:text-6xl
                                     md:text-4xl font-bold'>{e.desc1}<br /><br />{e.desc2}</p>
                                 </SwiperSlide>

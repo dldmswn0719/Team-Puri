@@ -44,7 +44,7 @@ function Footer() {
                     <li>{messages.footer11}</li>
                     <li>{messages.footer12}</li>
                 </ul>
-                <p className='text-gray-500 text-center lg:pt-8'>Copyright 2023. {messages.complete5} All rights reserved.</p>                
+                <p className='text-gray-500 text-center lg:pt-8 lg:text-base md:text-base text-xs'>Copyright 2023. {messages.complete8} All rights reserved.</p>                
             </div>
         </div>
     );

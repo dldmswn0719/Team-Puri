@@ -58,7 +58,7 @@ function Content3Review() {
 
     return (
         <div className={`bg-cover bg-center dark:bg-[#292929] relative
-        ${theme === `light`? `content3bg` : `content3bgdark`}`}>        
+        ${theme === `light`? `content3bg` : `content3bgdark`}`}>
             <div
             className={`py-4 m-auto
             lg:pt-48 lg:pb-48 lg:max-w-[1200px]
