@@ -23,17 +23,17 @@ function Support_Store() {
                         </div>
                     </div>
                     <div className='h-1/2 translate-y-1/3 mt-[-15px]'>
-                        <NavLink to="/supportpay" className="bg-[#E75A56] text-white rounded-[50px] flex justify-center items-center dark:bg-[#404343] lg:w-[190px] lg:text-xl lg:h-[70px] md:w-[150px] md:text-[16px] md:h-[50px] w-[120px]  text-[13px] fold:w-[90px] fold:text-[12px] text-center py-3">{messages.support4}</NavLink>
+                        <NavLink to="/supportpay" className="bg-[#E75A56] text-white rounded-full font-bold flex justify-center items-center dark:bg-[#404343] lg:w-[200px] lg:text-xl lg:h-20 w-32 h-10  text-lg duration-500 fold:w-[90px] fold:text-[12px] text-center hover:bg-[#b3312c]">{messages.support4}</NavLink>
                     </div>
                 </div>
             </div>
             <div className="w-full dark:bg-[#272929] overflow-hidden">
                 <div className="lg:w-9/12 pb-[70px] my-0 mx-auto md:w-5/6 w-11/12 fold:w-10/12">
-                    <div className="text-center lg:pt-[100px] md:pt-[100px] pt-[65px] lg:text-3xl font-bold md:text-3xl text-[25px] dark:text-[#ebf4f1]">
+                    <div className="text-center lg:pt-[100px] md:pt-[100px] pt-[40px] lg:text-3xl font-bold md:text-3xl text-[25px] dark:text-[#ebf4f1]">
                         <FontAwesomeIcon className='text-[#86bcd5] dark:text-white' icon={faStore} />
                         <p className='pt-1'>{messages.supstoretitle}</p>
                      </div>
-                    <div className="flex justify-center items-center h-[75px] bg-[#86bcd5] text-white mt-[30px] lg:mb-[50px] md:mb-[50px] mb-[30px] mx-auto  md:w-full w-full lg:h-[70px] md:h-[75px] dark:bg-[#404343]">
+                    <div className="flex justify-center items-center text-center h-[75px] bg-[#86bcd5] text-white mt-[30px] lg:mb-[50px] md:mb-[50px] mb-[30px] mx-auto  md:w-full w-full lg:h-[70px] md:h-[75px] dark:bg-[#404343]">
                         <p className="lg:text-[23px] md:text-xl text-[16px] dark:text-[#ebf4f1]">{messages.supstoresubtitle}</p>
                     </div>
                     <div className="w-full">

@@ -250,7 +250,7 @@ function Support_Info() {
                   <input type="checkbox" id='policy'/>
                   <label htmlFor='policy' className='ml-2 sm:text-[15px] fold:text-[15px]'>{messages.supportpay1_42}<NavLink to=''>{messages.supportpay1_43}</NavLink></label>
                 </div>
-                <button onClick={formChk} className='lg:w-[165px] lg:h-[43px] bg-[#86bcd5] text-white my-0 mx-auto flex justify-center items-center mt-[50px]  md:w-full md:h-[60px] w-full h-[60px]' >{messages.supportpay1_44}</button>
+                <button onClick={formChk} className='bg-[#86bcd5] text-white my-0 mx-auto flex justify-center items-center mt-[50px] w-full h-[60px]' >{messages.supportpay1_44}</button>
               </div>
             </div>
         </div>
