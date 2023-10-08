@@ -553,6 +553,14 @@
         "You're already logged in.",
         "You're logged in.",
         "No changes have been made."
-    ]
+    ],
+    "grid1": "Meet some stray animal friends to be with.",
+    "grid2": "A special journey that begins with adoption, take a step forward for your new family!",
+    "grid3": "More",
+
+    "countnum1": "An animal abandoned during the year",
+    "countnum2": "about",
+    "countnum3": "Based on 2022 Agriculture, Food and Rural Affairs Quarantine Headquarters",
+    "countnum4": "Among them, the adoption rate is about"
   }
   
