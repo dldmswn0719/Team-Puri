@@ -57,7 +57,7 @@ function ProductNav() {
   return (
       <>
       <div className="w-full dark:bg-[#272929]">
-        <div className="max-w-7xl mx-auto p-5 bg-white z-[60]">
+        <div className="max-w-7xl mx-auto p-5">
           <div className="py-5 border-b border-[#86bcd5] dark:border-b dark:border-[#dadbdb]">
             <ul className="text-[#797979] text-lg lg:text-[21px] text-center flex justify-around font-medium">
               <li className="cursor-pointer hover:text-[#222] hover:font-bold dark:text-[#fbfdfd] dark:hover:text-[#ebf4f1]" onClick={MoveDetail}>
