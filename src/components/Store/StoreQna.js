@@ -90,7 +90,7 @@ function StoreQna() {
                 :
                 <div className="max-w-7xl mx-auto text-[14px] lg:text-[18px]">
                   <ul className="flex py-2  bg-[#86bcd5] dark:text-[#ebf4f1] text-white dark:bg-[#404343]">
-                    <li className="lg:basis-[15%] basis-[5%]">{messages.qnatitle1}</li>
+                    <li className="lg:basis-[15%] basis-[10%]">{messages.qnatitle1}</li>
                     <li className="basis-[80%]">{messages.qnatitle2}</li>
                     <li className="lg:basis-[20%] md:basis-[15%] basis-[30%]">{messages.qnatitle3}</li>
                     <li className="lg:basis-[20%] md:basis-[15%] sm:hidden fold:hidden">{messages.qnatitle4}</li>
@@ -106,7 +106,7 @@ function StoreQna() {
                                 setEditEditor(false)
                             }
                         }}>
-                            <li className="py-[10px] px-1 lg:px-5 text-center lg:basis-[15%] basis-[5%]">{posts.length - i}</li>
+                            <li className="py-[10px] px-1 lg:px-5 text-center lg:basis-[15%] basis-[10%]">{posts.length - i}</li>
                             <li className="py-[10px] px-2 lg:px-5 text-left basis-[80%] text-ellipsis whitespace-nowrap overflow-hidden">
                               {
                                 e.isSecret && <FontAwesomeIcon icon={faLock} className="mr-1" />

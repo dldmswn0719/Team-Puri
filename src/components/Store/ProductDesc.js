@@ -72,7 +72,7 @@ function ProductDesc() {
                                     <FontAwesomeIcon icon={faAngleUp} className={`w-6 h-6 pt-[3px] lg:w-8 lg:h-8 ${close === false ? 'rotate-180' : ''}`} />
                                 </div>
                             </div>
-                            <div className="max-w-[900px] text-white mx-auto bg-[#86bcd5] leading-10 mb-5 lg:mb-[40px] lg:text-[20px] font-[500] dark:bg-[#404343] dark:text-[#ebf4f1] py-[70px] px-5">
+                            <div className="max-w-[900px] text-white mx-auto bg-[#86bcd5] leading-10 my-5 lg:my-10 lg:text-[20px] font-[500] dark:bg-[#404343] dark:text-[#ebf4f1] py-[70px] px-5">
                                 <p className='text-[27px] lg:text-[32px] font-bold title'>{messages[`product_${params.id}`].Main_title_1}</p>
                                 {
                                     ['desc2', 'desc3', 'desc4'].map((desc, i) => (

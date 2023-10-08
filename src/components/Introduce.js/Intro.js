@@ -11,7 +11,7 @@ function Intro() {
   return (
     <>
       <div className=" flex justify-center items-center w-full h-full  dark:bg-[#272929] overflow-x-hidden">
-        <div className="w-[1200px] min-h-screen">
+        <div className="w-[1200px] min-h-screen px-3">
           <div className="mt-[50px] ">
             <p className='text-center text-[28px] lg:text-[48px] md:text-[34px] fold:text-[22px] text-[#162C58] dark:text-[#ebf4f1] animate__animated animate__backInLeft sm:px-3'>{messages.introduce.desc1}
               <span className='font-bold tracking-[-2px] fold:tracking-[-2px] dark:text-[#ebf4f1'>{messages.introduce.desc2}</span>{messages.introduce.desc3}</p>

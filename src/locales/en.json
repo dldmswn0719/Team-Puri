@@ -147,10 +147,13 @@
     "complete1" : "Your payment has been successfully completed.",
     "complete2" : "Thank you for your precious support for stray animals",
     "complete3" : "I heartily thank you.",
-    "complete4" : "We're going to work harder for abandoned animals",
-    "complete5" : "PURIPURI",
-    "complete6" : "will do that.",
-    "complete7" : "Go to Main Screen",
+    "complete4" : "Your valuable donation",
+    "complete5" : "will be used for adoption activities for stray animals.",
+    "complete6" : "Once again, thank you for your precious support.",
+    "complete7" : "We're going to work harder for abandoned animals",
+    "complete8" : "PURIPURI",
+    "complete9" : "will do that.",
+    "complete10" : "Main Screen",
     "registration" : "Registration",
     "cancel" : "cancel",
     "complete" : "complete",
@@ -422,9 +425,9 @@
         "design_story4": ""
     },
     "introduce":{
-        "desc1" : "The ",
-        "desc2" : "special shelter for our ",
-        "desc3" :" little friends",
+        "desc1" : "",
+        "desc2" : "The special shelter for our little friends ",
+        "desc3" :"",
         "desc4" :"Puripuri is name for our abandoned animals with affectionate cares",
         "desc5" :"Puripuri",
         "desc6" :"",
@@ -517,6 +520,7 @@
     "member4" : "Edit",
     "member5" : "double check",
     "find" : "Find your email",
+    "find1" : "Reset password",
 
     "setError" : [
         "Please enter a valid phone number.",
