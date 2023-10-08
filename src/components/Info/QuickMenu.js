@@ -19,7 +19,7 @@ function QuickMenu() {
       const navigate = useNavigate();
   return (
     <>
-<div className="fixed z-10  right-4 md:right-4 lg:right-1 bottom-[150px] opacity-80">
+<div className="fixed z-10 right-[3%] bottom-[5%] opacity-80">
     <div className="shadow-lg text-white flex flex-col text-center rounded-lg border-2
      border-[#86bcd5] bg-[#86bcd5] dark:bg-[#272929] dark:border-[#dadbdb]">
     
