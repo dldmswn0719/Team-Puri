@@ -65,8 +65,8 @@ function Content3Review() {
             md:pb-10 md:max-w-[768px]`} id='review'>
                 <div className=' pb-10'>
                     <ul className='md:flex md:justify-between lg:flex lg:justify-between text-center md:text-left lg:relative'>
-                        <li className='absolute -right-1/3 top-96 z-10 lg:block hidden hover:after:content-["슬라이드해보세요"]'>
-                            <img src="./../../Images/Main/clickclick.gif" alt="click" className='lg:w-1/6 cursor-pointer' />
+                        <li className='absolute lg:-bottom-[650px] md:bottom-10 bottom-5 left-1/2 -translate-x-1/2 z-10'>
+                            <img src="./../../Images/Main/click.gif" alt="click" className='cursor-pointer' />
                         </li>
                         <li className='dark:text-white'>
                             <p className='tracking-tight lg:text-5xl lg:mb-[43px]
@@ -97,7 +97,7 @@ function Content3Review() {
                         {
                             swiperArray.map((e, i) => {
                                 return (
-                                    <SwiperSlide className='lg:bg-white md:bg-white'>
+                                    <SwiperSlide key={i} className='lg:bg-white md:bg-white'>
                                         <ul className='lg:flex md:flex'>
                                             <li>
                                                 <img src={`${e.img + (i + 1)}.jpg`} alt="i + 1" className='lg:w-full md:w-[82%] md:my-auto md:m-0 w-2/3 m-auto' />
