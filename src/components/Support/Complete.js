@@ -13,7 +13,7 @@ function Complete() {
     const messages = language === 'en' ? enMessages : krMessages;
   return (
     <>
-        <div className="w-11/12 h-full bg-[#86bcd5] absolute mx-auto my-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-10/12 md:w-10/12 lg:h-full md:h-full">
+        <div className="w-11/12 h-full bg-[#86bcd5] absolute mx-auto my-auto left-1/2 -translate-x-1/2 lg:w-10/12 md:w-10/12 lg:h-full md:h-full">          
             <ul className="lg:mb-[4%] md:mb-[7%] mb-[8%] fold:mb-[12%] text-center relative lg:top-[15%] md:top-[17%] top-[18%]">
                 <li className="text-[17px]  lg:text-3xl md:text-2xl fold:text-[13px]">
                     <p>{messages.complete1}</p>

@@ -23,7 +23,7 @@ function Support_Store() {
                         </div>
                     </div>
                     <div className='h-1/2 translate-y-1/3 mt-[-15px]'>
-                        <NavLink to="/supportpay" className="bg-[#86bcd5] text-white rounded-[50px] flex justify-center items-center dark:bg-[#404343] lg:w-[190px] lg:text-xl lg:h-[70px] md:w-[150px] md:text-[16px] md:h-[50px] w-[120px]  text-[13px] fold:w-[90px] fold:text-[12px] text-center py-3">{messages.support4}</NavLink>
+                        <NavLink to="/supportpay" className="bg-[#E75A56] text-white rounded-[50px] flex justify-center items-center dark:bg-[#404343] lg:w-[190px] lg:text-xl lg:h-[70px] md:w-[150px] md:text-[16px] md:h-[50px] w-[120px]  text-[13px] fold:w-[90px] fold:text-[12px] text-center py-3">{messages.support4}</NavLink>
                     </div>
                 </div>
             </div>
