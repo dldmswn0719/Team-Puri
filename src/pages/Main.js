@@ -12,14 +12,14 @@ import { useEffect } from 'react'
 
 
 function Main() {
-    const [loading, setLoading] = useState(true); 
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         setTimeout(() => setLoading(false), 3000); 
       }, []);
     return (
         <>
         {loading ? (
-          <Loading /> // 로딩 중일 때는 로딩 컴포넌트 표시
+          <Loading />
         ) : (
           <>
             <Nav />

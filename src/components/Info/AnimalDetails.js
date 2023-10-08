@@ -4,7 +4,7 @@ import TellButton from './TellButton'
 import { faLocationDot, faPaw, faPhone, faHouse } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import AnimalSwiper from './AnimalSwiper'
-import ScrollToTop from './ScrollToTop'
+
 
 function AnimalDetails() {
     const [mapX, setMapX] = useState(0)

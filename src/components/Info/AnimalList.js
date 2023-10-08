@@ -71,6 +71,7 @@ function AnimalList() {
 
 
     const [loading, setLoading] = useState(false);
+    
     const ResultData = useCallback(() => {
         fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json&upkind=${Array[kindCode]}`).
             then((res) => {
@@ -126,7 +127,8 @@ function AnimalList() {
     for (let i = startPage; i <= endPage; i++) {
         PageList.push(
             <div className="flex items-center justify-center h-full">
-                <li key={i} className={(page === i ? 'rounded-full cursor-pointer w-[50px] h-[50px] fold:w-[35px] fold:h-[35px] fold:py-0 fold:px-0 border-transparent leading-10 text-center relative block py-1 px-1.5 lg:mx-3 border-2  border-[#86bcd5] dark:border-1 dark:border-[#dadbdb] text-white bg-[#86bcd5] dark:bg-[#404343]' : ' rounded-full cursor-pointer w-[50px] h-[50px] fold:w-[35px] fold:h-[35px]  leading-10 text-center relative block py-1 px-1.5 fold:py-0 fold:px-0 lg:mx-3 border-2 border-transparent text-black shadow-sm dark:text-[#ebf4f1]')} onClick={() => { setLoading(true); setPage(i); }}>
+                <li key={i} className={(page === i ? 'rounded-full cursor-pointer w-[50px] h-[50px] fold:w-[35px] fold:h-[35px] fold:py-0 fold:px-0 border-transparent leading-10 text-center relative block py-1 px-1.5 lg:mx-3 border-2  border-[#86bcd5] dark:border-1 dark:border-[#dadbdb] text-white bg-[#86bcd5] dark:bg-[#404343]' : ' rounded-full cursor-pointer w-[50px] h-[50px] fold:w-[35px] fold:h-[35px]  leading-10 text-center relative block py-1 px-1.5 fold:py-0 fold:px-0 lg:mx-3 border-2 border-transparent text-black shadow-sm dark:text-[#ebf4f1]')} 
+                onClick={() => { setLoading(true); setPage(i); }}>
                     <div className="flex items-center justify-center h-full">
                         {i}
                     </div>
@@ -144,7 +146,7 @@ function AnimalList() {
             <QuickMenu />
 
             {
-                loading && <Loading />
+                loading && <Loading /> 
             }
 
             <div className='max-w-full min-h-screen bg-white dark:bg-[#272929] overflow-hidden'>
