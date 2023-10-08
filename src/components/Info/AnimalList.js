@@ -49,14 +49,12 @@ function AnimalList() {
                 console.log("데이터가 없습니다.");
         }
     }
-
     const PageReset = () => {
         data === undefined && setPage(1);
     }
 
 
     useEffect(() => {
-
         fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/sido?numOfRows=100&pageNo=1&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json`).then((res) => {
             return res.json()
         }).then((data) => { setCity(data.response.body.items.item) });
@@ -91,8 +89,6 @@ function AnimalList() {
         setLoading(true);
         ResultData()
     }, [page])
-
-
 
 
 
@@ -161,7 +157,7 @@ function AnimalList() {
                                 <select onChange={selectedData} className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929] dark:text-[#ebf4f1]
                                 cityData'>
                                     <option value="">{messages.animal2}</option>
-                                    {city.map((el, index) => <option key={index} value={el.orgCd}>{el.orgdownNm}</option>)}
+                                    {city.map((e, i) => <option key={i} value={e.orgCd}>{e.orgdownNm}</option>)}
                                 </select>
                             </div>
                             {/* 동물 축종 */}
@@ -169,7 +165,7 @@ function AnimalList() {
                                 <p className='
                                 font-bold text-[#999] dark:text-[#ebf4f1] md:mt-5'>{messages.animal3}</p>
                                 <select className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929]  dark:text-[#ebf4f1] kindData' onChange={selectedData}>
-                                    {kind.map((el, index) => <option key={index} value={index}>{el}</option>)}
+                                    {kind.map((e, i) => <option key={i} value={i}>{e}</option>)}
                                 </select>
                             </div>
                             {/* 동물 품종 */}
