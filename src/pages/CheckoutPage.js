@@ -49,14 +49,14 @@ export function CheckoutPage() {
     return (
         <div className="w-full bg-white dark:bg-[#272929] h-[100vh]  ">
             <div className="max-w-7xl mx-auto px-5 py-10">
-                <div className='text-center border bg-white p-5 dark:bg-[#404343]'>
+                <div className='text-center border bg-white p-5 dark:bg-[#404343] dark:border-none dark:text-[#ebf4f1]'>
                     <h1 className=" text-3xl font-bold py-3">주문서</h1>
                     <span className="lg:text-xl"> 상품금액 : {`${price.toLocaleString()}원`} + </span>
                     <span className="lg:text-xl"> 배송비 : {`${deliveryFee.toLocaleString()}원`}</span>
                     <br />
                     <span className="lg:text-xl"> 결제금액 : {`${(price + deliveryFee).toLocaleString()}원`}</span>
-                    <div id="payment-widget"/>
-                        <button className="w-full py-3 bg-[#86bcd5] text-white" onClick={async () => {
+                    <div className="pt-4" id="payment-widget"/>
+                        <button className="w-full py-3 bg-[#86bcd5] text-white dark:bg-[#272929]" onClick={async () => {
                             const paymentWidget = paymentWidgetRef.current;
 
                             try {

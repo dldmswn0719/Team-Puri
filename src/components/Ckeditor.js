@@ -117,7 +117,7 @@ function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,post
                           <div className="rounded-md my-5 bg-[#86bcd5] py-2 px-4 text-xs leading-4 font-bold text-white flex items-center outline-none border-none cursor-pointer dark:bg-[#404343]" onClick={dataSubmit}>
                               <FontAwesomeIcon className="mr-3" icon={faPen} />{messages.complete}
                           </div>
-                          <div className="ml-4 rounded-md my-5 bg-[#86bcd5] py-2 px-4 text-xs leading-4 font-bold text-white flex items-center outline-none border-none cursor-pointer dark:bg-[#404343]" onClick={()=>{hideEditor()}}>
+                          <div className="ml-4 rounded-md my-5 bg-[#db4437] py-2 px-4 text-xs leading-4 font-bold text-white flex items-center outline-none border-none cursor-pointer dark:bg-[#404343]" onClick={()=>{hideEditor()}}>
                               <FontAwesomeIcon className="mr-3" icon={faCancel} />{messages.cancel}
                           </div>
                       </div>

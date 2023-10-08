@@ -110,7 +110,7 @@ function Login_c() {
                                 <input type='password' onChange={(e) => setPassword(e.target.value)} required className='password w-full h-[50px] border-b border-[#ddd] text-[16px] p-[15px] text-[#bbb] box-border dark:bg-[#272929] dark:focus:outline-none dark:text-[#ebf4f1] dark:border-none'></input>
                             </li>
                             <li>
-                                <p className='pt-4 text-red-500 text-sm text-left'>{error}</p>
+                                <p className='pt-4 text-red-500 text-sm text-left dark:text-[#ebf4f1]'>{error}</p>
                             </li>
                             <li>
                                 <button className='w-full h-[50px] bg-[#60a7c8] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] mb-[15px] dark:bg-[#272929]' onClick={LoginForm}>{messages.login3}</button>
