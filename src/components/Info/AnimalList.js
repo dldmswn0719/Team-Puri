@@ -41,6 +41,7 @@ function AnimalList() {
                 const dataValue2 = data.target.selectedOptions[0].getAttribute('data-animal-name')
                 setSelectedAnimal(dataValue2);
                 setAnimalCode(dataValue)
+          
                 break;
             default:
                 console.log("데이터가 없습니다.");
@@ -68,6 +69,7 @@ function AnimalList() {
         });
     }, [kindCode])
 
+
     const [loading, setLoading] = useState(false);
     const ResultData = useCallback(() => {
         fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json&upkind=${Array[kindCode]}`).
@@ -87,7 +89,7 @@ function AnimalList() {
         ResultData()
     }, [page])
 
-
+   
 
     const list = 5;
     const pagination = 5;
@@ -204,11 +206,11 @@ function AnimalList() {
                                                         {e.sexCd === 'M' ? "남" : e.sexCd === 'F' ? "여" : "성별 미상"}
                                                     </p>
                                                 </div>
-                                              <div className="lg:h-[380px] md:h-[450px] sm:h-[450px] ">
-                                                <div className="flex lg:basis-[32.5%] md:basis-[48%] sm:basis-[90%] fold:basis-[100%]  h-[70%] fold:h-[250px]  ">
+                                            <div className="lg:h-[450px] md:h-[450px] sm:h-[450px]">
+                                                <div className="flex lg:basis-[32.5%] md:basis-[48%] sm:basis-[90%] fold:basis-[100%] lg:h-[70%] md:h-[70%] sm:h-[70%] fold:h-[250px]">
                                                     <img src={e.popfile} alt="img" className='w-full' />
                                                 </div>
-                                            <div className="pl-[10px] py-[10px] dark:text-[#ebf4f1] dark:bg-[#404343] dark:rounded-b-[20px] h-[30%] flex flex-col justify-center">
+                                            <div className="pl-[10px] py-[10px] dark:text-[#ebf4f1] dark:bg-[#404343] dark:rounded-b-[20px] lg:h-[30%] md:h-[30%] sm:h-[30%] flex flex-col justify-center">
                                                 <p className='font-bold text-base'><span className='text-[#999] dark:text-[#ebf4f1]'>품종 :</span> {e.kindCd}</p>
                                                 <p className='font-bold text-base'><span className='text-[#999] dark:text-[#ebf4f1]'>나이 :</span> {e.age} 추정</p>
                                                 <p className='font-bold text-base'><span className='text-[#999] dark:text-[#ebf4f1]'>지역 :</span> {e.orgNm}</p>
