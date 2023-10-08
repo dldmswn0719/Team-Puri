@@ -22,7 +22,7 @@
     "animal5": "Breed",
     "animal6": "All Breeds",
     "animal7": "Search",
-    "animal8": "Loading",
+    "animal8": "Loading...",
     "reviewlike" : "and many others like it ",
     "reviewlike1" : "and",
     "reviewlike2" : "many others",
@@ -425,9 +425,9 @@
         "design_story4": ""
     },
     "introduce":{
-        "desc1" : "The ",
-        "desc2" : "special shelter for our ",
-        "desc3" :" little friends",
+        "desc1" : "",
+        "desc2" : "The special shelter for our little friends ",
+        "desc3" :"",
         "desc4" :"Puripuri is name for our abandoned animals with affectionate cares",
         "desc5" :"Puripuri",
         "desc6" :"",

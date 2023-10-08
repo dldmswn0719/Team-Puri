@@ -123,9 +123,7 @@ function AnimalDetails() {
                             <div className="lg:w-[800px] md:w-[400px]  sm:w-[300px] fold:w-[250px] ">
                                 <p className='text-xl fold:text-lg font-bold mt-10 mb-2 dark:text-[#ebf4f1]'><FontAwesomeIcon icon={faPaw} />  또 다른 구조 정보</p>
                                 <div className='border-b-2 border-[#86bcd5] dark:border-[#dadbdb]'></div>
-                               
                                 <AnimalSwiper/>
-                               
                             </div>
                         </div>
                     </div>
