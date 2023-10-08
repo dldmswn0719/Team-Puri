@@ -69,12 +69,11 @@ function Reviews() {
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-[1280px] mx-auto max-lg:w-11/12 md:w-5/6">
             
-            <div className="flex text-[15px] gap-y-5 gap-[6px] flex-wrap justify-between mb-[30px]">
+            <div className="flex text-[15px] gap-y-5 gap-[6px] flex-wrap justify-between mb-[30px] sm:px-5">
               {
                 review.filter(item => item.group <= currentPage).map((e, i) => {
                   return (
-                    <div className="relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-lg rounded-[20px] 
-                    // 두개
+                    <div className="relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-lg rounded-[20px]
                     sm:w-full max-lg:w-[32%] max-lg:h-[500px]" key={i} data-aos="zoom-in">
                       <ul className='flex w-[250px] justify-between mx-auto pt-5 max-lg:w-[90%]'>
                         <li><img className='w-7 h-6'
