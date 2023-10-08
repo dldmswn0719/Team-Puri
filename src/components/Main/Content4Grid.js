@@ -28,7 +28,7 @@ function Content4Grid() {
         <div className='md:max-w-[768px] lg:max-w-[1200px] m-auto
         pt-28
         lg:pt-[130px] lg:pb-[147px]'>          
-            <p className='text-center lg:pb-20 pb-10 lg:text-4xl md:text-2xl text-xl font-bold relative'>함께할 유기동물 친구들을 만나보세요 <img src='./../../Images/Main/puppy.png' alt='puppy' className='absolute top-0 right-64 w-1/12' /> </p>
+            <p className='text-center lg:pb-20 pb-10 lg:text-4xl md:text-2xl text-xl font-bold relative'>함께할 유기동물 친구들을 만나보세요 <img src='./../../Images/Main/puppy.png' alt='puppy' className='absolute lg:-top-20 lg:right-0 z-[-1]' /> </p>
             <ul className='flex flex-wrap md:justify-start justify-around gap-5 sm:mx-[5%]'>
                 {
                     data.map((e, i) => {
