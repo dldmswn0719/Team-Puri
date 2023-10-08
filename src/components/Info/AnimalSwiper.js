@@ -2,9 +2,8 @@ import React from 'react'
 import AnimalData from './../../data/AnimalData.json';
 import { Link } from 'react-router-dom'
 import 'swiper/css'
-import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination } from 'swiper/modules'
+import { Autoplay } from 'swiper/modules'
 import { useEffect } from 'react';
 import { useState } from 'react';
 
@@ -41,8 +40,7 @@ function AnimalSwiper() {
                 loop={true}
                 slidesPerView={4}
                 spaceBetween={1}
-                Pagination={{ clickable: true }}
-                modules={[Autoplay, Pagination]}
+                modules={[Autoplay]}
             >
                 {data.map((e, i) => (
                     <SwiperSlide className="basis-1/4" key={i}>

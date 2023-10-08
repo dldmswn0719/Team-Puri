@@ -19,13 +19,13 @@ function QuickMenu() {
       const navigate = useNavigate();
   return (
     <>
-<div className="fixed z-10  right-2 md:right-4 lg:right-4 bottom-3 opacity-80 ">
+<div className="fixed z-10  right-2 md:right-4 lg:right-4 bottom-3 opacity-80">
     <div className="shadow-lg text-white flex flex-col text-center rounded-lg border-2
      border-[#86bcd5] bg-[#86bcd5] dark:bg-[#272929] dark:border-[#dadbdb]">
-        <button className='py-2.5 px-5 md:px-3 sm:px-3 fold:px-1 border-b-2'  onClick={() => navigate(-1)}> <FontAwesomeIcon icon={faBackward} size='xl' color='white'/></button>
-        <button className='py-2.5 px-5 md:px-3 sm:px-3 fold:px-1 border-b-2'  onClick={() => navigate(1)}><FontAwesomeIcon icon={faForward} size='xl' color='white' /></button>
+    
         <button className='py-2.5 px-5 md:px-3 sm:px-3 fold:px-1 border-b-2' onClick={MoveToTop}> <FontAwesomeIcon icon={faAngleUp} size='xl' color='white'/></button>
-        <button className='py-2.5 px-5 md:px-3 sm:px-3 fold:px-1' onClick={MoveToDown}><FontAwesomeIcon icon={faAngleDown} size='xl' color='white'/></button>
+        <button className='py-2.5 px-5 md:px-3 sm:px-3 fold:px-1 border-b-2' onClick={MoveToDown}><FontAwesomeIcon icon={faAngleDown} size='xl' color='white'/></button>
+        <button className='py-2.5 px-5 md:px-3 sm:px-3 fold:px-1 '  onClick={() => navigate(-1)}> <FontAwesomeIcon icon={faBackward} size='xl' color='white'/></button>
     </div>
 </div>
 </>
