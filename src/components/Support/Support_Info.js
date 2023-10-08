@@ -229,12 +229,12 @@ function Support_Info() {
                 </ul>
                 <ul className="w-full block bg-[#86bcd5] py-[30px] pl-5 fold:pl-[3%] text-[#1e4557]">
                   <li className='font-bold mb-[10px]'><p>{messages.supportpay1_33}</p></li>
-                  <li className='text-[13px] mb-[5px] fold:text-[12px]'><p>{messages.supportpay1_34}</p></li>
-                  <li className='text-[13px] mb-[5px] fold:text-[12px]'><p>{messages.supportpay1_35}</p></li>
-                  <li className='text-[13px] mb-[5px] fold:text-[12px]'><p>{messages.supportpay1_36}</p></li>
-                  <li className='text-[13px] mb-[5px] fold:text-[12px] '><p>{messages.supportpay1_37}</p></li>
-                  <li className='text-[13px] mb-[5px] fold:text-[12px]'><p>{messages.supportpay1_38}</p></li>
-                  <li className='text-[13px] mb-[5px] fold:text-[12px]'><p>{messages.supportpay1_39}</p></li>
+                  <li className='text-[13px] mb-[5px] fold:text-[12px] pr-[4%]'><p>{messages.supportpay1_34}</p></li>
+                  <li className='text-[13px] mb-[5px] fold:text-[12px] pr-[4%]'><p>{messages.supportpay1_35}</p></li>
+                  <li className='text-[13px] mb-[5px] fold:text-[12px] pr-[4%]'><p>{messages.supportpay1_36}</p></li>
+                  <li className='text-[13px] mb-[5px] fold:text-[12px] pr-[4%] '><p>{messages.supportpay1_37}</p></li>
+                  <li className='text-[13px] mb-[5px] fold:text-[12px] pr-[4%]'><p>{messages.supportpay1_38}</p></li>
+                  <li className='text-[13px] mb-[5px] fold:text-[12px] pr-[4%]'><p>{messages.supportpay1_39}</p></li>
                 </ul>
               </div>
               <div className="lg:py-[50px] md:py-[50px] relative lg:w-[500px] md:w-full sm:w-full py-[30px]">
@@ -244,11 +244,11 @@ function Support_Info() {
                 </div>
                 <div className="mb-[10px]">
                   <input type="checkbox" id='use' />
-                  <label htmlFor='use' className='ml-2 sm:text-[15px] fold:text-[15px]' >{messages.supportpay1_41}<NavLink to='/'>{messages.supportpay1_43}</NavLink></label>
+                  <label htmlFor='use' className='ml-2 sm:text-[15px] fold:text-[15px]' >{messages.supportpay1_41}<NavLink to=''>{messages.supportpay1_43}</NavLink></label>
                 </div>
                 <div className="mb-[10px]">
                   <input type="checkbox" id='policy'/>
-                  <label htmlFor='policy' className='ml-2 sm:text-[15px] fold:text-[15px]'>{messages.supportpay1_42}<NavLink to='/'>{messages.supportpay1_43}</NavLink></label>
+                  <label htmlFor='policy' className='ml-2 sm:text-[15px] fold:text-[15px]'>{messages.supportpay1_42}<NavLink to=''>{messages.supportpay1_43}</NavLink></label>
                 </div>
                 <button onClick={formChk} className='lg:w-[165px] lg:h-[43px] bg-[#86bcd5] text-white my-0 mx-auto flex justify-center items-center mt-[50px]  md:w-full md:h-[60px] w-full h-[60px]' >{messages.supportpay1_44}</button>
               </div>
