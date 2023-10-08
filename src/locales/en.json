@@ -520,6 +520,7 @@
     "member4" : "Edit",
     "member5" : "double check",
     "find" : "Find your email",
+    "find1" : "Reset password",
 
     "setError" : [
         "Please enter a valid phone number.",
