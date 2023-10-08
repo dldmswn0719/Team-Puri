@@ -56,7 +56,7 @@ function Content5Donate() {
                     className='text-2xl font-bold'
                     />
                 }%</p>
-                <p className='lg:text-2xl lg:py-[73px] tracking-tight text-base py-4'>{messages.cont5donate4}<br />{messages.cont5donate5}<br />{messages.cont5donate6}</p>
+                <p className='lg:text-2xl lg:py-[73px] tracking-tight md:text-base text-xs py-4'>{messages.cont5donate4}<br />{messages.cont5donate5}<br />{messages.cont5donate6}</p>
                 <button className='lg:w-[200px] lg:h-20 lg:text-2xl
                 w-32 h-10 text-lg
                 bg-[#E75A56] rounded-full duration-500 font-bold hover:bg-[#b3312c]'><NavLink to='/supportpay' className='text-white'>{messages.cont5donate7}</NavLink></button>

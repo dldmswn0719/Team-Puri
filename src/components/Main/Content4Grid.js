@@ -29,7 +29,7 @@ function Content4Grid() {
         pt-28
         lg:pt-[130px] lg:pb-[147px]'>
             
-            <p className='text-center lg:pb-20 pb-10 lg:text-4xl md:text-2xl text-xl font-bold '>함께할 유기동물 친구들을 만나보세요</p>
+            <p className='text-center lg:pb-20 pb-10 lg:text-4xl md:text-2xl text-xl font-bold relative'>함께할 유기동물 친구들을 만나보세요 <img src='./../../Images/Main/puppy.png' alt='puppy' className='absolute top-0 right-64 w-1/12' /> </p>
             <ul className='flex flex-wrap md:justify-start justify-around gap-5 sm:mx-[5%]'>
                 {
                     data.map((e, i) => {
