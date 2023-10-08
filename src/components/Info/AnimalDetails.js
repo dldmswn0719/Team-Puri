@@ -117,7 +117,7 @@ function AnimalDetails() {
                                 </div>
                             </div>
 
-                            <p className='flex justify-start items-center lg:w-[800px] md:w-[400px] sm:w-[300px] text-xl mt-11 dark:text-[#ebf4f1] font-bold'><FontAwesomeIcon icon={faLocationDot} color='#ff5b5b' />{" "}보호소 위치</p>
+                            <p className='flex justify-start items-center lg:w-[800px] md:w-[400px] sm:w-[300px] text-xl mt-11 dark:text-[#ebf4f1] font-bold'><FontAwesomeIcon icon={faLocationDot} color='#ff5b5b' className='mr-1' />보호소 위치</p>
                             <div id='map' className='w-[800px] h-[400px] md:w-[400px] md:h-[400px] sm:w-[300px] sm:h-[300px] fold:w-[250px] fold:h-[250px]   mt-5'></div>
 
                             <div className="lg:w-[800px] md:w-[400px]  sm:w-[300px] fold:w-[250px] ">
