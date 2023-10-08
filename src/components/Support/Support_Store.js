@@ -29,11 +29,11 @@ function Support_Store() {
             </div>
             <div className="w-full dark:bg-[#272929] overflow-hidden">
                 <div className="lg:w-9/12 pb-[70px] my-0 mx-auto md:w-5/6 w-11/12 fold:w-10/12">
-                    <div className="text-center pt-[100px] lg:text-3xl font-bold md:text-3xl text-[25px] dark:text-[#ebf4f1]">
-                        <FontAwesomeIcon className='text-[#86bcd5]' icon={faStore} />
+                    <div className="text-center lg:pt-[100px] md:pt-[100px] pt-[65px] lg:text-3xl font-bold md:text-3xl text-[25px] dark:text-[#ebf4f1]">
+                        <FontAwesomeIcon className='text-[#86bcd5] dark:text-white' icon={faStore} />
                         <p className='pt-1'>{messages.supstoretitle}</p>
                      </div>
-                    <div className="flex text-center justify-center items-center h-[75px] bg-[#86bcd5] text-white mt-[30px] lg:mb-[50px] md:mb-[50px] mb-[30px] mx-auto  md:w-full w-full lg:h-[70px] md:h-[75px] dark:bg-[#404343]">
+                    <div className="flex justify-center items-center h-[75px] bg-[#86bcd5] text-white mt-[30px] lg:mb-[50px] md:mb-[50px] mb-[30px] mx-auto  md:w-full w-full lg:h-[70px] md:h-[75px] dark:bg-[#404343]">
                         <p className="lg:text-[23px] md:text-xl text-[16px] dark:text-[#ebf4f1]">{messages.supstoresubtitle}</p>
                     </div>
                     <div className="w-full">
