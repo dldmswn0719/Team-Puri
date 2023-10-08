@@ -111,14 +111,14 @@ function Findemail() {
                 </div>
                 <p className='text-[15px] text-red-500 dark:text-[#ebf4f1]'>{message}</p>
                 <div className='relative mb-3'>
-                    <button className='w-full h-[50px] bg-[#162c58] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] dark:bg-[#272929]' onClick={findID}>
+                    <button className='w-full h-[50px] bg-[#86bcd5] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] dark:bg-[#272929]' onClick={findID}>
                         <p className='dark:text-[#ebf4f1]'>{messages.find}</p>
                     </button>
                 </div>
                 <div className='relative mb-5'>
                     {resultEmail && 
-                        <button className="w-full h-[50px] bg-[#162c58] text-[#fff] text-[18px] rounded-[10px] cursor-pointer dark:bg-[#272929]" onClick={passwordEdit}>
-                            <p className='dark:text-[#ebf4f1]'> 패스워드 재설정</p>
+                        <button className="w-full h-[50px] bg-[#86bcd5] text-[#fff] text-[18px] rounded-[10px] cursor-pointer dark:bg-[#272929]" onClick={passwordEdit}>
+                            <p className='dark:text-[#ebf4f1]'>{messages.find1}</p>
                         </button>
                     }
                 </div>

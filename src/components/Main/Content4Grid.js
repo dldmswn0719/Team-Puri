@@ -62,12 +62,12 @@ function Content4Grid() {
         <div className='md:w-[768px] lg:max-w-[1200px] m-auto
         pt-28
         lg:pt-[130px] lg:pb-[147px]'>
-            <ul className='flex flex-wrap justify-start lg:justify-between'>
+            <ul className='flex flex-wrap justify-start lg:justify-between gap-y-5'>
                 {
                     Array(8).fill().map((_, i) => {
                         return (
                             <li key={i} className={`lg:basis-1/4 md:basis-1/3 basis-1/2 
-                            cursor-pointer duration-300 relative
+                            cursor-pointer duration-300 relative 
                             hover:scale-105 hover:after:w-full hover:after:h-full hover:after:bg-black hover:after:bg-opacity-30 hover:after:absolute hover:after:top-0 hover:after:left-0 hover:after:content-["개"] hover:after:text-white hover:after:text-center hover:after:items-center hover:after:text-3xl`}><Link to='/infodetail/444450202101068' /><img src={`./../../Images/Main/list${i + 1}.png`} alt={i + 1} className='w-full'/>
                             </li>
                         )
