@@ -65,8 +65,8 @@ function Content3Review() {
             md:pb-10 md:max-w-[768px]`} id='review'>
                 <div className=' pb-10'>
                     <ul className='md:flex md:justify-between lg:flex lg:justify-between text-center md:text-left lg:relative'>
-                        <li className='absolute -right-1/3 top-96 z-10 lg:block hidden hover:after:content-["슬라이드해보세요"]'>
-                            <img src="./../../Images/Main/clickclick.gif" alt="click" className='lg:w-1/6 cursor-pointer' />
+                        <li className='absolute -right-1/3 top-96 z-10 lg:block hidden'>
+                            <img src="./../../Images/Main/click.gif" alt="click" className='cursor-pointer' />
                         </li>
                         <li className='dark:text-white'>
                             <p className='tracking-tight lg:text-5xl lg:mb-[43px]
