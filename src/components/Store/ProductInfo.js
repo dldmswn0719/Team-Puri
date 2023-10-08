@@ -130,6 +130,7 @@ function ProductInfo() {
         return;
       }
       // 옵션 없는것 총 상품금액이 1개이상 구매 넘기기
+      
     }else{
       if(totalCnt <= 0) {
         alert(messages.storealert2);
@@ -143,6 +144,8 @@ function ProductInfo() {
       alert(messages.storealert3)
       navigate('/login')
     }
+
+    // 로그인을 안했는데 옵션있는애들이 상품을 먼저 선택하고 로그인이 필요한 페이지라고 함 고치기
   }
 
   const dispatch = useDispatch();

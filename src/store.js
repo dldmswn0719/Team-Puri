@@ -42,7 +42,7 @@ let language = createSlice({
 
 let price = createSlice({
     name: "price",
-    initialState: 0,
+    initialState: Number(localStorage.getItem('price')) || 0,
     reducers: {
       setPrice: (state, action) => action.payload,
     }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons';
-import { faBars, faEarthAmericas, faLock, faUserPen, faXmark, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEarthAmericas, faLock, faUserPen, faXmark, faUser, faBurger } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLanguage, toggleTheme } from '../store';
@@ -100,7 +100,9 @@ function Nav() {
                                 </button>
                             </li>
                             <li className='basis-1/2 text-center cursor-pointer text-2xl relative group'>
-                                <FontAwesomeIcon icon={faEarthAmericas} className='text-[25px] dark:text-[#ebf4f1]' />
+                                <img src='./../Images/korea.png' alt='1' />
+                                {/* 임시 이미지임 */}
+                                {/* <FontAwesomeIcon icon={faEarthAmericas} className='text-[25px] dark:text-[#ebf4f1]' /> */}
                                 <ul className='z-100 dark:bg-[#272929] absolute w-20 top-[50px] -left-[6px] bg-white transition-all duration-500 flex flex-wrap h-0 overflow-hidden group-hover:h-24'>
                                     <li onClick={() => changeLanguage('kr')} className='dark:hover:bg-[#404040b3] border w-full basis-full h-12 leading-10 hover:font-bold hover:bg-[#86bcd5] hover:text-white'>
                                         <button className='text-sm dark:text-[#ebf4f1]'>{messages.korean}</button>
@@ -117,7 +119,7 @@ function Nav() {
                     {/* 모바일 네비 시작 */}
                     <div className='lg:hidden flex'>
                         <div className='lg:hidden text-center cursor-pointer text-2xl relative group pl-3 pr-8'>
-                            <FontAwesomeIcon icon={faEarthAmericas} className='text-[25px] dark:text-[#ebf4f1] sm:w-6 sm:h-6' />
+                            <FontAwesomeIcon icon={faEarthAmericas} className='text-[25px] dark:text-[#ebf4f1] sm:w-7 sm:h-7' />
                             <ul className='z-100 dark:bg-[#272929] absolute w-20 top-[50px] -left-[15px] bg-white transition-all duration-500 flex flex-wrap h-0 overflow-hidden group-hover:h-24'>
                                 <li onClick={() => changeLanguage('kr')} className='dark:hover:bg-[#404040b3] border w-full basis-full h-12 leading-10 hover:font-bold hover:bg-[#86bcd5] hover:text-white'>
                                     <button className='text-sm dark:text-[#ebf4f1]'>{messages.korean}</button>
@@ -132,12 +134,12 @@ function Nav() {
                                 hamburger ?
                                 <FontAwesomeIcon icon={faXmark} className='w-8 h-8 dark:text-white' />
                                 :
-                                <FontAwesomeIcon icon={faBars} className='w-8 h-8 dark:text-white' />
+                                <FontAwesomeIcon icon={faBurger} className='w-7 h-7 dark:text-white' />
                             }
                         </div>
                     </div>
                     <div className={`w-[280px] md:w-80 h-full fixed bg-[#e5f0f6] dark:bg-[#272929] z-50 p-8 md:p-12 top-0 box-border transition-all duration-500 lg:hidden ${hamburger ? 'right-0' : '-right-80'}`}>
-                        <ul className='flex mt-3'>
+                        <ul className='flex mt-7'>
                             <FontAwesomeIcon icon={faLock} className=' mt-[5px] w-5 h-5 dark:text-[#ebf4f1] pr-2' />
                             <li className='mt-1 text-center cursor-pointer dark:text-[#ebf4f1]'>
                                 <NavLink to={userState.data?.email ? "/logout" : "/login"}>
