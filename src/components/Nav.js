@@ -60,11 +60,17 @@ function Nav() {
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <div>
                         <NavLink to="/">
-                            <img className="items-center w-[200px] h-[65px] sm:w-[160px] sm:h-[55px] fold:w-[160px] fold:h-[55px]" src={
+                            <img className="items-center w-[200px] h-[65px] lg:block md:block fold:block sm:hidden fold:w-[160px] fold:h-[55px]" src={
                                 theme === 'light' ?
                                     "./../Images/logo_s1.png"
                                     :
-                                    "./../Images/Main/logo_dark_small.png"
+                                    "./../Images/Main/logo_s1_dark.png"
+                            } alt="logo" />
+                            <img className="items-center sm:w-[150px] sm:h-[50px] lg:hidden md:hidden fold:hidden sm:block" src={
+                                theme === 'light' ?
+                                    "./../Images/mobile_logo.png"
+                                    :
+                                    "./../Images/Main/mobile_logo_dark.png"
                             } alt="logo" />
                         </NavLink>
                     </div>

@@ -27,8 +27,9 @@ function Content4Grid() {
     return (
         <div className='md:max-w-[768px] lg:max-w-[1200px] m-auto
         pt-28
-        lg:pt-[130px] lg:pb-[147px]'>          
-            <p className='text-center lg:pb-20 pb-10 lg:text-4xl md:text-2xl text-xl font-bold relative'>함께할 유기동물 친구들을 만나보세요 <img src='./../../Images/Main/puppy.png' alt='puppy' className='absolute lg:-top-20 lg:right-0 z-[-1]' /> </p>
+        lg:pt-52 lg:pb-[147px]'>          
+            <p className='text-center lg:text-4xl md:text-2xl text-xl font-bold relative'>함께할 유기동물 친구들을 만나보세요<img src='./../../Images/Main/puppy.png' alt='puppy' className='absolute lg:-top-36 lg:left-1/2 lg:-translate-x-1/2 z-[-1]' /></p>
+            <p className='text-center lg:text-base lg:pb-20 pb-10 text-gray-700 lg:pt-5'>입양으로 시작하는 특별한 여정, 새로운 가족을 위해 한 발짝 내딛어보세요!</p>
             <ul className='flex flex-wrap md:justify-start justify-around gap-5 sm:mx-[5%]'>
                 {
                     data.map((e, i) => {

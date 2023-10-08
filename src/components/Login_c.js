@@ -97,7 +97,7 @@ function Login_c() {
                                 theme === 'light' ? 
                                 "./../Images/logo_s1.png"
                                 :
-                                "./../Images/Main/logo_dark_small.png"
+                                "./../Images/Main/logo_s1_dark.png"
                             } alt='logo' className='mb-[20px] w-[200px] h-[65px] mx-auto' />
                         </li>    
                         <form onSubmit={LoginForm}>

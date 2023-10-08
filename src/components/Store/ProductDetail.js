@@ -28,7 +28,7 @@ function ProductDetail() {
                             theme === 'light' ?
                             "./../Images/logo_s1.png" 
                             :
-                            "./../Images/Main/logo_dark_small.png"
+                            "./../Images/Main/logo_s1_dark.png"
                         } alt="로고" />
                         <p className='lg:text-xl text-[18px] leading-9'>{messages.desc1}</p>
                         <p className='lg:text-xl text-[18px] border-b border-[#86bcd5] pb-[50px] dark:border-[#dadbdb]'>{messages.desc2}</p>
