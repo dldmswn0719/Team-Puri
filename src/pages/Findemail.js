@@ -95,27 +95,27 @@ function Findemail() {
         <Nav />
         <div className="bg-[#fff] dark:bg-[#292929] lg:h-[calc(100vh-133px)] md:h-[calc(100vh-97px)] h-[calc(100vh-74px)] flex items-center px-5">
             <div className='h-max mx-auto flex flex-col items-center'>
-                <form className='className="bg-white dark:bg-[#404343] shadow-xl p-10 flex flex-col gap-4 text-sm'>
-                <h1 className="lg:text-3xl text-xl font-bold text-center pb-10 dark:text-white">{messages.find}</h1>
+                <h1 className="lg:text-3xl text-xl font-bold text-center pb-10 dark:text-white">{messages.login4}</h1>
+                <form className='bg-white dark:bg-[#404343] shadow-xl px-10 pt-10 pb-5 flex flex-col gap-4 text-sm'>
                     <div>
                         <label className='text-gray-600 dark:text-white font-bold inline-block pb-2'>{messages.member2}</label>
                         <input className='border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929] dark:text-white' type="text" value={name} onChange={(e)=>{setName(e.target.value)}} />
                     </div>
                     <div>
-                        <label className='text-gray-600 dark:text-white font-bold inline-block pb-2 pt-5'>{messages.member3}</label>
+                        <label className='text-gray-600 dark:text-white font-bold inline-block pb-2'>{messages.member3}</label>
                         <input className='border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929] dark:text-white' type="text" value={phoneNumber} onChange={(e)=>{setPhoneNumber(e.target.value)}} onInput={PhoneNumber} maxLength={13} />
                     </div>
                     <div>
-                        <p className='pt-4 text-red-500 text-sm text-left dark:text-[#ebf4f1]'>{message}</p>
+                        <p className=' text-red-500 text-sm text-left dark:text-[#ebf4f1]'>{message}</p>
                     </div>        
-                    <button className='w-full h-[40px] bg-[#60a7c8] text-[#fff] rounded-md cursor-pointer mt-[22px] mb-[15px] dark:bg-[#272929] hover:bg-[#4090b6]' onClick={(e) => findID(e)}>
+                    <button className='w-full h-[40px] bg-[#60a7c8] text-[#fff] rounded-md cursor-pointer dark:bg-[#272929] hover:bg-[#4090b6]' onClick={(e) => findID(e)}>
                         <p className='dark:text-[#ebf4f1]'>{messages.find}</p>
                     </button>
                     <div>
                         <div className='relative mb-5'>
                             {
                                 resultEmail && 
-                                <button className="w-full h-[40px] bg-[#60a7c8] text-[#fff] rounded-md cursor-pointer mt-[22px] mb-[15px] dark:bg-[#272929] hover:bg-[#4090b6]" onClick={(e) => passwordEdit(e)}>
+                                <button className="w-full h-[40px] bg-[#60a7c8] text-[#fff] rounded-md cursor-pointer dark:bg-[#272929] hover:bg-[#4090b6]" onClick={(e) => passwordEdit(e)}>
                                     <p className='dark:text-[#ebf4f1]'>{messages.find1}</p>
                                 </button>
                             }
