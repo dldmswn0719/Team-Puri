@@ -8,7 +8,7 @@ import {Detaillist,enDetaillist} from './../../data/Detaillist';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useSelector } from 'react-redux';
-
+//주석처리
 
 function Reviews() {
 
@@ -69,7 +69,7 @@ function Reviews() {
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-[1280px] mx-auto max-lg:w-11/12 md:w-5/6">
             
-            <div className="flex text-[15px] gap-y-5 gap-[6px] flex-wrap justify-between mb-[30px]">
+            <div className="flex text-[15px] gap-y-5 gap-[5px] flex-wrap justify-between mb-[30px] m-3 0">
               {
                 review.filter(item => item.group <= currentPage).map((e, i) => {
                   return (
