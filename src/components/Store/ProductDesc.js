@@ -26,7 +26,7 @@ function ProductDesc() {
                             <p className="text-[27px] lg:text-3xl font-bold leading-10 tracking-wider">{messages[`product_${params.id}`].Main_title}</p>
                             <p className='text-[18px] pb-[25px] lg:pb-[45px] leading-10 title2'>{data.Sub_title}</p>
                             <img className='mx-auto lg:py-5' src={data.imageUrl1} alt={data.name} />
-                            <p className="font-bold text-[27px] pt-6 lg:text-[32px] leading-10 lg:pt-2 title">{data.Sub_title}</p>
+                            <p className="text-[27px] pt-6 lg:text-[32px] leading-10 lg:pt-2 title2">{data.Sub_title}</p>
                             <p className="text-[18px] lg:text-[25px]">{messages[`product_${params.id}`].Sub_title_2}</p>
                             <p className="text-[18px] lg:text-[25px] py-3 text-[#86bcd5]">{messages[`product_${params.id}`].Sub_title_3}</p>
                             <p className="text-[18px] lg:text-[25px]">{messages[`product_${params.id}`].Sub_title_4}</p>

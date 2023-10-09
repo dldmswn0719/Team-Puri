@@ -3,7 +3,7 @@ import React from 'react'
 function Test() {
   return (
     <>
-        {/* <div class="bg-[#ddd] h-screen w-screen flex items-center">
+      {/* <div class="bg-[#ddd] h-screen w-screen flex items-center">
             <div class="h-max mx-auto flex flex-col items-center">
                 <img class="h-[40px] w-[47px] mb-5" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
                 <h1 class="text-xl font-bold text-center pb-10">Sign in to your account</h1>
@@ -39,7 +39,7 @@ function Test() {
                 <p class="text-sm text-gray-500 mt-10">Not a member? <a href="#" class="text-[#4F46E5] font-bold">Start a 14 day free trial</a></p>
             </div>
         </div> */}
-        {/* <body class="bg-gray-100">
+      {/* <body class="bg-gray-100">
   <div class="min-h-screen flex items-center justify-center">
     <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-lg">
       <div class="flex justify-center mb-8">
@@ -65,7 +65,7 @@ function Test() {
     </div>
   </div>
 </body> */}
-{/* 
+      {/* 
 <body class="bg-gray-100">
   <div class="container mx-auto py-8 px-2">
     <h1 class="text-2xl font-bold mb-6 text-center">Registration Form</h1>
@@ -97,242 +97,21 @@ function Test() {
   </div>
 </body> */}
 
-{/* 세개중에 암거나 써도될듯 */}
-{/* <div class='flex items-center justify-center min-h-screen from-gray-800 via-greeen-300 to-blue-500 bg-gradient-to-br px-5'>
-    <div class='w-full max-w-lg px-10 py-8 mx-auto bg-white rounded-lg shadow-xl'>
-        <div class='max-w-md mx-auto space-y-6'>
-            
-                <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-                    <div class="mx-auto max-w-screen-sm text-center">
-                        <h1 class="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary-600 dark:text-primary-500">500</h1>
-                        <p class="mb-4 text-3xl tracking-tight font-bold text-black md:text-4xl">Internal Server Error.</p>
-                        <p class="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">We are already working to solve the problem. </p>
-                    </div>   
-                </div>
-
+      {/* 세개중에 암거나 써도될듯 */}
+      <div class='flex items-center justify-center min-h-screen from-gray-800 via-greeen-300 to-blue-500 bg-gradient-to-br px-5'>
+        <div class='w-full max-w-lg px-10 py-8 mx-auto bg-white rounded-lg shadow-xl'>
+          <div class='max-w-md mx-auto space-y-6'>
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+              <div class="mx-auto max-w-screen-sm text-center">
+                <h1 class="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary-600 dark:text-primary-500">500</h1>
+                <p class="mb-4 text-3xl tracking-tight font-bold text-black md:text-4xl">Internal Server Error.</p>
+                <p class="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">We are already working to solve the problem. </p>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</div> */}
-{/* 이건 내 성공,실패쓸거임 */}
-{/* <div class="m-2 space-y-2">
-  <div
-    class="group flex flex-col gap-2 rounded-lg bg-black p-5 text-white"
-    tabindex="1"
-  >
-    <div class="flex cursor-pointer items-center justify-between">
-      <span> HTML </span>
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/9/96/Chevron-icon-drop-down-menu-WHITE.png"
-        class="h-2 w-3 transition-all duration-500 group-focus:-rotate-180"
-      />
-    </div>
-    <div
-      class="invisible h-auto max-h-0 items-center opacity-0 transition-all group-focus:visible group-focus:max-h-screen group-focus:opacity-100 group-focus:duration-1000"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
-    </div>
-  </div>
-
-  <div
-    class="group flex flex-col gap-2 rounded-lg bg-black p-5 text-white"
-    tabindex="2"
-  >
-    <div class="flex cursor-pointer items-center justify-between">
-      <span> CSS </span>
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/9/96/Chevron-icon-drop-down-menu-WHITE.png"
-        class="h-2 w-3 transition-all duration-500 group-focus:-rotate-180"
-      />
-    </div>
-    <div
-      class="invisible h-auto max-h-0 items-center opacity-0 transition-all group-focus:visible group-focus:max-h-screen group-focus:opacity-100 group-focus:duration-1000"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
-    </div>
-  </div>
-
-  <div
-    class="group flex flex-col gap-2 rounded-lg bg-black p-5 text-white"
-    tabindex="3"
-  >
-    <div class="flex cursor-pointer items-center justify-between">
-      <span> JAVASCRIPT </span>
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/9/96/Chevron-icon-drop-down-menu-WHITE.png"
-        class="h-2 w-3 transition-all duration-500 group-focus:-rotate-180"
-      />
-    </div>
-    <div
-      class="invisible h-auto max-h-0 items-center opacity-0 transition-all group-focus:visible group-focus:max-h-screen group-focus:opacity-100 group-focus:duration-1000"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
-    </div>
-  </div>
-</div> */}
-{/* <div class="max-w-screen-xl mx-auto px-5 bg-white min-h-sceen">
-	<div class="flex flex-col items-center">
-		<h2 class="font-bold text-5xl mt-5 tracking-tight">
-			FAQ
-		</h2>
-		<p class="text-neutral-500 text-xl mt-3">
-			Frequenty asked questions
-		</p>
-	</div>
-	<div class="grid divide-y divide-neutral-200 max-w-xl mx-auto mt-8">
-		<div class="py-5">
-			<details class="group">
-				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> What is a SAAS platform?</span>
-					<span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-</svg>
-              </span>
-				</summary>
-				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-					 SAAS platform is a cloud-based software service that allows users to access
-					and use a variety of tools and functionality.
-				</p>
-			</details>
-		</div>
-		<div class="py-5">
-			<details class="group">
-				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> How does  billing work?</span>
-					<span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-</svg>
-              </span>
-				</summary>
-				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-					We offers a variety of billing options, including monthly and annual subscription plans,
-					as well as pay-as-you-go pricing for certain services. Payment is typically made through a credit
-					card or other secure online payment method.
-				</p>
-			</details>
-		</div>
-		<div class="py-5">
-			<details class="group">
-				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> Can I get a refund for my subscription?</span>
-					<span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-</svg>
-              </span>
-				</summary>
-				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-					We offers a 30-day money-back guarantee for most of its subscription plans. If you are not
-					satisfied with your subscription within the first 30 days, you can request a full refund. Refunds
-					for subscriptions that have been active for longer than 30 days may be considered on a case-by-case
-					basis.
-				</p>
-			</details>
-		</div>
-		<div class="py-5">
-			<details class="group">
-				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> How do I cancel my subscription?</span>
-					<span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-</svg>
-              </span>
-				</summary>
-				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-					To cancel your We subscription, you can log in to your account and navigate to the
-					subscription management page. From there, you should be able to cancel your subscription and stop
-					future billing.
-				</p>
-			</details>
-		</div>
-		<div class="py-5">
-			<details class="group">
-				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> Can I try this platform for free?</span>
-					<span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-</svg>
-              </span>
-				</summary>
-				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-					We offers a free trial of its  platform for a limited time. During the trial period,
-					you will have access to a limited set of features and functionality, but you will not be charged.
-				</p>
-			</details>
-		</div>
-		<div class="py-5">
-			<details class="group">
-				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> How do I access   documentation?</span>
-					<span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-</svg>
-              </span>
-				</summary>
-				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-					  Documentation is available on the company's website and can be accessed by
-					logging in to your account. The documentation provides detailed information on how to use the ,
-					as well as code examples and other resources.
-				</p>
-			</details>
-		</div>
-		<div class="py-5">
-			<details class="group">
-				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> How do I contact support?</span>
-					<span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-</svg>
-              </span>
-				</summary>
-				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-					If you need help with the platform or have any other questions, you can contact the
-					company's support team by submitting a support request through the website or by emailing
-					support@We.com.
-				</p>
-			</details>
-		</div>
-		<div class="py-5">
-			<details class="group">
-				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> Do you offer any discounts or promotions?</span>
-					<span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-</svg>
-              </span>
-				</summary>
-				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-					We may offer discounts or promotions from time to time. To stay up-to-date on the latest
-					deals and special offers, you can sign up for the company's newsletter or follow it on social media.
-				</p>
-			</details>
-		</div>
-		<div class="py-5">
-			<details class="group">
-				<summary class="flex justify-between items-center font-medium cursor-pointer list-none">
-					<span> How do we compare to other similar services?</span>
-					<span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-</svg>
-              </span>
-				</summary>
-				<p class="text-neutral-600 mt-3 group-open:animate-fadeIn">
-					 This platform is a highly reliable and feature-rich service that offers a wide range
-					of tools and functionality. It is competitively priced and offers a variety of billing options to
-					suit different needs and budgets.
-				</p>
-			</details>
-		</div>
-	</div>
-</div> */}
-{/* 이건 아코디언 예시 */}
+      </div>
+      {/* 이건 내 성공,실패쓸거임 */}
     </>
   )
 }
