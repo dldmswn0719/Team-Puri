@@ -5,7 +5,7 @@ import { deleteDoc, doc } from 'firebase/firestore';
 import {collection, getDocs , getFirestore , orderBy , query} from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleQuestion, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
-import { faLock, faPenSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faAngleUp, faLock, faPenSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import enMessages from "./../../locales/en.json";
 import krMessages from "./../../locales/kr.json";
 
@@ -66,7 +66,7 @@ function StoreQna() {
               <p className="pr-1">{messages.qna}</p>
               <p className="text-[#86bcd5] dark:text-[#ebf4f1]">( {posts.length} )</p>
             </div>
-            <p className="dark:text-[#ebf4f1] lg:text-[17px]">{messages.desc23}</p>
+            <p className="dark:text-[#ebf4f1] lg:text-[17px] text-[#ababab]">{messages.desc23}</p>
             <div className="w-[170px] h-[55px] bg-[#86bcd5] mt-[20px] cursor-pointer dark:bg-[#404343]"onClick={() => setShowEditor(true)}>
               <p className="text-white leading-[55px] text-center dark:text-[#ebf4f1] lg:text-[17px]">
                 {messages.desc24}
@@ -90,7 +90,7 @@ function StoreQna() {
                 :
                 <div className="max-w-7xl mx-auto text-[14px] lg:text-[18px]">
                   <ul className="flex py-2  bg-[#86bcd5] dark:text-[#ebf4f1] text-white dark:bg-[#404343]">
-                    <li className="lg:basis-[15%] basis-[10%]">{messages.qnatitle1}</li>
+                    <li className="lg:basis-[15%] basis-[12%]">{messages.qnatitle1}</li>                
                     <li className="basis-[80%]">{messages.qnatitle2}</li>
                     <li className="lg:basis-[20%] md:basis-[15%] basis-[30%]">{messages.qnatitle3}</li>
                     <li className="lg:basis-[20%] md:basis-[15%] sm:hidden fold:hidden">{messages.qnatitle4}</li>
@@ -98,7 +98,12 @@ function StoreQna() {
                   {posts.map((e, i) => {
                     return (
                       <React.Fragment key={i}>
-                        <ul className="flex border-b border-[#86bcd5] dark:text-[#ebf4f1] dark:border-[#dadbdb]" onClick={()=>{
+                        <ul className="cursor-pointer flex border-b border-[#86bcd5] dark:text-[#ebf4f1] dark:border-[#dadbdb]" onClick={()=>{
+                             if(e.isSecret && memberProfile.uid !== e.uid){
+                              alert("비공개 문의내역은 작성자 본인만 확인하실 수 있습니다."); 
+                              return;
+                            }
+                            
                             if(viewState === i){
                                 setViewState(null)
                             }else{
@@ -113,26 +118,33 @@ function StoreQna() {
                               }
                               {e.title}
                             </li>
+                            <li className="pt-3">
+                              {viewState === i ? 
+                                <FontAwesomeIcon icon={faAngleUp} />
+                               : 
+                                <FontAwesomeIcon icon={faAngleDown} />
+                              }
+                            </li>
                             <li className="py-[10px] lg:px-5 text-center lg:basis-[20%] md:basis-[15%] basis-[30%] ">{e.name}</li>
                             <li className="py-[10px] lg:px-5 text-center lg:basis-[20%] md:basis-[15%] sm:hidden fold:hidden">{e.timestamp.toDate().toLocaleDateString()}</li>
                         </ul>
                       {
                         viewState === i &&
-                        <ul className="flex justify-between border-b border-[#86bcd5] py-10 dark:text-[#ebf4f1] dark:border-[#dadbdb]">
-                            <li className="px-5 lg:w-[70%] md:w-[50%] w-[18%] fold:w-[90%]">
+                        <ul className="flex items-center justify-between border-b border-[#86bcd5] py-10 dark:text-[#ebf4f1] dark:border-[#dadbdb]">
+                            <li className=" px-5 lg:pl-[14%] md:pl-[9%] pl-[10%] text-left w-full">
                             {
                               e.isSecret && memberProfile.uid !== e.uid ? (
-                                <p>{messages.secret1}</p>
+                                <p>{messages.secret1}</p> 
                               )
                               :
                               (<p dangerouslySetInnerHTML={{__html: e.content}} />)
                             }
                             </li>
-                            <li className="lg:w-[23%] md:w-[15%] w-[25%] fold:w-[30%] text-right pr-5">
+                            <li className="text-right pr-5 fold:pr-0">
                               {memberProfile.uid === e.uid && (
                                 <>
-                                  <button onClick={()=>{editPost(e.id)}}><FontAwesomeIcon icon={faPenSquare} /> {messages.member6}</button>
-                                  <button onClick={()=>{deletePost(e.id)}}><FontAwesomeIcon icon={faTrash} /> {messages.delete} </button>
+                                  <button onClick={()=>{editPost(e.id)}}><FontAwesomeIcon icon={faPenSquare} className="text-[#3981a3]" /> {messages.member6}</button>
+                                  <button onClick={()=>{deletePost(e.id)}}><FontAwesomeIcon icon={faTrash} className="text-[#b8b8b8]" /> {messages.delete} </button>
                                 </>
                                 )}
                             </li>
@@ -141,7 +153,7 @@ function StoreQna() {
                       {
                         viewState === i &&
                         editEditor && 
-                        <Ckeditor hideEditor={() => setEditEditor(false)} refreshPosts={fetchPosts} resetViewState={() => setViewState(null)} title={e.title} content={e.content} postId={editingPostId} />
+                        <Ckeditor hideEditor={() => setEditEditor(false)} refreshPosts={fetchPosts} resetViewState={() => setViewState(null)} title={e.title} content={e.content} postId={editingPostId}  isSecret={e.isSecret} />
                       }
                       </React.Fragment>
                     );

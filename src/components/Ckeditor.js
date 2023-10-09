@@ -11,7 +11,7 @@ import Modal from './Modal'
 import enMessages from './../locales/en.json';
 import krMessages from './../locales/kr.json';
 
-function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,postId }) {
+function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,postId,isSecret: initialIsSecret }) {
 
     const [txtTitle,setTxtTitle] = useState("");
     const [writeData,setWriteData] = useState("");
@@ -27,7 +27,10 @@ function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,post
           setTxtTitle(title)
           setWriteData(content)
       }
-  }, [title, content])
+      if (initialIsSecret !== undefined) {
+        setIsSecret(initialIsSecret);
+      }
+  }, [title, content,initialIsSecret])
 
     if(!memberProfile.loggedIn){
         return(
