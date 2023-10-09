@@ -151,9 +151,10 @@ function AnimalList() {
 
             <div className='max-w-full min-h-screen bg-white dark:bg-[#272929] overflow-hidden'>
                 <div className="max-w-[1200px] h-full mx-auto">
-                    <div className="min-w-full max-h-full max-md:border-none sm:border-none fold:border-none border-b-4 border-[#86bcd5] dark:border-[#dadbdb] lg:px-2 lg:py-5  md:px-5 md:py-5 sm:px-8 box-border fold:px-3 fold:pb-0 ">
-                        <div className="max-w-full h-full flex sm:flex-col fold:flex-col justify-between text-left sm:mt-4">
-                            <div className="w-full pb-2">
+                    <div className="w-full h-full lg:px-2 md:px-5 sm:px-8 box-border fold:px-3 fold:pb-0">
+                       
+                        <div className="w-full h-full flex sm:flex-col fold:flex-col justify-between text-left sm:mt-4">
+                            <div className="w-full pb-2 ">
                                 <p className='font-bold text-[#999] dark:text-[#ebf4f1] md:mt-5'>{messages.animal1}</p>
                                 <select onChange={selectedData} className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929] dark:text-[#ebf4f1]
                                 cityData'>
@@ -193,6 +194,7 @@ function AnimalList() {
                                     }}>{messages.animal7}</button>
                             </div>
                         </div>
+                        <div className="w-full sm:border-none fold:border-none border-b-4 border-[#86bcd5] dark:border-[#dadbdb] lg:px-2 md:px-5 sm:px-8 box-border fold:px-3 fold:pb-0"></div>
                     </div>
                     <div className="max-w-full max-h-full flex text-[15px] lg:gap-x-3 lg:gap-y-3  flex-wrap justify-start md:justify-around lg:px-1 md:px-2 md:gap-y-3 sm:justify-center sm:gap-y-7 fold:px-3 fold:gap-y-3 pt-4 sm:pt-8 md:pt-3">
                         {
