@@ -26,11 +26,11 @@ function Notpage() {
 
   return (
     <>
-      <div className='fixed w-full h-full bg-[#86bcd5] left-0 top-0 z-50 flex justify-center items-center px-[2%] box-border'>
-          <div className='leading-[1.4] p-10 w-full text-center'>
+      <div className='flex flex-col justify-center h-screen bg-[#86bcd5] mx-auto '>
+          <div className='leading-[1.4] w-full text-center flex flex-col justify-between'>
               <h3 className='pr-[50px] lg:text-[165px] md:text-[165px] text-[100px] text- font-bold mb-[40px] text-white -rotate-[18deg] [text-shadow:_5px_15px_0_rgb(0_0_0_/_40%)] italic'>404</h3>
-              <p className='mb-5 font-bold lg:text-[30px] md:text-[30px] text-[25px]'>{messages.notpage1}</p>
-              <p className='mb-5 font-bold text-xl'>{messages.notpage2}</p>
+              <p className='mb-5 font-bold lg:text-[30px] md:text-[30px] text-[23px]'>{messages.notpage1}</p>
+              <p className='mb-5 font-bold lg:text-xl md:text-xl text-[19px]'>{messages.notpage2}</p>
               {
                 language === 'en' ?
                 <p className='text-xl lg:mb-[3%] md:mb-[5%] mb-[10%]'>Will be redirected in <span className='text-red-600 text-[22px] font-bold'>{countDown}</span> seconds.</p>

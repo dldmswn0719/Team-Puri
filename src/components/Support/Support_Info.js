@@ -30,10 +30,22 @@ function Support_Info() {
   const [solo, setSolo] = useState(true)
   const [buisness, setBuisness] = useState(false)
   const [card, setCard] = useState(true)
-  const [money, setMoney] = useState(-1)
+  const [allChecked, setAllChecked] = useState(false);
+  const [useChecked, setUseChecked] = useState(false);
+  const [policyChecked, setPolicyChecked] = useState(false);
+  const [money, setMoney] = useState(null);
+  const [hasClicked, setHasClicked] = useState(false);
+  const handleItemClick = (i) => {
+    setHasClicked(true);
+    setMoney(i);
+  };
   const navigate = useNavigate();
 
   const formChk = ()=>{
+      if (!hasClicked) {
+        alert("금액을 선택 해주세요");
+        return;
+      }
       if(document.querySelector(".name").value === "" || document.querySelector(".name").value === null){
         alert(messages.supportpay1);
         document.querySelector(".name").focus();
@@ -89,9 +101,20 @@ function Support_Info() {
         document.querySelector(".password").focus();
         return;
       }
+      if(!document.querySelector('#use').checked){
+        alert("이용약관을 동의 해주세요.")
+        document.querySelector('#use').focus()
+        return
+      }
+      if(!document.querySelector('#policy').checked){
+        alert("개인정보처리방침을 동의 해주세요.")
+        document.querySelector('#policy').focus()
+        return
+      }
 
       navigate('/paycomplete')    
   }
+
   if(!memberProfile.loggedIn){
     return(
       <>
@@ -111,7 +134,33 @@ function Support_Info() {
         el.removeAttribute("checked") 
       })  
     }
+
+    
   }
+
+  const handleUseChange = (e) => {
+    setUseChecked(e.target.checked);
+    if (e.target.checked && policyChecked) {
+      setAllChecked(true);
+    } else {
+      setAllChecked(false);
+    }
+  };
+
+  const handlePolicyChange = (e) => {
+    setPolicyChecked(e.target.checked);
+    if (useChecked && e.target.checked) {
+      setAllChecked(true);
+    } else {
+      setAllChecked(false);
+    }
+  };
+
+  const handleAllChange = (e) => {
+    setAllChecked(e.target.checked);
+    setUseChecked(e.target.checked);
+    setPolicyChecked(e.target.checked);
+  };
   
   return (
     <>
@@ -143,11 +192,11 @@ function Support_Info() {
                     {
                       Array(5).fill().map((e,i)=>{
                         return (
-                          <li key={i} className={`lg:w-[30.4%] md:w-[31.2%] w-[47%] h-[40px] flex justify-center items-center bg-[#86bcd5] cursor-pointer sm:text-[14px] fold:text-[14px] ${money === i ? "color" : ""}`} onClick={()=>{setMoney(i)}}><p>{i+1}0,000{messages.won}</p></li>
+                          <li key={i} className={`moneybox lg:w-[30.4%] md:w-[31.2%] w-[47%] h-[40px] flex justify-center items-center bg-[#86bcd5] cursor-pointer sm:text-[14px] fold:text-[14px] ${money === i ? "color" : ""}`} onClick={()=>{handleItemClick(i)}}><p>{i+1}0,000{messages.won}</p></li>
                         )
                       })
                     }
-                    <li className="lg:w-[30.4%] flex md:w-[31.2%] w-[47%]" onClick={()=>{setMoney(money === false ? true : false)}}><input type="text" placeholder={messages.supportpay1_9} onInput={NumChk}  className='w-full h-[40px] flex justify-center items-center text-center border-[1px] border-black sm:text-[14px] fold:text-[14px]' maxLength={11} /></li>
+                    <li className="lg:w-[30.4%] flex md:w-[31.2%] w-[47%] moneybox" onClick={()=>{setMoney(money === false ? true : false)}}><input type="text" placeholder={messages.supportpay1_9} onInput={NumChk}  className='w-full h-[40px] flex justify-center items-center text-center border-[1px] border-black sm:text-[14px] fold:text-[14px]' maxLength={11} /></li>
                   </div>
                 </ul>
               </div>
@@ -239,15 +288,15 @@ function Support_Info() {
               </div>
               <div className="lg:py-[50px] md:py-[50px] relative lg:w-[500px] md:w-full sm:w-full py-[30px]">
                 <div className="mb-[30px]">
-                  <input type="checkbox" id='all' onInput={checkedAll} />
+                  <input type="checkbox" id='all' onInput={checkedAll}  checked={allChecked} onChange={handleAllChange} />
                   <label htmlFor='all' className='ml-2 sm:text-[15px] fold:text-[15px]' >{messages.supportpay1_40}</label>
                 </div>
                 <div className="mb-[10px]">
-                  <input type="checkbox" id='use' />
+                  <input type="checkbox" id='use' checked={useChecked} onChange={handleUseChange} />
                   <label htmlFor='use' className='ml-2 sm:text-[15px] fold:text-[15px]' >{messages.supportpay1_41}<NavLink to=''>{messages.supportpay1_43}</NavLink></label>
                 </div>
                 <div className="mb-[10px]">
-                  <input type="checkbox" id='policy'/>
+                  <input type="checkbox" id='policy' checked={policyChecked} onChange={handlePolicyChange} />
                   <label htmlFor='policy' className='ml-2 sm:text-[15px] fold:text-[15px]'>{messages.supportpay1_42}<NavLink to=''>{messages.supportpay1_43}</NavLink></label>
                 </div>
                 <button onClick={formChk} className='bg-[#86bcd5] text-white my-0 mx-auto flex justify-center items-center mt-[50px] w-full h-[60px]' >{messages.supportpay1_44}</button>
