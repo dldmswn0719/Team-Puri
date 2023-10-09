@@ -133,19 +133,19 @@ function Reviews() {
                          toggleLike(i)}} />
 
                         <img className='w-6 h-5 mx-[10px] cursor-pointer'
-                        id="loginAlert" onClick={() => alert('개발진행중입니다.')} 
+                        id="loginAlert" onClick={() => alert(messages.alert[5])} 
                         src={theme === 'light' ?
                         "./../Images/Review/chat-light.png" : "./../Images/Review/chat-dark.png" }
                          alt="chat" />
                         
                         <img className='w-5 cursor-pointer' 
-                        id="loginAlert" onClick={() => alert('개발진행중입니다.')}
+                        id="loginAlert" onClick={() => alert(messages.alert[5])}
                         src={theme === 'light' ?
                         "./../Images/Review/airplane-light.png "  : "./../Images/Review/airplane-dark.png"}
                         alt="airplane" />
 
                         <img className='w-5 h-6 absolute right-[10px] hover:brightness-75 cursor-pointer'
-                        id="loginAlert" onClick={() => alert('개발진행중입니다.')}
+                        id="loginAlert" onClick={() => alert(messages.alert[5])}
                          src={theme === 'light' ?
                         "./../Images/Review/mark-light.png" : "./../Images/Review/mark-dark.png"}
                         alt="mark-dark" />
@@ -247,7 +247,7 @@ function Reviews() {
                     <div className="flex justify-between mb-[10px]">
                       <ul className="flex">
                         <li><FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px]' /></li>
-                        <li><img className='w-[18px] h-[18px] mx-[10px] mt-1 ' src="./../Images/Review/chat-light.svg" alt="chat" /></li>
+                        <li><img className='w-[18px] h-[18px] mx-[10px] mt-1 ' src="./../Images/Review/chat-light.png" alt="chat" /></li>
                         <li><img className='w-[20px] h-[20px] mt-1' src="./../Images/Review/airplane-light.png" alt="airplane" /></li>
                       </ul>
                       <ul>
