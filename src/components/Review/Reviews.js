@@ -84,22 +84,15 @@ function Reviews() {
   return (
     <>
 
-{/* <div className="w-full bg-white relative dark:bg-[#272929]"/>
+<div className="w-full bg-white relative dark:bg-[#272929]"/>
         <div className="max-w-[1400px] mx-auto"/>
           <div className="max-w-[1280px] mx-auto max-lg:w-11/12 md:w-5/6  sm:w-1/3" />
-              <span className=' dark:bg-[#272929] block py-5 text-center text-[40px] dark:text-[#ebf4f1] sm:p-5'>새로운 가정을 찾은 유기동물들의 이야기</span> */}
+              <span className=' dark:bg-[#272929] block py-3 text-center text-[20px] dark:text-[#ebf4f1] sm:p-5'>새로운 가정을 찾은 유기동물들의 이야기</span>
 
-              <div className="w-full bg-white relative dark:bg-[#272929]">
-  <div className="max-w-[1400px] mx-auto">
-    <div className="max-w-[1280px] mx-auto max-lg:w-11/12 md:w-5/6 sm:w-1/3">
-      <span className='block py-5 text-center text-[40px] dark:text-[#ebf4f1]
-       sm:p-5 font-serif italic text-[#3638b1]'>새로운 가정을 찾은 유기동물들의 이야기</span>
-    </div>
-  </div>
-</div>
+              
    
     
- 
+    <QuickMenu/>
  
             
       <div className="w-full bg-white pt-[30px] relative dark:bg-[#272929]">
