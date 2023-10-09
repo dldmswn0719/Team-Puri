@@ -8,6 +8,9 @@ import {Detaillist,enDetaillist} from './../../data/Detaillist';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useSelector } from 'react-redux';
+import QuickMenu from '../Info/QuickMenu';
+
+
 
 function Reviews() {
 
@@ -25,11 +28,24 @@ function Reviews() {
   
   
   const [currentPage, setCurrentPage] = useState(1);
-  const [showButton, setShowButton] = useState(true);
+  const [showInfiniteButton, setShowInfiniteButton] = useState(true);
+  const [showMoreButton, setShowMoreButton] = useState(true);
+  const [moreButtonClickCount, setMoreButtonClickCount] = useState(0);
 
-  const handleNextPage = () => {
+  const handleInfiniteButtonClick = () => {
     setCurrentPage(currentPage + 77);
-    setShowButton(false);
+    setShowInfiniteButton(false);
+    setShowMoreButton(false); 
+  };
+
+  const handleMoreButtonClick = () => {
+    setCurrentPage(currentPage + 1);
+    setMoreButtonClickCount(moreButtonClickCount + 1);
+
+    if (moreButtonClickCount >=2) {
+      setShowInfiniteButton(false);
+      setShowMoreButton(false); 
+    }
   };
 
   
@@ -68,7 +84,7 @@ function Reviews() {
   return (
     <>
 
-    
+    <QuickMenu/>
     {/* <div className="mx-auto w-[160px] h-[5] dark:bg-[#272929] ">
         <button className='bg-[#D3C09D] text-white w-[160px] h-[35px] '>후기 작성하기</button>
           </div> */}
@@ -116,19 +132,19 @@ function Reviews() {
                          className='w-[18px] h-[18px] hover:brightness-75 cursor-pointer' onClick={() => { document.querySelector("html")
                          toggleLike(i)}} />
 
-                        <img className='w-6 h-5 mx-[10px] '
+                        <img className='w-6 h-5 mx-[10px] cursor-pointer'
                         id="loginAlert" onClick={() => alert('개발진행중입니다.')} 
                         src={theme === 'light' ?
                         "./../Images/Review/chat-light.png" : "./../Images/Review/chat-dark.png" }
                          alt="chat" />
                         
-                        <img className='w-5 ' 
+                        <img className='w-5 cursor-pointer' 
                         id="loginAlert" onClick={() => alert('개발진행중입니다.')}
                         src={theme === 'light' ?
                         "./../Images/Review/airplane-light.png "  : "./../Images/Review/airplane-dark.png"}
                         alt="airplane" />
 
-                        <img className='w-5 h-6 absolute right-[10px] hover:brightness-75'
+                        <img className='w-5 h-6 absolute right-[10px] hover:brightness-75 cursor-pointer'
                         id="loginAlert" onClick={() => alert('개발진행중입니다.')}
                          src={theme === 'light' ?
                         "./../Images/Review/mark-light.png" : "./../Images/Review/mark-dark.png"}
@@ -158,16 +174,24 @@ function Reviews() {
                 })
               }
             </div>
-            <div className="mx-auto w-[160px]">
-            {showButton && (
+          
+            <div className="flex justify-center mb-10">
+              {showInfiniteButton && showMoreButton && moreButtonClickCount <3 && (
+             <button
+               onClick={handleMoreButtonClick}
+               className='bg-[#8DBCD6] text-white w-[160px] h-[50px] rounded-md  mr-2'
+             >
+             {messages.reviewmore} +
+             </button>
+           )}
+           
+            {showInfiniteButton  && showMoreButton && (
         <button
-          onClick={handleNextPage}
-          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[5px] rounded-md'
+          onClick={handleInfiniteButtonClick}
+          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] rounded-md a'
         >무한스크롤</button>
-      )}</div>
-
-
-              <button onClick={() => { setCurrentPage(currentPage + 1) }} className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[40px] rounded-md'>{messages.reviewmore} +</button>
+      )}
+      </div>
             
           </div>
         </div>
@@ -223,8 +247,8 @@ function Reviews() {
                     <div className="flex justify-between mb-[10px]">
                       <ul className="flex">
                         <li><FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px]' /></li>
-                        <li><img className='w-[18px] h-[18px] mx-[10px] mt-1 ' src="./../Images/Review/chat.svg" alt="chat" /></li>
-                        <li><img className='w-[20px] h-[20px] mt-1' src="./../Images/Review/4.png" alt="airplane" /></li>
+                        <li><img className='w-[18px] h-[18px] mx-[10px] mt-1 ' src="./../Images/Review/chat-light.svg" alt="chat" /></li>
+                        <li><img className='w-[20px] h-[20px] mt-1' src="./../Images/Review/airplane-light.png" alt="airplane" /></li>
                       </ul>
                       <ul>
                         <li><img className='w-[20px] h-[20px]' src="./../Images/Review/mark.svg" alt="mark" /></li>
