@@ -14,7 +14,6 @@ function Loading() {
         <p className='text-lg text-center'>{messages.animal8}</p>
       </div>
     </div>
-
   )
 }
 

@@ -87,18 +87,18 @@ function Login_c() {
 
     return (
         <>
-            <div class="bg-[#fff] dark:bg-[#272929] h-[90vh] flex items-center">
+            <div class="bg-[#fff] dark:bg-[#292929] h-[80vh] flex items-center">
                 <div class="h-max mx-auto flex flex-col items-center">
-                    <h1 class="text-xl font-bold text-center pb-10 dark:text-white">{messages.login3}</h1>
+                    <h1 class="lg:text-3xl text-xl font-bold text-center pb-10 dark:text-white">{messages.login3}</h1>
                     <div class="bg-white dark:bg-[#404343] shadow-xl p-10 flex flex-col gap-4 text-sm">
                         <form onSubmit={LoginForm}>
                             <div>
                                 <label class="text-gray-600 dark:text-white font-bold inline-block pb-2" for="email">{messages.login1}</label>
-                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929]" type="email" onChange={(e) => setEmail(e.target.value)} required autoFocus name="email" placeholder="puripuri@react.com" />
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929] dark:text-white" type="email" onChange={(e) => setEmail(e.target.value)} required autoFocus name="email" placeholder="puripuri@react.com" />
                             </div>
                             <div>
                                 <label class="text-gray-600 dark:text-white font-bold inline-block pb-2 pt-5" for="password">{messages.login2}</label>
-                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929]" type="password" onChange={(e) => setPassword(e.target.value)} required name="password" placeholder="******" />
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929] dark:text-white" type="password" onChange={(e) => setPassword(e.target.value)} required name="password" placeholder="******" />
                             </div>
                             <div>
                                 <p className='pt-4 text-red-500 text-sm text-left dark:text-[#ebf4f1]'>{error}</p>
@@ -109,8 +109,8 @@ function Login_c() {
                             </div>
                         </form>
                         <div class="flex justify-between">
-                            <NavLink to='/findemail' class="font-bold text-blue-600 dark:text-white">{messages.login4}</NavLink>
-                            <NavLink to='/member' class="font-bold text-blue-600 dark:text-white">{messages.login5}</NavLink>
+                            <NavLink to='/findemail' className="font-bold text-blue-600 dark:text-white">{messages.login4}</NavLink>
+                            <NavLink to='/member' className="font-bold text-blue-600 dark:text-white">{messages.login5}</NavLink>
                         </div>
                     </div>
                 </div>

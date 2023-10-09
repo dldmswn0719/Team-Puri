@@ -103,9 +103,9 @@ function ProductDesc() {
                                 <p className='title2'>{messages.desc19}</p>
                                 <img className='mx-auto pb-[10%] lg:w-[200px] w-[170px]' src={
                                     theme === 'light' ?
-                                        "./../Images/logo_s1.png"
+                                        "./../Images/_s1.png"
                                         :
-                                        "./../Images/Main/logo_s1_dark.png"
+                                        "./../Images/Main/logo_dark.png"
                                 } alt="로고" />
                             </div>
                         </div>
