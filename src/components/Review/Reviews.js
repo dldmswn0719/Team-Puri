@@ -9,7 +9,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useSelector } from 'react-redux';
 
-
 function Reviews() {
 
   let [good, setGood] = useState(0)
@@ -24,7 +23,16 @@ function Reviews() {
     AOS.init();
   })
   
+  
   const [currentPage, setCurrentPage] = useState(1);
+  const [showButton, setShowButton] = useState(true);
+
+  const handleNextPage = () => {
+    setCurrentPage(currentPage + 77);
+    setShowButton(false);
+  };
+
+  
 
   const [one, setOne] = useState(null);
 
@@ -69,7 +77,7 @@ function Reviews() {
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-[1280px] mx-auto max-lg:w-11/12 md:w-5/6">
             
-            <div className="flex text-[15px] gap-y-5 gap-[6px] flex-wrap justify-between mb-[30px]">
+            <div className="flex text-[15px] gap-y-5 gap-[5px] flex-wrap justify-between mb-[30px] m-3 0">
               {
                 review.filter(item => item.group <= currentPage).map((e, i) => {
                   return (
@@ -151,10 +159,16 @@ function Reviews() {
               }
             </div>
             <div className="mx-auto w-[160px]">
-              <button onClick={() => { setCurrentPage(currentPage + 66) }}  
-              className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[5px] '>무한스크롤</button>
-              <button onClick={() => { setCurrentPage(currentPage + 1) }} className='bg-[#D3C09D] text-white w-[160px] h-[50px] my-[40px] '>{messages.reviewmore} +</button>
-            </div>
+            {showButton && (
+        <button
+          onClick={handleNextPage}
+          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[5px] rounded-md'
+        >무한스크롤</button>
+      )}</div>
+
+
+              <button onClick={() => { setCurrentPage(currentPage + 1) }} className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[40px] rounded-md'>{messages.reviewmore} +</button>
+            
           </div>
         </div>
       </div>
