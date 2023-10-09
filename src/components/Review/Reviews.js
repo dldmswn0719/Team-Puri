@@ -26,12 +26,17 @@ function Reviews() {
   
   const [currentPage, setCurrentPage] = useState(1);
   const [showButton, setShowButton] = useState(true);
+  const [buttonCount, setButtonCount] = useState(0);
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 77);
     setShowButton(false);
   };
-
+  const handleNextPages = () => {
+    setCurrentPage(currentPage + 1);
+    setButtonCount(buttonCount + 1);
+    setShowButton(false);
+  };
   
 
   const [one, setOne] = useState(null);
@@ -116,19 +121,19 @@ function Reviews() {
                          className='w-[18px] h-[18px] hover:brightness-75 cursor-pointer' onClick={() => { document.querySelector("html")
                          toggleLike(i)}} />
 
-                        <img className='w-6 h-5 mx-[10px] '
+                        <img className='w-6 h-5 mx-[10px] cursor-pointer'
                         id="loginAlert" onClick={() => alert('개발진행중입니다.')} 
                         src={theme === 'light' ?
                         "./../Images/Review/chat-light.png" : "./../Images/Review/chat-dark.png" }
                          alt="chat" />
                         
-                        <img className='w-5 ' 
+                        <img className='w-5 cursor-pointer' 
                         id="loginAlert" onClick={() => alert('개발진행중입니다.')}
                         src={theme === 'light' ?
                         "./../Images/Review/airplane-light.png "  : "./../Images/Review/airplane-dark.png"}
                         alt="airplane" />
 
-                        <img className='w-5 h-6 absolute right-[10px] hover:brightness-75'
+                        <img className='w-5 h-6 absolute right-[10px] hover:brightness-75 cursor-pointer'
                         id="loginAlert" onClick={() => alert('개발진행중입니다.')}
                          src={theme === 'light' ?
                         "./../Images/Review/mark-light.png" : "./../Images/Review/mark-dark.png"}
@@ -162,12 +167,19 @@ function Reviews() {
             {showButton && (
         <button
           onClick={handleNextPage}
-          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[5px] rounded-md'
+          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[5px] rounded-md a'
         >무한스크롤</button>
       )}</div>
 
 
-              <button onClick={() => { setCurrentPage(currentPage + 1) }} className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[40px] rounded-md'>{messages.reviewmore} +</button>
+              {buttonCount < 3 && (
+        <button
+          onClick={handleNextPages}
+          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-40 rounded-md'
+        >
+          {messages.reviewmore} +
+        </button>
+      )}
             
           </div>
         </div>
