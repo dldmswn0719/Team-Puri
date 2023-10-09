@@ -32,6 +32,7 @@ ul, ol{list-style: none;}
 
 .support{background-image: url('./../public/Images/Support/support-go.jpg'); background-size: cover;
 }
+
 @media screen and (max-width: 1024px){
     .support {
         height: 500px;
