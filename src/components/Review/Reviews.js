@@ -247,7 +247,7 @@ function Reviews() {
                     <div className="flex justify-between mb-[10px]">
                       <ul className="flex">
                         <li><FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px]' /></li>
-                        <li><img className='w-[18px] h-[18px] mx-[10px] mt-1 ' src="./../Images/Review/chat-light.svg" alt="chat" /></li>
+                        <li><img className='w-[18px] h-[18px] mx-[10px] mt-1 ' src="./../Images/Review/chat-light.png" alt="chat" /></li>
                         <li><img className='w-[20px] h-[20px] mt-1' src="./../Images/Review/airplane-light.png" alt="airplane" /></li>
                       </ul>
                       <ul>
