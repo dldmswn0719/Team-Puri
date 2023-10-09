@@ -15,7 +15,7 @@ function Footer() {
         <div className='bg-[#292929] w-full'>
             <div className='m-auto py-10 lg:max-w-[1200px] md:max-w-[768px]'>
                 <div>
-                    <img src="./../../Images/Main/logo_dark_small.png" alt="footerlogo" className='m-auto' />
+                    <img src="./../../Images/Main/logo_s1_dark.png" alt="footerlogo" className='m-auto' />
                 </div>
                 <ul className={`flex text-xs justify-around m-auto py-5 w-60 flex-wrap
                 md:text-sm md:py-8 md:justify-between md:w-5/6

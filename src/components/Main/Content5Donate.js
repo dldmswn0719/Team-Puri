@@ -37,7 +37,7 @@ function Content5Donate() {
             md:max-w-[768px]
             lg:max-w-[1200px] lg:pt-36 lg:text-right'>
                 <p className='lg:text-5xl tracking-tight text-2xl'><span className='font-bold'>{messages.cont5donate1}</span>{messages.cont5donate2}<span className='font-bold'>{messages.cont5donate3}</span></p>
-                <p id='content1' className='pt-5 lg:block hidden'>한 해 유기되는 동물 {
+                <p id='content1' className='pt-5 lg:block hidden'>{messages.countnum1} {
                     isView &&
                     <AnimateNumber
                     value={num[0]}
@@ -45,8 +45,8 @@ function Content5Donate() {
                     formatValue={(value) => `${value.toFixed(0)}`}
                     className='text-2xl font-bold'
                     />
-                }마리<p className='text-xs'>(2022년 농림축산검역본부 기준)</p></p>
-                <p id='content2' className='lg:block hidden'>그 중 입양 비율 약 {
+                }{messages.countnum2}<p className='text-xs'>({messages.countnum3})</p></p>
+                <p id='content2' className='lg:block hidden'>{messages.countnum4} {
                     isView &&
                     <AnimateNumber
                     value={num[1]}

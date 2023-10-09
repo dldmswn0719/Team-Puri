@@ -97,7 +97,7 @@ function Login_c() {
                                 theme === 'light' ? 
                                 "./../Images/logo_s1.png"
                                 :
-                                "./../Images/Main/logo_dark_small.png"
+                                "./../Images/Main/logo_s1_dark.png"
                             } alt='logo' className='mb-[20px] w-[200px] h-[65px] mx-auto' />
                         </li>    
                         <form onSubmit={LoginForm}>
@@ -117,7 +117,7 @@ function Login_c() {
                             </li>
                         </form>
                     </ul>
-                    <div className='w-full h-[50px] bg-[#db4437] text-[#fff] text-[16px] rounded-[10px] cursor-pointer dark:bg-[#272929] pl-5 py-3 mb-3' onClick={()=>{snsLogin('google')}}>
+                    <div className='w-full h-[50px] bg-[#db4437] text-[#fff] text-[16px] rounded-[10px] cursor-pointer dark:bg-[#272929] pl-5 py-3 mb-3' onClick={()=>{alert("이 기능은 현재 마법사가 주문을 완성하는 중입니다.")}}>
                         <FontAwesomeIcon icon={faGoogle} className='mr-2' /> Login with Google
                     </div>
                     <ul className='flex justify-between text-sm text-gray-500'>

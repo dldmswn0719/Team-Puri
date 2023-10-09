@@ -99,7 +99,7 @@ function Findemail() {
                         theme === 'light' ? 
                         "./../Images/logo_s1.png"
                         :
-                        "./../Images/Main/logo_dark_small.png"
+                        "./../Images/Main/logo_s1_dark.png"
                     } alt='logo' className='w-[200px] h-[65px] mx-auto' />
                 <div className='relative mb-5'>
                     <p className='text-left text-[18px] font-bold pt-[30px] dark:text-[#ebf4f1] pb-2'>{messages.member2}</p>

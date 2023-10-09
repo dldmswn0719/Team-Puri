@@ -105,7 +105,7 @@ function ProductDesc() {
                                     theme === 'light' ?
                                         "./../Images/logo_s1.png"
                                         :
-                                        "./../Images/Main/logo_dark_small.png"
+                                        "./../Images/Main/logo_s1_dark.png"
                                 } alt="로고" />
                             </div>
                         </div>
