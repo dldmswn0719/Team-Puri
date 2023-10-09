@@ -9,13 +9,6 @@ ul, ol{list-style: none;}
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @font-face {
-    font-family: 'Cafe24Ssurround';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'BMJUA';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
     font-weight: normal;
@@ -28,7 +21,6 @@ ul, ol{list-style: none;}
     font-style: normal;
 }
 
-.title{font-family: 'Cafe24Ssurround';}
 .title2{font-family: 'BMJUA';}
 .title3{ font-family: 'Pretendard-Regular';}
 

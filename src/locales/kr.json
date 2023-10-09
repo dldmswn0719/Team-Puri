@@ -566,5 +566,20 @@
     "countnum1" : "한 해 유기되는 동물",
     "countnum2" : "마리",
     "countnum3" : "2022년 농림축산검역본부 기준",
-    "countnum4" : "그 중 입양 비율 약"
+    "countnum4" : "그 중 입양 비율 약",
+    "secretalert" : "비공개 문의내역은 작성자 본인만 확인하실 수 있습니다.",
+    "success" : "결제가 완료되었습니다.",
+    "success1" : "주문 아이디",
+    "success2" : "결제 금액",
+    "success3" : "상품 더 보러가기",
+    "fail" : "결제 실패",
+    "fail1" : "사유",
+    "checkout" : "주문서",
+    "checkout1" : "상품금액",
+    "checkout2" : "배송비",
+    "checkout3" : "결제금액",
+    "checkout4" : "믹스패밀리 페이스 그립톡 외 2건",
+    "checkout5" : "푸리",
+    "checkout6" : "결제하기",
+    "checkout7" : "뒤로 가기"
   }

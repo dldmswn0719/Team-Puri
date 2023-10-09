@@ -4,6 +4,8 @@ import {nanoid} from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
 import { setPrice } from "../store";
 import { useNavigate } from "react-router-dom";
+import enMessages from "./../locales/en.json";
+import krMessages from "./../locales/kr.json";
 
 
 const selector = "#payment-widget";
@@ -15,7 +17,9 @@ export function CheckoutPage() {
     const paymentMethodsWidgetRef = useRef(null);
     const price = useSelector(state => state.price);
     const dispatch = useDispatch();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const language = useSelector((state) => state.language);
+    const messages = language === "en" ? enMessages : krMessages;
 
     const deliveryFee = price >= 50000 ? 0 : 3000; // 상품 금액이 5만원 이상일 경우 무료배송
 
@@ -59,11 +63,11 @@ export function CheckoutPage() {
         <div className="w-full bg-white dark:bg-[#272929] h-[100vh]  ">
             <div className="max-w-7xl mx-auto px-5 py-10">
                 <div className='text-center border bg-white p-5 dark:bg-[#404343] dark:border-none dark:text-[#ebf4f1]'>
-                    <h1 className=" text-3xl font-bold py-3">주문서</h1>
-                    <span className="lg:text-xl"> 상품금액 : {`${price.toLocaleString()}원`} + </span>
-                    <span className="lg:text-xl"> 배송비 : {`${deliveryFee.toLocaleString()}원`}</span>
+                    <h1 className=" text-3xl font-bold py-3">{messages.checkout}</h1>
+                    <span className="lg:text-xl"> {messages.checkout1} : {`${price.toLocaleString()}${messages.won}`} + </span>
+                    <span className="lg:text-xl"> {messages.checkout2} : {`${deliveryFee.toLocaleString()}${messages.won}`}</span>
                     <br />
-                    <span className="lg:text-xl"> 결제금액 : {`${(price + deliveryFee).toLocaleString()}원`}</span>
+                    <span className="lg:text-xl"> {messages.checkout3} : {`${(price + deliveryFee).toLocaleString()}${messages.won}`}</span>
                     <div className="pt-4" id="payment-widget"/>
                         <button className="w-full py-3 bg-[#86bcd5] text-white dark:bg-[#272929]" onClick={async () => {
                             const paymentWidget = paymentWidgetRef.current;
@@ -71,8 +75,8 @@ export function CheckoutPage() {
                             try {
                                 await paymentWidget?.requestPayment({
                                     orderId: nanoid(),
-                                    orderName: "믹스패밀리 페이스 그립톡 외 2건",
-                                    customerName: "푸리",
+                                    orderName: `${messages.checkout4}`,
+                                    customerName: `${messages.checkout5}`,
                                     customerEmail: "puripuri1010@gmail.com",
                                     successUrl: `${window.location.origin}/success`,
                                     failUrl: `${window.location.origin}/fail`
@@ -80,10 +84,10 @@ export function CheckoutPage() {
                             } catch (error) {
                                 // handle error
                             }
-                        }}>결제하기
+                        }}>{messages.checkout6}
                         </button>
                 </div>
-                <p onClick={()=>{navigate(-1)}} className="cursor-pointer text-right mt-3 dark:text-[#ebf4f1]">뒤로 가기</p>                
+                <p onClick={()=>{navigate(-1)}} className="cursor-pointer text-right mt-3 dark:text-[#ebf4f1]">{messages.checkout7}</p>                
             </div>
         </div>);
 }

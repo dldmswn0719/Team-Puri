@@ -100,7 +100,7 @@ function StoreQna() {
                       <React.Fragment key={i}>
                         <ul className="cursor-pointer flex border-b border-[#86bcd5] dark:text-[#ebf4f1] dark:border-[#dadbdb]" onClick={()=>{
                              if(e.isSecret && memberProfile.uid !== e.uid){
-                              alert("비공개 문의내역은 작성자 본인만 확인하실 수 있습니다."); 
+                              alert(messages.secretalert); 
                               return;
                             }
                             
@@ -143,8 +143,8 @@ function StoreQna() {
                             <li className="text-right pr-5 fold:pr-0">
                               {memberProfile.uid === e.uid && (
                                 <>
-                                  <button onClick={()=>{editPost(e.id)}}><FontAwesomeIcon icon={faPenSquare} className="text-[#3981a3]" /> {messages.member6}</button>
-                                  <button onClick={()=>{deletePost(e.id)}}><FontAwesomeIcon icon={faTrash} className="text-[#b8b8b8]" /> {messages.delete} </button>
+                                  <button onClick={()=>{editPost(e.id)}}><FontAwesomeIcon icon={faPenSquare} className="text-[#3981a3] dark:text-[#ebf4f1]" /> {messages.member6}</button>
+                                  <button onClick={()=>{deletePost(e.id)}}><FontAwesomeIcon icon={faTrash} className="text-[#b8b8b8] dark:text-[#ebf4f1]" /> {messages.delete} </button>
                                 </>
                                 )}
                             </li>
@@ -153,7 +153,7 @@ function StoreQna() {
                       {
                         viewState === i &&
                         editEditor && 
-                        <Ckeditor hideEditor={() => setEditEditor(false)} refreshPosts={fetchPosts} resetViewState={() => setViewState(null)} title={e.title} content={e.content} postId={editingPostId}  isSecret={e.isSecret} />
+                        <Ckeditor hideEditor={() => setEditEditor(false)} refreshPosts={fetchPosts} resetViewState={() => setViewState(null)} title={e.title} content={e.content} postId={editingPostId} isSecret={e.isSecret} />
                       }
                       </React.Fragment>
                     );

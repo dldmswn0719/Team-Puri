@@ -105,37 +105,40 @@ function Nav() {
                                     <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} className='text-[25px] dark:text-[#ebf4f1]' />
                                 </button>
                             </li>
-                            <li className='basis-1/2 text-center cursor-pointer text-2xl relative group'>
-                                <img src='/../Images/korean.png' alt='korean' className='lg:w-5/12' />
-                                {/* 임시 이미지임 */}
-                                {/* <FontAwesomeIcon icon={faEarthAmericas} className='text-[25px] dark:text-[#ebf4f1]' /> */}
-                                <ul className='z-100 dark:bg-[#272929] absolute w-20 top-[50px] -left-[6px] bg-white transition-all duration-500 flex flex-wrap h-0 overflow-hidden group-hover:h-24'>
-                                    <li onClick={() => changeLanguage('kr')} className='dark:hover:bg-[#404040b3] border w-full basis-full h-12 leading-10 hover:font-bold hover:bg-[#86bcd5] hover:text-white'>
-                                        <button className='text-sm dark:text-[#ebf4f1]'>{messages.korean}</button>
-                                    </li>
-                                    <li onClick={() => changeLanguage('en')} className='dark:hover:bg-[#404040b3] border w-full basis-full h-12 leading-10 hover:font-bold hover:bg-[#86bcd5] hover:text-white'>
-                                        <button className='text-sm dark:text-[#ebf4f1]'>{messages.english}</button>
-                                    </li>
-                                </ul>
+                            <li className='basis-1/2 cursor-pointer text-2xl mt-1'>
+                                {
+                                    language === 'kr' && 
+                                    <img onClick={() => changeLanguage('en')} src={
+                                        theme === 'light' ? './../Images/global.png' : './../Images/global-dark.png'
+                                    } alt='global'/>
+                                }
+                                {
+                                    language === 'en' &&
+                                    <img onClick={() => changeLanguage('kr')} src={
+                                        theme === 'light' ? '/../Images/korean.png' : '/../Images/korean-dark.png'
+                                    } alt='korean'/>
+                                }
                             </li>
                         </ul>
                     </div>
                     
-
                     {/* 모바일 네비 시작 */}
                     <div className='lg:hidden flex'>
-                        <div className='lg:hidden text-center cursor-pointer text-2xl relative group pl-3 pr-8'>
-                            <FontAwesomeIcon icon={faEarthAmericas} className='text-[25px] dark:text-[#ebf4f1] sm:w-7 sm:h-7' />
-                            <ul className='z-100 dark:bg-[#272929] absolute w-20 top-[50px] -left-[15px] bg-white transition-all duration-500 flex flex-wrap h-0 overflow-hidden group-hover:h-24'>
-                                <li onClick={() => changeLanguage('kr')} className='dark:hover:bg-[#404040b3] border w-full basis-full h-12 leading-10 hover:font-bold hover:bg-[#86bcd5] hover:text-white'>
-                                    <button className='text-sm dark:text-[#ebf4f1]'>{messages.korean}</button>
-                                </li>
-                                <li onClick={() => changeLanguage('en')} className='dark:hover:bg-[#404040b3] border w-full basis-full h-12 leading-10 hover:font-bold hover:bg-[#86bcd5] hover:text-white'>
-                                    <button className='text-sm dark:text-[#ebf4f1]'>{messages.english}</button>
-                                </li>
-                            </ul>
+                        <div className='cursor-pointer mt-[2px]'>
+                            {
+                                language === 'kr' && 
+                                <img onClick={() => changeLanguage('en')} src={
+                                    theme === 'light' ? './../Images/global.png' : './../Images/global-dark.png'
+                                } alt='global'/>
+                            }
+                            {
+                                language === 'en' &&
+                                <img onClick={() => changeLanguage('kr')} src={
+                                    theme === 'light' ? '/../Images/korean.png' : '/../Images/korean-dark.png'
+                                } alt='korean'/>
+                            }
                         </div>
-                        <div className="transition-all duration-1000 z-[100] cursor-pointer lg:hidden pr-3" onClick={() => {toggleHamburger() }}>
+                        <div className="transition-all duration-1000 z-[100] cursor-pointer lg:hidden pr-3 pl-4" onClick={() => {toggleHamburger() }}>
                             {
                                 hamburger ?
                                 <FontAwesomeIcon icon={faXmark} className='w-8 h-8 dark:text-white' />
