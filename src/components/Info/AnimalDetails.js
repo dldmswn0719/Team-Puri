@@ -69,7 +69,7 @@ function AnimalDetails() {
                     <div className="flex justify-center items-center ">
                         <div className="w-full flex items-center justify-center flex-col mt-3">
                             <div className=" w-[90%] px-2 ">
-                                <p className="text-xl fold:text-lg font-bold mt-10 mb-2 dark:text-[#ebf4f1]">
+                                <p className="text-xl fold:text-lg font-bold mb-10 dark:text-[#ebf4f1]">
                                     <FontAwesomeIcon icon={faPaw} /> 입양 문의
                                 </p>
                                 <span className="mt-1 dark:text-[#ebf4f1]">
@@ -84,9 +84,9 @@ function AnimalDetails() {
                             </div>
 
                             <div className='w-[90%] flex justify-between items-center md:justify-center '>
-                                <img className='lg:w-[1080px] w-full px-2 lg:h-[500px] md:h-[500px]  sm:h-[300px] fold:h-[250px]  ' src={popfile} alt="img" />
+                                <img className='lg:w-[1080px] w-full px-2 lg:h-[700px] md:h-[500px]  sm:h-[400px] fold:h-[250px]  ' src={popfile} alt="img" />
                             </div>
-                            <div className="lg:flex dark:text-[#ebf4f1] w-[90%] lg:px-2 ">
+                            <div className="lg:flex dark:text-[#ebf4f1] w-[90%] px-2 ">
                                 <div className="lg:w-1/2 w-full ">
                                     <p className='text-xl fold:text-lg font-bold mt-10 mb-2'><FontAwesomeIcon icon={faPaw} /> 상세 정보</p>
                                     <div className='border-b-2 border-[#86bcd5] dark:border-[#dadbdb]'></div>
@@ -119,7 +119,7 @@ function AnimalDetails() {
                             </div>
 
                             
-                            <p className='flex justify-start items-center w-[90%] text-xl mt-11 mb-2 dark:text-[#ebf4f1] font-bold px-2 '><FontAwesomeIcon icon={faLocationDot} color='#ff5b5b' className='mr-1' />보호소 위치</p>
+                            <p className='flex justify-start items-center w-[90%] text-xl mt-10 mb-2 dark:text-[#ebf4f1] font-bold px-2 '><FontAwesomeIcon icon={faLocationDot} color='#ff5b5b' className='mr-1' />보호소 위치</p>
                             <div className="w-[90%] px-2 relative ">
                             <div id='map' className='h-[400px]  md:h-[400px]  sm:h-[300px] fold:h-[250px] '></div>
                             </div>

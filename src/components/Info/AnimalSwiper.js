@@ -47,7 +47,7 @@ function AnimalSwiper() {
                     <SwiperSlide className="basis-1/4" key={i}>
                         <Link to={`/infodetail/${e.desertionNo}`} state={{ e: e }}>
                             <img
-                                className="w-full px-2 lg:h-[260px] md:h-[200px]  sm:h-[180px] fold:h-[100px]"
+                                className="w-full px-1 lg:h-[260px] md:h-[200px]  sm:h-[150px] fold:h-[100px]"
                                 src={e.image}
                                 alt="img"
                             />
