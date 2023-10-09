@@ -32,7 +32,7 @@ function AnimalSwiper() {
         RandomData();
     }, [AnimalData]);
     return (
-        <div className="w-[800px] md:w-[400px] sm:w-[300px] fold:w-[250px] mt-2 flex justify-between items-center overflow-hidden">
+        <div className="w-full mt-2 flex justify-between items-center overflow-hidden">
             <Swiper
                 autoplay={{
                     delay: 1000,
@@ -40,14 +40,14 @@ function AnimalSwiper() {
                 }}
                 loop={true}
                 slidesPerView={4}
-                spaceBetween={1}
+                
                 modules={[Autoplay]}
             >
                 {data.map((e, i) => (
                     <SwiperSlide className="basis-1/4" key={i}>
                         <Link to={`/infodetail/${e.desertionNo}`} state={{ e: e }}>
                             <img
-                                className="w-[194px] h-[194px] md:w-[100px] md:h-[100px] sm:w-[80px] sm:h-[80px] fold:w-[80px] fold:h-[80px]"
+                                className="w-full px-2 lg:h-[260px] md:h-[200px]  sm:h-[180px] fold:h-[100px]"
                                 src={e.image}
                                 alt="img"
                             />

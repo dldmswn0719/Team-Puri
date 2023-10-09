@@ -1,11 +1,9 @@
 import React from 'react'
 
-// left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4
 function Intro() {
   return (
     <>
       <div className=" flex justify-center items-center w-full h-full dark:bg-[#272929] overflow-x-hidden">
-      {/*  container*/}
           <div className="w-[1200px] h-full">
               <div className="mt-[50px]">
                 <p className='text-center text-[28px] lg:text-[48px] md:text-[34px] tracking-[-4px] text-[#162C58] dark:text-[#ebf4f1] animate__animated animate__backInLeft'>우리의
@@ -17,16 +15,6 @@ function Intro() {
               </div>
               <div className=''>
               <div className=" ">
-                  {/* <div className="mt-[50px] md:text-left sm:text-left md:w-auto md:items-center sm:items-end  sm:px-5 items-center">
-                    <span className="font-bold text-[20px] text-[#162C58] dark:text-[#ebf4f1] tracking-[-3px]">푸리푸리</span>
-                    <span className='text-[20px] text-[#162C58] dark:text-[#ebf4f1]'>는</span>
-                    <p className='text-[20px] text-[#162C58] dark:text-[#ebf4f1] tracking-[-1px]'>사지 않고 입양하는 문화를 만듭니다.</p>
-                  </div> */}
-
-                  {/* <div className="mt-[50px] md:text-left sm:text-left md:w-auto md:items-start sm:items-end  sm:px-5 items-center ">
-                    <p className='text-[#162C58] dark:text-[#ebf4f1] text-[20px] tracking-[-1px]'>잊혀져가는 유기동물들을 세상에 알리고</p>
-                    <p className='text-[#162C58] dark:text-[#ebf4f1] text-[20px] tracking-[-1px]'>소중한 가족을 찾아주는 플랫폼입니다.</p>
-                  </div> */}
                   </div>
                   <div className="flex items-center w-auto md:flex-col md:px-5 sm:flex-col sm:text-center">
                       <div className="w-1/2 sm:w-auto">

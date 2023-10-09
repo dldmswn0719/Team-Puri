@@ -127,7 +127,7 @@ function AnimalList() {
     for (let i = startPage; i <= endPage; i++) {
         PageList.push(
             <div className="flex items-center justify-center h-full">
-                <li key={i} className={(page === i ? 'rounded-full cursor-pointer w-[50px] h-[50px]  sm:w-[35px] sm:h-[35px] sm:py-0 sm:px-0  fold:w-[35px] fold:h-[35px] fold:py-0 fold:px-0 border-transparent leading-10 text-center relative block py-1 px-1.5 lg:mx-3 border-2  border-[#86bcd5] dark:border-1 dark:border-[#dadbdb] text-white bg-[#86bcd5] dark:bg-[#404343]' : ' rounded-full cursor-pointer w-[50px] h-[50px] sm:w-[35px] sm:h-[35px] sm:py-0 sm:px-0  fold:w-[35px] fold:h-[35px]  leading-10 text-center relative block py-1 px-1.5 fold:py-0 fold:px-0 lg:mx-3 border-2 border-transparent text-black shadow-sm dark:text-[#ebf4f1]')} 
+                <li key={i} className={(page === i ? 'rounded-full cursor-pointer w-[50px] h-[50px]  sm:w-[50px] sm:h-[50px]  fold:w-[35px] fold:h-[35px] fold:py-0 fold:px-0 border-transparent leading-10 text-center relative block py-1 px-1.5 lg:mx-3 border-2  border-[#86bcd5] dark:border-1 dark:border-[#dadbdb] text-white bg-[#86bcd5] dark:bg-[#404343]' : ' rounded-full cursor-pointer w-[50px] h-[50px] sm:w-[40px] sm:h-[40px] sm:py-0 sm:px-0  fold:w-[35px] fold:h-[35px]  leading-10 text-center relative block py-1 px-1.5 fold:py-0 fold:px-0 lg:mx-3 border-2 border-transparent text-black shadow-sm dark:text-[#ebf4f1]')} 
                 onClick={() => { setLoading(true); setPage(i); }}>
                     <div className="flex items-center justify-center h-full">
                         {i}
