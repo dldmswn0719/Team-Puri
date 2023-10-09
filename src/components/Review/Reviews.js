@@ -84,6 +84,12 @@ function Reviews() {
   return (
     <>
 
+<div className="w-full bg-white relative dark:bg-[#272929]"/>
+        <div className="max-w-[1400px] mx-auto"/>
+          <div className="max-w-[1280px] mx-auto max-lg:w-11/12 md:w-5/6" />
+              <span className=' dark:bg-[#272929] block py-5 text-center text-[40px] dark:text-[#ebf4f1]'>새로운 가정을 찾은 유기동물들의 이야기</span>
+   
+    
     <QuickMenu/>
     {/* <div className="mx-auto w-[160px] h-[5] dark:bg-[#272929] ">
         <button className='bg-[#D3C09D] text-white w-[160px] h-[35px] '>후기 작성하기</button>
@@ -93,11 +99,13 @@ function Reviews() {
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-[1280px] mx-auto max-lg:w-11/12 md:w-5/6">
             
+            
             <div className="flex text-[15px] gap-y-5 gap-[5px] flex-wrap justify-between mb-[30px] m-3 0">
               {
                 review.filter(item => item.group <= currentPage).map((e, i) => {
                   return (
-                    <div className="relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-lg rounded-[20px] 
+                    <div className="relative border border-[#f1f1ef] 
+                    w-[310px] h-[480px] shadow-lg rounded-[20px] 
                     // 두개
                     sm:w-full max-lg:w-[32%] max-lg:h-[500px]" key={i} data-aos="zoom-in">
                       <ul className='flex w-[250px] justify-between mx-auto pt-5 max-lg:w-[90%]'>
