@@ -66,7 +66,7 @@ function Nav() {
                                     :
                                     "./../Images/Main/logo_s1_dark.png"
                             } alt="logo" />
-                            <img className="items-center sm:w-[150px] sm:h-[50px] lg:hidden md:hidden fold:hidden sm:block" src={
+                            <img className="items-center sm:w-[150px] sm:h-[50px] lg:hidden sm:ml-3 md:hidden fold:hidden sm:block" src={
                                 theme === 'light' ?
                                     "./../Images/mobile_logo.png"
                                     :
@@ -106,7 +106,7 @@ function Nav() {
                                 </button>
                             </li>
                             <li className='basis-1/2 text-center cursor-pointer text-2xl relative group'>
-                                <img src='./../Images/korea.png' alt='1' />
+                                <img src='/../Images/korean.png' alt='korean' className='lg:w-5/12' />
                                 {/* 임시 이미지임 */}
                                 {/* <FontAwesomeIcon icon={faEarthAmericas} className='text-[25px] dark:text-[#ebf4f1]' /> */}
                                 <ul className='z-100 dark:bg-[#272929] absolute w-20 top-[50px] -left-[6px] bg-white transition-all duration-500 flex flex-wrap h-0 overflow-hidden group-hover:h-24'>

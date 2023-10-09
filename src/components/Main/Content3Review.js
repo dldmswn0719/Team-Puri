@@ -71,7 +71,7 @@ function Content3Review() {
                         <li className='dark:text-white'>
                             <p className='tracking-tight lg:text-5xl lg:mb-[43px]
                             md:text-3xl md:mb-7 text-2xl mb-4 mt-32'><span className='font-bold'>{messages.cont3review1}</span>{messages.cont3review2}</p>
-                            <p className='md:text-xl lg:text-2xl tracking-tight'>{messages.cont3review3}<span className='font-bold'>ON</span> {messages.cont3review4}<span className='font-bold'>OFF</span><br />{messages.cont3review5}</p>
+                            <p className='md:text-xl lg:text-2xl tracking-tight sm:mx-[5%]'>{messages.cont3review3}<span className='font-bold'>ON</span> {messages.cont3review4}<span className='font-bold'>OFF</span><br />{messages.cont3review5}</p>
                         </li>
                         <li>
                             <button className='bg-[#E75A56] text-white font-bold cursor-pointer duration-500 hover:bg-[#b3312c] rounded-full

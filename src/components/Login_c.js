@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
-import { firebaseAuth, signInWithEmailAndPassword , GoogleAuthProvider , signInWithPopup , createUserWithEmailAndPassword } from '../firebase';
+import React, { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { firebaseAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from '../firebase';
 import { collection, doc, getDoc, getFirestore } from 'firebase/firestore';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn , loggedIn } from '../store';
@@ -20,7 +20,7 @@ function Login_c() {
     const userState = useSelector(state => state.user);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const theme = useSelector(state => state.dark)
+    const theme = useSelector(state => state.dark);
 
     const errorMsg = (errorCode) => {
         const firebaseError = {
@@ -38,7 +38,7 @@ function Login_c() {
             const userLogin = await signInWithEmailAndPassword(firebaseAuth, email, password);
 
             const user = userLogin.user;
-            alert(`${messages.alert[3]}`)
+            alert(`${messages.alert[3]}`);
 
             sessionStorage.setItem("users", user.uid);
             dispatch(logIn(user.uid));
@@ -47,7 +47,7 @@ function Login_c() {
             
             const userDocSnapshot = await getDoc(userDoc);
 
-            if(userDocSnapshot.exists()) {
+            if (userDocSnapshot.exists()) {
                 const userData = userDocSnapshot.data();
                 dispatch(loggedIn(userData));
                 navigate(-1);
@@ -58,84 +58,64 @@ function Login_c() {
         }
     }
 
-    const snsLogin = async (data) =>{
+    const snsLogin = async (data) => {
         let provider;
-        switch(data){
+        switch(data) {
             case 'google' : 
                 provider = new GoogleAuthProvider();
             break;
 
             default:
             return;
-        }
-        try{  
-            const result = await signInWithPopup(firebaseAuth,provider)
-            const user = result.user
-            console.log(user)
-            sessionStorage.setItem("users",user.uid)
-            dispatch(logIn(user.uid))
-            navigate("/" ,{
+        } try {
+            const result = await signInWithPopup(firebaseAuth,provider);
+            const user = result.user;
+            console.log(user);
+            sessionStorage.setItem("users",user.uid);
+            dispatch(logIn(user.uid));
+            navigate("/", {
                 state:
                 {
                 name : user.displayName,
                 email : user.email
                 }
-            })
-          }catch(error){
-            setError(errorMsg(error))
-          }
-        
+            });
+        } catch (error) {
+            setError(errorMsg(error));
+        }
     }
 
     return (
         <>
-            <div className="w-full bg-white dark:bg-[#272929] h-[100vh]">
-                <div className='w-[400px] absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-[30px] dark:bg-[#404343]'>
-                    <ul className='text-center'>
-                        <li>
-                            <img src={
-                                theme === 'light' ? 
-                                "./../Images/logo_s1.png"
-                                :
-                                "./../Images/Main/logo_s1_dark.png"
-                            } alt='logo' className='mb-[20px] w-[200px] h-[65px] mx-auto' />
-                        </li>    
+            <div class="bg-[#fff] dark:bg-[#272929] h-[90vh] flex items-center">
+                <div class="h-max mx-auto flex flex-col items-center">
+                    <h1 class="text-xl font-bold text-center pb-10 dark:text-white">{messages.login3}</h1>
+                    <div class="bg-white dark:bg-[#404343] shadow-xl p-10 flex flex-col gap-4 text-sm">
                         <form onSubmit={LoginForm}>
-                            <li>
-                                <p className='text-left text-[18px] font-bold pt-[30px] dark:text-[#ebf4f1] pb-2'>{messages.login1}</p>
-                                <input type='email' onChange={(e) => setEmail(e.target.value)} required autoFocus className='email w-full h-[50px] border-b border-[#ddd] text-[16px] p-[15px] text-[#bbb] box-border dark:bg-[#272929] dark:focus:outline-none dark:text-[#ebf4f1] dark:border-none'></input>
-                            </li>
-                            <li>
-                                <p className='text-left text-[18px] font-bold pt-[20px] dark:text-[#ebf4f1] pb-2'>{messages.login2}</p>
-                                <input type='password' onChange={(e) => setPassword(e.target.value)} required className='password w-full h-[50px] border-b border-[#ddd] text-[16px] p-[15px] text-[#bbb] box-border dark:bg-[#272929] dark:focus:outline-none dark:text-[#ebf4f1] dark:border-none'></input>
-                            </li>
-                            <li>
+                            <div>
+                                <label class="text-gray-600 dark:text-white font-bold inline-block pb-2" for="email">{messages.login1}</label>
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929]" type="email" onChange={(e) => setEmail(e.target.value)} required autoFocus name="email" placeholder="puripuri@react.com" />
+                            </div>
+                            <div>
+                                <label class="text-gray-600 dark:text-white font-bold inline-block pb-2 pt-5" for="password">{messages.login2}</label>
+                                <input class="border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929]" type="password" onChange={(e) => setPassword(e.target.value)} required name="password" placeholder="******" />
+                            </div>
+                            <div>
                                 <p className='pt-4 text-red-500 text-sm text-left dark:text-[#ebf4f1]'>{error}</p>
-                            </li>
-                            <li>
-                                <button className='w-full h-[50px] bg-[#60a7c8] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] mb-[15px] dark:bg-[#272929]' onClick={LoginForm}>{messages.login3}</button>
-                            </li>
+                            </div>
+                            <button className='w-full h-[40px] bg-[#60a7c8] text-[#fff] rounded-md cursor-pointer mt-[22px] mb-[15px] dark:bg-[#272929] hover:bg-[#4090b6]' onClick={LoginForm}>{messages.login3}</button>
+                            <div>
+                                <div className='w-full h-[40px] bg-[#db4437] text-[#fff] rounded-md cursor-pointer dark:bg-[#272929] pl-5 py-3 mb-3 hover:bg-[#bf3225]' onClick={()=>{alert("이 기능은 현재 마법사가 주문을 완성하는 중입니다.")}}><FontAwesomeIcon icon={faGoogle} className='mr-2' /> Login with Google</div>
+                            </div>
                         </form>
-                    </ul>
-                    <div className='w-full h-[50px] bg-[#db4437] text-[#fff] text-[16px] rounded-[10px] cursor-pointer dark:bg-[#272929] pl-5 py-3 mb-3' onClick={()=>{alert("이 기능은 현재 마법사가 주문을 완성하는 중입니다.")}}>
-                        <FontAwesomeIcon icon={faGoogle} className='mr-2' /> Login with Google
+                        <div class="flex justify-between">
+                            <NavLink to='/findemail' class="font-bold text-blue-600 dark:text-white">{messages.login4}</NavLink>
+                            <NavLink to='/member' class="font-bold text-blue-600 dark:text-white">{messages.login5}</NavLink>
+                        </div>
                     </div>
-                    <ul className='flex justify-between text-sm text-gray-500'>
-                        <li>
-                            <NavLink to="/findemail">
-                                <p className='dark:text-[#ebf4f1]'>{messages.login4}</p>
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/member">
-                                <p className='dark:text-[#ebf4f1]'>{messages.login5}</p>
-                            </NavLink>
-                        </li>
-                    </ul>                   
                 </div>
             </div>
         </>
     )
 }
-
 export default Login_c
