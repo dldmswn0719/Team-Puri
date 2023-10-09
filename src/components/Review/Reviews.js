@@ -162,12 +162,12 @@ function Reviews() {
             {showButton && (
         <button
           onClick={handleNextPage}
-          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[5px]'
+          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[5px] rounded-md'
         >무한스크롤</button>
       )}</div>
 
 
-              <button onClick={() => { setCurrentPage(currentPage + 1) }} className='bg-[#D3C09D] text-white w-[160px] h-[50px] my-[40px] '>{messages.reviewmore} +</button>
+              <button onClick={() => { setCurrentPage(currentPage + 1) }} className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[40px] rounded-md'>{messages.reviewmore} +</button>
             
           </div>
         </div>
