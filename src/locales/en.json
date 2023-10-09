@@ -563,6 +563,21 @@
     "countnum1": "An animal abandoned during the year",
     "countnum2": "about",
     "countnum3": "Based on 2022 Agriculture, Food and Rural Affairs Quarantine Headquarters",
-    "countnum4": "Among them, the adoption rate is about"
+    "countnum4": "Among them, the adoption rate is about",
+    "secretalert" : "Only the author himself can check the details of the closed inquiry.",
+    "success" : "Payment has been completed.",
+    "success1" : "Order ID",
+    "success2" : "Payment amount",
+    "success3" : "Go see more products",
+    "fail" : "Payment failed",
+    "fail1" : "Reason",
+    "checkout" : "Order form",
+    "checkout1" : "Product amount",
+    "checkout2" : "Shipping fee",
+    "checkout3" : "Payment amount",
+    "checkout4" : "Mix Family Face Grip Talk and 2 others",
+    "checkout5" : "Furi",
+    "checkout6" : "Proceed to payment",
+    "checkout7" : "Going backwards"
   }
   
