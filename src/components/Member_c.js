@@ -120,7 +120,7 @@ function Member_c() {
             return;
         }
 
-        if (!isEmailChecked && initialMode) { // isEmailChecked 상태 확인
+        if (!isEmailChecked && initialMode) {
             setError(`${messages.setError[6]}`);
             return;
         }
@@ -128,7 +128,6 @@ function Member_c() {
         const userProfile = { name, phoneNumber, email }
 
         try {
-
             if (initialMode) {
                 const { user } = await createUserWithEmailAndPassword(firebaseAuth, email, password);
 
@@ -137,21 +136,19 @@ function Member_c() {
                 alert(`${messages.alert[0]}`);
                 dispatch(logIn(user.uid));
 
-            }else{
+            } else {
                     const userRef = doc(getFirestore(), "users", userUid);
                     const docSnap= await getDoc(userRef);
 
                     if(docSnap.exists()){
                         const data=docSnap.data();
             
-                        // 만약 데이터가 변경되지 않았다면 
-                        if(data.name===userProfile.name&&data.phoneNumber===userProfile.phoneNumber&&data.email===userProfile.email){
-                          alert(`${messages.alert[4]}`);
-                          navigate('/modify');
-                          return; 
+                        if(data.name === userProfile.name&&data.phoneNumber === userProfile.phoneNumber&&data.email === userProfile.email) {
+                            alert(`${messages.alert[4]}`);
+                            navigate('/modify');
+                            return; 
                         }
                         
-                        // 데이터가 변경되었다면 update 진행
                         await updateDoc(userRef,userProfile); 
                         alert(`${messages.alert[1]}`);
             
@@ -166,12 +163,11 @@ function Member_c() {
     }
 
     const userState = useSelector(state => state.user);
-    console.log(userState)
+    console.log(userState);
 
     const auth = getAuth();
     const [emailCheckMsg, setEmailCheckMsg] = useState("");
-    const [isEmailChecked, setIsEmailChecked] = useState(false) 
-    // 중복확인을 누르면 true
+    const [isEmailChecked, setIsEmailChecked] = useState(false);
     
     const checkEmail = async () => {
 
@@ -208,54 +204,44 @@ function Member_c() {
             {
                 userState.loggedIn && initialMode ? <Modal error={`${messages.alert[2]}`} onClose={() => { navigate('/') }} />
                 :
-                <div className='w-full bg-white dark:bg-[#272929] h-[100vh]'>
-                    <div className='w-[400px] py-[30px] text-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white dark:bg-[#404343]'>
-                        <h1 className='pb-[20px] text-[24px] font-bold dark:text-[#ebf4f1]'>
-                            { initialMode ? `${messages.login5}` : `${messages.member4}`}
-                        </h1>
-                        <ul>
-                            <li>
+                <div className='bg-[#fff] dark:bg-[#272929] h-[90vh] flex items-center'>
+                    <div className="h-max mx-auto flex flex-col items-center">
+                        <h1 class="text-xl font-bold text-center pb-10 dark:text-white">{initialMode ? `${messages.login5}` : `${messages.member4}`}</h1>
+                        <div class="bg-white dark:bg-[#404343] shadow-xl p-10 flex flex-col gap-4 text-sm">
+                            <div>
+                                    {
+                                        initialMode ?
+                                            <div className='relative'>
+                                                <input defaultValue={email} onChange={(e) => { setEmail(e.target.value); setIsEmailChecked(false);}} type="email" placeholder={messages.login1} autoFocus className='email border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929]' />
+                                                <button className='dark:border-none dark:bg-[#404343] dark:text-[#ebf4f1] absolute right-7 top-2 border px-2 py-1' onClick={checkEmail}>{messages.member5}</button>
+                                            </div>
+                                            :
+                                            <input readOnly defaultValue={email} onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder={messages.login1} autoFocus className='email border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929]' />
+                                    }
+                                    <p className='mb-[10px] text-red-500 dark:text-[#ebf4f1]'>{emailCheckMsg}</p>
                                 {
-                                    initialMode ?
-                                        <div className='relative w-full'>
-                                            <input defaultValue={email} onChange={(e) => { setEmail(e.target.value); setIsEmailChecked(false);}} type="email" placeholder={messages.login1} autoFocus className='email w-[360px] h-[50px] mb-[5px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
-                                            <button className='dark:border-none dark:bg-[#404343] dark:text-[#ebf4f1] absolute right-7 top-2 border px-2 py-1' onClick={checkEmail}>{messages.member5}</button>
-                                        </div>
-                                        :
-                                        <input readOnly defaultValue={email} onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder={messages.login1} autoFocus className='email w-[360px] h-[50px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
+                                    initialMode &&
+                                    <>
+                                            <div className='relative'>
+                                                <input onChange={(e) => { setPassword(e.target.value) }} type={eye[0] ? "text" : "password"} placeholder={messages.login2} className='password border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929]' />
+                                                <FontAwesomeIcon icon={eye[0] ? faEye : faEyeSlash} onClick={() => { toggleEye(0) }} className='absolute cursor-pointer right-7 top-4 dark:text-[#ebf4f1]' />
+                                            </div>
+                                            <div className='relative'>
+                                                <input onChange={(e) => { setPasswordConfirm(e.target.value) }} type={eye[1] ? "text" : "password"} placeholder={messages.member1} className='confirm_password border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929]' />
+                                                <FontAwesomeIcon icon={eye[1] ? faEye : faEyeSlash} onClick={() => { toggleEye(1) }} className='absolute cursor-pointer right-7 top-4 dark:text-[#ebf4f1]' />
+                                            </div>
+                                    </>
                                 }
-                                <p className='mb-[10px] text-red-500 dark:text-[#ebf4f1]'>{emailCheckMsg}</p>
-                            </li>
-                            {
-                                initialMode &&
-                                <>
-                                    <li>
-                                        <div className='relative w-full'>
-                                            <input onChange={(e) => { setPassword(e.target.value) }} type={eye[0] ? "text" : "password"} placeholder={messages.login2} className='password w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
-                                            <FontAwesomeIcon icon={eye[0] ? faEye : faEyeSlash} onClick={() => { toggleEye(0) }} className='absolute cursor-pointer right-7 top-4 dark:text-[#ebf4f1]' />
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div className='relative w-full'>
-                                            <input onChange={(e) => { setPasswordConfirm(e.target.value) }} type={eye[1] ? "text" : "password"} placeholder={messages.member1} className='confirm_password w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
-                                            <FontAwesomeIcon icon={eye[1] ? faEye : faEyeSlash} onClick={() => { toggleEye(1) }} className='absolute cursor-pointer right-7 top-4 dark:text-[#ebf4f1]' />
-                                        </div>
-                                    </li>
-                                </>
-                            }
-                            <li>
-                                <input defaultValue={name} onChange={(e) => { setName(e.target.value) }} type="text" placeholder={messages.member2} className='name w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
-                            </li>
-                            <li>
-                                <input defaultValue={phoneNumber} onInput={PhoneNumber} type="text" maxLength={13} placeholder={messages.member3} className='phone w-[360px] h-[50px] mb-[10px] border text-[16px] p-[17px] text-[#bbb] dark:bg-[#272929] dark:text-[#ebf4f1] dark:border-none dark:focus:outline-none' />
-                            </li>
-                            {
-                                initialMode ? <p className='text-red-500 dark:text-[#ebf4f1]'>{error}</p> : ""
-                            }
-                            <li>
-                                <button className='w-[360px] h-[60px] bg-[#60a7c8] text-white text-[18px] rounded-[10px] mt-[10px] cursor-pointer dark:bg-[#272929]' onClick={signUp}>{initialMode ? `${messages.login5}` : `${messages.member4}`}</button>
-                            </li>
-                        </ul>
+                                
+                                    <input defaultValue={name} onChange={(e) => { setName(e.target.value) }} type="text" placeholder={messages.member2} className='name border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929]' />
+                                    <input defaultValue={phoneNumber} onInput={PhoneNumber} type="text" maxLength={13} placeholder={messages.member3} className='phone border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929]' />
+                                
+                                {
+                                    initialMode ? <p className='text-red-500 dark:text-[#ebf4f1]'>{error}</p> : ""
+                                }
+                                    <button className='w-full h-[40px] bg-[#60a7c8] text-[#fff] rounded-md cursor-pointer mt-[22px] mb-[15px] dark:bg-[#272929] hover:bg-[#4090b6]' onClick={signUp}>{initialMode ? `${messages.login5}` : `${messages.member4}`}</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             }
