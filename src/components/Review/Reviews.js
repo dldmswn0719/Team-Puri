@@ -100,12 +100,13 @@ function Reviews() {
           <div className="max-w-[1280px] mx-auto max-lg:w-11/12 md:w-5/6">
             
             
-            <div className="flex text-[15px] gap-y-5 gap-[5px] flex-wrap justify-between mb-[30px] m-3 0">
+            <div className="flex text-[15px] gap-y-5 gap-[5px] flex-wrap justify-between mb-[30px] m-3 0  ">
               {
                 review.filter(item => item.group <= currentPage).map((e, i) => {
                   return (
-                    <div className="relative border border-[#f1f1ef] 
-                    w-[310px] h-[480px] shadow-lg rounded-[20px] 
+                    <div className="sm:basis-full md:basis-1/3 lg:basis-1/4
+                    relative border border-[#f1f1ef] 
+                    w-[310px] h-[480px] shadow-lg rounded-[20px]
                     // 두개
                     sm:w-full max-lg:w-[32%] max-lg:h-[500px]" key={i} data-aos="zoom-in">
                       <ul className='flex w-[250px] justify-between mx-auto pt-5 max-lg:w-[90%]'>
