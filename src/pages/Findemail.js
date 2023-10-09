@@ -13,7 +13,6 @@ function Findemail() {
     const [message,setMessage] = useState("");
     const [resultEmail,setResultEmail] = useState("");
     const [isModalOpen,setModalOpen] = useState(false);
-    const theme = useSelector(state => state.dark);
     const language = useSelector(state => state.language);
     const messages = language === 'en' ? enMessages : krMessages;
 
@@ -29,8 +28,9 @@ function Findemail() {
         return regex.test(phoneNumber)
     }
 
-    const findID = async () =>{
-        if(name.length === 0){
+    const findID = async (e) =>{
+        e.preventDefault()
+        if (name.length === 0){
             setModalOpen(!isModalOpen);
             setMessage(messages.supportpay1);
         }else if(!isValidPhone(phoneNumber)){
@@ -57,7 +57,6 @@ function Findemail() {
             const userDoc = querySnapShot.docs[0];
             const userData = userDoc.data();
             const email = userData.email
-            console.log(userData)
             setResultEmail(email);
 
             if(!email){
@@ -78,7 +77,8 @@ function Findemail() {
         }
     }
 
-    const passwordEdit = () =>{
+    const passwordEdit = (e) =>{
+        e.preventDefault()
         sendPasswordResetEmail(firebaseAuth,resultEmail)
         .then(function(){
             setMessage(`${resultEmail.replace(/(.{3}).+(@.+)/,"$1*****$2")}로 메일을 발송하였습니다.`);
@@ -93,35 +93,35 @@ function Findemail() {
     return (
         <>
         <Nav />
-        <div className="w-full bg-white dark:bg-[#272929] h-[100vh]">
-            <div className='w-[400px] absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-[30px] dark:bg-[#404343]'>
-                <img src={
-                        theme === 'light' ? 
-                        "./../Images/logo.png"
-                        :
-                        "./../Images/Main/logo_dark.png"
-                    } alt='logo' className='w-[200px] h-[65px] mx-auto' />
-                <div className='relative mb-5'>
-                    <p className='text-left text-[18px] font-bold pt-[30px] dark:text-[#ebf4f1] pb-2'>{messages.member2}</p>
-                    <input className='w-full p-[10px] mb-[10px] border-b border-[#ddd] rounded-md box-border pl-[45px] dark:text-[#ebf4f1] dark:bg-[#272929] dark:border-none dark:focus:outline-none' type="text" value={name} onChange={(e)=>{setName(e.target.value)}} />
-                </div>
-                <div className='relative mb-3'>
-                <p className='text-left text-[18px] font-bold dark:text-[#ebf4f1] pb-2'>{messages.member3}</p>
-                    <input className='w-full p-[10px] mb-[10px] border-b border-[#ddd] rounded-md box-border pl-[45px] dark:text-[#ebf4f1] dark:bg-[#272929] dark:border-none dark:focus:outline-none' type="text" value={phoneNumber} onChange={(e)=>{setPhoneNumber(e.target.value)}} onInput={PhoneNumber} maxLength={13} />
-                </div>
-                <p className='text-[15px] text-red-500 dark:text-[#ebf4f1]'>{message}</p>
-                <div className='relative mb-3'>
-                    <button className='w-full h-[50px] bg-[#86bcd5] text-[#fff] text-[18px] rounded-[10px] cursor-pointer mt-[22px] dark:bg-[#272929]' onClick={findID}>
+        <div className="bg-[#fff] dark:bg-[#292929] lg:h-[calc(100vh-133px)] md:h-[calc(100vh-97px)] h-[calc(100vh-74px)] flex items-center px-5">
+            <div className='h-max mx-auto flex flex-col items-center'>
+                <form className='className="bg-white dark:bg-[#404343] shadow-xl p-10 flex flex-col gap-4 text-sm'>
+                <h1 className="lg:text-3xl text-xl font-bold text-center pb-10 dark:text-white">{messages.find}</h1>
+                    <div>
+                        <label className='text-gray-600 dark:text-white font-bold inline-block pb-2'>{messages.member2}</label>
+                        <input className='border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929] dark:text-white' type="text" value={name} onChange={(e)=>{setName(e.target.value)}} />
+                    </div>
+                    <div>
+                        <label className='text-gray-600 dark:text-white font-bold inline-block pb-2 pt-5'>{messages.member3}</label>
+                        <input className='border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929] dark:text-white' type="text" value={phoneNumber} onChange={(e)=>{setPhoneNumber(e.target.value)}} onInput={PhoneNumber} maxLength={13} />
+                    </div>
+                    <div>
+                        <p className='pt-4 text-red-500 text-sm text-left dark:text-[#ebf4f1]'>{message}</p>
+                    </div>        
+                    <button className='w-full h-[40px] bg-[#60a7c8] text-[#fff] rounded-md cursor-pointer mt-[22px] mb-[15px] dark:bg-[#272929] hover:bg-[#4090b6]' onClick={(e) => findID(e)}>
                         <p className='dark:text-[#ebf4f1]'>{messages.find}</p>
                     </button>
-                </div>
-                <div className='relative mb-5'>
-                    {resultEmail && 
-                        <button className="w-full h-[50px] bg-[#86bcd5] text-[#fff] text-[18px] rounded-[10px] cursor-pointer dark:bg-[#272929]" onClick={passwordEdit}>
-                            <p className='dark:text-[#ebf4f1]'>{messages.find1}</p>
-                        </button>
-                    }
-                </div>
+                    <div>
+                        <div className='relative mb-5'>
+                            {
+                                resultEmail && 
+                                <button className="w-full h-[40px] bg-[#60a7c8] text-[#fff] rounded-md cursor-pointer mt-[22px] mb-[15px] dark:bg-[#272929] hover:bg-[#4090b6]" onClick={(e) => passwordEdit(e)}>
+                                    <p className='dark:text-[#ebf4f1]'>{messages.find1}</p>
+                                </button>
+                            }
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </>

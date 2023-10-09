@@ -204,7 +204,7 @@ function Member_c() {
             {
                 userState.loggedIn && initialMode ? <Modal error={`${messages.alert[2]}`} onClose={() => { navigate('/') }} />
                 :
-                <div className='bg-[#fff] dark:bg-[#292929] h-[80vh] flex items-center'>
+                <div className='bg-[#fff] dark:bg-[#292929] lg:h-[calc(100vh-133px)] md:h-[calc(100vh-97px)] h-[calc(100vh-74px)] flex items-center px-5'>
                     <div className="h-max mx-auto flex flex-col items-center">
                         <h1 class="lg:text-3xl text-xl font-bold text-center pb-10 dark:text-white">{initialMode ? `${messages.login5}` : `${messages.member4}`}</h1>
                         <div class="bg-white dark:bg-[#404343] shadow-xl p-10 flex flex-col gap-4 text-sm">
@@ -216,7 +216,7 @@ function Member_c() {
                                             <button className='dark:border-none dark:bg-[#404343] dark:text-[#ebf4f1] absolute right-2 top-2 border px-2 py-1' onClick={checkEmail}>{messages.member5}</button>
                                         </div>
                                         :
-                                        <input readOnly defaultValue={email} onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder={messages.login1} autoFocus className='email border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929]' />
+                                        <input readOnly defaultValue={email} onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder={messages.login1} autoFocus className='email border border-gray-400 focus:outline-slate-400 rounded-md w-full h-12 shadow-sm px-5 py-2 dark:bg-[#272929] dark:text-white' />
                                 }
                                 <p className='pb-2 text-red-500 text-sm text-left dark:text-[#ebf4f1]'>{emailCheckMsg}</p>
                                 {
