@@ -131,7 +131,7 @@ function StoreQna() {
                             <li className="lg:w-[23%] md:w-[15%] w-[25%] fold:w-[30%] text-right pr-5">
                               {memberProfile.uid === e.uid && (
                                 <>
-                                  <button onClick={()=>{editPost(e.id)}}><FontAwesomeIcon icon={faPenSquare} /> {messages.member4}</button>
+                                  <button onClick={()=>{editPost(e.id)}}><FontAwesomeIcon icon={faPenSquare} /> {messages.member6}</button>
                                   <button onClick={()=>{deletePost(e.id)}}><FontAwesomeIcon icon={faTrash} /> {messages.delete} </button>
                                 </>
                                 )}

@@ -6,7 +6,7 @@ import ProductDetail from '../components/Store/ProductDetail'
 import ProductDesc from '../components/Store/ProductDesc'
 import StoreReview from '../components/Store/StoreReview'
 import StoreQna from '../components/Store/StoreQna'
-import StoreAside from '../components/Store/StoreAside'
+import QuickMenu from '../components/Info/QuickMenu'
 
 function StorePage() {
     
@@ -17,9 +17,9 @@ function StorePage() {
             <ProductNav />
             <ProductDetail />
             <ProductDesc />
-            <StoreAside />
             <StoreReview />
             <StoreQna />
+            <QuickMenu />
          </>
     )
 }

@@ -20,6 +20,7 @@ import { CheckoutPage } from "./pages/CheckoutPage";
 import { SuccessPage } from "./pages/SuccessPage";
 import { FailPage } from "./pages/FailPage";
 import store, { logIn, loggedIn, toggleTheme } from "./store";
+import Test from './components/Test';
 
 
 function App() {
@@ -98,6 +99,7 @@ function Inner() {
    <>
     <Routes>
       <Route path="/" element={<Main />}></Route>
+      <Route path="/t" element={<Test />}></Route>
       <Route path="/info" element={<Info />}></Route>
       <Route path="/infodetail/:desertionNo" element={<InfoDetail />}></Route>   
       <Route path="/introduce" element={<Introduce />}></Route>

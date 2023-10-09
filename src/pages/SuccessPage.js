@@ -5,9 +5,9 @@ export function SuccessPage() {
     const navigate = useNavigate();
 
     return (
-        <div className="w-full bg-white dark:bg-[#272929] h-[100vh]">
+        <div className="w-full flex items-center justify-center bg-white dark:bg-[#272929] h-[100vh]">
             <div className="max-w-7xl mx-auto">
-                <div className='dark:border-none text-white w-full lg:w-1/3 bg-[#86bcd5] text-center border absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] px-5 py-10 dark:bg-[#404343]'>
+                <div className='dark:border-none text-white bg-[#86bcd5] text-center border px-20 py-10 dark:bg-[#404343]'>
                     <h1 className=" text-[30px] font-bold pt-3">결제가 완료되었습니다.</h1>
                     <div className="text-[20px] pt-10">{`주문 아이디: ${searchParams.get("orderId")}`}</div>
                     <div className="text-[20px] pb-10">{`결제 금액: ${Number(searchParams.get("amount")).toLocaleString()}원`}</div>

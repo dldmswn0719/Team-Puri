@@ -1,7 +1,9 @@
 import {useEffect, useRef } from "react";
 import {loadPaymentWidget} from "@tosspayments/payment-widget-sdk";
 import {nanoid} from "nanoid";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setPrice } from "../store";
+import { useNavigate } from "react-router-dom";
 
 
 const selector = "#payment-widget";
@@ -12,6 +14,8 @@ export function CheckoutPage() {
     const paymentWidgetRef = useRef(null);
     const paymentMethodsWidgetRef = useRef(null);
     const price = useSelector(state => state.price);
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     const deliveryFee = price >= 50000 ? 0 : 3000; // 상품 금액이 5만원 이상일 경우 무료배송
 
@@ -26,7 +30,7 @@ export function CheckoutPage() {
             paymentWidgetRef.current = paymentWidget;
             paymentMethodsWidgetRef.current = paymentMethodsWidget;
         })();
-    }, []);
+    }, [price]);
 
     useEffect(() => {
         const deliveryFeeUpdated= price >= 50000 ? 0 : 3000; // 상품 금액이 업데이트될 때마다 무료배송 조건 체크
@@ -36,15 +40,20 @@ export function CheckoutPage() {
             return;
         }
 
-        const totalAmountWithDeliveryFeeUpdated= price + deliveryFee;
+        const totalAmountWithDeliveryFeeUpdated= price + deliveryFeeUpdated;
 
         if (paymentMethodsWidgetRef.current) {
         paymentMethodsWidgetRef.current.updateAmount(totalAmountWithDeliveryFeeUpdated, 
         paymentMethodsWidgetRef.current.UPDATE_REASON.COUPON);
         }
 
-    }, [price]);
+        dispatch(setPrice(totalAmountWithDeliveryFeeUpdated));
 
+    }, [price,dispatch]);
+
+    useEffect(() => {
+        localStorage.setItem('price', price);
+    }, [price]);
 
     return (
         <div className="w-full bg-white dark:bg-[#272929] h-[100vh]  ">
@@ -73,7 +82,8 @@ export function CheckoutPage() {
                             }
                         }}>결제하기
                         </button>
-                </div>                
+                </div>
+                <p onClick={()=>{navigate(-1)}} className="cursor-pointer text-right mt-3 dark:text-[#ebf4f1]">뒤로 가기</p>                
             </div>
         </div>);
 }
