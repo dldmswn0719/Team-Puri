@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import ScrollToTop from './ScrollToTop';
+
 
 function AnimalSwiper() {
     const [data, setData] = useState([])

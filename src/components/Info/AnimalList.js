@@ -27,7 +27,6 @@ function AnimalList() {
         const classValue = data.target.className;
         const dataValue = data.target.value;
         switch (true) {
-            // 도시 선택시 스위치문!
             case classValue.includes("cityData"):
                 setCityCode(dataValue)
                 break;
@@ -70,7 +69,6 @@ function AnimalList() {
     }, [kindCode])
 
 
-    const [loading, setLoading] = useState(false);
     
     const ResultData = useCallback(() => {
         fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json&upkind=${Array[kindCode]}`).
@@ -85,6 +83,7 @@ function AnimalList() {
             });
     }, [cityCode, animalCode, Array[kindCode], page])
 
+    const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
         ResultData()
@@ -179,9 +178,6 @@ function AnimalList() {
                                     {kindCode !== "3" && <option value="">{messages.animal6}</option>}
                                     {
                                         animal && animal.map((e, i) => {
-                                            if (i === 0 ) {
-                                                return <option key={i} value={i}>미분류</option>
-                                            }
                                             return (
                                                 <option key={i} value={e.kindCd} data-animal-name={e.knm} >{e.knm}</option>
                                             )
