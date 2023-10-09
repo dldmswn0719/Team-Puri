@@ -175,11 +175,11 @@ function Reviews() {
               }
             </div>
           
-            <div className="flex justify-center mb-10">
+            <div className="flex justify-center pb-10 ">
               {showInfiniteButton && showMoreButton && moreButtonClickCount <3 && (
              <button
                onClick={handleMoreButtonClick}
-               className='bg-[#8DBCD6] text-white w-[160px] h-[50px] rounded-md  mr-2'
+               className='bg-[#8DBCD6] text-white w-[160px] h-[50px] rounded-md  mr-2 dark:bg-[#404343]'
              >
              {messages.reviewmore} +
              </button>
@@ -188,7 +188,7 @@ function Reviews() {
             {showInfiniteButton  && showMoreButton && (
         <button
           onClick={handleInfiniteButtonClick}
-          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] rounded-md a'
+          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] rounded-md a dark:bg-[#404343]'
         >무한스크롤</button>
       )}
       </div>
