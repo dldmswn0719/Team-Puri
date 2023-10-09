@@ -170,6 +170,7 @@ function AnimalList() {
                                     {kind.map((e, i) => <option key={i} value={i}>{e}</option>)}
                                 </select>
                             </div>
+                    
                             {/* 동물 품종 */}
                             <div className="w-full pb-2">
                                 <p className='
@@ -178,6 +179,9 @@ function AnimalList() {
                                     {kindCode !== "3" && <option value="">{messages.animal6}</option>}
                                     {
                                         animal && animal.map((e, i) => {
+                                            if (i === 0 ) {
+                                                return <option key={i} value={i}>미분류</option>
+                                            }
                                             return (
                                                 <option key={i} value={e.kindCd} data-animal-name={e.knm} >{e.knm}</option>
                                             )
