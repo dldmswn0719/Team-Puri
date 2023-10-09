@@ -124,28 +124,28 @@ function ProductInfo() {
 
   const handlecheckout = () =>{   
 
+    if(!userState){
+      alert(messages.storealert3)
+      navigate('/login')
+      return; // 사용자가 로그인하지 않았다면, 이후 코드는 실행되지 않습니다.
+    }
+  
     if(data.option.length === 0){
       if(totalCnt <= -1){
         alert(messages.storealert2);
         return;
       }
       // 옵션 없는것 총 상품금액이 1개이상 구매 넘기기
-      
+        
     }else{
       if(totalCnt <= 0) {
         alert(messages.storealert2);
         return;
       }
     } // 옵션 있는것 총 0개면 alert창 , 1개 이상이면 구매 넘기기
+      
+     navigate('/checkout');
 
-    if(userState){
-      navigate('/checkout');
-    }else{
-      alert(messages.storealert3)
-      navigate('/login')
-    }
-
-    // 로그인을 안했는데 옵션있는애들이 상품을 먼저 선택하고 로그인이 필요한 페이지라고 함 고치기
   }
 
   const dispatch = useDispatch();
