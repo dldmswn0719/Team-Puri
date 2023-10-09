@@ -106,7 +106,7 @@ function Content3Review() {
                                                 <ul className='lg:p-14 lg:w-full md:w-96 md:px-0 p-5 bg-white w-2/3 m-auto'>
                                                     <li><p className='lg:text-3xl font-bold text-[#255db1] text-xl'>{e.name}<span className='lg:text-base font-normal text-gray-400 ml-5 text-sm'>{e.number}</span></p></li>
                                                     <li>
-                                                        <ul className='lg:mt-16 mt-5 lg:leading-10 leading-7 text-gray-400'>
+                                                        <ul className='lg:mt-16 mt-5 lg:leading-10 leading-7 text-gray-400 sm:text-xs'>
                                                             <div className='flex justify-start'>
                                                                 <li className='basis-1/3'>{messages.cont31}</li>
                                                                 <li className='text-black lg:text-lg'>{e.breed}</li>
@@ -130,7 +130,7 @@ function Content3Review() {
                                                         </ul>
                                                     </li>
                                                     <li className='lg:mt-14 mt-5'>
-                                                        <ul className='lg:flex  flex-wrap lg:text-xl text-lg'>
+                                                        <ul className='lg:flex flex-wrap lg:text-xl text-lg sm:text-sm'>
                                                             <li className='flex lg:mb-0 mb-2'>{messages.cont36}
                                                                 <div className='flex items-center gap-x-1 lg:mx-5 ml-5'>
                                                                     <div className='w-9 h-4 bg-[#255db1] rounded-full'></div>

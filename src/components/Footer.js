@@ -32,9 +32,8 @@ function Footer() {
                 md:text-5xl md:w-3/4 md:m-auto
                 lg:text-7xl lg:w-2/5 lg:m-auto'>
                     <li><NavLink><FontAwesomeIcon icon={faGithub} color='white' /></NavLink></li>
-                    <li><NavLink><FontAwesomeIcon icon={faInstagram} color='white' /></NavLink></li>
+                    <li><NavLink to='https://www.instagram.com/reactpuripuri/'><FontAwesomeIcon icon={faInstagram} color='white' /></NavLink></li>
                     <li><NavLink><FontAwesomeIcon icon={faReact} color='white' /></NavLink></li>
-                    {/* <li><NavLink><FontAwesomeIcon icon={faFacebook} color='white' /></NavLink></li> */}
                     <li><NavLink><FontAwesomeIcon icon={faYoutube} color='white' /></NavLink></li>
                 </ul>
                 <ul className='lg:flex lg:justify-around text-white text-sm hidden'>
