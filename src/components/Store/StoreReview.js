@@ -21,7 +21,7 @@ function StoreReview() {
                             <p className="text-[#86bcd5] dark:text-[#ebf4f1]">(0)</p>
                         </div>
                         <p className='dark:text-[#ebf4f1] lg:text-[17px] text-[#ababab]'>{messages.desc20}</p>
-                        <div className="w-[170px] h-[55px] bg-[#86bcd5] mt-[20px] cursor-pointer dark:bg-[#404343]">
+                        <div onClick={()=>{alert(`${messages.alert[5]}`)}} className="w-[170px] h-[55px] bg-[#86bcd5] mt-[20px] cursor-pointer dark:bg-[#404343]">
                             <p className="text-white leading-[55px] text-center lg:text-[17px]">
                                 {messages.desc21}
                                 <FontAwesomeIcon icon={faPenToSquare} className="pl-2" />
