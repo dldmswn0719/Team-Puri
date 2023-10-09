@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import "./../../../src/index.css"
 import enMessages from './../../locales/en.json';
@@ -34,18 +34,28 @@ function Support_Info() {
   const [useChecked, setUseChecked] = useState(false);
   const [policyChecked, setPolicyChecked] = useState(false);
   const [money, setMoney] = useState(null);
-  const [hasClicked, setHasClicked] = useState(false);
+  const [moneyboxValue, setMoneyboxValue] = useState("");
+
+  useEffect(() => {
+    // 페이지 로드 시 첫 번째 요소 선택
+    setMoney(0);
+  }, []);
+
   const handleItemClick = (i) => {
-    setHasClicked(true);
     setMoney(i);
+    setMoneyboxValue("");
   };
+  
   const navigate = useNavigate();
+  const handleInputChange = (e) => {
+    setMoneyboxValue(e.target.value);
+
+    if (e.target.value !== "") {
+      setMoney(null);
+    }
+  };
 
   const formChk = ()=>{
-      if (!hasClicked) {
-        alert("금액을 선택 해주세요");
-        return;
-      }
       if(document.querySelector(".name").value === "" || document.querySelector(".name").value === null){
         alert(messages.supportpay1);
         document.querySelector(".name").focus();
@@ -65,6 +75,14 @@ function Support_Info() {
         alert(messages.supportpay4);
         document.querySelector(".e-mail").focus();
         return;
+      }
+      const emailInput = document.querySelector(".e-mail").value;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(emailInput)) {
+          alert("유효한 이메일 주소를 입력해주세요.");
+          document.querySelector(".e-mail").focus();
+          return;
       }
       if(document.querySelector(".card-nb").value === "" || document.querySelector(".name").value === null){
         alert(messages.supportpay5);
@@ -182,8 +200,8 @@ function Support_Info() {
                 <ul className="w-full flex justify-between mb-[25px]">
                   <li className="w-[30%] h-[43px] flex items-center fold:text-[15px]"><p className=''>{messages.supportpay1_5}</p></li>
                   <div className="w-[70%] flex justify-between">
-                    <li className={`cursor-pointer lg:w-[49%] h-[43px] bg-[#86bcd5] flex justify-center text-center items-center md:w-[47%] w-[47%] sm:text-[14px] fold:text-[14px] ${isActive === true ? "color" : ""}`}  onClick={()=>{setIsActive(!isActive);setActive(false)}}><p>{messages.supportpay1_6}</p></li>
-                    <li className={`cursor-pointer lg:w-[49%] h-[43px] bg-[#86bcd5] flex justify-center text-center items-center md:w-[47%] w-[47%] sm:text-[14px] fold:text-[14px] ${Active === true ? "color" : ""}`}  onClick={()=>{setActive(!Active);setIsActive(false)}}><p>{messages.supportpay1_7}</p></li>
+                    <li className={`cursor-pointer lg:w-[49%] h-[43px] bg-[#86bcd5] flex justify-center text-center items-center md:w-[47%] w-[47%] sm:text-[14px] fold:text-[14px] ${isActive === true ? "color" : ""}`}  onClick={()=>{if(isActive) return; setActive(false); setIsActive(true);}}><p>{messages.supportpay1_6}</p></li>
+                    <li className={`cursor-pointer lg:w-[49%] h-[43px] bg-[#86bcd5] flex justify-center text-center items-center md:w-[47%] w-[47%] sm:text-[14px] fold:text-[14px] ${Active === true ? "color" : ""}`}  onClick={()=>{if(Active) return; setIsActive(false); setActive(true);}}><p>{messages.supportpay1_7}</p></li>
                   </div>
                 </ul>
                 <ul className="flex justify-between w-full">
@@ -192,11 +210,11 @@ function Support_Info() {
                     {
                       Array(5).fill().map((e,i)=>{
                         return (
-                          <li key={i} className={`moneybox lg:w-[30.4%] md:w-[31.2%] w-[47%] h-[40px] flex justify-center items-center bg-[#86bcd5] cursor-pointer sm:text-[14px] fold:text-[14px] ${money === i ? "color" : ""}`} onClick={()=>{handleItemClick(i)}}><p>{i+1}0,000{messages.won}</p></li>
+                          <li key={i} className={`lg:w-[30.4%] md:w-[31.2%] w-[47%] h-[40px] flex justify-center items-center bg-[#86bcd5] cursor-pointer sm:text-[14px] fold:text-[14px] ${money === i ? "color" : ""}`} onClick={()=>{handleItemClick(i)}}><p>{i+1}0,000{messages.won}</p></li>
                         )
                       })
                     }
-                    <li className="lg:w-[30.4%] flex md:w-[31.2%] w-[47%] moneybox" onClick={()=>{setMoney(money === false ? true : false)}}><input type="text" placeholder={messages.supportpay1_9} onInput={NumChk}  className='w-full h-[40px] flex justify-center items-center text-center border-[1px] border-black sm:text-[14px] fold:text-[14px]' maxLength={11} /></li>
+                    <li className="lg:w-[30.4%] flex md:w-[31.2%] w-[47%] "><input type="text" placeholder={messages.supportpay1_9} onInput={NumChk} value={moneyboxValue} onChange={handleInputChange}  className='w-full h-[40px] flex justify-center items-center text-center border-[1px] border-black sm:text-[14px] fold:text-[14px]' maxLength={11} /></li>
                   </div>
                 </ul>
               </div>
@@ -205,8 +223,8 @@ function Support_Info() {
                 <ul className="w-full flex justify-between mb-[25px]">
                   <li className='w-[30%] h-[43px] flex items-center fold:text-[15px]'><p>{messages.supportpay1_11}</p></li>
                   <div className="w-[70%] flex justify-between">
-                    <li className={`lg:w-[49%] cursor-pointerh-[43px] bg-[#86bcd5] flex justify-center text-center items-center md:w-[47%] w-[47%] sm:text-[14px] fold:text-[14px] ${solo === true ? "color" : ""}`} onClick={()=>{setSolo(!solo);setBuisness(false)}}><p>{messages.supportpay1_12}</p></li>
-                    <li className={`lg:w-[49%] cursor-pointerh-[43px] bg-[#86bcd5] flex justify-center text-center items-center md:w-[47%] w-[47%] sm:text-[14px] fold:text-[14px] ${buisness === true ? "color" : ""}`} onClick={()=>{setBuisness(!buisness);setSolo(false)}}><p>{messages.supportpay1_13}</p></li>
+                    <li className={`lg:w-[49%] cursor-pointer h-[43px] bg-[#86bcd5] flex justify-center text-center items-center md:w-[47%] w-[47%] sm:text-[14px] fold:text-[14px] ${solo === true ? "color" : ""}`} onClick={()=>{if(solo) return; setBuisness(false); setSolo(true);}}><p>{messages.supportpay1_12}</p></li>
+                    <li className={`lg:w-[49%] cursor-pointer h-[43px] bg-[#86bcd5] flex justify-center text-center items-center md:w-[47%] w-[47%] sm:text-[14px] fold:text-[14px] ${buisness === true ? "color" : ""}`} onClick={()=>{if(buisness) return; setSolo(false); setBuisness(true);}}><p>{messages.supportpay1_13}</p></li>
                   </div>
                 </ul>
                 <ul className="w-full flex justify-between mb-[25px]">
