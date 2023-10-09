@@ -69,11 +69,12 @@ function Reviews() {
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-[1280px] mx-auto max-lg:w-11/12 md:w-5/6">
             
-            <div className="flex text-[15px] gap-y-5 gap-[6px] flex-wrap justify-between mb-[30px] sm:px-5">
+            <div className="flex text-[15px] gap-y-5 gap-[6px] flex-wrap justify-between mb-[30px]">
               {
                 review.filter(item => item.group <= currentPage).map((e, i) => {
                   return (
-                    <div className="relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-lg rounded-[20px]
+                    <div className="relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-lg rounded-[20px] 
+                    // 두개
                     sm:w-full max-lg:w-[32%] max-lg:h-[500px]" key={i} data-aos="zoom-in">
                       <ul className='flex w-[250px] justify-between mx-auto pt-5 max-lg:w-[90%]'>
                         <li><img className='w-7 h-6'
@@ -150,7 +151,8 @@ function Reviews() {
               }
             </div>
             <div className="mx-auto w-[160px]">
-              {/* <button className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[5px] '>무한스크롤</button> */}
+              <button onClick={() => { setCurrentPage(currentPage + 66) }}  
+              className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[5px] '>무한스크롤</button>
               <button onClick={() => { setCurrentPage(currentPage + 1) }} className='bg-[#D3C09D] text-white w-[160px] h-[50px] my-[40px] '>{messages.reviewmore} +</button>
             </div>
           </div>
