@@ -8,6 +8,9 @@ import {Detaillist,enDetaillist} from './../../data/Detaillist';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useSelector } from 'react-redux';
+import QuickMenu from '../Info/QuickMenu';
+
+
 
 function Reviews() {
 
@@ -81,7 +84,7 @@ function Reviews() {
   return (
     <>
 
-    
+    <QuickMenu/>
     {/* <div className="mx-auto w-[160px] h-[5] dark:bg-[#272929] ">
         <button className='bg-[#D3C09D] text-white w-[160px] h-[35px] '>후기 작성하기</button>
           </div> */}
@@ -242,7 +245,7 @@ function Reviews() {
                     <div className="flex justify-between mb-[10px]">
                       <ul className="flex">
                         <li><FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px]' /></li>
-                        <li><img className='w-[18px] h-[18px] mx-[10px] mt-1 ' src="./../Images/Review/chat.svg" alt="chat" /></li>
+                        <li><img className='w-[18px] h-[18px] mx-[10px] mt-1 ' src="./../Images/Review/chat-light.svg" alt="chat" /></li>
                         <li><img className='w-[20px] h-[20px] mt-1' src="./../Images/Review/airplane-light.png" alt="airplane" /></li>
                       </ul>
                       <ul>
