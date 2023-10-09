@@ -196,16 +196,16 @@ function Support_Info() {
                 </ul>
               </div>
               <div className="lg:w-[500px] relative py-[50px] info  md:w-full sm:w-full">
-                <p className="mb-[30px] text-xl font-bold">{messages.supportpay1_1}</p>
+                <p className="mb-[30px] text-xl font-bold dark:text-white">{messages.supportpay1_1}</p>
                 <ul className="w-full flex justify-between mb-[25px]">
-                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px]"><p className=''>{messages.supportpay1_5}</p></li>
+                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px] dark:text-white"><p className=''>{messages.supportpay1_5}</p></li>
                   <div className="w-[70%] flex justify-between">
                     <li className={`cursor-pointer lg:w-[49%] dark:bg-[#404343] h-[43px] bg-[#86bcd5] flex justify-center text-center items-center md:w-[47%] w-[47%] sm:text-[14px] fold:text-[14px] ${isActive === true ? "color" : ""}`}  onClick={()=>{if(isActive) return; setActive(false); setIsActive(true);}}><p>{messages.supportpay1_6}</p></li>
                     <li className={`cursor-pointer lg:w-[49%] dark:bg-[#404343] h-[43px] bg-[#86bcd5] flex justify-center text-center items-center md:w-[47%] w-[47%] sm:text-[14px] fold:text-[14px] ${Active === true ? "color" : ""}`}  onClick={()=>{if(Active) return; setIsActive(false); setActive(true);}}><p>{messages.supportpay1_7}</p></li>
                   </div>
                 </ul>
                 <ul className="flex justify-between w-full">
-                  <li className="w-[30%] h-[40px] flex items-center fold:text-[15px]"><p>{messages.supportpay1_8}</p></li>
+                  <li className="w-[30%] h-[40px] flex items-center fold:text-[15px] dark:text-white"><p>{messages.supportpay1_8}</p></li>
                   <div className="w-[70%] h-full flex justify-between gap-y-3 flex-wrap">
                     {
                       Array(5).fill().map((e,i)=>{
@@ -219,20 +219,20 @@ function Support_Info() {
                 </ul>
               </div>
               <div className="lg:w-[500px] relative py-[50px] info  md:w-full sm:w-full fold:w-full">
-                <p className='text-xl mb-[30px] font-bold'>{messages.supportpay1_10}</p>
+                <p className='text-xl mb-[30px] font-bold dark:text-white'>{messages.supportpay1_10}</p>
                 <ul className="w-full flex justify-between mb-[25px]">
-                  <li className='w-[30%] h-[43px] flex items-center fold:text-[15px]'><p>{messages.supportpay1_11}</p></li>
+                  <li className='w-[30%] h-[43px] flex items-center fold:text-[15px] dark:text-white'><p>{messages.supportpay1_11}</p></li>
                   <div className="w-[70%] flex justify-between">
                     <li className={`lg:w-[49%] cursor-pointer h-[43px] dark:bg-[#404343] bg-[#86bcd5] flex justify-center text-center items-center md:w-[47%] w-[47%] sm:text-[14px] fold:text-[14px] ${solo === true ? "color" : ""}`} onClick={()=>{if(solo) return; setBuisness(false); setSolo(true);}}><p>{messages.supportpay1_12}</p></li>
                     <li className={`lg:w-[49%] cursor-pointer h-[43px] dark:bg-[#404343] bg-[#86bcd5] flex justify-center text-center items-center md:w-[47%] w-[47%] sm:text-[14px] fold:text-[14px] ${buisness === true ? "color" : ""}`} onClick={()=>{if(buisness) return; setSolo(false); setBuisness(true);}}><p>{messages.supportpay1_13}</p></li>
                   </div>
                 </ul>
                 <ul className="w-full flex justify-between mb-[25px]">
-                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px]" ><p>{buisness === true ? `${messages.supportpay1_13}` : `${messages.supportpay1_14}`}</p></li>
+                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px] dark:text-white" ><p>{buisness === true ? `${messages.supportpay1_13}` : `${messages.supportpay1_14}`}</p></li>
                   <li className='w-[70%]'><input type="text"  className='dark:bg-[#404343] dark:border-white name w-full h-[43px] text-[18px] text-center border-[1px] border-black sm:text-[14px]' /></li>
                 </ul>
                 <ul className="w-full flex justify-between mb-[25px]">
-                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px]"><p>{messages.supportpay1_15}</p></li>
+                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px] dark:text-white"><p>{messages.supportpay1_15}</p></li>
                   <div className="flex w-[70%] justify-between">
                     <li className="lg:w-[31.5%] md:w-[30%] w-[30%]">
                       <select className='dark:bg-[#404343] dark:border-white dark:text-white flex flex-wrap w-full h-10 border-[1px] border-black text-center text-[17px] sm:text-[14px] fold:text-[14px]'>
@@ -249,39 +249,39 @@ function Support_Info() {
                   </div>
                 </ul>
                 <ul className="w-full flex justify-between">
-                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px]"><p>{messages.supportpay1_16}</p></li>
+                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px] dark:text-white"><p>{messages.supportpay1_16}</p></li>
                   <li className="w-[70%]"><input type="email" className='dark:bg-[#404343] dark:border-white dark:text-white e-mail w-full h-10 border-[1px] border-black text-center text-[18px] sm:text-[14px] fold:text-[14px]' /></li>
                 </ul>
               </div>
               <div className="lg:w-[500px] relative py-[50px] info  md:w-full sm:w-full">
-                <p className="text-xl mb-[30px] font-bold">{messages.supportpay1_17}</p>
+                <p className="text-xl mb-[30px] font-bold dark:text-white">{messages.supportpay1_17}</p>
                 <ul className="w-full flex justify-between mb-[25px]">
-                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px]"><p>{messages.supportpay1_18}</p></li>
+                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px] dark:text-white"><p>{messages.supportpay1_18}</p></li>
                   <div className="w-[70%] h-[43px]">
                     <li className={`lg:w-[49%] h-full bg-[#86bcd5] flex justify-center items-center cursor-pointer md:w-[47%] w-[47%] sm:text-[14px] fold:text-[14px] ${card === true ? "color" : ""}`} onClick={()=>{if(card) return; setCard(true);}}><p>{messages.supportpay1_19}</p></li>
                   </div>
                 </ul>
                 <ul className="w-full flex justify-between mb-[25px]">
-                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px]"><p>{messages.supportpay1_20}</p></li>
+                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px] dark:text-white"><p>{messages.supportpay1_20}</p></li>
                   <li className="w-[70%]"><input type="text"  className='dark:bg-[#404343] dark:border-white dark:text-white card-nb w-full h-10 border-[1px] border-black text-center text-[18px] sm:text-[14px] fold:text-[14px]' onInput={Hyphen} maxLength={19} /></li>
                 </ul>
                 <ul className="w-full flex justify-between mb-[25px]">
-                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px]"><p>{messages.supportpay1_21}</p></li>
+                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px] dark:text-white"><p>{messages.supportpay1_21}</p></li>
                   <div className="w-[70%] flex justify-between">
                     <li className="lg:w-[49%] md:w-[47%] w-[47%]"><input type="text" placeholder='MM' maxLength={2}  className='dark:bg-[#404343] dark:border-white dark:text-white month w-full h-10 border-[1px] border-black text-center text-[18px] sm:text-[14px] fold:text-[14px]' onInput={Num} /></li>
                     <li className="lg:w-[49%] md:w-[47%] w-[47%]"><input type="text" placeholder='YY' maxLength={2}  className='dark:bg-[#404343] dark:border-white dark:text-white year w-full h-10 border-[1px] border-black text-center text-[18px] sm:text-[14px] fold:text-[14px]' onInput={Num} /></li>
                   </div>
                 </ul>
                 <ul className="w-full flex justify-between mb-[25px]">
-                  <li className="w-[30%] h-[43px] flex items-center fold:text-[14px]"><p>{messages.supportpay1_22}</p></li>
+                  <li className="w-[30%] h-[43px] flex items-center fold:text-[14px] dark:text-white"><p>{messages.supportpay1_22}</p></li>
                   <li className="w-[70%]"><input type="text" className='dark:bg-[#404343] dark:border-white dark:text-white card-name w-full h-10 border-[1px] border-black text-center text-[18px] sm:text-[14px] fold:text-[14px]' /></li>
                 </ul>
                 <ul className="w-full flex justify-between mb-[25px]">
-                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px]"><p>{buisness === true ? `${messages.supportpay1_24}` : `${messages.supportpay1_23}`}</p></li>
+                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px] dark:text-white"><p>{buisness === true ? `${messages.supportpay1_24}` : `${messages.supportpay1_23}`}</p></li>
                   <li className="w-[70%]"><input type="text" onInput={Num} maxLength={buisness === true ? 10 : 6} placeholder={buisness === true ? `${messages.supportpay1_26}` : `${messages.supportpay1_25}`} className='dark:bg-[#404343] dark:border-white dark:text-white birth w-full h-10 border-[1px] border-black text-center text-[18px] sm:text-[14px] fold:text-[14px]' /></li>
                 </ul>
                 <ul className="w-full flex justify-between mb-[25px]">
-                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px]"><p>{messages.supportpay1_27}</p></li>
+                  <li className="w-[30%] h-[43px] flex items-center fold:text-[15px] dark:text-white"><p>{messages.supportpay1_27}</p></li>
                   <li className="w-[70%]"><input type="text" onInput={Num} maxLength={2} placeholder={messages.supportpay1_27} className='dark:bg-[#404343] dark:border-white dark:text-white password w-full h-10 border-[1px] border-black text-center text-[18px] sm:text-[14px] fold:text-[14px]' /></li>
                 </ul>
                 <ul className='w-full flex justify-between mb-[25px]' style={{display: Active === true ? "flex" : "none"}}>
@@ -317,7 +317,7 @@ function Support_Info() {
                   <input type="checkbox" id='policy' checked={policyChecked} onChange={handlePolicyChange} />
                   <label htmlFor='policy' className='ml-2 sm:text-[15px] fold:text-[15px]'>{messages.supportpay1_42}<NavLink to='' className='dark:text-white'>{messages.supportpay1_43}</NavLink></label>
                 </div>
-                <button onClick={formChk} className='dark:bg-[#404343] dark:border-white dark:text-white bg-[#86bcd5]  my-0 mx-auto flex justify-center items-center mt-[50px] w-full h-[60px]' >{messages.supportpay1_44}</button>
+                <button onClick={formChk} className='dark:bg-[#404343] dark:border-white dark:text-white bg-[#86bcd5]  my-0 mx-auto flex justify-center items-center mt-[50px] w-full h-[60px] text-white' >{messages.supportpay1_44}</button>
               </div>
             </div>
         </div>
