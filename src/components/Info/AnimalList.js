@@ -127,7 +127,7 @@ function AnimalList() {
     for (let i = startPage; i <= endPage; i++) {
         PageList.push(
             <div className="flex items-center justify-center h-full">
-                <li key={i} className={(page === i ? 'rounded-full cursor-pointer w-[50px] h-[50px] fold:w-[35px] fold:h-[35px] fold:py-0 fold:px-0 border-transparent leading-10 text-center relative block py-1 px-1.5 lg:mx-3 border-2  border-[#86bcd5] dark:border-1 dark:border-[#dadbdb] text-white bg-[#86bcd5] dark:bg-[#404343]' : ' rounded-full cursor-pointer w-[50px] h-[50px] fold:w-[35px] fold:h-[35px]  leading-10 text-center relative block py-1 px-1.5 fold:py-0 fold:px-0 lg:mx-3 border-2 border-transparent text-black shadow-sm dark:text-[#ebf4f1]')} 
+                <li key={i} className={(page === i ? 'rounded-full cursor-pointer w-[50px] h-[50px]  sm:w-[50px] sm:h-[50px]  fold:w-[35px] fold:h-[35px] fold:py-0 fold:px-0 border-transparent leading-10 text-center relative block py-1 px-1.5 lg:mx-3 border-2  border-[#86bcd5] dark:border-1 dark:border-[#dadbdb] text-white bg-[#86bcd5] dark:bg-[#404343]' : ' rounded-full cursor-pointer w-[50px] h-[50px] sm:w-[40px] sm:h-[40px] sm:py-0 sm:px-0  fold:w-[35px] fold:h-[35px]  leading-10 text-center relative block py-1 px-1.5 fold:py-0 fold:px-0 lg:mx-3 border-2 border-transparent text-black shadow-sm dark:text-[#ebf4f1]')} 
                 onClick={() => { setLoading(true); setPage(i); }}>
                     <div className="flex items-center justify-center h-full">
                         {i}
@@ -201,7 +201,7 @@ function AnimalList() {
                                     return (
                                         <div className="w-full h-full relative box-border 
                                         border-2 border-[#f1f1ef] shadow-lg rounded-[20px] flex-wrap lg:basis-[32.5%] md:basis-[48%] sm:basis-[90%] shadow-[4px_4px_4px_-4px_rgb(119, 112, 112)] rounded-[20px] " key={i}>
-                                            <Link to={`/infodetail/${e.desertionNo}`} state={{ e: e }}>
+                                            <Link to={`/infodetail/${e.desertionNo}`} key={i} state={{ e: e }}>
                                                 <div className='font-bold px-3 py-3 flex items-center   dark:bg-[#404343] rounded-t-[20px] dark:text-[#ebf4f1] '>
                                                     <FontAwesomeIcon icon={e.sexCd === 'M' ? faMars : e.sexCd === 'F' ? faVenus : "" } className='w-4 h-4 pr-2 align-text-bottom dark:text-[#ebf4f1]' />
                                                     <p className='text-base'>
@@ -227,14 +227,14 @@ function AnimalList() {
                     </div>
                     <div className="max-w-[1200px] mx-auto justify-center flex items-center h-full py-8 overflow-x-hidden">
                         <ul className='flex items-center justify-center h-full list-style-none'>
-                            <li className='cursor-pointer w-[50px] h-[50px] fold:w-[35px] fold:h-[35px] rounded-full leading-10 text-center relative block py-1 px-1.5 border-1 border-[#DAC0A3] text-black shadow-sm dark:text-[#ebf4f1]' onClick={PrevBlock}>
+                            <li className='cursor-pointer w-[50px] h-[50px] sm:w-[35px] sm:h-[35px] fold:w-[35px] fold:h-[35px] rounded-full leading-10 text-center relative block py-1 px-1.5 border-1 border-[#DAC0A3] text-black shadow-sm dark:text-[#ebf4f1]' onClick={PrevBlock}>
                                 <div className="flex items-center justify-center h-full">
                                     <FontAwesomeIcon icon={faAnglesLeft} />
                                 </div>
                             </li>
                             {PageList}
-                            <div className="flex items-center justify-center h-full">
-                                <li className='cursor-pointer w-[50px] h-[50px] fold:w-[35px] fold:h-[35px] rounded-full leading-10 text-center relative block py-1 px-1.5 border-1 border-[#DAC0A3]
+                            <div className="flex items-center justify-center h-full ">
+                                <li className='cursor-pointer w-[50px] h-[50px] sm:w-[35px] sm:h-[35px]   fold:w-[35px] fold:h-[35px] rounded-full leading-10 text-center relative block py-1 px-1.5  border-1 border-[#DAC0A3]
                                 text-black shadow-sm focus:shadow-sm dark:text-[#ebf4f1]' onClick={NextBlock}>
                                     <div className="flex items-center justify-center h-full">
                                         <FontAwesomeIcon icon={faAnglesRight} />

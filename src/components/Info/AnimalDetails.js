@@ -68,7 +68,7 @@ function AnimalDetails() {
                 <div className=" max-w-[1200px] py-5 mx-auto">
                     <div className="flex justify-center items-center ">
                         <div className="w-full flex items-center justify-center flex-col mt-3">
-                            <div className="lg:w-[800px] md:w-[400px] sm:w-[300px] fold:w-[250px] ">
+                            <div className=" w-[90%] px-2 ">
                                 <p className="text-xl fold:text-lg font-bold mt-10 mb-2 dark:text-[#ebf4f1]">
                                     <FontAwesomeIcon icon={faPaw} /> 입양 문의
                                 </p>
@@ -82,11 +82,12 @@ function AnimalDetails() {
                                 </span>
                                 <div className="border-b-2 border-[#86bcd5] dark:border-[#dadbdb] mt-3 mb-3"></div>
                             </div>
-                            <div className='flex justify-between items-center md:justify-center'>
-                                <img className='lg:w-[800px] lg:h-[500px] md:w-[400px] md:h-[400px] sm:w-[300px] sm:h-[300px] fold:w-[250px] fold:h-[250px]  ' src={popfile} alt="img" />
+
+                            <div className='w-[90%] flex justify-between items-center md:justify-center '>
+                                <img className='lg:w-[1080px] w-full px-2 lg:h-[500px] md:h-[500px]  sm:h-[300px] fold:h-[250px]  ' src={popfile} alt="img" />
                             </div>
-                            <div className="lg:flex dark:text-[#ebf4f1]">
-                                <div className="lg:w-[400px] md:w-[400px] sm:w-[300px] fold:w-[250px]">
+                            <div className="lg:flex dark:text-[#ebf4f1] w-[90%] lg:px-2 ">
+                                <div className="lg:w-1/2 w-full ">
                                     <p className='text-xl fold:text-lg font-bold mt-10 mb-2'><FontAwesomeIcon icon={faPaw} /> 상세 정보</p>
                                     <div className='border-b-2 border-[#86bcd5] dark:border-[#dadbdb]'></div>
                                     <div className="dark:text-[#ebf4f1] fold:text-sm">
@@ -99,7 +100,7 @@ function AnimalDetails() {
                                         <p className='mt-1 text-[#999] dark:text-[#ebf4f1] '>특징 : <span className='text-black dark:text-[#ebf4f1]'>{specialMark}</span></p>
                                     </div>
                                 </div>
-                                <div className='lg:w-[400px] md:w-[400px] sm:w-[300px] fold:w-[250px]'>
+                                <div className='lg:w-1/2 w-full '>
                                     <p className='text-xl fold:text-lg font-bold mt-10 mb-2'><FontAwesomeIcon icon={faPaw} />  구조 정보</p>
                                     <div className='border-b-2 border-[#86bcd5] dark:border-[#dadbdb]'></div>
                                     <div className="fold:text-sm">
@@ -117,10 +118,14 @@ function AnimalDetails() {
                                 </div>
                             </div>
 
-                            <p className='flex justify-start items-center lg:w-[800px] md:w-[400px] sm:w-[300px] text-xl mt-11 dark:text-[#ebf4f1] font-bold'><FontAwesomeIcon icon={faLocationDot} color='#ff5b5b' className='mr-1' />보호소 위치</p>
-                            <div id='map' className='w-[800px] h-[400px] md:w-[400px] md:h-[400px] sm:w-[300px] sm:h-[300px] fold:w-[250px] fold:h-[250px]   mt-5'></div>
+                            
+                            <p className='flex justify-start items-center w-[90%] text-xl mt-11 mb-2 dark:text-[#ebf4f1] font-bold px-2 '><FontAwesomeIcon icon={faLocationDot} color='#ff5b5b' className='mr-1' />보호소 위치</p>
+                            <div className="w-[90%] px-2 relative ">
+                            <div id='map' className='h-[400px]  md:h-[400px]  sm:h-[300px] fold:h-[250px] '></div>
+                            </div>
+                         
 
-                            <div className="lg:w-[800px] md:w-[400px]  sm:w-[300px] fold:w-[250px] ">
+                            <div className="w-[90%] px-2 ">
                                 <p className='text-xl fold:text-lg font-bold mt-10 mb-2 dark:text-[#ebf4f1]'><FontAwesomeIcon icon={faPaw} />  또 다른 구조 정보</p>
                                 <div className='border-b-2 border-[#86bcd5] dark:border-[#dadbdb]'></div>
                                 <AnimalSwiper/>
