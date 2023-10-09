@@ -8,7 +8,6 @@ import {Detaillist,enDetaillist} from './../../data/Detaillist';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useSelector } from 'react-redux';
-//주석처리
 
 function Reviews() {
 
@@ -151,8 +150,9 @@ function Reviews() {
               }
             </div>
             <div className="mx-auto w-[160px]">
-              <button onClick={() => { setCurrentPage(currentPage + 66) }}  
+              <button onClick={() => { setCurrentPage(currentPage + 77) }}  
               className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[5px] '>무한스크롤</button>
+
               <button onClick={() => { setCurrentPage(currentPage + 1) }} className='bg-[#D3C09D] text-white w-[160px] h-[50px] my-[40px] '>{messages.reviewmore} +</button>
             </div>
           </div>
