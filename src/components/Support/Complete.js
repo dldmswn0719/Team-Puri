@@ -13,34 +13,33 @@ function Complete() {
     const messages = language === 'en' ? enMessages : krMessages;
   return (
     <>
-        <div className="flex flex-col justify-center items-center h-screen bg-[#86bcd5] mx-auto lg:w-10/12">
-            <ul className="mb-[4%] text-center">
+    <div className='w-full h-screen dark:bg-[#272929]'>
+        <div className="flex flex-col justify-center items-center bg-[#86bcd5] mx-auto lg:w-2/3 md:w-2/3 w-3/4 lg:h-[80vh] md:h-[80vh] h-[70vh] absolute top-1/2 transform -translate-y-1/2 left-1/2 -translate-x-1/2 dark:bg-[#404343] dark:text-white">
+            <ul className="mb-[4%] text-center px-4">
                 <li className="text-[17px] lg:text-3xl md:text-2xl fold:text-[13px]">
                 <p>{messages.complete1}</p>
                 <p>{messages.complete2}<br />{messages.complete3}</p>
                 </li>
             </ul>
-            <ul className='mb-[4%] text-center'>
+            <ul className='mb-[4%] text-center px-4'>
                 <li className='text-[17px] lg:text-3xl md:text-2xl fold:text-[13px]'>
                 <p>{messages.complete4}</p>
                 <p>{messages.complete5}</p>
                 <p>{messages.complete6}</p>
                 </li>
             </ul>
-            <ul className='mb-[7%] text-center'>
+            <ul className='mb-[6%] text-center px-4'>
                 <li className="text-[17px] lg:text-3xl md:text-2xl fold:text-[13px]">
                 <p>{messages.complete7}<br />
-                    <span className='text-white text-[25px] lg:text-[35px] md:text-[29px] fold:text-[18px]'>
+                    <span className='text-white dark:text-[#86bcd5] text-[25px] lg:text-[35px] md:text-[29px] fold:text-[18px]'>
                         {messages.complete8}
                     </span>
                     {messages.complete9}
                 </p>
                 </li>
             </ul>
-            <div className='w-[200px] h-20 md:w-[200px] md:h-16 hover:bg-[#b3312c] duration-500 bg-[#E75A56] flex justify-center items-center text-white mx-auto py-5 lg:text-xl rounded-[50px]'>
-                <FontAwesomeIcon icon={faHome} className='pr-1 text-white lg:text-xl fold:text-[12px]' />
-                <NavLink to='/' className="text-white lg:text-xl fold:text-[12px]">{messages.complete10}</NavLink>
-            </div>
+            <NavLink to='/' className="text-white lg:text-xl md:text-xl fold:text-[13px] lg:w-[200px]  md:w-[200px] w-[160px] fold:w-[130px]  h hover:bg-[#b3312c] duration-500 bg-[#E75A56] dark:bg-[#272929] flex justify-center items-center  mx-auto lg:py-5 md:py-5 py-4 fold: rounded-[50px]"><FontAwesomeIcon icon={faHome} className='pr-1 text-white lg:text-xl md:text-xl fold:text-[13px]' />{messages.complete10}</NavLink>
+        </div>
         </div>
     </>
   )
