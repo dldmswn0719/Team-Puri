@@ -46,14 +46,14 @@ function StoreQna() {
   };
 
   const deletePost = async (data)=>{
-    if(window.confirm("정말로 삭제하시겠습니까?")){
+    if(window.confirm(messages.qna2)){
         const docRef= doc(getFirestore(),"qna" ,data);
         await deleteDoc(docRef)
-        alert("게시물이 삭제되었습니다.");
+        alert(messages.qna1);
         setViewState(null);
         fetchPosts();
     }else{
-        alert("취소")
+        alert(messages.cancel)
     }
 }
 

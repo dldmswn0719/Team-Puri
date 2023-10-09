@@ -7,7 +7,6 @@ import { Autoplay } from 'swiper/modules'
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-
 function AnimalSwiper() {
     const [data, setData] = useState([])
 
@@ -15,13 +14,13 @@ function AnimalSwiper() {
         const RandomData = () => {
             const Array = [];
             const Result = AnimalData.filter((e) => e.image !== '');
-            const usedIndexes = []; // 사용된 인덱스를 추적하기 위한 배열
+            const usedIndexes = []; 
 
             for (let i = 0; i < 16; i++) {
                 let randomIndex;
                 do {
                     randomIndex = Math.floor(Math.random() * Result.length);
-                } while (usedIndexes.includes(randomIndex)); // 이미 사용된 인덱스인 경우 다시 뽑기
+                } while (usedIndexes.includes(randomIndex)); 
 
                 Array.push(Result[randomIndex]);
                 usedIndexes.push(randomIndex);
@@ -31,6 +30,7 @@ function AnimalSwiper() {
         };
         RandomData();
     }, [AnimalData]);
+    
     return (
         <div className="w-full mt-2 flex justify-between items-center overflow-hidden">
             <Swiper

@@ -197,15 +197,13 @@ function ProductInfo() {
                         e[1].name !== '' &&
                         <div key={i} className='text-[16px] border cursor-pointer hover:bg-[#f5f6f7] pl-2 bg-[#fff] z-[100] relative dark:text-[#ebf4f1] dark:bg-[#272929]' onClick={() => {
                           SelectTxtEvent(e[1], i); setIsCnt(true); setVisible(false); optionSelect(e[1])
-                        }}>{e[1].name}
+                        }}>{messages[`product_${params.id}`].option[i].name}
                         </div>
                       )
                     })
                   }
                 </div>
               }
-
-              {/* 2개이상의 메뉴가있는 경우, */}
               {
                 isCnt &&
                 Object.entries(data.option).map((_, i) => {

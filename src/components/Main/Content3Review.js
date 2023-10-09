@@ -59,26 +59,36 @@ function Content3Review() {
     return (
         <div className={`bg-cover bg-center dark:bg-[#292929] relative
         ${theme === `light`? `content3bg` : `content3bgdark`}`}>
-            <div
-            className={`py-4 m-auto
-            lg:pt-48 lg:pb-48 lg:max-w-[1200px]
-            md:pb-10 md:max-w-[768px]`} id='review'>
+            <div className={`py-4 m-auto lg:pt-48 lg:pb-48 lg:max-w-[1200px] md:pb-10 md:max-w-[768px]`} id='review'>
                 <div className=' pb-10'>
                     <ul className='md:flex md:justify-between lg:flex lg:justify-between text-center md:text-left lg:relative'>
                         <li className='absolute lg:-bottom-[650px] md:bottom-10 bottom-5 left-1/2 -translate-x-1/2 z-10'>
                             <img src="./../../Images/Main/click.gif" alt="click" className='cursor-pointer' />
                         </li>
                         <li className='dark:text-white'>
-                            <p className='tracking-tight lg:text-5xl lg:mb-[43px]
-                            md:text-3xl md:mb-7 text-2xl mb-4 mt-32'><span className='font-bold'>{messages.cont3review1}</span>{messages.cont3review2}</p>
-                            <p className='md:text-xl lg:text-2xl tracking-tight sm:mx-[5%]'>{messages.cont3review3}<span className='font-bold'>ON</span> {messages.cont3review4}<span className='font-bold'>OFF</span><br />{messages.cont3review5}</p>
+                            <p className='tracking-tight lg:text-5xl lg:mb-[43px] md:text-3xl md:mb-7 text-2xl mb-4 mt-32'>
+                                <span className='font-bold'>
+                                    {messages.cont3review1}
+                                </span>
+                                {messages.cont3review2}
+                            </p>
+                            <p className='md:text-xl lg:text-2xl tracking-tight sm:mx-[5%]'>
+                                {messages.cont3review3}
+                                <span className='font-bold'>ON</span> 
+                                {messages.cont3review4}
+                                <span className='font-bold'>OFF</span>
+                                <br />{messages.cont3review5}
+                            </p>
                         </li>
                         <li>
                             <button className='bg-[#E75A56] text-white font-bold cursor-pointer duration-500 hover:bg-[#b3312c] rounded-full
-                            
                             w-60 h-10 mt-5
                             md:w-80 md:h-16 md:text-xl md:mt-36
-                            lg:w-[440px] lg:h-20 lg:text-2xl lg:mt-48 '><NavLink to='/review_page' className='text-white'>{messages.cont3review6}</NavLink></button>
+                            lg:w-[440px] lg:h-20 lg:text-2xl lg:mt-48 '>
+                                <NavLink to='/review_page' className='text-white'>
+                                    {messages.cont3review6}
+                                </NavLink>
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -104,7 +114,13 @@ function Content3Review() {
                                             </li>
                                             <li>
                                                 <ul className='lg:p-14 lg:w-full md:w-96 md:px-0 p-5 bg-white w-2/3 m-auto'>
-                                                    <li><p className='lg:text-3xl font-bold text-[#255db1] text-xl'>{e.name}<span className='lg:text-base font-normal text-gray-400 ml-5 text-sm'>{e.number}</span></p></li>
+                                                    <li>
+                                                        <p className='lg:text-3xl font-bold text-[#255db1] text-xl'>
+                                                            {e.name}
+                                                            <span className='lg:text-base font-normal text-gray-400 ml-5 text-sm'>
+                                                                {e.number}
+                                                            </span>
+                                                        </p></li>
                                                     <li>
                                                         <ul className='lg:mt-16 mt-5 lg:leading-10 leading-7 text-gray-400 sm:text-xs'>
                                                             <div className='flex justify-start'>

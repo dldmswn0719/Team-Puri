@@ -32,11 +32,16 @@ function Content5Donate() {
 
     return (
         <div className='content5bg lg:h-[800px] lg:mt-0 h-64 mt-28'>
-            <div className='m-auto text-white
-            p-10
-            md:max-w-[768px]
-            lg:max-w-[1200px] lg:pt-36 lg:text-right'>
-                <p className='lg:text-5xl tracking-tight text-2xl'><span className='font-bold'>{messages.cont5donate1}</span>{messages.cont5donate2}<span className='font-bold'>{messages.cont5donate3}</span></p>
+            <div className='m-auto text-white p-10 md:max-w-[768px] lg:max-w-[1200px] lg:pt-36 lg:text-right'>
+                <p className='lg:text-5xl tracking-tight text-2xl'>
+                    <span className='font-bold'>
+                        {messages.cont5donate1}
+                    </span>
+                    {messages.cont5donate2}
+                    <span className='font-bold'>
+                        {messages.cont5donate3}
+                    </span>
+                </p>
                 <p id='content1' className='pt-5 lg:block hidden'>{messages.countnum1} {
                     isView &&
                     <AnimateNumber
@@ -56,10 +61,12 @@ function Content5Donate() {
                     className='text-2xl font-bold'
                     />
                 }%</p>
-                <p className='lg:text-2xl lg:py-[73px] tracking-tight md:text-base text-xs py-4'>{messages.cont5donate4}<br />{messages.cont5donate5}<br />{messages.cont5donate6}</p>
-                <button className='lg:w-[200px] lg:h-20 lg:text-2xl
-                w-32 h-10 text-lg
-                bg-[#E75A56] rounded-full duration-500 font-bold hover:bg-[#b3312c]'><NavLink to='/supportpay' className='text-white'>{messages.cont5donate7}</NavLink></button>
+                <p className='lg:text-2xl lg:py-[73px] tracking-tight md:text-base text-xs py-4'>
+                    {messages.cont5donate4}<br />
+                    {messages.cont5donate5}<br />
+                    {messages.cont5donate6}
+                </p>
+                <button className='lg:w-[200px] lg:h-20 lg:text-2xl w-32 h-10 text-lg bg-[#E75A56] rounded-full duration-500 font-bold hover:bg-[#b3312c]'><NavLink to='/supportpay' className='text-white'>{messages.cont5donate7}</NavLink></button>
             </div>
         </div>
     )

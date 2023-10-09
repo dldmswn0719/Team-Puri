@@ -2,6 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 
 function TellButton() {
+    
     const location = useLocation();
     const detaildata = location.state.e;
     const {careTel, officetel} = detaildata

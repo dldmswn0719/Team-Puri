@@ -34,8 +34,13 @@ function Content4Grid() {
     return (
         <div className='md:max-w-[768px] lg:max-w-[1200px] m-auto pt-28
         lg:pt-52 lg:pb-[147px] md:pt-40'>          
-            <p className='text-center lg:text-4xl md:text-2xl text-xl font-bold relative sm:mx-[5%]'>{messages.grid1}<img src='./../../Images/Main/puppy.png' alt='puppy' className='absolute lg:-top-36 md:-top-20 md:w-1/3 sm:w-1/4 sm:-top-12 left-1/2 -translate-x-1/2 z-[-1]' /></p>
-            <p className='text-center lg:text-base lg:pb-20 md:pb-20 pb-10 text-gray-700 lg:pt-5 sm:mx-[5%]'>{messages.grid2}</p>
+            <p className='text-center lg:text-4xl md:text-2xl text-xl font-bold relative sm:mx-[5%]'>
+                {messages.grid1}
+                <img src='./../../Images/Main/puppy.png' alt='puppy' className='absolute lg:-top-36 md:-top-20 md:w-1/3 sm:w-1/4 sm:-top-12 left-1/2 -translate-x-1/2 z-[-1]' />
+            </p>    
+            <p className='text-center lg:text-base lg:pb-20 md:pb-20 pb-10 text-gray-700 lg:pt-5 sm:mx-[5%]'>
+                {messages.grid2}
+            </p>
             <ul className='flex flex-wrap md:justify-start justify-around gap-5 sm:mx-[5%]'>
                 {
                     data.map((e, i) => {
@@ -54,7 +59,9 @@ function Content4Grid() {
                 <NavLink to='/info'>
                     <button className='bg-[#E75A56] text-white font-bold cursor-pointer duration-500 hover:bg-[#b3312c] rounded-full w-48 h-12 mt-10 text-lg
                     md:w-80 md:h-16 md:text-xl md:mt-36
-                    lg:w-80 lg:h-20 lg:text-2xl lg:mt-20'>{messages.grid3}</button>
+                    lg:w-80 lg:h-20 lg:text-2xl lg:mt-20'>
+                        {messages.grid3}
+                    </button>
                 </NavLink>
             </div>
         </div>
