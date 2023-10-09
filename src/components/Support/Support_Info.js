@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import { NavLink, useNavigate, useParams } from 'react-router-dom'
+import Modal from '../Modal'
 import "./../../../src/index.css"
 import enMessages from './../../locales/en.json';
 import krMessages from './../../locales/kr.json';
-import { useSelector } from 'react-redux';
-import Modal from '../Modal'
 
 
 function Support_Info() {
@@ -120,12 +120,12 @@ function Support_Info() {
         return;
       }
       if(!document.querySelector('#use').checked){
-        alert("이용약관을 동의 해주세요.")
+        alert(messages.supportpay1_45)
         document.querySelector('#use').focus()
         return
       }
       if(!document.querySelector('#policy').checked){
-        alert("개인정보처리방침을 동의 해주세요.")
+        alert(messages.supportpay1_46)
         document.querySelector('#policy').focus()
         return
       }
@@ -136,7 +136,7 @@ function Support_Info() {
   if(!memberProfile.loggedIn){
     return(
       <>
-        isModal && <Modal error="로그인 이후 이용해주시기 바랍니다!" onClose={()=>{setIsModal(false); navigate('/login')}} />
+        isModal && <Modal error={messages.modal1} onClose={()=>{setIsModal(false); navigate('/login')}} />
       </>
     )
   }

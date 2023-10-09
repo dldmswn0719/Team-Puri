@@ -10,7 +10,6 @@ import krMessages from './../../locales/kr.json';
 
 function Content1Swiper() {
 
-    const theme = useSelector(state => state.dark);
     const language = useSelector(state => state.language);
     const messages = language === 'en' ? enMessages : krMessages;
     
