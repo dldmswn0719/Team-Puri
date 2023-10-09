@@ -35,12 +35,13 @@ function AnimalList() {
                 setKindCode(dataValue)
                 setAnimal("");
                 setAnimalCode("");
-                // setSelectedAnimal("");
+                setSelectedAnimal("");
                 break;
             case classValue.includes("animalData"):
                 const dataValue2 = data.target.selectedOptions[0].getAttribute('data-animal-name')
                 setSelectedAnimal(dataValue2);
                 setAnimalCode(dataValue)
+          
                 break;
             default:
                 console.log("데이터가 없습니다.");
@@ -68,7 +69,9 @@ function AnimalList() {
         });
     }, [kindCode])
 
+
     const [loading, setLoading] = useState(false);
+    
     const ResultData = useCallback(() => {
         fetch(`https://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&upr_cd=${cityCode}&pageNo=${page}&kind=${animalCode}&numOfRows=12&serviceKey=${process.env.REACT_APP_dataapiKey}&_type=json&upkind=${Array[kindCode]}`).
             then((res) => {
@@ -87,7 +90,7 @@ function AnimalList() {
         ResultData()
     }, [page])
 
-
+   
 
     const list = 5;
     const pagination = 5;
@@ -124,7 +127,8 @@ function AnimalList() {
     for (let i = startPage; i <= endPage; i++) {
         PageList.push(
             <div className="flex items-center justify-center h-full">
-                <li key={i} className={(page === i ? 'rounded-full cursor-pointer w-[50px] h-[50px] fold:w-[35px] fold:h-[35px] fold:py-0 fold:px-0 border-transparent leading-10 text-center relative block py-1 px-1.5 lg:mx-3 border-2  border-[#86bcd5] dark:border-1 dark:border-[#dadbdb] text-white bg-[#86bcd5] dark:bg-[#404343]' : ' rounded-full cursor-pointer w-[50px] h-[50px] fold:w-[35px] fold:h-[35px]  leading-10 text-center relative block py-1 px-1.5 fold:py-0 fold:px-0 lg:mx-3 border-2 border-transparent text-black shadow-sm dark:text-[#ebf4f1]')} onClick={() => { setLoading(true); setPage(i); }}>
+                <li key={i} className={(page === i ? 'rounded-full cursor-pointer w-[50px] h-[50px] fold:w-[35px] fold:h-[35px] fold:py-0 fold:px-0 border-transparent leading-10 text-center relative block py-1 px-1.5 lg:mx-3 border-2  border-[#86bcd5] dark:border-1 dark:border-[#dadbdb] text-white bg-[#86bcd5] dark:bg-[#404343]' : ' rounded-full cursor-pointer w-[50px] h-[50px] fold:w-[35px] fold:h-[35px]  leading-10 text-center relative block py-1 px-1.5 fold:py-0 fold:px-0 lg:mx-3 border-2 border-transparent text-black shadow-sm dark:text-[#ebf4f1]')} 
+                onClick={() => { setLoading(true); setPage(i); }}>
                     <div className="flex items-center justify-center h-full">
                         {i}
                     </div>
@@ -142,7 +146,7 @@ function AnimalList() {
             <QuickMenu />
 
             {
-                loading && <Loading />
+                loading && <Loading /> 
             }
 
             <div className='max-w-full min-h-screen bg-white dark:bg-[#272929] overflow-hidden'>
@@ -150,7 +154,7 @@ function AnimalList() {
                     <div className="min-w-full max-h-full max-md:border-none sm:border-none fold:border-none border-b-4 border-[#86bcd5] dark:border-[#dadbdb] lg:px-2 lg:py-5  md:px-5 md:py-5 sm:px-8 box-border fold:px-3 fold:pb-0 ">
                         <div className="max-w-full h-full flex sm:flex-col fold:flex-col justify-between text-left sm:mt-4">
                             <div className="w-full pb-2">
-                                <p className='font-bold text-[#999] dark:text-[#ebf4f1] md:mt-5 '>{messages.animal1}</p>
+                                <p className='font-bold text-[#999] dark:text-[#ebf4f1] md:mt-5'>{messages.animal1}</p>
                                 <select onChange={selectedData} className='text-xl font-bold w-full md:basis-[15%] dark:bg-[#272929] dark:text-[#ebf4f1]
                                 cityData'>
                                     <option value="">{messages.animal2}</option>
@@ -192,7 +196,7 @@ function AnimalList() {
                     </div>
                     <div className="max-w-full max-h-full flex text-[15px] lg:gap-x-3 lg:gap-y-3  flex-wrap justify-start md:justify-around lg:px-1 md:px-2 md:gap-y-3 sm:justify-center sm:gap-y-7 fold:px-3 fold:gap-y-3 pt-4 sm:pt-8 md:pt-3">
                         {
-                            data === undefined ? <div className='w-full h-full flex items-center justify-center'><p className='text-[32px] fold:text-2xl text-[#999] font-bold dark:text-[#ebf4f1]'>검색 결과가 없습니다.</p></div> :
+                            data === undefined ? <div className='w-full h-full flex items-center justify-center'><p className='text-[32px] fold:text-2xl text-[#999] font-bold dark:text-[#ebf4f1]'>{messages.animal9}</p></div> :
                                 data && data.map((e, i) => {
                                     return (
                                         <div className="w-full h-full relative box-border 
@@ -204,11 +208,11 @@ function AnimalList() {
                                                         {e.sexCd === 'M' ? "남" : e.sexCd === 'F' ? "여" : "성별 미상"}
                                                     </p>
                                                 </div>
-                                              <div className="lg:h-[380px] md:h-[450px] sm:h-[450px] ">
-                                                <div className="flex lg:basis-[32.5%] md:basis-[48%] sm:basis-[90%] fold:basis-[100%]  h-[70%] fold:h-[250px]  ">
+                                            <div className="lg:h-[450px] md:h-[450px] sm:h-[450px]">
+                                                <div className="flex lg:basis-[32.5%] md:basis-[48%] sm:basis-[90%] fold:basis-[100%] lg:h-[70%] md:h-[70%] sm:h-[70%] fold:h-[250px]">
                                                     <img src={e.popfile} alt="img" className='w-full' />
                                                 </div>
-                                            <div className="pl-[10px] py-[10px] dark:text-[#ebf4f1] dark:bg-[#404343] dark:rounded-b-[20px] h-[30%] flex flex-col justify-center">
+                                            <div className="pl-[10px] py-[10px] dark:text-[#ebf4f1] dark:bg-[#404343] dark:rounded-b-[20px] lg:h-[30%] md:h-[30%] sm:h-[30%] flex flex-col justify-center">
                                                 <p className='font-bold text-base'><span className='text-[#999] dark:text-[#ebf4f1]'>품종 :</span> {e.kindCd}</p>
                                                 <p className='font-bold text-base'><span className='text-[#999] dark:text-[#ebf4f1]'>나이 :</span> {e.age} 추정</p>
                                                 <p className='font-bold text-base'><span className='text-[#999] dark:text-[#ebf4f1]'>지역 :</span> {e.orgNm}</p>

@@ -6,10 +6,22 @@ import Content3Review from '../components/Main/Content3Review'
 import Content4Grid from '../components/Main/Content4Grid'
 import Content5Donate from '../components/Main/Content5Donate'
 import Footer from '../components/Footer'
+import Loading from '../components/Info/Loading'
+import { useState } from 'react'
+import { useEffect } from 'react'
+
 
 function Main() {
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        setTimeout(() => setLoading(false), 3000); 
+      }, []);
     return (
         <>
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
             <Nav />
             <Content1Swiper />
             <Content2Info />
@@ -17,7 +29,9 @@ function Main() {
             <Content4Grid />
             <Content5Donate />
             <Footer />
-        </>
+          </>
+        )}
+      </>
     );
 }
 
