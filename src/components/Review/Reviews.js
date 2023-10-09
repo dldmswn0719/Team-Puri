@@ -84,6 +84,12 @@ function Reviews() {
   return (
     <>
 
+<div className="w-full bg-white relative dark:bg-[#272929]"/>
+        <div className="max-w-[1400px] mx-auto"/>
+          <div className="max-w-[1280px] mx-auto max-lg:w-11/12 md:w-5/6" />
+              <span className=' dark:bg-[#272929] block py-5 text-center text-[40px] dark:text-[#ebf4f1]'>새로운 가정을 찾은 유기동물들의 이야기</span>
+   
+    
     <QuickMenu/>
     {/* <div className="mx-auto w-[160px] h-[5] dark:bg-[#272929] ">
         <button className='bg-[#D3C09D] text-white w-[160px] h-[35px] '>후기 작성하기</button>
@@ -93,14 +99,17 @@ function Reviews() {
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-[1280px] mx-auto max-lg:w-11/12 md:w-5/6">
             
-            <div className="flex text-[15px] gap-y-5 gap-[5px] flex-wrap justify-between mb-[30px] m-3 0">
+            
+            <div className="flex text-[15px] gap-y-5 gap-[5px] flex-wrap justify-between mb-[30px] m-3 0  ">
               {
                 review.filter(item => item.group <= currentPage).map((e, i) => {
                   return (
-                    <div className="relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-lg rounded-[20px] 
+                    <div className="sm:basis-full md:basis-1/3 lg:basis-1/5
+                    relative border border-[#f1f1ef] 
+                    w-[310px] h-[480px] shadow-lg rounded-[20px]
                     // 두개
-                    sm:w-full max-lg:w-[32%] max-lg:h-[500px]" key={i} data-aos="zoom-in">
-                      <ul className='flex w-[250px] justify-between mx-auto pt-5 max-lg:w-[90%]'>
+                    sm:w-full lg:w-[24%] max-lg:h-[500px] md:w-[49%]" key={i} data-aos="zoom-in">
+                      <ul className='flex w-[250px] lg:justify-between mx-auto pt-5 max-lg:w-[90%]'>
                         <li><img className='w-7 h-6'
                          src={theme === 'light' ?
                         "./../Images/Review/camera-light.png" : "./../Images/Review/camera-dark.png"}
@@ -122,7 +131,7 @@ function Reviews() {
                       <img onClick={() => { document.querySelector("html").classList.add("fixed")
                         setModalOpen(true);
                         setOne(i);
-                      }} className='w-[310px] h-[220px] 
+                      }} className='w-full h-[220px] 
                       // 1개
                       sm:w-full max-lg:w-full' src={e.img} alt="1" />
                       
@@ -175,11 +184,11 @@ function Reviews() {
               }
             </div>
           
-            <div className="flex justify-center mb-10">
+            <div className="flex justify-center pb-10 ">
               {showInfiniteButton && showMoreButton && moreButtonClickCount <3 && (
              <button
                onClick={handleMoreButtonClick}
-               className='bg-[#8DBCD6] text-white w-[160px] h-[50px] rounded-md  mr-2'
+               className='bg-[#8DBCD6] text-white w-[160px] h-[50px] rounded-md  mr-2 dark:bg-[#404343]'
              >
              {messages.reviewmore} +
              </button>
@@ -188,7 +197,7 @@ function Reviews() {
             {showInfiniteButton  && showMoreButton && (
         <button
           onClick={handleInfiniteButtonClick}
-          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] rounded-md a'
+          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] rounded-md a dark:bg-[#404343]'
         >무한스크롤</button>
       )}
       </div>
@@ -209,7 +218,7 @@ function Reviews() {
             <div className="fixed z-[70] left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 lg:w-[900px] w-11/12 p-5 lg:h-[500px] md:h-[500px] h-[600px] bg-white rounded-[20px] md:w-5/6">
 
 
-              <FontAwesomeIcon onClick={() => { setModalOpen(false); document.querySelector("html").classList.remove("fixed") }} icon={faXmark} className='hover:text-[pink] absolute w-[30px] h-[30px] right-[1%] top-[2%] z-40 sm:hidden' />
+              <FontAwesomeIcon onClick={() => { setModalOpen(false); document.querySelector("html").classList.remove("fixed") }} icon={faXmark} className='hover:text-[pink] cursor-pointer absolute w-[30px] h-[30px] right-[1%] top-[2%] z-40 sm:hidden' />
 
 
 

@@ -1,4 +1,4 @@
-import {useNavigate, useSearchParams} from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import enMessages from "./../locales/en.json";
 import krMessages from "./../locales/kr.json";
 import { useSelector } from "react-redux";
@@ -10,16 +10,20 @@ export function SuccessPage() {
     const messages = language === "en" ? enMessages : krMessages;
 
     return (
-        <div className="w-full flex items-center justify-center bg-white dark:bg-[#272929] h-[100vh]">
-            <div className="w-full px-3">
-                <div className='lg:w-1/3 md:w-1/2 w-full mx-auto  dark:border-none text-white bg-[#86bcd5] text-center border px-5 py-10 dark:bg-[#404343]'>
-                    <h1 className=" text-[17px] lg:text-[30px] md:text-[25px] fold:text-[13px] font-bold pt-3">{messages.success}</h1>
-                    <div className="text-[17px] lg:text-[25px] md:text-[20px] fold:text-[10px] pt-10">{`${messages.success1}: ${searchParams.get("orderId")}`}</div>
-                    <div className="text-[17px] lg:text-[25px] md:text-[20px] fold:text-[10px] pb-10">{`${messages.success2}: ${Number(searchParams.get("amount")).toLocaleString()}${messages.won}`}</div>
-                    <div className="text-[18px] lg:text-[20px] md:text-[15px] fold:text-[10px] border py-3 cursor-pointer bg-white text-[#327290]  dark:border-none dark:bg-[#292929] dark:text-[#ebf4f1]" onClick={()=>{navigate('/support')}}>
-                        <p>{messages.success3}</p>
-                    </div>
-                </div>
+        <div className='fixed top-0 left-0 w-full h-full dark:bg-[#272929]  flex justify-center items-center px-5'>
+            <div className='dark:text-[#ebf4f1] basis-[700px] dark:border-none bg-white border border-[#ddd] pt-[55px] px-5 pb-11 rounded-lg text-center justify-center flex-wrap dark:bg-[#404343]'>
+                <p className='text-[23px] lg:text-[25px] md:text-[25px] fold:text-[17px] font-bold pt-3'>
+                    {messages.success}
+                </p>
+                <p className="text-[20px] lg:text-[20px] md:text-[20px] fold:text-[15px] pt-10">
+                    {`${messages.success1}: ${searchParams.get("orderId")}`}
+                </p>
+                <p className="text-[20px] lg:text-[20px] md:text-[20px] fold:text-[15px] pb-10">
+                    {`${messages.success2}: ${Number(searchParams.get("amount")).toLocaleString()}${messages.won}`}
+                </p>
+                <button className='w-full px-[10px] py-[14px] rounded-md bg-[#60a7c8] border-none text-white cursor-pointer hover:bg-[#327290] dark:bg-[#272929]' onClick={() => { navigate('/support') }}>
+                    {messages.success3}
+                </button>
             </div>
         </div>
     );

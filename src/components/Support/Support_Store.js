@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStore } from '@fortawesome/free-solid-svg-icons';
 
 
+
 function Support_Store() {
     const language = useSelector(state => state.language);
     const messages = language === 'en' ? enMessages : krMessages;
