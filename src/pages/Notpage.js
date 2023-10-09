@@ -26,10 +26,10 @@ function Notpage() {
 
   return (
     <>
-      <div className='flex flex-col justify-center h-screen bg-[#86bcd5] mx-auto '>
+      <div className='flex flex-col justify-center h-screen bg-[#86bcd5] mx-auto'>
           <div className='leading-[1.4] w-full text-center flex flex-col justify-between'>
-              <h3 className='pr-[50px] lg:text-[165px] md:text-[165px] text-[100px] text- font-bold mb-[40px] text-white -rotate-[18deg] [text-shadow:_5px_15px_0_rgb(0_0_0_/_40%)] italic'>404</h3>
-              <p className='mb-5 font-bold lg:text-[30px] md:text-[30px] text-[23px]'>{messages.notpage1}</p>
+              <h3 className='sm:w-[93%] pr-[50px] sm:pr-0 lg:text-[165px] md:text-[165px] text-[100px] text- font-bold text-white -rotate-[18deg] [text-shadow:_5px_15px_0_rgb(0_0_0_/_40%)] italic'>404</h3>
+              <p className='mb-5  mt-[40px] font-bold lg:text-[30px] md:text-[30px] text-[23px]'>{messages.notpage1}</p>
               <p className='mb-5 font-bold lg:text-xl md:text-xl text-[19px]'>{messages.notpage2}</p>
               {
                 language === 'en' ?
@@ -37,7 +37,7 @@ function Notpage() {
                 :
                 <p className='text-xl lg:mb-[3%] md:mb-[5%] mb-[10%]'><span className='text-red-600 text-[22px] font-bold'>{countDown}</span>초 후에 이동됩니다.</p>
               }
-              <div className='mx-auto bg-[#E75A56] hover:bg-[#b3312c] duration-500 lg:py-[20px] md:py-[20px] py-[20px] lg:w-[200px] md:w-[180px] w-[170px] rounded-[50px] cursor-pointer text-white lg:text-xl'>
+              <div className='mx-auto bg-[#E75A56] hover:bg-[#b3312c] duration-500 lg:py-[20px] md:py-[20px] py-[16px] lg:w-[200px] md:w-[180px] w-[150px] rounded-[50px] cursor-pointer text-white lg:text-xl'>
                 <FontAwesomeIcon icon={faHome} className='pr-2' />
                 <button onClick={()=>{navigate('/')}} className=''>{messages.notpage3}</button>
               </div>
