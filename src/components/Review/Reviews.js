@@ -84,25 +84,18 @@ function Reviews() {
   return (
     <>
 
-{/* <div className="w-full bg-white relative dark:bg-[#272929]"/>
+<div className="w-full bg-white relative dark:bg-[#272929]"/>
         <div className="max-w-[1400px] mx-auto"/>
-          <div className="max-w-[1280px] mx-auto max-lg:w-11/12 md:w-5/6  sm:w-1/3" />
-              <span className=' dark:bg-[#272929] block py-5 text-center text-[40px] dark:text-[#ebf4f1] sm:p-5'>새로운 가정을 찾은 유기동물들의 이야기</span> */}
-
-              <div className="w-full bg-white relative dark:bg-[#272929]">
-  <div className="max-w-[1400px] mx-auto">
-    <div className="max-w-[1280px] mx-auto max-lg:w-11/12 md:w-5/6 sm:w-1/3">
-      <span className='block py-5 text-center text-[40px] dark:text-[#ebf4f1]
-       sm:p-5 font-serif italic text-[#3638b1]'>새로운 가정을 찾은 유기동물들의 이야기</span>
-    </div>
-  </div>
-</div>
+          <div className="max-w-[1280px] mx-auto max-lg:w-11/12 md:w-5/6" />
+              <span className=' dark:bg-[#272929] block py-5 text-center text-[40px] dark:text-[#ebf4f1]'>새로운 가정을 찾은 유기동물들의 이야기</span>
    
     
- 
- 
+    <QuickMenu/>
+    {/* <div className="mx-auto w-[160px] h-[5] dark:bg-[#272929] ">
+        <button className='bg-[#D3C09D] text-white w-[160px] h-[35px] '>후기 작성하기</button>
+          </div> */}
             
-      <div className="w-full bg-white pt-[30px] relative dark:bg-[#272929]">
+      <div className="w-full bg-white pt-[60px] relative dark:bg-[#272929]">
         <div className="max-w-[1400px] mx-auto">
           <div className="max-w-[1280px] mx-auto max-lg:w-11/12 md:w-5/6">
             
@@ -115,10 +108,10 @@ function Reviews() {
                     <div className="sm:basis-full md:basis-1/3 lg:basis-1/5
                     relative border border-[#f1f1ef] 
                     w-[310px] h-[480px] shadow-lg rounded-[20px]
-                    
+                    // 두개
                     sm:w-full lg:w-[24%] max-lg:h-[500px] md:w-[49%]" key={i} data-aos="zoom-in">
                       <ul className='flex w-[250px] 
-                      lg:justify-between md:justify-between sm:justify-between
+                      lg:justify-between :justify-between sm:justify-between
                       mx-auto pt-5 max-lg:w-[90%]'>
                         <li><img className='w-7 h-6'
                          src={theme === 'light' ?
