@@ -23,7 +23,16 @@ function Reviews() {
     AOS.init();
   })
   
+  
   const [currentPage, setCurrentPage] = useState(1);
+  const [showButton, setShowButton] = useState(true);
+
+  const handleNextPage = () => {
+    setCurrentPage(currentPage + 77);
+    setShowButton(false);
+  };
+
+  
 
   const [one, setOne] = useState(null);
 
@@ -150,11 +159,16 @@ function Reviews() {
               }
             </div>
             <div className="mx-auto w-[160px]">
-              <button onClick={() => { setCurrentPage(currentPage + 77) }}  
-              className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[5px] '>무한스크롤</button>
+            {showButton && (
+        <button
+          onClick={handleNextPage}
+          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[5px]'
+        >무한스크롤</button>
+      )}</div>
+
 
               <button onClick={() => { setCurrentPage(currentPage + 1) }} className='bg-[#D3C09D] text-white w-[160px] h-[50px] my-[40px] '>{messages.reviewmore} +</button>
-            </div>
+            
           </div>
         </div>
       </div>
