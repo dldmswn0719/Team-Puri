@@ -128,7 +128,7 @@ const Mainlist = [
         "group" : 3
     },
     {
-        "rogo" : "./..//Review/K_01.png",
+        "rogo" : "./../Review/K_01.png",
         "img" : "https://cdn.pixabay.com/photo/2016/05/09/10/42/weimaraner-1381186_1280.jpg",
         "Text" : "#날 기다려주는 반려견 #입양스토리 #입양후기",
         "region" : "울산광역시",

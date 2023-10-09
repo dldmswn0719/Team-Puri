@@ -31,8 +31,8 @@ function Reviews() {
 
   const handleInfiniteButtonClick = () => {
     setCurrentPage(currentPage + 77);
-    setShowInfiniteButton(false); // 무한버튼 숨기기
-    setShowMoreButton(false); // 더보기 버튼 숨기기
+    setShowInfiniteButton(false);
+    setShowMoreButton(false); 
   };
 
   const handleMoreButtonClick = () => {
@@ -40,8 +40,8 @@ function Reviews() {
     setMoreButtonClickCount(moreButtonClickCount + 1);
 
     if (moreButtonClickCount >=2) {
-      setShowInfiniteButton(false); // 무한버튼과 함께 모든 버튼 숨기기
-      setShowMoreButton(false); // 더보기 버튼 숨기기
+      setShowInfiniteButton(false);
+      setShowMoreButton(false); 
     }
   };
 
@@ -171,6 +171,7 @@ function Reviews() {
                 })
               }
             </div>
+          
             <div className="mx-auto w-[160px]">
             {showInfiniteButton  && showMoreButton && (
         <button
@@ -178,14 +179,12 @@ function Reviews() {
           className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[5px] rounded-md a'
         >무한스크롤</button>
       )}</div>
-
-
-              {showInfiniteButton && showMoreButton && moreButtonClickCount <3 && (
+         {showInfiniteButton && showMoreButton && moreButtonClickCount <3 && (
         <button
           onClick={handleMoreButtonClick}
           className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-40 rounded-md'
         >
-          {messages.reviewmore} +
+        {messages.reviewmore} +
         </button>
       )}
             
@@ -244,7 +243,7 @@ function Reviews() {
                       <ul className="flex">
                         <li><FontAwesomeIcon icon={faHeart} color='#ff5b5b' className='w-[18px] h-[18px]' /></li>
                         <li><img className='w-[18px] h-[18px] mx-[10px] mt-1 ' src="./../Images/Review/chat.svg" alt="chat" /></li>
-                        <li><img className='w-[20px] h-[20px] mt-1' src="./../Images/Review/4.png" alt="airplane" /></li>
+                        <li><img className='w-[20px] h-[20px] mt-1' src="./../Images/Review/airplane-light.png" alt="airplane" /></li>
                       </ul>
                       <ul>
                         <li><img className='w-[20px] h-[20px]' src="./../Images/Review/mark.svg" alt="mark" /></li>
