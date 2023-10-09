@@ -25,18 +25,26 @@ function Reviews() {
   
   
   const [currentPage, setCurrentPage] = useState(1);
-  const [showButton, setShowButton] = useState(true);
-  const [buttonCount, setButtonCount] = useState(0);
+  const [showInfiniteButton, setShowInfiniteButton] = useState(true);
+  const [showMoreButton, setShowMoreButton] = useState(true);
+  const [moreButtonClickCount, setMoreButtonClickCount] = useState(0);
 
-  const handleNextPage = () => {
+  const handleInfiniteButtonClick = () => {
     setCurrentPage(currentPage + 77);
-    setShowButton(false);
+    setShowInfiniteButton(false); // 무한버튼 숨기기
+    setShowMoreButton(false); // 더보기 버튼 숨기기
   };
-  const handleNextPages = () => {
+
+  const handleMoreButtonClick = () => {
     setCurrentPage(currentPage + 1);
-    setButtonCount(buttonCount + 1);
-    setShowButton(false);
+    setMoreButtonClickCount(moreButtonClickCount + 1);
+
+    if (moreButtonClickCount >=2) {
+      setShowInfiniteButton(false); // 무한버튼과 함께 모든 버튼 숨기기
+      setShowMoreButton(false); // 더보기 버튼 숨기기
+    }
   };
+
   
 
   const [one, setOne] = useState(null);
@@ -164,17 +172,17 @@ function Reviews() {
               }
             </div>
             <div className="mx-auto w-[160px]">
-            {showButton && (
+            {showInfiniteButton  && showMoreButton && (
         <button
-          onClick={handleNextPage}
+          onClick={handleInfiniteButtonClick}
           className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[5px] rounded-md a'
         >무한스크롤</button>
       )}</div>
 
 
-              {buttonCount < 3 && (
+              {showInfiniteButton && showMoreButton && moreButtonClickCount <3 && (
         <button
-          onClick={handleNextPages}
+          onClick={handleMoreButtonClick}
           className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-40 rounded-md'
         >
           {messages.reviewmore} +
