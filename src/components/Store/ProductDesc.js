@@ -101,9 +101,9 @@ function ProductDesc() {
                                 <FontAwesomeIcon icon={faBone} className='mx-auto dark:text-[#ebf4f1] w-[50px] h-[50px]' color='#86bcd5' />
                                 <p className='title2'>{messages.desc18}</p>
                                 <p className='title2'>{messages.desc19}</p>
-                                <img className='mx-auto pb-[10%] lg:w-[200px] w-[170px]' src={
+                                <img className='mx-auto pb-[10%] lg:w-[200px] w-[170px] pt-8' src={
                                     theme === 'light' ?
-                                        "./../Images/_s1.png"
+                                        "./../Images/logo.png" 
                                         :
                                         "./../Images/Main/logo_dark.png"
                                 } alt="로고" />
