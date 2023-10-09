@@ -60,8 +60,8 @@ export function CheckoutPage() {
     }, [price]);
 
     return (
-        <div className="w-full bg-white dark:bg-[#272929] h-[100vh]  ">
-            <div className="max-w-7xl mx-auto px-5 py-10">
+        <div className="w-full bg-white dark:bg-[#272929] h-[100vh]">
+            <div className="max-w-7xl mx-auto p-5">
                 <div className='text-center border bg-white p-5 dark:bg-[#404343] dark:border-none dark:text-[#ebf4f1]'>
                     <h1 className=" text-3xl font-bold py-3">{messages.checkout}</h1>
                     <span className="lg:text-xl"> {messages.checkout1} : {`${price.toLocaleString()}${messages.won}`} + </span>
