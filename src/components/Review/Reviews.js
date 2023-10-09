@@ -175,21 +175,23 @@ function Reviews() {
               }
             </div>
           
-            <div className="mx-auto w-[160px]">
+            <div className="flex justify-center mb-10">
+              {showInfiniteButton && showMoreButton && moreButtonClickCount <3 && (
+             <button
+               onClick={handleMoreButtonClick}
+               className='bg-[#8DBCD6] text-white w-[160px] h-[50px] rounded-md  mr-2'
+             >
+             {messages.reviewmore} +
+             </button>
+           )}
+           
             {showInfiniteButton  && showMoreButton && (
         <button
           onClick={handleInfiniteButtonClick}
-          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-[5px] rounded-md a'
+          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] rounded-md a'
         >무한스크롤</button>
-      )}</div>
-         {showInfiniteButton && showMoreButton && moreButtonClickCount <3 && (
-        <button
-          onClick={handleMoreButtonClick}
-          className='bg-[#8DBCD6] text-white w-[160px] h-[50px] my-40 rounded-md'
-        >
-        {messages.reviewmore} +
-        </button>
       )}
+      </div>
             
           </div>
         </div>
