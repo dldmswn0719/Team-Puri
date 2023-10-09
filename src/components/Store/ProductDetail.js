@@ -26,9 +26,9 @@ function ProductDetail() {
                     <div className="text-center dark:text-[#ebf4f1]">
                         <img className='lg:py-10 py-5 mx-auto lg:w-[200px] w-[170px]' src={
                             theme === 'light' ?
-                            "./../Images/logo_s1.png" 
+                            "./../Images/logo.png" 
                             :
-                            "./../Images/Main/logo_s1_dark.png"
+                            "./../Images/Main/logo_dark.png"
                         } alt="로고" />
                         <p className='lg:text-xl text-[18px] leading-9'>{messages.desc1}</p>
                         <p className='lg:text-xl text-[18px] border-b border-[#86bcd5] pb-[50px] dark:border-[#dadbdb]'>{messages.desc2}</p>

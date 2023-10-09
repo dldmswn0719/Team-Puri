@@ -97,9 +97,9 @@ function Findemail() {
             <div className='w-[400px] absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-[30px] dark:bg-[#404343]'>
                 <img src={
                         theme === 'light' ? 
-                        "./../Images/logo_s1.png"
+                        "./../Images/logo.png"
                         :
-                        "./../Images/Main/logo_s1_dark.png"
+                        "./../Images/Main/logo_dark.png"
                     } alt='logo' className='w-[200px] h-[65px] mx-auto' />
                 <div className='relative mb-5'>
                     <p className='text-left text-[18px] font-bold pt-[30px] dark:text-[#ebf4f1] pb-2'>{messages.member2}</p>
