@@ -218,7 +218,7 @@ function Reviews() {
             <div className="fixed z-[70] left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 lg:w-[900px] w-11/12 p-5 lg:h-[500px] md:h-[500px] h-[600px] bg-white rounded-[20px] md:w-5/6">
 
 
-              <FontAwesomeIcon onClick={() => { setModalOpen(false); document.querySelector("html").classList.remove("fixed") }} icon={faXmark} className='hover:text-[pink] absolute w-[30px] h-[30px] right-[1%] top-[2%] z-40 sm:hidden' />
+              <FontAwesomeIcon onClick={() => { setModalOpen(false); document.querySelector("html").classList.remove("fixed") }} icon={faXmark} className='hover:text-[pink] cursor-pointer absolute w-[30px] h-[30px] right-[1%] top-[2%] z-40 sm:hidden' />
 
 
 
