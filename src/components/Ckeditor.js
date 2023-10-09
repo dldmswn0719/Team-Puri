@@ -97,7 +97,7 @@ function Ckeditor({hideEditor , refreshPosts, resetViewState ,title,content,post
                     <h2 className="text-xl mt-4 mr-3 dark:text-[#ebf4f1]">{messages.title}</h2>
                     <input className="mt-[10px] py-1 border border-[#e5e7eb] w-3/4" value={txtTitle} type="text" onChange={(e)=>{setTxtTitle(e.target.value)}} />
                     <div className="flex">
-                      <input className="mt-3" type="checkbox" checked={isSecret} onChange={(e) => setIsSecret(e.target.checked)} />
+                      <input className="mt-4 sm:mt-5" type="checkbox" checked={isSecret} onChange={(e) => setIsSecret(e.target.checked)} />
                       <p className="mt-4 pl-2 dark:text-[#ebf4f1]">{messages.secret}</p>
                     </div>
                   </div>
