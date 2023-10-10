@@ -87,7 +87,7 @@ function Reviews() {
                       return (
                         <div className="sm:basis-full md:basis-1/3 lg:basis-1/5 relative border border-[#f1f1ef] w-[310px] h-[480px] shadow-lg rounded-[20px]
                         sm:w-full lg:w-[24%] max-lg:h-[500px] md:w-[49%]" key={i} data-aos="zoom-in">
-                          <ul className='flex w-[250px] lg:justify-between :justify-between sm:justify-between mx-auto pt-5 max-lg:w-[90%]'>
+                          <ul className='flex w-[250px] lg:justify-between md:justify-between sm:justify-between mx-auto pt-5 max-lg:w-[90%]'>
                             <li>
                               <img className='w-7 h-6'
                               src={theme === 'light' ?
