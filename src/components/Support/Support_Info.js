@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, } from 'react'
 import { useSelector } from 'react-redux';
 import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import Modal from '../Modal'
@@ -14,6 +14,8 @@ function Support_Info() {
   const view = useParams()
   const [isModal, setIsModal] = useState(view ? false : true)
   const memberProfile = useSelector(state => state.user)
+  const theme = useSelector(state => state.dark);
+
 
   const NumChk = (e)=>{
     return e.target.value = e.target.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -184,7 +186,7 @@ function Support_Info() {
     <>
         <div className="full w-full md:bg-none sm:bg-none fold:bg-none dark:bg-[#272929]">
             <div className="lg:w-[705px] lg:pl-[150px] pt-[50px] md:w-11/12 md:mx-auto sm:w-11/12 sm:mx-auto fold:w-11/12 fold:mx-auto dark:bg-[#272929]">
-              <NavLink to='/'><img src="./../../Images/Support/logo.png" alt="로고" className='mb-[50px]' /></NavLink>
+              <NavLink to='/'><img src={theme === 'light' ? `./../../Images/Main/logo.png` : `./../../Images/Main/logo_dark.png`}alt="로고" className='mb-[50px]' /></NavLink>
               <div className="w-[500px] lg:h-[225px] relative info md:w-full md:h-[190px] sm:w-full sm:h-[180px] fold:w-full fold:h-[180px]">
                 <ul className="w-full lg:h-[155px] md:h-[155px] bg-[#86bcd5] dark:bg-[#404343] dark:text-white flex sm:h-[130px] py-[7%] md:py-[4%] fold:py-4">
                   <li className="w-[40%] text-center">
@@ -258,7 +260,7 @@ function Support_Info() {
                 <ul className="w-full flex justify-between mb-[25px]">
                   <li className="w-[30%] h-[43px] flex items-center fold:text-[15px] dark:text-white"><p>{messages.supportpay1_18}</p></li>
                   <div className="w-[70%] h-[43px]">
-                    <li className={`lg:w-[49%] h-full bg-[#86bcd5] flex justify-center items-center cursor-pointer md:w-[47%] w-[47%] sm:text-[14px] fold:text-[14px] ${card === true ? "color" : ""}`} onClick={()=>{if(card) return; setCard(true);}}><p>{messages.supportpay1_19}</p></li>
+                    <li className={`lg:w-[49%] h-full dark:bg-[#404343] bg-[#86bcd5] flex justify-center items-center cursor-pointer md:w-[47%] w-[47%] sm:text-[14px] fold:text-[14px] ${card === true ? "color" : ""}`} onClick={()=>{if(card) return; setCard(true);}}><p>{messages.supportpay1_19}</p></li>
                   </div>
                 </ul>
                 <ul className="w-full flex justify-between mb-[25px]">
