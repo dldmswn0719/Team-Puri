@@ -237,7 +237,7 @@ function Support_Info() {
                   <li className="w-[30%] h-[43px] flex items-center fold:text-[15px] dark:text-white"><p>{messages.supportpay1_15}</p></li>
                   <div className="flex w-[70%] justify-between">
                     <li className="lg:w-[31.5%] md:w-[30%] w-[30%]">
-                      <select className='dark:bg-[#404343] dark:border-white dark:text-white flex flex-wrap w-full h-10 border-[1px] border-black text-center text-[17px] sm:text-[14px] fold:text-[14px]'>
+                      <select className='dark:bg-[#404343] dark:border-white dark:text-white flex flex-wrap w-full h-10 border-[1px] border-black text-center text-[17px] sm:text-[14px] fold:text-[14px] bg-white'>
                         <option value="0">010</option>
                         <option value="1">011</option>
                         <option value="2">016</option>
@@ -287,9 +287,9 @@ function Support_Info() {
                   <li className="w-[70%]"><input type="text" onInput={Num} maxLength={2} placeholder={messages.supportpay1_28} className='dark:bg-[#404343] dark:border-white dark:text-white password w-full h-10 border-[1px] border-black text-center text-[18px] sm:text-[14px] fold:text-[14px]' /></li>
                 </ul>
                 <ul className='w-full flex justify-between mb-[25px]' style={{display: Active === true ? "flex" : "none"}}>
-                  <li className="w-[30%] h-[43px] flex items-center"><p>{messages.supportpay1_29}</p></li>
+                  <li className="w-[30%] h-[43px] flex items-center dark:text-white"><p>{messages.supportpay1_29}</p></li>
                   <div className="w-[70%] h-[43px] relative">
-                    <select className='lg:w-[49%] md:w-[47%] w-[47%] h-10 text-center text-[17px] border-[1px] border-black sm:text-[14px] fold:text-[14px]'>
+                    <select className='lg:w-[49%] md:w-[47%] w-[47%] h-10 text-center text-[17px] border-[1px] border-black sm:text-[14px] fold:text-[14px] bg-white dark:bg-[#404343] dark:text-white dark:border-white'>
                       <option value="0">{messages.supportpay1_30}</option>
                       <option value="1">{messages.supportpay1_31}</option>
                       <option value="2">{messages.supportpay1_32}</option>
