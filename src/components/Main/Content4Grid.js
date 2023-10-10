@@ -41,16 +41,13 @@ function Content4Grid() {
             <p className='text-center lg:text-base lg:pb-20 md:pb-20 pb-10 text-gray-700 lg:pt-5 sm:mx-[5%]'>
                 {messages.grid2}
             </p>
-            <ul className='flex flex-wrap md:justify-start justify-around gap-5 sm:mx-[5%]'>
+            <ul className='flex flex-wrap md:justify-start justify-around lg:gap-5 md:gap-5 gap-2 sm:mx-[5%]'>
                 {
                     data.map((e, i) => {
-                        return (
-                            <Link to={`/infodetail/${e.desertionNo}`} state={{e : e}}>
-                                <li key={i} className={`lg:basis-1/4 md:basis-1/3 basis-1/2
-                                cursor-pointer duration-300 relative
-                                hover:scale-105 hover:after:w-full hover:after:h-full hover:after:bg-black hover:after:bg-opacity-30 hover:after:absolute hover:after:top-0 hover:after:left-0  hover:after:text-white hover:after:text-center hover:after:text-sm`}><img src={e.image} alt={i} className='lg:w-[280px] lg:h-[280px] md:w-[240px] md:h-[240px] w-56 h-56'/>
-                                </li>
-                            </Link>
+                        return (                            
+                            <li key={i} className={`lg:basis-[23.5%] md:basis-[31%] basis-[48%]
+                            cursor-pointer duration-300 relative
+                            hover:scale-105 hover:after:w-full hover:after:h-full hover:after:bg-black hover:after:bg-opacity-30 hover:after:absolute hover:after:top-0 hover:after:left-0  hover:after:text-white hover:after:text-center hover:after:text-sm h-[200px] lg:h-[285px]`}><Link to={`/infodetail/${e.desertionNo}`} state={{e : e}}><img src={e.image} alt={i} className='h-full w-full'/></Link></li>
                         );
                     })
                 }
