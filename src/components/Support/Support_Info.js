@@ -284,7 +284,7 @@ function Support_Info() {
                 </ul>
                 <ul className="w-full flex justify-between mb-[25px]">
                   <li className="w-[30%] h-[43px] flex items-center fold:text-[15px] dark:text-white"><p>{messages.supportpay1_27}</p></li>
-                  <li className="w-[70%]"><input type="text" onInput={Num} maxLength={2} placeholder={messages.supportpay1_27} className='dark:bg-[#404343] dark:border-white dark:text-white password w-full h-10 border-[1px] border-black text-center text-[18px] sm:text-[14px] fold:text-[14px]' /></li>
+                  <li className="w-[70%]"><input type="text" onInput={Num} maxLength={2} placeholder={messages.supportpay1_28} className='dark:bg-[#404343] dark:border-white dark:text-white password w-full h-10 border-[1px] border-black text-center text-[18px] sm:text-[14px] fold:text-[14px]' /></li>
                 </ul>
                 <ul className='w-full flex justify-between mb-[25px]' style={{display: Active === true ? "flex" : "none"}}>
                   <li className="w-[30%] h-[43px] flex items-center"><p>{messages.supportpay1_29}</p></li>
