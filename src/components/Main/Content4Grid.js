@@ -47,7 +47,7 @@ function Content4Grid() {
                         return (                            
                             <li key={i} className={`lg:basis-[23.5%] md:basis-[31%] basis-[48%]
                             cursor-pointer duration-300 relative
-                            hover:scale-105 hover:after:w-full hover:after:h-full hover:after:bg-black hover:after:bg-opacity-30 hover:after:absolute hover:after:top-0 hover:after:left-0  hover:after:text-white hover:after:text-center hover:after:text-sm h-[200px] lg:h-[285px]`}><Link to={`/infodetail/${e.desertionNo}`} state={{e : e}}><img src={e.image} alt={i} className='h-full w-full inline-block'/></Link></li>
+                            hover:scale-105 h-[200px] lg:h-[285px]`}><Link to={`/infodetail/${e.desertionNo}`} state={{e : e}} className='inline-block w-full h-full'><img src={e.image} alt={i} className='h-full w-full'/></Link></li>
                         );
                     })
                 }
