@@ -40,7 +40,6 @@ function AnimalSwiper() {
                 }}
                 loop={true}
                 slidesPerView={4}
-                
                 modules={[Autoplay]}
             >
                 {data.map((e, i) => (
