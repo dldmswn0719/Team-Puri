@@ -153,7 +153,7 @@ function StoreQna() {
                       {
                         viewState === i &&
                         editEditor && 
-                        <Ckeditor hideEditor={() => setEditEditor(false)} refreshPosts={fetchPosts} resetViewState={() => setViewState(null)} title={e.title} content={e.content} postId={editingPostId} isSecret={e.isSecret} />
+                        <Ckeditor hideEditor={() =>setEditEditor(false)} refreshPosts={fetchPosts} resetViewState={() => setViewState(null)} title={e.title} content={e.content} postId={editingPostId} isSecret={e.isSecret} />
                       }
                       </React.Fragment>
                     );
